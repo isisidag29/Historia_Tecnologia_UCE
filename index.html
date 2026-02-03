@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historia Digital UCE</title>
+    <style>
+        /* Estilos CSS Básicos */
+        body { font-family: 'Segoe UI', sans-serif; background-color: #f4f4f4; color: #333; }
+        header { background: #003366; color: white; padding: 20px; text-align: center; }
+        
+        /* Contenedor de la línea de tiempo */
+        .timeline { position: relative; max-width: 1200px; margin: 0 auto; padding: 40px 0; }
+        
+        /* La línea central vertical */
+        .timeline::after {
+            content: ''; position: absolute; width: 6px; background-color: #003366; 
+            top: 0; bottom: 0; left: 50%; margin-left: -3px;
+        }
+        
+        /* Contenedor de cada evento */
+        .container { padding: 10px 40px; position: relative; background-color: inherit; width: 50%; box-sizing: border-box; }
+        .left { left: 0; }
+        .right { left: 50%; }
+        
+        /* Círculos en la línea */
+        .container::after {
+            content: ''; position: absolute; width: 25px; height: 25px; right: -17px; 
+            background-color: white; border: 4px solid #FF9F55; top: 15px; border-radius: 50%; z-index: 1;
+        }
+        .right::after { left: -16px; }
+        
+        /* Cajas de contenido */
+        .content { padding: 20px 30px; background-color: white; position: relative; border-radius: 6px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+        
+        /* Texto */
+        h2 { margin-top: 0; color: #003366; }
+        .date { font-weight: bold; color: #FF9F55; display: block; margin-bottom: 10px; }
+        
+        /* Para móviles */
+        @media screen and (max-width: 600px) {
+            .timeline::after { left: 31px; }
+            .container { width: 100%; padding-left: 70px; padding-right: 25px; }
+            .left::after, .right::after { left: 15px; }
+            .right { left: 0%; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Evolución Tecnológica UCE (2000-2015)</h1>
+    <p>Infraestructura, Redes y Software</p>
+</header>
+
+<div class="timeline">
+    <div class="container left">
+        <div class="content">
+            <span class="date">2001</span>
+            <h2>Conectividad Limitada</h2>
+            <p>La UCE operaba con dial-up y enlaces de cobre de Andinatel. Velocidad promedio de 256 kbps.</p>
+            <img src="tu-foto-modem.jpg" alt="Modem antiguo" style="width:100%; border-radius:5px;">
+        </div>
+    </div>
+    
+    <div class="container right">
+        <div class="content">
+            <span class="date">2002</span>
+            <h2>Fundación de CEDIA</h2>
+            <p>Hito histórico. La UCE se une a la Red Avanzada académica, separándose del internet comercial.</p>
+        </div>
+    </div>
+
+    <div class="container left">
+        <div class="content">
+            <span class="date">2010</span>
+            <h2>Ley LOES y Digitalización</h2>
+            <p>Obligatoriedad de repositorios digitales y sistemas transparentes (SNIESE).</p>
+        </div>
+    </div>
+
+    <div class="container right">
+        <div class="content">
+            <span class="date">2012-2013</span>
+            <h2>Data Center y SIIU</h2>
+            <p>Implementación del Data Center centralizado, virtualización y sistema de matrículas web.</p>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
