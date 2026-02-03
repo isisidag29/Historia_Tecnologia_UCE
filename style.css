@@ -1,0 +1,110 @@
+/* style.css - Hoja de Estilos Global */
+:root {
+    --uce-blue: #002D72;
+    --uce-red: #E30613;
+    --bg-color: #f4f6f8;
+    --text-color: #333;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+/* Encabezado */
+header {
+    background-color: var(--uce-blue);
+    color: white;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+h1 { margin: 0; }
+.subtitle { opacity: 0.9; font-weight: 300; }
+
+/* Menú Principal (index.html) */
+.menu-container {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.btn-year {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: white;
+    color: var(--uce-blue);
+    font-size: 1.5rem;
+    font-weight: bold;
+    height: 150px;
+    text-decoration: none;
+    border-radius: 10px;
+    border: 2px solid var(--uce-blue);
+    transition: transform 0.3s, background 0.3s;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.btn-year:hover {
+    background-color: var(--uce-blue);
+    color: white;
+    transform: translateY(-5px);
+}
+
+/* Páginas de Contenido (2001.html, etc) */
+.content-container {
+    max-width: 800px;
+    margin: 40px auto;
+    background: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.year-title {
+    color: var(--uce-red);
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+    margin-top: 0;
+}
+
+.tech-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+.tech-table th, .tech-table td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+}
+
+.tech-table th {
+    background-color: var(--uce-blue);
+    color: white;
+}
+
+img.evidence-photo {
+    width: 100%;
+    border-radius: 8px;
+    margin: 20px 0;
+    border: 1px solid #ccc;
+}
+
+.btn-back {
+    display: inline-block;
+    margin-bottom: 20px;
+    color: var(--uce-blue);
+    text-decoration: none;
+    font-weight: bold;
+}
+.btn-back:hover { text-decoration: underline; }
