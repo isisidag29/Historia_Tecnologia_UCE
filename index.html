@@ -3,242 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Historia Digital UCE (2000-2015)</title>
-    <style>
-        /* --- ESTILOS GENERALES (Colores UCE) --- */
-        :root {
-            --uce-blue: #002D72; /* Azul Institucional */
-            --uce-red: #E30613;  /* Rojo Institucional */
-            --gray-bg: #f4f6f8;
-        }
-        
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--gray-bg);
-            margin: 0;
-            padding: 0;
-            text-align: center;
-        }
-
-        header {
-            background-color: var(--uce-blue);
-            color: white;
-            padding: 30px 20px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-
-        h1 { margin: 0; font-size: 2rem; }
-        p.subtitle { margin-top: 10px; font-weight: 300; opacity: 0.9; }
-
-        /* --- PANTALLA 1: EL MENÚ DE AÑOS --- */
-        #menu-container {
-            max-width: 1000px;
-            margin: 40px auto;
-            padding: 20px;
-        }
-
-        .grid-years {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 20px;
-        }
-
-        .btn-year {
-            background-color: white;
-            border: 2px solid var(--uce-blue);
-            color: var(--uce-blue);
-            font-size: 1.5rem;
-            font-weight: bold;
-            padding: 30px;
-            cursor: pointer;
-            border-radius: 10px;
-            transition: all 0.3s ease;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-
-        .btn-year:hover {
-            background-color: var(--uce-blue);
-            color: white;
-            transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(0,29,114,0.3);
-        }
-
-        /* --- PANTALLA 2: EL CONTENIDO (Oculto al inicio) --- */
-        #content-container {
-            display: none; /* Oculto por defecto */
-            max-width: 800px;
-            margin: 40px auto;
-            text-align: left;
-            padding: 0 20px;
-        }
-
-        .year-card {
-            display: none; /* Las tarjetas individuales también ocultas */
-            background: white;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-            animation: fadeIn 0.5s;
-        }
-
-        .card-header {
-            background-color: var(--uce-red);
-            color: white;
-            padding: 20px;
-            font-size: 2rem;
-            font-weight: bold;
-            text-align: center;
-        }
-
-        .card-body {
-            padding: 30px;
-        }
-
-        .card-body img {
-            width: 100%;
-            height: auto;
-            border-radius: 8px;
-            margin-bottom: 20px;
-            border: 1px solid #ddd;
-        }
-
-        .card-body h3 { color: var(--uce-blue); margin-top: 0; }
-        
-        /* Botón de volver */
-        .btn-back {
-            display: inline-block;
-            margin-bottom: 20px;
-            padding: 10px 20px;
-            background-color: #555;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            cursor: pointer;
-            border: none;
-            font-size: 1rem;
-        }
-        .btn-back:hover { background-color: #333; }
-
-        /* Animación suave */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-    </style>
+    <title>Historia UCE - Menú</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <header>
         <h1>Evolución Tecnológica UCE</h1>
-        <p class="subtitle">Selecciona un año para ver los detalles históricos</p>
+        <p class="subtitle">Selecciona un año para acceder al informe detallado</p>
     </header>
 
-    <div id="menu-container">
-        <div class="grid-years">
-            <button class="btn-year" onclick="openYear('2001')">2001</button>
-            <button class="btn-year" onclick="openYear('2002')">2002</button>
-            <button class="btn-year" onclick="openYear('2008')">2008</button>
-            <button class="btn-year" onclick="openYear('2010')">2010</button>
-            <button class="btn-year" onclick="openYear('2012')">2012</button>
-            <button class="btn-year" onclick="openYear('2015')">2015</button>
-        </div>
+    <div class="menu-container">
+        <a href="2001.html" class="btn-year">2001</a>
+        <a href="2002.html" class="btn-year">2002</a>
+        <a href="2008.html" class="btn-year">2008</a>
+        <a href="2010.html" class="btn-year">2010</a>
+        <a href="2012.html" class="btn-year">2012</a>
+        <a href="2015.html" class="btn-year">2015</a>
     </div>
 
-    <div id="content-container">
-        <button class="btn-back" onclick="goHome()">← Volver al Menú</button>
-
-        <div id="2001" class="year-card">
-            <div class="card-header">Año 2001</div>
-            <div class="card-body">
-                <h3>La Era del Cobre y el Dial-up</h3>
-                <img src="foto2001.jpg" alt="Computadora antigua UCE"> 
-                <p><strong>Contexto:</strong> La Universidad dependía de infraestructura básica de Andinatel. La velocidad era mínima (256 kbps).</p>
-                <p><strong>Tecnología:</strong> Laboratorios con Pentium III y monitores CRT.</p>
-                <p><strong>Dato Curioso:</strong> Los estudiantes usaban cibercafés externos para investigar.</p>
-            </div>
-        </div>
-
-        <div id="2002" class="year-card">
-            <div class="card-header">Año 2002</div>
-            <div class="card-body">
-                <h3>Fundación de CEDIA</h3>
-                <img src="foto2002.jpg" alt="Firma CEDIA">
-                <p><strong>Hito Histórico:</strong> La UCE firma como miembro fundador de la Red Nacional de Investigación y Educación (CEDIA).</p>
-                <p><strong>Impacto:</strong> Se inicia la separación del internet comercial del académico, permitiendo acceso a bibliotecas digitales futuras.</p>
-            </div>
-        </div>
-
-        <div id="2008" class="year-card">
-            <div class="card-header">Año 2008</div>
-            <div class="card-body">
-                <h3>Constitución y Tecnología</h3>
-                <img src="foto2008.jpg" alt="Laboratorio 2008">
-                <p><strong>Legal:</strong> La nueva Constitución garantiza el acceso a TIC.</p>
-                <p><strong>Hardware:</strong> Compra masiva de equipos Core 2 Duo para laboratorios de computación en las 21 facultades.</p>
-            </div>
-        </div>
-
-        <div id="2010" class="year-card">
-            <div class="card-header">Año 2010</div>
-            <div class="card-body">
-                <h3>Ley LOES y Digitalización</h3>
-                <img src="foto2010.jpg" alt="Ley LOES">
-                <p><strong>Normativa:</strong> Se aprueba la Ley Orgánica de Educación Superior.</p>
-                <p><strong>Efecto:</strong> Obligatoriedad de crear repositorios digitales de tesis y transparencia de datos (SNIESE).</p>
-            </div>
-        </div>
-
-        <div id="2012" class="year-card">
-            <div class="card-header">Año 2012</div>
-            <div class="card-body">
-                <h3>Nace el SIIU y el Data Center</h3>
-                <img src="foto2012.jpg" alt="Data Center UCE">
-                <p><strong>Gestión:</strong> Implementación del Sistema Integral de Información Universitaria (SIIU) para matrículas web.</p>
-                <p><strong>Infraestructura:</strong> Creación del primer Data Center centralizado con servidores Blade y virtualización.</p>
-            </div>
-        </div>
-
-        <div id="2015" class="year-card">
-            <div class="card-header">Año 2015</div>
-            <div class="card-body">
-                <h3>Campus Inteligente</h3>
-                <img src="foto2015.jpg" alt="Wifi UCE">
-                <p><strong>Conectividad:</strong> Despliegue de red Wi-Fi en Plaza Indoamérica y Bibliotecas.</p>
-                <p><strong>Velocidad:</strong> Backbone de Fibra Óptica a 1 Gbps consolidado.</p>
-            </div>
-        </div>
-
-    </div>
-
-    <script>
-        // Función para abrir un año específico
-        function openYear(yearID) {
-            // 1. Ocultar el menú principal
-            document.getElementById('menu-container').style.display = 'none';
-            
-            // 2. Mostrar el contenedor de contenido
-            document.getElementById('content-container').style.display = 'block';
-            
-            // 3. Ocultar todas las tarjetas primero (por si acaso)
-            var cards = document.getElementsByClassName('year-card');
-            for (var i = 0; i < cards.length; i++) {
-                cards[i].style.display = 'none';
-            }
-
-            // 4. Mostrar solo la tarjeta del año seleccionado
-            document.getElementById(yearID).style.display = 'block';
-        }
-
-        // Función para volver al menú
-        function goHome() {
-            // 1. Ocultar el contenido
-            document.getElementById('content-container').style.display = 'none';
-            
-            // 2. Mostrar el menú de nuevo
-            document.getElementById('menu-container').style.display = 'block';
-        }
-    </script>
+    <footer style="text-align: center; padding: 20px; opacity: 0.6;">
+        <p>Proyecto de Historia Digital Universitaria</p>
+    </footer>
 
 </body>
 </html>
