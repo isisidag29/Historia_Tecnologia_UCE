@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Año 2009: El Viejo Data Center - UCE</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Estilo para resaltar la precariedad */
+        .problem-box {
+            background-color: #ffebee;
+            border-left: 5px solid #c62828;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        .tech-spec-old {
+            font-family: 'Courier New', Courier, monospace;
+            background: #333;
+            color: #0f0; /* Estilo terminal antiguo */
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header style="padding: 1rem;">
+        <h3>Historia Tecnológica UCE</h3>
+    </header>
+
+    <div class="content-container">
+        <a href="index.html" class="btn-back">← Volver al Menú</a>
+
+        <h1 class="year-title">2009: El "Cuarto de Servidores" (Infraestructura Precaria)</h1>
+
+        <p class="intro-text">
+            Antes de la nube y la virtualización, la "inteligencia" de la Universidad Central vivía en condiciones críticas. 
+            El 2009 fue el año del diagnóstico: el informe del CONEA reveló que la universidad no tenía un Data Center real, 
+            sino un <strong>cuarto de servidores adaptado</strong> que ponía en riesgo la información académica de 40.000 estudiantes.
+        </p>
+
+        <div class="academic-source">
+            <h4>📜 Informe Técnico: Evaluación CONEA (2009)</h4>
+            <p>
+                "Se evidencia la falta de seguridades físicas y lógicas en el manejo de la información. Los servidores principales se encuentran en espacios sin climatización de precisión ni sistemas de extinción de incendios adecuados."
+            </p>
+        </div>
+
+        <h3>1. ¿Cómo era el "Antiguo Data Center"?</h3>
+        <div class="problem-box">
+            <h4>🚨 Condiciones Críticas Detectadas:</h4>
+            <ul>
+                <li><strong>Ubicación:</strong> Un cuarto cerrado en el Edificio Administrativo sin suelo falso (los cables iban por el piso, creando "fideos" de red).</li>
+                <li><strong>Refrigeración:</strong> Aires acondicionados domésticos (tipo Split o de ventana) que goteaban agua y fallaban frecuentemente, causando sobrecalentamiento.</li>
+                <li><strong>Energía:</strong> No existía un generador dedicado. Si se iba la luz en el barrio (Santa Clara), se apagaba el sistema de notas.</li>
+            </ul>
+        </div>
+
+        <h3>2. Equipamiento: Los "Dinosaurios" Tecnológicos</h3>
+        <p>
+            A diferencia de los servidores <em>Blade</em> modernos, en 2009 se utilizaban enormes torres físicas. Cada sistema (Notas, Personal, Web) tenía su propia torre dedicada.
+        </p>
+
+        <table class="tech-table">
+            <tr>
+                <th>Equipo</th>
+                <th>Especificaciones Técnicas (2009)</th>
+            </tr>
+            <tr>
+                <td><strong>Servidores Principales</strong></td>
+                <td>
+                    IBM Netfinity 5000 / Compaq ProLiant ML370<br>
+                    <span style="font-size:0.8rem; color:#666;">(Procesadores Pentium III Xeon, Torres pesadas)</span>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>Almacenamiento</strong></td>
+                <td>
+                    Discos SCSI de baja capacidad (36 GB o 72 GB).<br>
+                    No existían cabinas SAN (Storage Area Network).
+                </td>
+            </tr>
+            <tr>
+                <td><strong>Copias de Seguridad</strong></td>
+                <td>
+                    <strong>Cintas Magnéticas (Tape Drives):</strong><br>
+                    Los respaldos se hacían manualmente insertando casetes de cinta (DAT o LTO-1) cada noche.
+                </td>
+            </tr>
+        </table>
+
+        <div style="text-align: center; margin: 30px 0;">
+            <img src="servidores2009.jpg" alt="Antiguos servidores con cables desordenados" class="evidence-photo">
+            <p style="font-size: 0.9rem; color: #666;">Figura 1: El caos de cables y servidores torre característico de la época pre-modernización.</p>
+        </div>
+
+        <h3>3. El Software Heredado (Legacy)</h3>
+        <p>
+            Los sistemas no eran web. Los secretarios de facultad usaban pantallas negras o azules (sistemas en FoxPro o COBOL visual) instalados localmente en cada PC.
+        </p>
+        <div class="tech-spec-old">
+            > SYSTEM_ERROR: CONNECION_LOST<br>
+            > REINTENTAR? (S/N)_
+        </div>
+        <p style="font-size: 0.9rem;">*Simulación de los errores frecuentes que sufrían las secretarías al saturarse la red de cobre.</p>
+
+    </div>
+
+</body>
+</html>
