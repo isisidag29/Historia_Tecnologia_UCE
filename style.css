@@ -134,10 +134,21 @@ header p {
     padding: 0 20px;
 }
 
+/* --- ACTUALIZACIÓN DE REJILLA PARA AÑOS --- */
 .cards-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 25px;
+    /* Usamos auto-fit y 280px igual que en el inicio */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    padding-bottom: 40px;
+    justify-content: center;
+}
+
+/* Forzar 3 columnas en PC para que se vea ordenado horizontalmente */
+@media (min-width: 1000px) {
+    .cards-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
 }
 
 .milestone-card {
