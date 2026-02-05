@@ -3,37 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Historia UCE - Menú</title>
+    <title>Historia UCE - Menú Principal</title>
+    <script src="https://unpkg.com/lucide@latest"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <header>
-        <h1>Evolución Tecnológica UCE</h1>
-        <p class="subtitle">Selecciona un año para acceder al informe detallado</p>
+        <h1>Historia Tecnológica UCE</h1>
+        <p>Selecciona un periodo histórico para explorar</p>
     </header>
 
-    <div class="menu-container">
-        <a href="2001.html" class="btn-year">2001</a>
-        <a href="2002.html" class="btn-year">2002</a>
-        <a href="2003.html" class="btn-year">2003</a>
-        <a href="2004.html" class="btn-year">2004</a>
-        <a href="2005.html" class="btn-year">2005</a>
-        <a href="2006.html" class="btn-year">2006</a>
-        <a href="2007.html" class="btn-year">2007</a>
-        <a href="2008.html" class="btn-year">2008</a>
-        <a href="2009.html" class="btn-year">2009</a>
-        <a href="2010.html" class="btn-year">2010</a>
-        <a href="2011.html" class="btn-year">2011</a>
-        <a href="2012.html" class="btn-year">2012</a>
-        <a href="2013.html" class="btn-year">2013</a>
-        <a href="2014.html" class="btn-year">2014</a>
-        <a href="2015.html" class="btn-year">2015</a>
+    <div class="main-container">
+        
+        <div class="dashboard-grid">
+            
+            <a href="periodo_1620_1950.html" target="_blank" class="card-menu">
+                <div class="card-icon">🏛️</div> <div class="card-title">1620 a 1950</div>
+                <div class="card-desc">Fundación, imprenta y la educación clásica antes de la era digital.</div>
+            </a>
+
+            <a href="periodo_1951_1980.html" target="_blank" class="card-menu">
+                <div class="card-icon">📺</div> <div class="card-title">1951 a 1980</div>
+                <div class="card-desc">Era analógica, medios audiovisuales y primeras calculadoras.</div>
+            </a>
+
+            <a href="periodo_1981_2000.html" target="_blank" class="card-menu">
+                <div class="card-icon">💾</div> <div class="card-title">1981 a 2000</div>
+                <div class="card-desc">Llegada de las computadoras personales e Internet comercial.</div>
+            </a>
+
+            <a href="periodo_2001_2015.html" target="_blank" class="card-menu">
+                <div class="card-icon">🌐</div> <div class="card-title">2001 a 2015</div>
+                <div class="card-desc">Redes avanzadas (CEDIA), Data Center y plataformas virtuales.</div>
+            </a>
+
+            <a href="periodo_2016_2026.html" target="_blank" class="card-menu">
+                <div class="card-icon">🤖</div> <div class="card-title">2016 a 2026</div>
+                <div class="card-desc">Transformación digital, IA y el futuro de la educación.</div>
+            </a>
+
+        </div>
     </div>
 
-    <footer style="text-align: center; padding: 20px; opacity: 0.6;">
-        <p>Proyecto de Historia Digital Universitaria</p>
+    <footer>
+        <p>© 2026 Universidad Central del Ecuador - Proyecto Histórico</p>
     </footer>
 
+    <script>
+        // Inicializar iconos si usas Lucide, si usas emojis no es necesario pero no estorba
+        if (typeof lucide !== 'undefined') lucide.createIcons();
+    </script>
 </body>
 </html>
