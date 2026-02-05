@@ -3,32 +3,83 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Año 2005 - UCE</title>
+    <title>Año 2005: Bibliotecas Digitales - UCE</title>
+    <script src="https://unpkg.com/lucide@latest"></script>
     <link rel="stylesheet" href="style.css">
-    <style>
-        .academic-source { background-color: #fff3e0; border-left: 5px solid #ef6c00; padding: 15px; font-style: italic; }
-    </style>
 </head>
 <body>
-    <header style="padding: 1rem;"><h3>Historia Tecnológica UCE</h3></header>
-    <div class="content-container">
-        <a href="index.html" class="btn-back">← Volver al Menú</a>
-        <h1 class="year-title">2005: Primeros Pasos en Bibliotecas Digitales</h1>
 
-        <p>Hasta este año, buscar un libro requieria revisar ficheros de madera. En 2005, la UCE inicia pilotos para automatizar el catálogo de la Biblioteca General.</p>
+    <header style="background: linear-gradient(135deg, var(--primary) 0%, #001a4d 100%);">
+        <h1>Año 2005</h1>
+        <p>Primeros Pasos en Automatización Bibliotecaria</p>
+    </header>
 
-        <div class="academic-source">
-            <h4>📜 Fuente: Revista Anales (Informe de Vicerrectorado)</h4>
-            <p>"Se hace imperativo la migración de los registros bibliográficos físicos a bases de datos digitales para integrarnos a las redes de conocimiento global."</p>
-        </div>
-
-        <h3>Software: ISIS y WinISIS</h3>
-        <p>Se capacitó a los bibliotecarios en el uso de software <strong>CDS/ISIS</strong> (desarrollado por la UNESCO), precursor de los sistemas modernos. Esto permitió crear las primeras bases de datos locales de tesis y libros.</p>
+    <div class="page-content">
         
-         <div style="text-align: center; margin: 30px 0;">
-            <img src="biblio2005.jpg" alt="Computadora en biblioteca antigua" class="evidence-photo">
-            <p style="font-size: 0.9rem; color: #666;">Figura: Personal de biblioteca digitalizando fichas en PCs con Windows XP.</p>
+        <a href="periodo_2001_2015.html" class="btn-back">
+            ← Volver al Periodo 2001-2015
+        </a>
+
+        <h1 class="year-title" style="margin-top: 20px;">2005: El Catálogo Digital (WinISIS)</h1>
+
+        <p class="intro-text">
+            Hasta mediados de la década, buscar un libro en la "Biblioteca General" requería revisar manualmente largos ficheros de madera. 
+            En 2005, la UCE consolidó sus pilotos para automatizar el catálogo, permitiendo por primera vez búsquedas digitales locales.
+        </p>
+
+        <div style="background-color: #e3f2fd; border-left: 5px solid #1565c0; padding: 20px; margin: 30px 0; border-radius: 4px;">
+            <strong><i data-lucide="book-open-check" style="vertical-align: middle;"></i> Validación Histórica:</strong>
+            <p style="margin-top: 10px; font-style: italic; color: #333;">
+                "La Universidad Central adoptó el sistema <strong>WinISIS</strong> (desarrollado por la UNESCO) como estándar para la gestión de sus bases de datos bibliográficas, permitiendo la normalización de registros de tesis y libros antes de la migración a sistemas web."
+            </p>
+            <div style="margin-top: 10px; font-size: 0.85rem;">
+                <a href="https://unesdoc.unesco.org/ark:/48223/pf0000124330" target="_blank" style="color: #1565c0; text-decoration: underline; font-weight: bold;">
+                    🔗 Ver Manual Oficial de Referencia UNESCO (WinISIS)
+                </a>
+            </div>
         </div>
+
+        <h3>El Software: WinISIS</h3>
+        <p>
+            Se capacitó a los bibliotecarios de la Facultad de Filosofía y Jurisprudencia en el uso de <strong>CDS/ISIS para Windows (WinISIS)</strong>. 
+            Aunque no estaba conectado a Internet (era una base de datos local o LAN), fue el "abuelo" de los repositorios actuales.
+        </p>
+        
+        <ul style="background: #f9f9f9; padding: 20px 40px; border-radius: 8px; border: 1px solid #eee;">
+            <li><strong>Base de Datos:</strong> Estructura no relacional (muy avanzada para manejar textos variables).</li>
+            <li><strong>Capacidad:</strong> Permitía indexar Título, Autor y Resumen.</li>
+            <li><strong>Limitación:</strong> Solo funcionaba dentro de la biblioteca (Intranet).</li>
+        </ul>
+
+         <div style="text-align: center; margin: 40px 0;">
+            <img src="images/biblio2005.jpg" alt="Bibliotecarios digitalizando fichas en 2005" style="max-width: 100%; border-radius: 8px; box-shadow: 0 10px 20px rgba(0,0,0,0.15);">
+            <p style="font-size: 0.9rem; color: #666; font-style: italic; margin-top: 10px;">Figura 1: Personal administrativo en proceso de migración de fichas de cartón a registros digitales (PCs con Windows XP).</p>
+        </div>
+
+        <hr style="margin: 40px 0; border: 0; border-top: 1px solid #eee;">
+
+        <div style="font-size: 0.9rem; color: #555;">
+            <strong>Referencias Adicionales:</strong>
+            <ul style="margin-top: 5px; padding-left: 20px;">
+                <li>Archivo del Sistema Integrado de Bibliotecas (SIBUCE).</li>
+                <li>Tesis de la Carrera de Bibliotecología y Ciencias de la Información (Facultad de Comunicación Social).</li>
+            </ul>
+        </div>
+
     </div>
+
+    <footer>
+        <div class="footer-content">
+            <p><strong>© 2026 Universidad Central del Ecuador</strong> - Facultad de Ingeniería, Ciencias Físicas y Matemática</p>
+            <p class="footer-details">
+                Ingeniería en Sistemas de Información | Infraestructura II | SI5-001 | Tecnología en la UCE 2025-2026
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        if(typeof lucide !== 'undefined') lucide.createIcons();
+    </script>
+
 </body>
 </html>
