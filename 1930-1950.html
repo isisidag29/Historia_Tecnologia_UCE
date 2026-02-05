@@ -7,25 +7,122 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
     <style>
-        body { background-color: #f4f7f9; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: #333; }
-        .main-card { border-radius: 20px; border: none; box-shadow: 0 15px 35px rgba(0,0,0,0.1); background: white; padding: 50px; margin-top: 40px; margin-bottom: 60px; }
-        .back-link { color: #003366; text-decoration: none; font-weight: bold; transition: 0.3s; }
-        .back-link:hover { color: #e60000; }
-        .title-dark { color: #1a1a1a; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; border-bottom: 4px solid #343a40; display: inline-block; padding-bottom: 10px; margin-bottom: 30px; }
-        .year-badge { background-color: #343a40; color: white; padding: 8px 20px; border-radius: 50px; font-weight: bold; display: inline-block; margin-bottom: 15px; }
-        .highlight-card { border: none; border-radius: 15px; background: #ffffff; box-shadow: 0 5px 15px rgba(0,0,0,0.08); transition: 0.3s; border-top: 5px solid #003366; }
-        .compare-section { background-color: #f8f9fa; border-radius: 15px; padding: 30px; border: 1px solid #dee2e6; }
-        .vs-badge { background: #e60000; color: white; padding: 5px 15px; border-radius: 5px; font-weight: bold; margin: 0 10px; }
-        .ref-box { background-color: #212529; color: #ced4da; padding: 30px; border-radius: 10px; margin-top: 50px; }
-        .ref-box h5 { color: white; border-bottom: 1px solid #495057; padding-bottom: 10px; }
-        .section-divider { height: 3px; background: linear-gradient(to right, #343a40, transparent); margin: 40px 0; border: none; }
+        body { 
+            background-color: #f4f7f9; 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            color: #333; 
+            line-height: 1.8; /* Aumentado para que el texto no se vea amontonado */
+        }
+        
+        p {
+            margin-bottom: 1.5rem; /* Separación entre párrafos */
+        }
+
+        .main-card { 
+            border-radius: 20px; 
+            border: none; 
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1); 
+            background: white; 
+            padding: 60px; /* Más espacio interno */
+            margin-top: 40px; 
+            margin-bottom: 60px;
+            max-width: 1000px; /* Límite de ancho para lectura cómoda */
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .back-link { 
+            color: #003366; 
+            text-decoration: none; 
+            font-weight: bold; 
+            transition: 0.3s; 
+            display: inline-block;
+            margin-bottom: 20px;
+            padding: 10px 20px;
+            background-color: #e9ecef;
+            border-radius: 50px;
+        }
+        .back-link:hover { 
+            color: white; 
+            background-color: #003366;
+        }
+
+        .title-dark { 
+            color: #1a1a1a; 
+            font-weight: 800; 
+            text-transform: uppercase; 
+            letter-spacing: 1px; 
+            border-bottom: 4px solid #343a40; 
+            display: inline-block; 
+            padding-bottom: 15px; 
+            margin-bottom: 40px; 
+        }
+
+        .year-badge { 
+            background-color: #343a40; 
+            color: white; 
+            padding: 10px 25px; 
+            border-radius: 50px; 
+            font-weight: bold; 
+            display: inline-block; 
+            margin-bottom: 25px; 
+            font-size: 1.1rem;
+        }
+
+        .highlight-card { 
+            border: none; 
+            border-radius: 15px; 
+            background: #ffffff; 
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08); 
+            transition: 0.3s; 
+            border-top: 5px solid #003366; 
+            padding: 30px !important;
+        }
+        .highlight-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.12);
+        }
+
+        .compare-section { 
+            background-color: #f8f9fa; 
+            border-radius: 15px; 
+            padding: 40px; 
+            border: 1px solid #dee2e6; 
+        }
+
+        .ref-box { 
+            background-color: #212529; 
+            color: #ced4da; 
+            padding: 40px; 
+            border-radius: 15px; 
+            margin-top: 60px; 
+        }
+        .ref-box h5 { 
+            color: white; 
+            border-bottom: 1px solid #495057; 
+            padding-bottom: 15px; 
+            margin-bottom: 20px;
+        }
+        .ref-box li {
+            margin-bottom: 12px;
+        }
+
+        .section-divider { 
+            height: 3px; 
+            background: linear-gradient(to right, #343a40, transparent); 
+            margin: 60px 0; 
+            border: none; 
+            opacity: 0.1;
+        }
     </style>
 </head>
 <body>
 
 <div class="container">
     <div class="main-card">
-        <a href="index.html" class="back-link"><i class="bi bi-arrow-left"></i> Finalizar Recorrido</a>
+        <a href="periodo_1620_1950.html" class="back-link">
+            <i class="bi bi-arrow-left"></i> Volver al Periodo 1620-1950
+        </a>
         
         <div class="text-center mt-4">
             <h1 class="title-dark">Consolidación del Modelo Analógico (1930 – 1950)</h1>
@@ -36,13 +133,15 @@
             <div class="row align-items-center">
                 <div class="col-lg-7">
                     <p class="text-justify lead">El <strong>mimeógrafo</strong> permitió la reproducción masiva de guías de estudio, apuntes y materiales políticos estudiantiles.</p>
-                    <div class="p-3 bg-light border-start border-4 border-primary rounded shadow-sm">
+                    <div class="p-4 bg-light border-start border-4 border-primary rounded shadow-sm">
                         <p class="mb-0"><strong>Impacto Pedagógico:</strong> Redujo la dependencia del dictado oral y democratizó el acceso a materiales, facilitando la circulación de ideas académicas y sociales dentro del campus.</p>
                     </div>
                 </div>
                 <div class="col-lg-5 text-center">
-                    
-                    <p class="small text-muted mt-2 italic">Tecnología de reproducción masiva pre-digital.</p>
+                    <div style="background:#eee; height:200px; display:flex; align-items:center; justify-content:center; border-radius:10px; color:#999;">
+                        <i class="bi bi-printer" style="font-size: 3rem;"></i>
+                    </div>
+                    <p class="small text-muted mt-2 fst-italic">Tecnología de reproducción masiva pre-digital.</p>
                 </div>
             </div>
         </section>
@@ -52,21 +151,25 @@
         <section>
             <span class="year-badge">1945 — Escuela de Periodismo UCE</span>
             <div class="row g-4">
-                <div class="col-md-12">
+                <div class="col-md-12 mb-3">
                     <p>La creación de esta escuela institucionalizó el estudio de los medios. La <strong>radio</strong> se consolidó no solo como medio de comunicación, sino como una herramienta de <strong>proyección social y educativa</strong> para llegar a públicos fuera de la universidad.</p>
                 </div>
                 <div class="col-md-6">
-                    <div class="card highlight-card p-4 h-100 text-center">
-                        <i class="bi bi-mic-fill" style="font-size: 2.5rem; color: #003366;"></i>
-                        <h5 class="mt-3">Extensión Cultural</h5>
-                        <p class="small">Difusión del conocimiento hacia la sociedad civil.</p>
+                    <div class="card highlight-card h-100 text-center">
+                        <div class="mb-3">
+                            <i class="bi bi-mic-fill" style="font-size: 3rem; color: #003366;"></i>
+                        </div>
+                        <h5 class="mt-2">Extensión Cultural</h5>
+                        <p class="text-muted">Difusión del conocimiento hacia la sociedad civil.</p>
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <div class="card highlight-card p-4 h-100 text-center" style="border-top-color: #e60000;">
-                        <i class="bi bi-mortarboard-fill" style="font-size: 2.5rem; color: #e60000;"></i>
-                        <h5 class="mt-3">Modelo 1950</h5>
-                        <p class="small">Cierre de la etapa analógica: Pizarra + Libro + Laboratorio.</p>
+                    <div class="card highlight-card h-100 text-center" style="border-top-color: #e60000;">
+                        <div class="mb-3">
+                            <i class="bi bi-mortarboard-fill" style="font-size: 3rem; color: #e60000;"></i>
+                        </div>
+                        <h5 class="mt-2">Modelo 1950</h5>
+                        <p class="text-muted">Cierre de la etapa analógica: Pizarra + Libro + Laboratorio.</p>
                     </div>
                 </div>
             </div>
@@ -74,22 +177,22 @@
 
         <section class="mt-5">
             <div class="compare-section shadow-sm">
-                <h3 class="text-center mb-4 text-primary"><i class="bi bi-globe"></i> Comparación Internacional (1620–1950)</h3>
-                <div class="row g-4">
+                <h3 class="text-center mb-5 text-primary"><i class="bi bi-globe"></i> Comparación Internacional (1620–1950)</h3>
+                <div class="row g-5">
                     <div class="col-md-6">
-                        <div class="p-3 border-end">
-                            <h5 class="text-danger">Europa y EE.UU.</h5>
-                            <p class="small text-justify">Consolidación de laboratorios permanentes y métodos científicos sistemáticos en el s. XIX. En EE.UU. se exploró el <strong>cine educativo</strong> y la radio con fines pedagógicos directos en el aula a inicios del s. XX.</p>
+                        <div class="h-100 pb-3 border-bottom border-danger">
+                            <h4 class="text-danger mb-3">Europa y EE.UU.</h4>
+                            <p class="text-justify">Consolidación de laboratorios permanentes y métodos científicos sistemáticos en el s. XIX. En EE.UU. se exploró el <strong>cine educativo</strong> y la radio con fines pedagógicos directos en el aula a inicios del s. XX.</p>
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <div class="p-3">
-                            <h5 class="text-primary">UCE (Ecuador)</h5>
-                            <p class="small text-justify">Adopción gradual y selectiva condicionada por factores económicos. Priorizó áreas estratégicas como <strong>medicina y administración</strong>. La radio fue extensión cultural antes que recurso didáctico formal.</p>
+                        <div class="h-100 pb-3 border-bottom border-primary">
+                            <h4 class="text-primary mb-3">UCE (Ecuador)</h4>
+                            <p class="text-justify">Adopción gradual y selectiva condicionada por factores económicos. Priorizó áreas estratégicas como <strong>medicina y administración</strong>. La radio fue extensión cultural antes que recurso didáctico formal.</p>
                         </div>
                     </div>
                 </div>
-                <div class="mt-3 p-3 bg-white rounded border italic small text-center">
+                <div class="mt-4 p-4 bg-white rounded border fst-italic text-center shadow-sm">
                     "La modernización en la UCE fue un proceso adaptado a la realidad nacional, sentando las bases para la era digital."
                 </div>
             </div>
@@ -97,17 +200,17 @@
 
         <section class="ref-box shadow-lg">
             <h5><i class="bi bi-journal-text"></i> Referencias Académicas</h5>
-            <ul class="list-unstyled small">
-                <li class="mb-2"><strong>Bates, A. W. (2019).</strong> <em>Teaching in a Digital Age</em>. Tony Bates Associates.</li>
-                <li class="mb-2"><strong>Toscano Vizcaíno, S. (2016).</strong> Génesis de la universidad ecuatoriana. <em>Revista Homo Educator</em>, 2(4), 119–131.</li>
-                <li class="mb-2"><strong>Universidad Central del Ecuador. (1902/1909).</strong> <em>Anales de la Universidad Central del Ecuador</em> (Vol. 16, 23, 24).</li>
-                <li class="mb-2"><strong>Ministerio de Cultura y Patrimonio.</strong> Repositorios patrimoniales y archivos históricos.</li>
-                <li class="mb-2"><strong>Biblioteca Digital Patrimonial del Ecuador.</strong></li>
+            <ul class="list-unstyled">
+                <li><strong>Bates, A. W. (2019).</strong> <em>Teaching in a Digital Age</em>. Tony Bates Associates.</li>
+                <li><strong>Toscano Vizcaíno, S. (2016).</strong> Génesis de la universidad ecuatoriana. <em>Revista Homo Educator</em>, 2(4), 119–131.</li>
+                <li><strong>Universidad Central del Ecuador. (1902/1909).</strong> <em>Anales de la Universidad Central del Ecuador</em> (Vol. 16, 23, 24).</li>
+                <li><strong>Ministerio de Cultura y Patrimonio.</strong> Repositorios patrimoniales y archivos históricos.</li>
+                <li><strong>Biblioteca Digital Patrimonial del Ecuador.</strong></li>
             </ul>
         </section>
 
-        <footer class="mt-5 text-center text-muted">
-            <p class="small mb-0">Línea de Tiempo Histórica: Tecnología Educativa y UCE</p>
+        <footer class="mt-5 pt-4 border-top text-center text-muted">
+            <p class="mb-1 fw-bold">Línea de Tiempo Histórica: Tecnología Educativa y UCE</p>
             <p class="small">1620 – 1950</p>
         </footer>
     </div>
