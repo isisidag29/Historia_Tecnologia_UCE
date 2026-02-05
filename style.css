@@ -1,10 +1,23 @@
 /* style.css - MENÚ PRINCIPAL UCE */
 :root {
-    --uce-blue: #002D72;
-    --uce-red: #E30613;
-    --bg-color: #f0f2f5;
-    --card-bg: #ffffff;
-    --text-color: #333;
+    /* --- COLORES PRINCIPALES (IDENTIDAD UCE) --- */
+    --primary: #003366;       /* Azul Institucional Oscuro */
+    --primary-light: #004080; /* Azul ligeramente más claro para gradientes */
+    
+    /* --- COLORES DE ACENTO --- */
+    --secondary: #d4af37;       /* Dorado Metálico (Detalles y botones) */
+    --secondary-light: #e6c158; /* Dorado claro para efectos hover */
+    
+    /* --- COLORES DE FONDO Y TEXTO --- */
+    --bg: #f4f7f6;            /* Gris muy pálido/Menta suave (Fondo general) */
+    --white: #ffffff;         /* Blanco puro (Tarjetas y contenedores) */
+    --gray-light: #f0f0f0;    /* Gris claro (Bordes y separadores) */
+    
+    --text: #333333;          /* Gris oscuro (Texto principal) */
+    --text-light: #666666;    /* Gris medio (Subtítulos y textos secundarios) */
+    
+    /* --- EFECTOS --- */
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* Sombra suave para tarjetas */
 }
 
 body {
