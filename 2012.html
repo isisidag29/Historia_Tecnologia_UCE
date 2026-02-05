@@ -3,88 +3,165 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Año 2012: Data Center - UCE</title>
+    <title>Año 2012: Data Center y SIIU - UCE</title>
+    <script src="https://unpkg.com/lucide@latest"></script>
     <link rel="stylesheet" href="style.css">
     <style>
-        .academic-source {
-            background-color: #e3f2fd; /* Un tono azulado para diferenciar */
-            border-left: 5px solid #002D72;
-            padding: 15px;
-            margin: 20px 0;
-            font-style: italic;
+        /* Estilos específicos para este año */
+        .tech-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
             font-size: 0.95rem;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .tech-table th, .tech-table td {
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+            text-align: left;
+        }
+        .tech-table th {
+            background-color: var(--primary);
+            color: white;
+            font-weight: 600;
+        }
+        .tech-table tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+
+        /* Caja de Fuente Académica */
+        .source-box {
+            background-color: #e3f2fd;
+            border-left: 5px solid #1565c0;
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 4px;
+            color: #0d47a1;
+        }
+
+        /* Enlaces de referencia */
+        .ref-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            color: #1565c0;
+            font-weight: bold;
+            text-decoration: none;
+            margin-top: 10px;
+            font-size: 0.9rem;
+        }
+        .ref-link:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
 <body>
 
-    <header style="padding: 1rem;">
-        <h3>Historia Tecnológica UCE</h3>
+    <header style="background: linear-gradient(135deg, var(--primary) 0%, #001a4d 100%);">
+        <h1>Año 2012</h1>
+        <p>El "Cerebro Digital": Data Center y SIIU</p>
     </header>
 
-    <div class="content-container">
-        <a href="index.html" class="btn-back">← Volver al Menú Principal</a>
+    <div class="page-content">
+        
+        <a href="periodo_2001_2015.html" class="btn-back">
+            ← Volver al Periodo 2001-2015
+        </a>
 
-        <h1 class="year-title">Año 2012: El Cerebro Digital (SIIU y Data Center)</h1>
+        <h1 class="year-title" style="margin-top: 20px;">2012: La Inauguración del Data Center</h1>
 
         <p class="intro-text">
-            El 2012 es quizás el año más importante en términos de gestión. Se inaugura el <strong>Data Center Institucional</strong> y se lanza el 
-            Sistema Integral de Información Universitaria (SIIU), eliminando las filas físicas para la matriculación.
+            El 2012 es el hito más importante en términos de gestión tecnológica moderna. Tras años de planificación, la Universidad Central inauguró su <strong>Data Center Institucional</strong> (Centro de Datos), dejando atrás los cuartos de servidores improvisados.
+            Simultáneamente, se lanzó el <strong>Sistema Integral de Información Universitaria (SIIU)</strong>, eliminando definitivamente las filas físicas y las acampadas nocturnas para la matriculación.
         </p>
 
-        <div class="academic-source">
-            <h4>📜 Investigación: Revista Anales (Vol. 1, Núm. 372)</h4>
-            <p>
-                En el artículo <em>"Impacto de las redes avanzadas en la investigación universitaria"</em>, publicado en la Revista Anales, se destaca:
-            </p>
-            <blockquote>
+        <div class="source-box">
+            <strong><i data-lucide="book-open" style="vertical-align: middle;"></i> Investigación: Revista Anales (Vol. 1, Núm. 372)</strong>
+            <p style="margin-top: 10px; font-style: italic;">
                 "La implementación de la fibra óptica y la conexión a Red CEDIA permitió a la Universidad Central aumentar su producción científica en un 40% entre 2012 y 2015, 
                 al democratizar el acceso a bases de datos como Scopus y IEEE Xplore desde el campus virtual."
-            </blockquote>
-            <p style="text-align: right; font-weight: bold;">
-                — Fuente: Brito, L., & Pauta, C. (2013). Revista Anales de la Universidad Central del Ecuador.
             </p>
+            <div style="margin-top: 15px; border-top: 1px solid #90caf9; padding-top: 10px;">
+                <a href="https://revistadigital.uce.edu.ec/index.php/anales" target="_blank" class="ref-link">
+                    <i data-lucide="external-link" style="width: 16px;"></i> Ir al Archivo Digital de Revista Anales
+                </a>
+            </div>
         </div>
 
-        <h3>1. Infraestructura: El Data Center</h3>
+        <h3>1. Infraestructura Física: El Nuevo Data Center</h3>
         <p>
-            Ubicado en el edificio administrativo, este centro de datos permitió centralizar la información que antes estaba dispersa en cada facultad.
+            Ubicado estratégicamente en el Edificio Administrativo, esta infraestructura permitió centralizar la información que antes estaba dispersa y vulnerable en cada facultad.
         </p>
-        <ul style="line-height: 1.8; color: #444;">
-            <li><strong>Servidores:</strong> Tecnología Blade (Alta densidad).</li>
-            <li><strong>Virtualización:</strong> Uso de VMware para crear servidores virtuales para cada facultad.</li>
-            <li><strong>Refrigeración:</strong> Implementación de suelo falso y aire de precisión.</li>
-        </ul>
 
-        <div style="text-align: center; margin: 30px 0;">
-            <img src="datacenter2012.jpg" alt="Servidores UCE" class="evidence-photo">
-            <p style="font-size: 0.9rem; color: #666;">Figura 1: Primer Data Center centralizado de la UCE.</p>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 30px;">
+            <div style="background: #f9f9f9; padding: 15px; border-radius: 8px; border-left: 4px solid #2e7d32;">
+                <strong><i data-lucide="server" style="vertical-align: middle;"></i> Hardware</strong>
+                <p style="font-size: 0.9rem; margin-top: 5px;">Servidores tipo <strong>Blade</strong> de alta densidad y cabinas de almacenamiento SAN (Storage Area Network) para manejar Terabytes de datos.</p>
+            </div>
+            <div style="background: #f9f9f9; padding: 15px; border-radius: 8px; border-left: 4px solid #1565c0;">
+                <strong><i data-lucide="cloud" style="vertical-align: middle;"></i> Virtualización</strong>
+                <p style="font-size: 0.9rem; margin-top: 5px;">Implementación de <strong>VMware</strong>. En lugar de comprar un servidor físico para cada facultad, se crearon servidores virtuales, ahorrando energía y espacio.</p>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin: 40px 0;">
+            
+            <img src="datacenter2012.jpg" alt="Servidores Blade en el Data Center UCE" style="max-width: 100%; border-radius: 8px; box-shadow: 0 10px 20px rgba(0,0,0,0.15);">
+            <p style="font-size: 0.9rem; color: #666; font-style: italic; margin-top: 10px;">Figura 1: Primer Data Center centralizado con climatización de precisión y suelo falso.</p>
         </div>
 
         <h3>2. Software: El Nacimiento del SIIU</h3>
         <p>
-            Por primera vez, los 40,000 estudiantes de la UCE pudieron matricularse vía web. El sistema <strong>SIIU</strong> integró:
+            El cambio más visible para el estudiante fue el lanzamiento del SIIU. Por primera vez, los más de 40.000 estudiantes pudieron realizar procesos académicos vía web desde sus casas.
         </p>
+
         <table class="tech-table">
             <tr>
-                <th>Módulo</th>
-                <th>Función</th>
+                <th>Módulo del SIIU</th>
+                <th>Función e Impacto</th>
             </tr>
             <tr>
-                <td><strong>Académico</strong></td>
-                <td>Registro de notas y asistencia (Adiós a las sábanas de papel).</td>
+                <td><strong>Matriculación Web</strong></td>
+                <td>Selección de cupos en línea. <br><em>Impacto: Fin de las acampadas fuera de las facultades.</em></td>
             </tr>
             <tr>
-                <td><strong>Matriculación</strong></td>
-                <td>Selección de cupos en línea.</td>
+                <td><strong>Gestión Académica</strong></td>
+                <td>Registro digital de notas y asistencia por parte del docente. <br><em>Impacto: Eliminación de las "sábanas" (actas) de papel.</em></td>
             </tr>
             <tr>
                 <td><strong>Aula Virtual</strong></td>
-                <td>Integración con Moodle para educación semipresencial.</td>
+                <td>Integración nativa con <strong>Moodle</strong> para educación semipresencial.</td>
             </tr>
         </table>
 
+        <div style="margin-top: 40px; font-size: 0.9rem; color: #555; border-top: 1px solid #eee; padding-top: 20px;">
+            <strong>Referencias y Documentación:</strong>
+            <ul style="margin-top: 5px; padding-left: 20px;">
+                <li>
+                    <a href="https://www.cedia.edu.ec" target="_blank" class="ref-link" style="color: #444; margin: 0;">
+                        <i data-lucide="link" style="width: 14px;"></i> CEDIA: Historia de la Red Nacional de Investigación
+                    </a>
+                </li>
+                <li>Informe de Rendición de Cuentas UCE 2012 - Dirección de Tecnologías (DTIC).</li>
+            </ul>
+        </div>
+
     </div>
+
+    <footer>
+        <div class="footer-content">
+            <p><strong>© 2026 Universidad Central del Ecuador</strong> - Facultad de Ingeniería, Ciencias Físicas y Matemática</p>
+            <p class="footer-details">
+                Ingeniería en Sistemas de Información | Infraestructura II | SI5-001 | Tecnología en la UCE 2025-2026
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        if(typeof lucide !== 'undefined') lucide.createIcons();
+    </script>
 
 </body>
 </html>
