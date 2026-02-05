@@ -143,14 +143,33 @@ header p {
     margin-bottom: 10px;
 }
 
-/* Footer */
+/* --- FOOTER / PIE DE PÁGINA PROFESIONAL --- */
 footer {
+    background: linear-gradient(135deg, var(--uce-blue) 0%, #001a4d 100%);
+    color: white;
     text-align: center;
-    padding: 20px;
-    color: #999;
+    padding: 40px 20px;
+    margin-top: auto; /* Empuja el footer al final si la página es corta */
+    border-top: 5px solid var(--uce-red);
     font-size: 0.9rem;
-    margin-top: auto;
-    border-top: 1px solid #eee;
+}
+
+.footer-content {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.footer-content p {
+    margin: 5px 0; /* Espacio entre líneas */
+}
+
+.footer-details {
+    font-size: 0.85rem;
+    opacity: 0.8; /* Un poco más transparente para jerarquía */
+    font-weight: 300;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid rgba(255,255,255,0.1); /* Línea divisoria sutil */
 }
 
 
