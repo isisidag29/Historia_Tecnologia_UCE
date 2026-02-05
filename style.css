@@ -152,3 +152,50 @@ footer {
     margin-top: auto;
     border-top: 1px solid #eee;
 }
+
+
+/* --- ESTILO PARA PÁGINAS DE LECTURA (AÑOS) --- */
+.page-content {
+    max-width: 900px;       /* Ancho máximo para que no se estire todo */
+    margin: 40px auto;      /* Centrar la caja en la pantalla */
+    padding: 50px;          /* Espacio interno (márgenes blancos) */
+    background-color: white;/* Fondo blanco */
+    border-radius: 12px;    /* Bordes redondeados */
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08); /* Sombra suave para que flote */
+    line-height: 1.8;       /* Más espacio entre líneas de texto */
+    font-size: 1.1rem;      /* Letra un poco más grande y legible */
+    color: #444;            /* Color de texto gris oscuro (menos cansado que negro puro) */
+}
+
+/* Títulos dentro de la lectura */
+.page-content h1 {
+    color: var(--uce-blue);
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    border-bottom: 3px solid var(--uce-red);
+    padding-bottom: 15px;
+    display: inline-block;
+}
+
+.page-content h2, .page-content h3 {
+    color: var(--uce-blue);
+    margin-top: 30px;
+}
+
+/* Imágenes dentro de la lectura */
+.page-content img {
+    max-width: 100%;        /* Que la imagen no se salga de la caja */
+    height: auto;
+    border-radius: 8px;
+    margin: 20px 0;
+    border: 1px solid #eee;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* Listas (Bullet points) */
+.page-content ul {
+    background: #f9f9f9;
+    padding: 20px 40px;
+    border-left: 5px solid var(--uce-red);
+    border-radius: 5px;
+}
