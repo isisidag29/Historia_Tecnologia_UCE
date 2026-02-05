@@ -1,23 +1,17 @@
-/* style.css - MENÚ PRINCIPAL UCE */
+/* style.css - VERSIÓN UNIFICADA FINAL */
+
 :root {
-    /* --- COLORES PRINCIPALES (IDENTIDAD UCE) --- */
-    --primary: #003366;       /* Azul Institucional Oscuro */
-    --primary-light: #004080; /* Azul ligeramente más claro para gradientes */
+    /* --- PALETA DE COLORES OFICIAL --- */
+    /* Nombres nuevos (Modernos) */
+    --primary: #003366;       /* Azul Institucional */
+    --secondary: #d4af37;     /* Dorado */
+    --bg-color: #f4f7f6;      /* Fondo suave */
+    --card-bg: #ffffff;
+    --text-color: #333;
     
-    /* --- COLORES DE ACENTO --- */
-    --secondary: #d4af37;       /* Dorado Metálico (Detalles y botones) */
-    --secondary-light: #e6c158; /* Dorado claro para efectos hover */
-    
-    /* --- COLORES DE FONDO Y TEXTO --- */
-    --bg: #f4f7f6;            /* Gris muy pálido/Menta suave (Fondo general) */
-    --white: #ffffff;         /* Blanco puro (Tarjetas y contenedores) */
-    --gray-light: #f0f0f0;    /* Gris claro (Bordes y separadores) */
-    
-    --text: #333333;          /* Gris oscuro (Texto principal) */
-    --text-light: #666666;    /* Gris medio (Subtítulos y textos secundarios) */
-    
-    /* --- EFECTOS --- */
-    --shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* Sombra suave para tarjetas */
+    /* Nombres antiguos (Para compatibilidad con lo que ya tenías) */
+    --uce-blue: #003366;      /* Mismo azul */
+    --uce-red: #E30613;       /* Rojo clásico */
 }
 
 body {
@@ -31,20 +25,24 @@ body {
     min-height: 100vh;
 }
 
-/* Encabezado */
+/* --- ENCABEZADO / HEADER --- */
 header {
-    background: linear-gradient(135deg, var(--uce-blue) 0%, #001a4d 100%);
+    /* Usamos el azul oficial */
+    background: linear-gradient(135deg, var(--primary) 0%, #001a4d 100%);
     color: white;
     padding: 3rem 1rem;
     text-align: center;
     box-shadow: 0 4px 15px rgba(0,0,0,0.2);
     margin-bottom: 40px;
+    position: relative;
+    z-index: 10;
 }
 
 header h1 {
     margin: 0;
     font-size: 2.5rem;
     letter-spacing: 1px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
 }
 
 header p {
@@ -54,50 +52,40 @@ header p {
     font-weight: 300;
 }
 
-/* Contenedor Principal */
+/* --- CONTENEDOR PRINCIPAL --- */
 .main-container {
-    max-width: 1200px; /* Ancho máximo amplio */
-    width: 90%;        /* Ocupa el 90% de la pantalla */
-    margin: 0 auto;    /* Centrado */
+    max-width: 1200px;
+    width: 90%;
+    margin: 0 auto;
     padding: 0 20px;
     flex: 1;
 }
 
-/* --- LA REJILLA DE LOS BOTONES (Actualizado) --- */
+/* --- REJILLA DEL MENÚ PRINCIPAL (3 Columnas) --- */
 .dashboard-grid {
     display: grid;
-    /* Esto crea columnas automáticas de mínimo 250px. 
-       Si tu pantalla es ancha, cabrán 3 o 4 en fila. */
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); 
-    gap: 30px; /* Espacio entre tarjetas */
+    /* Mínimo 280px para que no se aplasten */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
     padding-bottom: 50px;
-    justify-content: center; /* Centrar todo el bloque */
+    justify-content: center;
 }
 
-/* --- AJUSTE PARA PANTALLAS GIGANTES (PC) --- */
+/* En pantallas grandes, forzar 3 columnas */
 @media (min-width: 1000px) {
     .dashboard-grid {
-        /* Fuerza 3 columnas exactas en computadoras grandes para que se vea ordenado */
-        grid-template-columns: repeat(3, 1fr); 
+        grid-template-columns: repeat(3, 1fr);
     }
 }
 
-/* --- AJUSTE PARA MÓVILES (Celular) --- */
-@media (max-width: 600px) {
-    .dashboard-grid {
-        /* En celular sí queremos 1 sola columna para que se lea bien */
-        grid-template-columns: 1fr; 
-    }
-}
-
-/* TARJETAS DEL MENÚ */
+/* --- TARJETAS DEL MENÚ --- */
 .card-menu {
     background-color: var(--card-bg);
     border-radius: 15px;
     padding: 40px 30px;
     text-align: center;
-    text-decoration: none; /* Quita el subrayado azul */
-    color: var(--uce-blue);
+    text-decoration: none;
+    color: var(--primary); /* Azul */
     box-shadow: 0 10px 25px rgba(0,0,0,0.05);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     border-bottom: 4px solid transparent;
@@ -105,19 +93,20 @@ header p {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-height: 250px;
+    min-height: 280px; /* Altura uniforme */
 }
 
 .card-menu:hover {
     transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(0, 45, 114, 0.15);
-    border-bottom: 4px solid var(--uce-red);
+    box-shadow: 0 20px 40px rgba(0, 51, 102, 0.15);
+    border-bottom: 4px solid var(--secondary); /* Dorado al pasar mouse */
 }
 
 .card-icon {
-    font-size: 4rem; /* Icono grande */
+    font-size: 4rem;
     margin-bottom: 20px;
     transition: transform 0.3s;
+    filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
 }
 
 .card-menu:hover .card-icon {
@@ -127,27 +116,28 @@ header p {
 .card-title {
     font-size: 1.5rem;
     font-weight: 800;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
     text-transform: uppercase;
+    color: var(--primary);
 }
 
 .card-desc {
-    font-size: 1rem;
-    color: #666;
-    line-height: 1.5;
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.6;
 }
 
-/* Estilos para las páginas internas (Hitos) */
+/* --- ESTILOS PARA SUB-PÁGINAS (Listas de años) --- */
 .section-container {
-    max-width: 1000px;
+    max-width: 1100px;
     margin: 40px auto;
     padding: 0 20px;
 }
 
 .cards-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 25px;
 }
 
 .milestone-card {
@@ -157,34 +147,64 @@ header p {
     text-decoration: none;
     color: #333;
     border: 1px solid #eee;
-    transition: 0.3s;
+    transition: all 0.3s ease;
     box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    position: relative;
+    top: 0;
 }
 
 .milestone-card:hover {
-    border-color: var(--uce-blue);
+    border-color: var(--secondary);
     transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
 }
 
 .year-badge {
-    background: var(--uce-blue);
+    background: var(--primary);
     color: white;
-    padding: 5px 10px;
-    border-radius: 5px;
+    padding: 5px 12px;
+    border-radius: 20px;
     font-weight: bold;
     display: inline-block;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+    font-size: 0.9rem;
 }
 
-/* --- FOOTER / PIE DE PÁGINA PROFESIONAL --- */
+/* --- ESTILO PARA PÁGINAS DE LECTURA (TEXTO) --- */
+.page-content {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 50px;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    line-height: 1.8;
+    font-size: 1.1rem;
+    color: #444;
+}
+
+.page-content h1 {
+    color: var(--primary);
+    border-bottom: 3px solid var(--secondary);
+}
+
+.page-content img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* --- FOOTER / PIE DE PÁGINA --- */
 footer {
-    background: linear-gradient(135deg, var(--uce-blue) 0%, #001a4d 100%);
+    background: linear-gradient(135deg, var(--primary) 0%, #001a4d 100%);
     color: white;
     text-align: center;
-    padding: 40px 20px;
-    margin-top: auto; /* Empuja el footer al final si la página es corta */
-    border-top: 5px solid var(--uce-red);
-    font-size: 0.9rem;
+    padding: 50px 20px;
+    margin-top: auto;
+    border-top: 5px solid var(--secondary); /* Dorado */
+    position: relative;
+    width: 100%;
 }
 
 .footer-content {
@@ -192,62 +212,27 @@ footer {
     margin: 0 auto;
 }
 
-.footer-content p {
-    margin: 5px 0; /* Espacio entre líneas */
-}
-
 .footer-details {
     font-size: 0.85rem;
-    opacity: 0.8; /* Un poco más transparente para jerarquía */
-    font-weight: 300;
-    margin-top: 10px;
-    padding-top: 10px;
-    border-top: 1px solid rgba(255,255,255,0.1); /* Línea divisoria sutil */
+    opacity: 0.8;
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid rgba(255,255,255,0.1);
 }
 
-
-/* --- ESTILO PARA PÁGINAS DE LECTURA (AÑOS) --- */
-.page-content {
-    max-width: 900px;       /* Ancho máximo para que no se estire todo */
-    margin: 40px auto;      /* Centrar la caja en la pantalla */
-    padding: 50px;          /* Espacio interno (márgenes blancos) */
-    background-color: white;/* Fondo blanco */
-    border-radius: 12px;    /* Bordes redondeados */
-    box-shadow: 0 5px 20px rgba(0,0,0,0.08); /* Sombra suave para que flote */
-    line-height: 1.8;       /* Más espacio entre líneas de texto */
-    font-size: 1.1rem;      /* Letra un poco más grande y legible */
-    color: #444;            /* Color de texto gris oscuro (menos cansado que negro puro) */
-}
-
-/* Títulos dentro de la lectura */
-.page-content h1 {
-    color: var(--uce-blue);
-    font-size: 2.5rem;
-    margin-bottom: 10px;
-    border-bottom: 3px solid var(--uce-red);
-    padding-bottom: 15px;
+/* Botón Volver */
+.btn-back {
     display: inline-block;
+    padding: 10px 20px;
+    background-color: #e9ecef;
+    color: var(--primary);
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: 0.3s;
 }
 
-.page-content h2, .page-content h3 {
-    color: var(--uce-blue);
-    margin-top: 30px;
-}
-
-/* Imágenes dentro de la lectura */
-.page-content img {
-    max-width: 100%;        /* Que la imagen no se salga de la caja */
-    height: auto;
-    border-radius: 8px;
-    margin: 20px 0;
-    border: 1px solid #eee;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-}
-
-/* Listas (Bullet points) */
-.page-content ul {
-    background: #f9f9f9;
-    padding: 20px 40px;
-    border-left: 5px solid var(--uce-red);
-    border-radius: 5px;
+.btn-back:hover {
+    background-color: var(--secondary);
+    color: white;
 }
