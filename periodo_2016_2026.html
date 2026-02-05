@@ -64,6 +64,7 @@
             list-style: none;
             display: flex;
             gap: 25px;
+            align-items: center;
         }
 
         .nav-links a {
@@ -92,6 +93,24 @@
 
         .nav-links a:hover::after {
             width: 100%;
+        }
+
+        /* Botón especial en el menú para volver */
+        .btn-menu-principal {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 8px 16px !important;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .btn-menu-principal:hover {
+            background: var(--secondary) !important;
+            color: var(--primary) !important;
+            border-color: var(--secondary);
+        }
+        
+        .btn-menu-principal::after {
+            display: none; /* Sin subrayado animado */
         }
 
         /* Hero Section */
@@ -617,6 +636,7 @@
             <span>UCE | INFRAESTRUCTURA II</span>
         </div>
         <ul class="nav-links">
+            <li><a href="index.html" class="btn-menu-principal"><i class="material-icons" style="font-size: 1rem; vertical-align: middle; margin-right: 5px;">arrow_back</i>Menú Principal</a></li>
             <li><a href="#home">Inicio</a></li>
             <li><a href="#team">Equipo</a></li>
             <li><a href="#timeline">Línea de Tiempo</a></li>
@@ -676,7 +696,6 @@
         
         <div class="timeline">
             
-            <!-- 2016 -->
             <div class="year-section" id="year-2016">
                 <div class="year-title">
                     <i class="material-icons">calendar_today</i> 2016
@@ -812,7 +831,6 @@
                 </div>
             </div>
             
-            <!-- 2017 -->
             <div class="year-section" id="year-2017">
                 <div class="year-title">
                     <i class="material-icons">calendar_today</i> 2017
@@ -852,7 +870,6 @@
                 </div>
             </div>
             
-            <!-- 2018 -->
             <div class="year-section" id="year-2018">
                 <div class="year-title">
                     <i class="material-icons">calendar_today</i> 2018
@@ -909,7 +926,6 @@
                 </div>
             </div>
             
-            <!-- 2019 -->
             <div class="year-section" id="year-2019">
                 <div class="year-title">
                     <i class="material-icons">calendar_today</i> 2019
@@ -934,7 +950,6 @@
                 </div>
             </div>
             
-            <!-- 2020 -->
             <div class="year-section" id="year-2020">
                 <div class="year-title">
                     <i class="material-icons">calendar_today</i> 2020
@@ -1054,7 +1069,6 @@
                 </div>
             </div>
             
-            <!-- 2021 -->
             <div class="year-section" id="year-2021">
                 <div class="year-title">
                     <i class="material-icons">calendar_today</i> 2021
@@ -1159,7 +1173,6 @@
                 </div>
             </div>
             
-            <!-- 2022 -->
             <div class="year-section" id="year-2022">
                 <div class="year-title">
                     <i class="material-icons">calendar_today</i> 2022
@@ -1228,7 +1241,6 @@
                 </div>
             </div>
             
-            <!-- 2023 -->
             <div class="year-section" id="year-2023">
                 <div class="year-title">
                     <i class="material-icons">calendar_today</i> 2023
@@ -1297,7 +1309,6 @@
                 </div>
             </div>
             
-            <!-- 2024 -->
             <div class="year-section" id="year-2024">
                 <div class="year-title">
                     <i class="material-icons">calendar_today</i> 2024
@@ -1370,7 +1381,6 @@
                 </div>
             </div>
             
-            <!-- 2025 -->
             <div class="year-section" id="year-2025">
                 <div class="year-title">
                     <i class="material-icons">calendar_today</i> 2025
@@ -1475,7 +1485,6 @@
                 </div>
             </div>
             
-            <!-- 2026 -->
             <div class="year-section" id="year-2026">
                 <div class="year-title">
                     <i class="material-icons">calendar_today</i> 2026
@@ -1541,6 +1550,9 @@
             <p class="footer-info">Proyecto de investigación sobre la evolución tecnológica en la Universidad Central del Ecuador durante el período 2016-2026. Documentación histórica de infraestructura, transformación digital e innovación educativa.</p>
             
             <div style="margin: 30px 0;">
+                <a href="index.html" class="btn" style="background: rgba(255,255,255,0.2); color: white; margin: 5px;">
+                    <i class="material-icons">home</i> Menú Principal
+                </a>
                 <a href="#home" class="btn" style="background: rgba(255,255,255,0.2); color: white; margin: 5px;">
                     <i class="material-icons">arrow_upward</i> Volver al inicio
                 </a>
