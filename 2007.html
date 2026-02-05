@@ -3,38 +3,155 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Año 2007 - UCE</title>
+    <title>Año 2007: Diagnóstico Tecnológico - UCE</title>
+    <script src="https://unpkg.com/lucide@latest"></script>
     <link rel="stylesheet" href="style.css">
-     <style>
-        .academic-source { background-color: #e3f2fd; border-left: 5px solid #1565c0; padding: 15px; margin: 20px 0; font-style: italic; }
+    <style>
+        /* Estilos específicos para la tabla de diagnóstico */
+        .tech-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            font-size: 0.95rem;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .tech-table th, .tech-table td {
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+            text-align: left;
+        }
+        .tech-table th {
+            background-color: var(--primary);
+            color: white;
+            font-weight: 600;
+        }
+        .tech-table tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+
+        /* Caja de Fuente Académica */
+        .source-box {
+            background-color: #e3f2fd;
+            border-left: 5px solid #1565c0;
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 4px;
+            color: #0d47a1;
+        }
+        
+        /* Caja de alerta leve (Brecha digital) */
+        .gap-box {
+            background-color: #fff3e0;
+            border: 1px solid #ffcc80;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
     </style>
 </head>
 <body>
-    <header style="padding: 1rem;"><h3>Historia Tecnológica UCE</h3></header>
-    <div class="content-container">
-        <a href="index.html" class="btn-back">← Volver al Menú</a>
-        <h1 class="year-title">2007: Preparación para la Acreditación</h1>
 
-        <p>Con la llegada de un nuevo gobierno y el anuncio de una Asamblea Constituyente, la universidad inició un proceso de autoevaluación. Se realizaron los primeros inventarios técnicos serios para identificar la brecha tecnológica real.</p>
+    <header style="background: linear-gradient(135deg, var(--primary) 0%, #001a4d 100%);">
+        <h1>Año 2007</h1>
+        <p>Diagnóstico y Planificación Estratégica</p>
+    </header>
 
-        <div class="academic-source">
-            <h4>📜 Documento: Plan Estratégico UCE (2007)</h4>
-            <p>"El diagnóstico revela que solo el 15% de los docentes utiliza herramientas digitales en sus cátedras. Se propone el plan emergente de conectividad."</p>
-        </div>
-
-        <h3>Inventario 2007</h3>
-        <p>El censo interno reveló la necesidad urgente de cambio que se ejecutaría en 2008:</p>
-        <table class="tech-table">
-            <tr><th>Indicador</th><th>Estado en 2007</th></tr>
-            <tr><td>PCs por estudiante</td><td>1 PC por cada 45 alumnos (Muy bajo)</td></tr>
-            <tr><td>Proyectores (Infocus)</td><td>Escasos (uso exclusivo de auditorios)</td></tr>
-            <tr><td>Web Institucional</td><td>Página estática informativa (HTML puro), sin servicios en línea.</td></tr>
-        </table>
+    <div class="page-content">
         
-        <div style="text-align: center; margin: 30px 0;">
-            <img src="web2007.jpg" alt="Captura web antigua UCE" class="evidence-photo">
-            <p style="font-size: 0.9rem; color: #666;">Figura: Captura de la web estática de la UCE antes de la implementación de portales dinámicos.</p>
+        <a href="periodo_2001_2015.html" class="btn-back">
+            ← Volver al Periodo 2001-2015
+        </a>
+
+        <h1 class="year-title" style="margin-top: 20px;">2007: La "Brecha Digital" al Descubierto</h1>
+
+        <p class="intro-text">
+            Con la llegada de un nuevo gobierno y el anuncio inminente de una Asamblea Constituyente que reformaría la educación superior, la universidad inició un proceso de autoevaluación honesta. 
+            Se realizaron los primeros inventarios técnicos serios para identificar la distancia real entre la UCE y los estándares internacionales.
+        </p>
+
+        <div class="source-box">
+            <strong>📜 Documento: Plan Estratégico de Desarrollo Institucional (2007)</strong>
+            <p style="margin-top: 10px; font-style: italic;">
+                "El diagnóstico situacional revela que solo el 15% de los docentes utiliza herramientas digitales en sus cátedras de manera regular. 
+                La infraestructura actual es insuficiente para soportar la demanda estudiantil, por lo que se propone el 'Plan Emergente de Conectividad'."
+            </p>
         </div>
+
+        <h3>1. El Inventario de la Realidad (Censo 2007)</h3>
+        <p>
+            El censo interno reveló cifras alarmantes que justificaron las inversiones masivas de los años siguientes (2008-2012):
+        </p>
+
+        <table class="tech-table">
+            <tr>
+                <th>Indicador Tecnológico</th>
+                <th>Estado Situacional en 2007</th>
+            </tr>
+            <tr>
+                <td><strong>Ratio PC/Alumno</strong></td>
+                <td><strong>1 PC por cada 45 alumnos</strong><br><span style="font-size:0.85rem; color:#666;">(El estándar regional recomendado era 1:10)</span></td>
+            </tr>
+            <tr>
+                <td><strong>Proyección (Infocus)</strong></td>
+                <td>Escasos y bajo llave. Uso exclusivo de auditorios magnos, no en aulas comunes.</td>
+            </tr>
+            <tr>
+                <td><strong>Web Institucional</strong></td>
+                <td><strong>Web 1.0 (Estática):</strong> Página HTML pura, informativa. No permitía trámites, matrículas ni consulta de notas en tiempo real.</td>
+            </tr>
+            <tr>
+                <td><strong>Conectividad Docente</strong></td>
+                <td>Solo los jefes de departamento tenían punto de red en sus escritorios.</td>
+            </tr>
+        </table>
+
+        <div class="gap-box">
+            <i data-lucide="globe" style="width: 40px; height: 40px; color: #f57c00;"></i>
+            <div>
+                <strong>El problema de la Web Estática:</strong>
+                <p style="margin: 0; font-size: 0.9rem; color: #555;">
+                    En 2007, mientras el mundo ya usaba Facebook y YouTube (Web 2.0), la página de la UCE era un "tablón de anuncios digital". 
+                    Si un estudiante quería ver sus notas, tenía que ir físicamente a la secretaría a ver las listas pegadas en la pared.
+                </p>
+            </div>
+        </div>
+        
+        <div style="text-align: center; margin: 40px 0;">
+            <img src="web2007.jpg" alt="Captura de la web antigua de la UCE en 2007" style="max-width: 100%; border-radius: 8px; box-shadow: 0 10px 20px rgba(0,0,0,0.15);">
+            <p style="font-size: 0.9rem; color: #666; font-style: italic; margin-top: 10px;">
+                Figura 1: La antigua interfaz web institucional, carente de servicios en línea interactivos.
+            </p>
+        </div>
+
+        <hr style="margin: 40px 0; border: 0; border-top: 1px solid #eee;">
+
+        <div style="font-size: 0.9rem; color: #555;">
+            <strong>Referencias:</strong>
+            <ul style="margin-top: 5px; padding-left: 20px;">
+                <li>Archivo del Honorable Consejo Universitario - Resoluciones 2007.</li>
+                <li>Plan Plurianual de la Universidad Central del Ecuador.</li>
+            </ul>
+        </div>
+
     </div>
+
+    <footer>
+        <div class="footer-content">
+            <p><strong>© 2026 Universidad Central del Ecuador</strong> - Facultad de Ingeniería, Ciencias Físicas y Matemática</p>
+            <p class="footer-details">
+                Ingeniería en Sistemas de Información | Infraestructura II | SI5-001 | Tecnología en la UCE 2025-2026
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        if(typeof lucide !== 'undefined') lucide.createIcons();
+    </script>
+
 </body>
 </html>
