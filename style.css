@@ -1,110 +1,189 @@
-/* style.css - Hoja de Estilos Global */
+/* style.css - UCE TECH THEME */
 :root {
+    /* COLORES UCE */
     --uce-blue: #002D72;
     --uce-red: #E30613;
-    --bg-color: #f4f6f8;
-    --text-color: #333;
+    --uce-dark: #001a4d;
+    
+    /* COLORES DE FONDO Y TEXTO */
+    --bg-body: #f4f6f9;
+    --bg-card: #ffffff;
+    --text-main: #1e293b;
+    --text-muted: #64748b;
+    
+    /* FUENTES */
+    --font-heading: 'Inter', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
 }
 
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: var(--bg-color);
-    color: var(--text-color);
-    margin: 0;
-    padding: 0;
+    font-family: var(--font-heading);
+    background-color: var(--bg-body);
+    color: var(--text-main);
     line-height: 1.6;
 }
 
-/* Encabezado */
-header {
-    background-color: var(--uce-blue);
-    color: white;
-    padding: 2rem;
-    text-align: center;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+/* --- 1. BARRA DE NAVEGACIÓN STICKY --- */
+.sticky-nav {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px); /* Efecto vidrio */
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    padding: 1rem 0;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
 }
 
-h1 { margin: 0; }
-.subtitle { opacity: 0.9; font-weight: 300; }
-
-/* Menú Principal (index.html) */
-.menu-container {
-    max-width: 1000px;
-    margin: 40px auto;
-    padding: 20px;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
-}
-
-.btn-year {
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    background: white;
-    color: var(--uce-blue);
+    padding: 0 20px;
+}
+
+.logo {
+    font-family: var(--font-mono);
+    font-weight: 800;
     font-size: 1.5rem;
-    font-weight: bold;
-    height: 150px;
-    text-decoration: none;
-    border-radius: 10px;
-    border: 2px solid var(--uce-blue);
-    transition: transform 0.3s, background 0.3s;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-}
-
-.btn-year:hover {
-    background-color: var(--uce-blue);
-    color: white;
-    transform: translateY(-5px);
-}
-
-/* Páginas de Contenido (2001.html, etc) */
-.content-container {
-    max-width: 800px;
-    margin: 40px auto;
-    background: white;
-    padding: 40px;
-    border-radius: 10px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-}
-
-.year-title {
-    color: var(--uce-red);
-    border-bottom: 2px solid #eee;
-    padding-bottom: 10px;
-    margin-top: 0;
-}
-
-.tech-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 20px 0;
-}
-
-.tech-table th, .tech-table td {
-    border: 1px solid #ddd;
-    padding: 12px;
-    text-align: left;
-}
-
-.tech-table th {
-    background-color: var(--uce-blue);
-    color: white;
-}
-
-img.evidence-photo {
-    width: 100%;
-    border-radius: 8px;
-    margin: 20px 0;
-    border: 1px solid #ccc;
-}
-
-.btn-back {
-    display: inline-block;
-    margin-bottom: 20px;
     color: var(--uce-blue);
-    text-decoration: none;
-    font-weight: bold;
 }
-.btn-back:hover { text-decoration: underline; }
+.logo span { color: var(--uce-red); }
+
+.nav-links {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.nav-btn {
+    text-decoration: none;
+    color: var(--text-muted);
+    font-weight: 600;
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.nav-btn:hover {
+    color: var(--uce-blue);
+    background: rgba(0, 45, 114, 0.05);
+}
+
+.nav-btn.active {
+    background: var(--uce-blue);
+    color: white;
+    box-shadow: 0 4px 12px rgba(0, 45, 114, 0.3);
+}
+
+/* --- 2. SECCIONES --- */
+.section-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 100px 20px 60px; /* Padding top alto para compensar el navbar */
+    min-height: 80vh;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.section-header h2 {
+    font-size: 2.5rem;
+    color: var(--uce-blue);
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+.section-header p {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+}
+
+/* --- 3. GRID DE TARJETAS (Como el ejemplo) --- */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.milestone-card {
+    background: var(--bg-card);
+    border-radius: 16px;
+    padding: 2rem;
+    text-decoration: none;
+    color: inherit;
+    border: 1px solid rgba(0,0,0,0.05);
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    display: block;
+}
+
+/* Borde superior de color */
+.milestone-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--uce-blue), var(--uce-red));
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+    transform-origin: left;
+}
+
+.milestone-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1);
+}
+
+.milestone-card:hover::before {
+    transform: scaleX(1);
+}
+
+.year-badge {
+    display: inline-block;
+    background: rgba(0, 45, 114, 0.1);
+    color: var(--uce-blue);
+    font-family: var(--font-mono);
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 6px;
+    margin-bottom: 1rem;
+}
+
+.card-icon {
+    display: block;
+    margin-bottom: 1rem;
+    color: var(--uce-red);
+    width: 32px; height: 32px;
+}
+
+.milestone-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-main);
+}
+
+.milestone-card p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+.info-box {
+    text-align: center;
+    padding: 40px;
+    background: white;
+    border-radius: 12px;
+    color: var(--text-muted);
+}
