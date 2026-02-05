@@ -1,0 +1,1601 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historia Viva 2016-2026 | UCE</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #003366; /* Azul UCE */
+            --primary-light: #004080;
+            --secondary: #d4af37; /* Dorado detalle */
+            --secondary-light: #e6c158;
+            --bg: #f4f7f6;
+            --text: #333;
+            --text-light: #666;
+            --white: #ffffff;
+            --gray-light: #f0f0f0;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navegación */
+        nav {
+            background: linear-gradient(135deg, var(--primary) 0%, #002244 100%);
+            color: white;
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-brand {
+            font-size: 1.2rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-brand i {
+            color: var(--secondary);
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            padding: 5px 0;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--secondary);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        header {
+            text-align: center;
+            padding: 100px 10% 80px;
+            background: linear-gradient(rgba(0,51,102,0.85), rgba(0,51,102,0.9)), url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 30% 50%, rgba(212, 175, 55, 0.1) 0%, transparent 50%);
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-subtitle {
+            font-size: 1.4rem;
+            max-width: 800px;
+            margin: 0 auto 40px;
+            font-weight: 300;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-year {
+            font-size: 1.2rem;
+            color: var(--secondary);
+            font-weight: 600;
+            margin-bottom: 30px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 28px;
+            background: var(--secondary);
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 8px;
+            margin: 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            position: relative;
+            z-index: 1;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+            background: var(--secondary-light);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-outline:hover {
+            background: white;
+            color: var(--primary);
+        }
+
+        .btn i {
+            margin-right: 8px;
+            font-size: 1.2rem;
+        }
+
+        /* Equipo / Créditos */
+        .team-section {
+            padding: 60px 10%;
+            text-align: center;
+            background: var(--white);
+            position: relative;
+        }
+
+        .team-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-weight: 700;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 60%;
+            height: 3px;
+            bottom: -8px;
+            left: 20%;
+            background: var(--secondary);
+            border-radius: 3px;
+        }
+
+        .team-grid {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+
+        .member {
+            text-align: center;
+            width: 140px;
+            transition: transform 0.3s;
+        }
+
+        .member:hover {
+            transform: translateY(-5px);
+        }
+
+        .avatar {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            font-weight: bold;
+            font-size: 1.4rem;
+            box-shadow: var(--shadow);
+        }
+
+        .member p {
+            font-weight: 500;
+            color: var(--text);
+        }
+
+        /* Timeline */
+        .timeline-container {
+            padding: 80px 10% 40px;
+            background: var(--bg);
+            position: relative;
+        }
+
+        .timeline-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .timeline-title {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .timeline-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Timeline Vertical Design */
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background: linear-gradient(to bottom, var(--primary), var(--secondary));
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -2px;
+            border-radius: 2px;
+        }
+
+        .year-section {
+            position: relative;
+            width: 100%;
+            margin-bottom: 60px;
+            padding-top: 10px;
+        }
+
+        .year-title {
+            background: var(--primary);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            width: fit-content;
+            margin: 0 auto 40px;
+            position: relative;
+            z-index: 2;
+            box-shadow: var(--shadow);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .year-title i {
+            color: var(--secondary);
+        }
+
+        .year-title::before {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: var(--primary);
+            transform: rotate(45deg);
+            bottom: -10px;
+            left: 50%;
+            margin-left: -10px;
+        }
+
+        .events-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+
+        .event-card {
+            position: relative;
+            width: 45%;
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .event-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+        }
+
+        .event-card:nth-child(odd) {
+            margin-left: 0;
+            margin-right: auto;
+        }
+
+        .event-card:nth-child(even) {
+            margin-left: auto;
+            margin-right: 0;
+        }
+
+        /* Timeline line dots */
+        .event-card::before {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: white;
+            border: 4px solid var(--secondary);
+            border-radius: 50%;
+            top: 30px;
+        }
+
+        .event-card:nth-child(odd)::before {
+            right: -55px;
+        }
+
+        .event-card:nth-child(even)::before {
+            left: -55px;
+        }
+
+        .event-card::after {
+            content: '';
+            position: absolute;
+            width: 30px;
+            height: 2px;
+            background: var(--secondary);
+            top: 38px;
+        }
+
+        .event-card:nth-child(odd)::after {
+            right: -30px;
+        }
+
+        .event-card:nth-child(even)::after {
+            left: -30px;
+        }
+
+        .event-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .event-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+
+        .event-icon i {
+            font-size: 1.5rem;
+        }
+
+        .event-date {
+            font-size: 0.9rem;
+            color: var(--secondary);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 5px;
+        }
+
+        .event-title {
+            font-size: 1.3rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+
+        .event-content {
+            color: var(--text);
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .event-source {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            font-style: italic;
+            border-top: 1px solid var(--gray-light);
+            padding-top: 12px;
+            margin-top: 10px;
+        }
+
+        .event-source a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .event-source a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 60px 10% 40px;
+            background: linear-gradient(135deg, var(--primary) 0%, #002244 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 70% 20%, rgba(212, 175, 55, 0.1) 0%, transparent 50%);
+        }
+
+        .footer-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-logo {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .footer-logo span {
+            color: var(--secondary);
+        }
+
+        .footer-info {
+            max-width: 600px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        .footer-copyright {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
+            margin-top: 30px;
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .timeline::before {
+                left: 30px;
+            }
+            
+            .event-card {
+                width: calc(100% - 80px);
+                margin-left: 80px !important;
+                margin-right: 0 !important;
+            }
+            
+            .event-card:nth-child(odd)::before,
+            .event-card:nth-child(even)::before {
+                left: -55px;
+                right: auto;
+            }
+            
+            .event-card:nth-child(odd)::after,
+            .event-card:nth-child(even)::after {
+                left: -30px;
+                right: auto;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .team-grid {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .timeline-container {
+                padding: 60px 5%;
+            }
+            
+            .event-card {
+                width: calc(100% - 60px);
+                margin-left: 60px !important;
+            }
+        }
+
+        /* Scroll animation */
+        .event-card, .year-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .event-card.visible, .year-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Print styles */
+        @media print {
+            .btn, nav {
+                display: none;
+            }
+            
+            .event-card {
+                break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="nav-brand">
+            <i class="material-icons">school</i>
+            <span>UCE | INFRAESTRUCTURA II</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#home">Inicio</a></li>
+            <li><a href="#team">Equipo</a></li>
+            <li><a href="#timeline">Línea de Tiempo</a></li>
+            <li><a href="#contact">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <header id="home">
+        <div class="hero-year">2016 - 2026</div>
+        <div class="hero-title">HISTORIA VIVA</div>
+        <h2>Tecnología en la Universidad Central del Ecuador</h2>
+        <p class="hero-subtitle">Un recorrido por la transformación digital, desde la construcción del Data Center TIER II hasta la implementación de Inteligencia Artificial, nuevas sedes y la consolidación tecnológica institucional.</p>
+        
+        <a href="#timeline" class="btn">
+            <i class="material-icons">history_edu</i> Explorar Línea de Tiempo
+        </a>
+        <a href="https://onedrive.live.com/:w:/g/personal/F73B3B9D89EE082B/IQACrmwI8A9ERLduOEd7QEfTAQ_ceVxByOJxNMMqgMuzzfs?resid=F73B3B9D89EE082B!s086cae020ff04444b76e38477b4047d3&ithint=file%2Cdocx&e=rVfSdJ&migratedtospo=true&redeem=aHR0cHM6Ly8xZHJ2Lm1zL3cvYy9mNzNiM2I5ZDg5ZWUwODJiL0lRQUNybXdJOEE5RVJMZHVPRWQ3UUVmVEFRX2NlVnhCeU9KeE5NTXFnTXV6emZzP2U9clZmU2RK" class="btn btn-outline" target="_blank">
+            <i class="material-icons">description</i> Ver Informe Completo
+        </a>
+    </header>
+
+    <section class="team-section" id="team">
+        <h3 class="section-title">Créditos del Proyecto</h3>
+        <p>Ingeniería en Sistemas de Información - Infraestructura II</p>
+        
+        <div class="team-grid">
+            <div class="member">
+                <div class="avatar">AJ</div>
+                <p>Alcocer Josue</p>
+            </div>
+            <div class="member">
+                <div class="avatar">CJ</div>
+                <p>Cuadro José</p>
+            </div>
+            <div class="member">
+                <div class="avatar">LD</div>
+                <p>Lemache David</p>
+            </div>
+            <div class="member">
+                <div class="avatar">RD</div>
+                <p>Ruiz Daniel</p>
+            </div>
+            <div class="member">
+                <div class="avatar">TD</div>
+                <p>Toapanta Darwin</p>
+            </div>
+        </div>
+        
+        <p style="margin-top: 30px; color: var(--text-light); font-weight: 500;">SI5-001 | Tecnología en la UCE 2025 - 2026</p>
+    </section>
+
+    <main class="timeline-container" id="timeline">
+        <div class="timeline-header">
+            <h2 class="timeline-title">Línea de Tiempo Tecnológica UCE</h2>
+            <p class="timeline-subtitle">Una década de transformación digital e innovación tecnológica en la Universidad Central del Ecuador</p>
+        </div>
+        
+        <div class="timeline">
+            
+            <!-- 2016 -->
+            <div class="year-section" id="year-2016">
+                <div class="year-title">
+                    <i class="material-icons">calendar_today</i> 2016
+                </div>
+                
+                <div class="events-container">
+                    <div class="event-card">
+                        <div class="event-header">
+                            <div class="event-icon">
+                                <i class="material-icons">assignment_turned_in</i>
+                            </div>
+                            <div>
+                                <div class="event-date">Marzo 16</div>
+                                <h3 class="event-title">Plan de Fortalecimiento Institucional</h3>
+                            </div>
+                        </div>
+                        <div class="event-content">
+                            <p>Se firma el plan de fortalecimiento institucional con la Senescyt e inauguran nuevas obras (Centro de Biomedicina), marcando el inicio de la inversión en infraestructura.</p>
+                        </div>
+                        <div class="event-source">Archivo Noticias UCE, "Inauguración Centro de Biomedicina", 16/03/2016</div>
+                    </div>
+                    
+                    <div class="event-card">
+                        <div class="event-header">
+                            <div class="event-icon">
+                                <i class="material-icons">warning</i>
+                            </div>
+                            <div>
+                                <div class="event-date">Abril 16</div>
+                                <h3 class="event-title">Terremoto 7.8 Mw</h3>
+                            </div>
+                        </div>
+                        <div class="event-content">
+                            <p>Ocurre el terremoto de 7.8 Mw que afecta al país, generando desafíos para la infraestructura universitaria y requiriendo respuestas inmediatas.</p>
+                        </div>
+                        <div class="event-source">Informe Sísmico Especial N. 18, Instituto Geofísico EPN</div>
+                    </div>
+                    
+                    <div class="event-card">
+                        <div class="event-header">
+                            <div class="event-icon">
+                                <i class="material-icons">engineering</i>
+                            </div>
+                            <div>
+                                <div class="event-date">Mayo 23</div>
+                                <h3 class="event-title">Brigada de Ingeniería Civil a Manta</h3>
+                            </div>
+                        </div>
+                        <div class="event-content">
+                            <p>Despliegue de la brigada oficial de Ingeniería Civil hacia Manta. 30 estudiantes y 3 expertos en estructuras inician la evaluación de edificaciones para determinar demoliciones tras el terremoto.</p>
+                        </div>
+                        <div class="event-source">Convenio UCE-GAD Manta / Archivo de Noticias UCE</div>
+                    </div>
+                    
+                    <div class="event-card">
+                        <div class="event-header">
+                            <div class="event-icon">
+                                <i class="material-icons">school</i>
+                            </div>
+                            <div>
+                                <div class="event-date">Junio 30</div>
+                                <h3 class="event-title">Cierre del "Plan de Mejoras" CEAACES</h3>
+                            </div>
+                        </div>
+                        <div class="event-content">
+                            <p>Cierre del "Plan de Mejoras" para el CEAACES. La Facultad de Ingeniería reporta la necesidad crítica de actualizar sus laboratorios y software de simulación. Además, se inicia la instalación de 900 puntos de acceso Wi-Fi y el sistema de monitoreo Cisco Prime en el campus.</p>
+                        </div>
+                        <div class="event-source">Diario El Comercio, "Universidad Central apunta al ascenso", 30/06/2016; Boletín de Prensa UCE Nº 509</div>
+                    </div>
+                    
+                    <div class="event-card">
+                        <div class="event-header">
+                            <div class="event-icon">
+                                <i class="material-icons">power</i>
+                            </div>
+                            <div>
+                                <div class="event-date">Septiembre 9</div>
+                                <h3 class="event-title">Cambio de Tablero de Alta Tensión</h3>
+                            </div>
+                        </div>
+                        <div class="event-content">
+                            <p>Se cambia el tablero de Alta Tensión de la universidad (que era de 1974) para soportar la carga del nuevo Data Center.</p>
+                        </div>
+                        <div class="event-source">Boletín de Prensa UCE Nº 509</div>
+                    </div>
+                    
+                    <div class="event-card">
+                        <div class="event-header">
+                            <div class="event-icon">
+                                <i class="material-icons">construction</i>
+                            </div>
+                            <div>
+                                <div class="event-date">Septiembre 16</div>
+                                <h3 class="event-title">Inicio Obra Física del Data Center</h3>
+                            </div>
+                        </div>
+                        <div class="event-content">
+                            <p>Inicia la obra física del Data Center en el subsuelo de la DTIC. Comienza el desmontaje de los servidores obsoletos.</p>
+                        </div>
+                        <div class="event-source">Archivo Noticias UCE, 16/09/2016</div>
+                    </div>
+                    
+                    <div class="event-card">
+                        <div class="event-header">
+                            <div class="event-icon">
+                                <i class="material-icons">cable</i>
+                            </div>
+                            <div>
+                                <div class="event-date">Diciembre 7</div>
+                                <h3 class="event-title">Subasta Inversa para Fibra Óptica</h3>
+                            </div>
+                        </div>
+                        <div class="event-content">
+                            <p>Se ejecuta la Subasta Inversa para llevar fibra óptica exclusiva a la facultad de ingeniería, asegurando que sus laboratorios pudieran conectarse al futuro Data Center a alta velocidad.</p>
+                        </div>
+                        <div class="event-source">Portal de Compras Públicas, Proceso SIE-UCE-024A-2016</div>
+                    </div>
+                    
+                    <div class="event-card">
+                        <div class="event-header">
+                            <div class="event-icon">
+                                <i class="material-icons">build</i>
+                            </div>
+                            <div>
+                                <div class="event-date">Diciembre 20</div>
+                                <h3 class="event-title">Pruebas del Data Center</h3>
+                            </div>
+                        </div>
+                        <div class="event-content">
+                            <p>Se realizan varias pruebas en el Data Center, antes de su apertura oficial.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 2017 -->
+            <div class="year-section" id="year-2017">
+                <div class="year-title">
+                    <i class="material-icons">calendar_today</i> 2017
+                </div>
+                
+                <div class="events-container">
+                    <div class="event-card">
+                        <div class="event-header">
+                            <div class="event-icon">
+                                <i class="material-icons">dns</i>
+                            </div>
+                            <div>
+                                <div class="event-date">Enero</div>
+                                <h3 class="event-title">Data Center TIER II Operativo</h3>
+                            </div>
+                        </div>
+                        <div class="event-content">
+                            <p>El 11 de enero se anuncia la finalización técnica del Data Center y el 19 de enero se inaugura la infraestructura TIER II con 5 salas técnicas (servidores, energía, climatización, NOC, pruebas) y seguridad biométrica. El 30 de enero el sistema SIAC soporta la evaluación docente masiva sin colapsar, gracias a los nuevos servidores.</p>
+                        </div>
+                        <div class="event-source">Boletín de Prensa UCE Nº 010, Blog UCE Facultad de Ingeniería / Boletín DTIC, Archivo Noticias UCE, ArtID=291806</div>
+                    </div>
+                    
+                    <div class="event-card">
+                        <div class="event-header">
+                            <div class="event-icon">
+                                <i class="material-icons">settings_ethernet</i>
+                            </div>
+                            <div>
+                                <div class="event-date">Inicio de Semestre</div>
+                                <h3 class="event-title">Laboratorios con Nueva Red de Fibra Óptica</h3>
+                            </div>
+                        </div>
+                        <div class="event-content">
+                            <p>Los laboratorios de Ingeniería Civil comienzan a operar con la nueva red de fibra óptica licitada en diciembre, permitiendo correr simulaciones complejas y acceder a bases de datos científicas sin interrupciones.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 2018 -->
+            <div class="year-section" id="year-2018">
+                <div class="year-title">
+                    <i class="material-icons">calendar_today</i> 2018
+                </div>
+                
+                <div class="events-container">
+                    <div class="event-card">
+                        <div class="event-header">
+                            <div class="event-icon">
+                                <i class="material-icons">emoji_events</i>
+                            </div>
+                            <div>
+                                <div class="event-date">Febrero - Marzo</div>
+                                <h3 class="event-title">Data Center Finalista en Concurso Mundial</h3>
+                            </div>
+                        </div>
+                        <div class="event-content">
+                            <p>El 21 de febrero el Data Center de la UCE es nombrado finalista en un concurso mundial de transformación de centros de datos (entre 120 instituciones), validando su capacidad para 45.000 usuarios.</p>
+                        </div>
+                        <div class="event-source">Boletín de Prensa UCE Nº 642</div>
+                    </div>
+                    
+                    <div class="event-card">
+                        <div class="event-header">
+                            <div class="event-icon">
+                                <i class="material-icons">attach_money</i>
+                            </div>
+                            <div>
+                                <div class="event-date">Plan Anual 2018</div>
+                                <h3 class="event-title">Presupuesto Data Center 2018</h3>
+                            </div>
+                        </div>
+                        <div class="event-content">
+                            <p>Plan Anual de Contratación 2018 incluye partidas presupuestarias para servicios de Data Center Físico (HOUSING), comunicaciones unificadas, LAN y Wi-Fi gestionado, y Servicio de Cloud Virtual Data Center (VCD). Monto total estimado: ∼ $310,672.64</p>
+                        </div>
+                        <div class="event-source">Plan Anual de Contratación 2018 — Servicios para Data Center</div>
+                    </div>
+                    
+                    <div class="event-card">
+                        <div class="event-header">
+                            <div class="event-icon">
+                                <i class="material-icons">swap_horiz</i>
+                            </div>
+                            <div>
+                                <div class="event-date">Marzo 13</div>
+                                <h3 class="event-title">Migración del SAU al SIIU - Hito Principal</h3>
+                            </div>
+                        </div>
+                        <div class="event-content">
+                            <p>Gracias al Data Center, la universidad apagó el viejo sistema (SAU/SIAC) y encendió el SIIU (Sistema Integral de Información Universitaria). A partir del 19 de marzo de 2018 se deshabilita el sistema anterior y opera solo el SIIU sobre la nueva infraestructura.</p>
+                        </div>
+                        <div class="event-source">Noticia Archivo UCE - Ingreso al SIIU, Comunicado Oficial SIIU - Semestre 2018</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 2019 -->
+            <div class="year-section" id="year-2019">
+                <div class="year-title">
+                    <i class="material-icons">calendar_today</i> 2019
+                </div>
+                
+                <div class="events-container">
+                    <div class="event-card">
+                        <div class="event-header">
+                            <div class="event-icon">
+                                <i class="material-icons">upgrade</i>
+                            </div>
+                            <div>
+                                <div class="event-date">Mayo 23</div>
+                                <h3 class="event-title">Actualización del Data Center</h3>
+                            </div>
+                        </div>
+                        <div class="event-content">
+                            <p>La Dirección de Tecnologías (DTIC) hizo público el proceso de "Provisión, instalación, configuración y readecuaciones del Data Center". Se contrató una actualización para asegurar que la infraestructura pudiera seguir el ritmo de la demanda digital.</p>
+                        </div>
+                        <div class="event-source">https://uce-dtic.blogspot.com/2019/05/data-center.html</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 2020 -->
+            <div class="year-section" id="year-2020">
+                <div class="year-title">
+                    <i class="material-icons">calendar_today</i> 2020
+                </div>
+                
+                <div class="events-container">
+                    <div class="event-card">
+                        <div class="event-header">
+                            <div class="event-icon">
+                                <i class="material-icons">satellite_alt</i>
+                            </div>
+                            <div>
+                                <div class="event-date">Enero 28</div>
+                                <h3 class="event-title">Taller NASA sobre Radar SAR</h3>
+                            </div>
+                        </div>
+                        <div class="event-content">
+                            <p>Una comitiva de la NASA dictó un taller orientado a estudiantes, docentes y profesionales afines a geología y minas, el tema era "Integración de Radar de Apertura Sintética (SAR) en el Monitoreo de Desastres".</p>
+                        </div>
+                    </div>
+                    
+                    <div class="event-card">
+                        <div class="event-header">
+                            <div class="event-icon">
+                                <i class="material-icons">location_on</i>
+                            </div>
+                            <div>
+                                <div class="event-date">Febrero 10</div>
+                                <h3 class="event-title">Reinicio Sede Galápagos</h3>
+                            </div>
+                        </div>
+                        <div class="event-content">
+                            <p>La Universidad Central reinició su sede en Galápagos.</p>
+                        </div>
+                        <div class="event-source"><a href="https://www.uce.edu.ec/archive_noticias?artID=776371" target="_blank">https://www.uce.edu.ec/archive_noticias?artID=776371</a></div>
+                    </div>
+                    
+                    <div class="event-card">
+                        <div class="event-header">
+                            <div class="event-icon">
+                                <i class="material-icons">visibility</i>
+                            </div>
+                            <div>
+                                <div class="event-date">Febrero 18</div>
+                                <h3 class="event-title">Gafas OrCam para Discapacidad Visual</h3>
+                            </div>
+                        </div>
+                        <div class="event-content">
+                            <p>La Universidad adquirió gafas ORCAM para personas con discapacidad visual, con un costo de $4,166.40.</p>
+                        </div>
+                        <div class="event-source"><a href="https://www.uce.edu.ec/archive_noticias?artID=790383" target="_blank">https://www.uce.edu.ec/archive_noticias?artID=790383</a></div>
+                    </div>
+                    
+                    <div class="event-card">
+                        <div class="event-header">
+                            <div class="event-icon">
+                                <i class="material-icons">coronavirus</i>
+                            </div>
+                            <div>
+                                <div class="event-date">Abril 13</div>
+                                <h3 class="event-title">Software para Contención COVID-19</h3>
+                            </div>
+                        </div>
+                        <div class="event-content">
+                            <p>La Universidad empezó a trabajar en un software para la contención del Covid-19. Un grupo interdisciplinario de docentes investigadores trabaja en la creación de una plataforma informática con georreferenciación, como herramienta para controlar el problema epidemiológico.</p>
+                        </div>
+                        <div class="event-source"><a href="https://www.uce.edu.ec/archive_noticias?artID=870387" target="_blank">https://www.uce.edu.ec/archive_noticias?artID=870387</a></div>
+                    </div>
+                    
+                    <div class="event-card">
+                        <div class="event-header">
+                            <div class="event-icon">
+                                <i class="material-icons">science</i>
+                            </div>
+                            <div>
+                                <div class="event-date">Mayo 14</div>
+                                <h3 class="event-title">Proyecto Fislab para Clases Virtuales</h3>
+                            </div>
+                        </div>
+                        <div class="event-content">
+                            <p>El Centro de Física de la Universidad Central del Ecuador habilitó el proyecto Fislab para uso de estudiantes y docentes que iniciarán clases virtuales debido a la pandemia del COVID-19.</p>
+                        </div>
+                        <div class="event-source"><a href="https://www.uce.edu.ec/archive_noticias?artID=934347" target="_blank">https://www.uce.edu.ec/archive_noticias?artID=934347</a></div>
+                    </div>
+                    
+                    <div class="event-card">
+                        <div class="event-header">
+                            <div class="event-icon">
+                                <i class="material-icons">computer</i>
+                            </div>
+                            <div>
+                                <div class="event-date">Junio 8</div>
+                                <h3 class="event-title">Inicio de Clases Virtuales</h3>
+                            </div>
+                        </div>
+                        <div class="event-content">
+                            <p>Se dio inicio al segundo hemisemestre del periodo académico en modalidad virtual debido a la pandemia de Covid-19.</p>
+                        </div>
+                        <div class="event-source">CALENDARIOACADEMICO2020-2020.pdf</div>
+                    </div>
+                    
+                    <div class="event-card">
+                        <div class="event-header">
+                            <div class="event-icon">
+                                <i class="material-icons">router</i>
+                            </div>
+                            <div>
+                                <div class="event-date">Agosto 19</div>
+                                <h3 class="event-title">Donación de 300 Modems</h3>
+                            </div>
+                        </div>
+                        <div class="event-content">
+                            <p>La Universidad recibió una donación de 300 modems para ayudar a estudiantes de escasos recursos durante la pandemia.</p>
+                        </div>
+                        <div class="event-source"><a href="https://www.uce.edu.ec/archive_noticias?artID=1088343" target="_blank">https://www.uce.edu.ec/archive_noticias?artID=1088343</a></div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 2021 -->
+            <div class="year-section" id="year-2021">
+                <div class="year-title">
+                    <i class="material-icons">calendar_today</i> 2021
+                </div>
+                
+                <div class="events-container">
+                    <div class="event-card">
+                        <div class="event-header">
+                            <div class="event-icon">
+                                <i class="material-icons">library_books</i>
+                            </div>
+                            <div>
+                                <div class="event-date">Enero 15</div>
+                                <h3 class="event-title">Presentación Revista Cátedra</h3>
+                            </div>
+                        </div>
+                        <div class="event-content">
+                            <p>Mediante una reunión virtual en zoom, se presentó la revista Cátedra por parte de la Facultad de Filosofía, Letras y Ciencias de la Educación.</p>
+                        </div>
+                        <div class="event-source"><a href="https://www.uce.edu.ec/archive_noticias?artID=1364440" target="_blank">https://www.uce.edu.ec/archive_noticias?artID=1364440</a></div>
+                    </div>
+                    
+                    <div class="event-card">
+                        <div class="event-header">
+                            <div class="event-icon">
+                                <i class="material-icons">biotech</i>
+                            </div>
+                            <div>
+                                <div class="event-date">Enero 28</div>
+                                <h3 class="event-title">Nuevos Equipos FIGEMPA</h3>
+                            </div>
+                        </div>
+                        <div class="event-content">
+                            <p>FIGEMPA incluyó nuevos equipos en su laboratorio, con un monto invertido de 800 mil dólares.</p>
+                        </div>
+                        <div class="event-source"><a href="https://www.uce.edu.ec/archive_noticias?artID=1380363" target="_blank">https://www.uce.edu.ec/archive_noticias?artID=1380363</a></div>
+                    </div>
+                    
+                    <div class="event-card">
+                        <div class="event-header">
+                            <div class="event-icon">
+                                <i class="material-icons">precision_manufacturing</i>
+                            </div>
+                            <div>
+                                <div class="event-date">Abril 22</div>
+                                <h3 class="event-title">Prototipos de Diseño Industrial</h3>
+                            </div>
+                        </div>
+                        <div class="event-content">
+                            <p>Estudiantes de la Carrera de Ingeniería en Diseño Industrial presentaron 6 prototipos de máquinas para actividades agrícolas: cosechadora de algodón, sistema de refrigeración, lavadoras de hortalizas, coche para consumo responsable, picadora-moledora y trasplantadora de semillas.</p>
+                        </div>
+                        <div class="event-source"><a href="https://www.uce.edu.ec/archive_noticias?artID=1554345" target="_blank">https://www.uce.edu.ec/archive_noticias?artID=1554345</a></div>
+                    </div>
+                    
+                    <div class="event-card">
+                        <div class="event-header">
+                            <div class="event-icon">
+                                <i class="material-icons">medical_services</i>
+                            </div>
+                            <div>
+                                <div class="event-date">Junio 3</div>
+                                <h3 class="event-title">Simuladores para Educación Médica</h3>
+                            </div>
+                        </div>
+                        <div class="event-content">
+                            <p>En conjunto con la Agencia de Cooperación Internacional del Japón (JICA) y la Corporación Kyoto Kagaku Co. Ltd, se implantaron simuladores para la educación médica y ambientes realistas de actividades.</p>
+                        </div>
+                        <div class="event-source"><a href="https://www.uce.edu.ec/archive_noticias?artID=1636355" target="_blank">https://www.uce.edu.ec/archive_noticias?artID=1636355</a></div>
+                    </div>
+                    
+                    <div class="event-card">
+                        <div class="event-header">
+                            <div class="event-icon">
+                                <i class="material-icons">storage</i>
+                            </div>
+                            <div>
+                                <div class="event-date">Diciembre 11</div>
+                                <h3 class="event-title">Adquisición de Servidores Hiperconvergentes</h3>
+                            </div>
+                        </div>
+                        <div class="event-content">
+                            <p>Se reporta una adquisición de servidores para el DataCenter en una solución de hiperconvergencia.</p>
+                        </div>
+                        <div class="event-source">compraspublicas.gob.ec/ProcesoContratacion/compras/PC/informacionProcesoContratacion2.cpe?idSoliCompra=Clfqg7C05JcvvRn8Md3ohnFGvzePxOnM5mbqnA10W89Y.#</div>
+                    </div>
+                    
+                    <div class="event-card">
+                        <div class="event-header">
+                            <div class="event-icon">
+                                <i class="material-icons">cable</i>
+                            </div>
+                            <div>
+                                <div class="event-date">Diciembre 31</div>
+                                <h3 class="event-title">Cableado para Facultad de Economía</h3>
+                            </div>
+                        </div>
+                        <div class="event-content">
+                            <p>La Facultad de Ciencias Económicas verificó el proceso de "adquisición, instalación, configuración e implementación de cableado estructurado, fibra óptica y equipos de conectividad" para la facultad.</p>
+                        </div>
+                        <div class="event-source">AVISO-DE-CONTRATACION-PUBLICA-PREVISTA-FACULTAD-DE-ECONOMIA-1-signed.pdf</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 2022 -->
+            <div class="year-section" id="year-2022">
+                <div class="year-title">
+                    <i class="material-icons">calendar_today</i> 2022
+                </div>
+                
+                <div class="events-container">
+                    <div class="event-card">
+                        <div class="event-header">
+                            <div class="event-icon">
+                                <i class="material-icons">school</i>
+                            </div>
+                            <div>
+                                <div class="event-date">Junio</div>
+                                <h3 class="event-title">Retorno Progresivo a Clases</h3>
+                            </div>
+                        </div>
+                        <div class="event-content">
+                            <p>Retorno progresivo a clase y modelo híbrido. Luego del periodo de virtualidad total, la universidad inició un retorno progresivo a la presencialidad, apoyado fuertemente por la tecnología.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="event-card">
+                        <div class="event-header">
+                            <div class="event-icon">
+                                <i class="material-icons">forum</i>
+                            </div>
+                            <div>
+                                <div class="event-date">Junio 30</div>
+                                <h3 class="event-title">Diálogo Nacional de Ecuador</h3>
+                            </div>
+                        </div>
+                        <div class="event-content">
+                            <p>La UCE participó activamente en el proceso de Diálogo Nacional de Ecuador, aportando profesionales y facilidades académicas para mesas técnicas entre el Gobierno y organizaciones sociales.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="event-card">
+                        <div class="event-header">
+                            <div class="event-icon">
+                                <i class="material-icons">train</i>
+                            </div>
+                            <div>
+                                <div class="event-date">Diciembre 21</div>
+                                <h3 class="event-title">Estación "Universidad Central" del Metro</h3>
+                            </div>
+                        </div>
+                        <div class="event-content">
+                            <p>Se inauguró la estación "Universidad Central" del Metro de Quito, facilitando el acceso directo al campus principal de la UCE, aunque su operación comercial comenzó plenamente en 2023.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="event-card">
+                        <div class="event-header">
+                            <div class="event-icon">
+                                <i class="material-icons">handshake</i>
+                            </div>
+                            <div>
+                                <div class="event-date">Diciembre</div>
+                                <h3 class="event-title">Convenios Académicos y Culturales</h3>
+                            </div>
+                        </div>
+                        <div class="event-content">
+                            <p>Se concretaron convenios con el Consejo Nacional Electoral y la Orquesta Sinfónica Nacional del Ecuador, ampliando la cooperación en ámbitos de formación, cultura y práctica profesional.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 2023 -->
+            <div class="year-section" id="year-2023">
+                <div class="year-title">
+                    <i class="material-icons">calendar_today</i> 2023
+                </div>
+                
+                <div class="events-container">
+                    <div class="event-card">
+                        <div class="event-header">
+                            <div class="event-icon">
+                                <i class="material-icons">emoji_events</i>
+                            </div>
+                            <div>
+                                <div class="event-date">Enero</div>
+                                <h3 class="event-title">Postulación Premio UNESCO</h3>
+                            </div>
+                        </div>
+                        <div class="event-content">
+                            <p>El Ministerio de Relaciones Exteriores del Ecuador postuló a la UCE al Premio UNESCO Rey Hamad Bin Isa Al-Khalifa, por el uso de tecnologías de información y comunicación en la educación, especialmente por su plataforma de educación en línea desarrollada tras la pandemia y la capacitación de docentes.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="event-card">
+                        <div class="event-header">
+                            <div class="event-icon">
+                                <i class="material-icons">groups</i>
+                            </div>
+                            <div>
+                                <div class="event-date">Enero</div>
+                                <h3 class="event-title">Proyectos de Vinculación con la Sociedad</h3>
+                            </div>
+                        </div>
+                        <div class="event-content">
+                            <p>Se presentó una serie de proyectos de vinculación con la Sociedad que fortalecen la relación de la universidad con comunidades locales y sectores sociales.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="event-card">
+                        <div class="event-header">
+                            <div class="event-icon">
+                                <i class="material-icons">online_prediction</i>
+                            </div>
+                            <div>
+                                <div class="event-date">Mayo</div>
+                                <h3 class="event-title">Capacitación Docente en Entornos Digitales</h3>
+                            </div>
+                        </div>
+                        <div class="event-content">
+                            <p>70 docentes del Instituto Académico de Idiomas UCE recibieron certificación como tutores virtuales tras un curso avanzado en herramientas tecnológicas para enseñanza en línea.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="event-card">
+                        <div class="event-header">
+                            <div class="event-icon">
+                                <i class="material-icons">commute</i>
+                            </div>
+                            <div>
+                                <div class="event-date">Diciembre 1</div>
+                                <h3 class="event-title">Servicios Completos del Metro</h3>
+                            </div>
+                        </div>
+                        <div class="event-content">
+                            <p>Los servicios completos de ingresos en el metro de Quito finalmente comenzaron el 1 de diciembre. Estación de Metro activa y beneficios logísticos.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 2024 -->
+            <div class="year-section" id="year-2024">
+                <div class="year-title">
+                    <i class="material-icons">calendar_today</i> 2024
+                </div>
+                
+                <div class="events-container">
+                    <div class="event-card">
+                        <div class="event-header">
+                            <div class="event-icon">
+                                <i class="material-icons">psychology</i>
+                            </div>
+                            <div>
+                                <div class="event-date">Enero - Junio</div>
+                                <h3 class="event-title">Actualización Evaluativa por IA</h3>
+                            </div>
+                        </div>
+                        <div class="event-content">
+                            <p>Ante el uso masivo de IA (87% de estudiantes), la UCE migra sus modelos de evaluación hacia el Aprendizaje Basado en Proyectos (ABP) y defensas orales.</p>
+                        </div>
+                        <div class="event-source"><a href="https://revistadigital.uce.edu.ec/index.php/CATEDRA/article/view/6621" target="_blank">Estudio sobre Implementación de IA en la UCE</a></div>
+                    </div>
+                    
+                    <div class="event-card">
+                        <div class="event-header">
+                            <div class="event-icon">
+                                <i class="material-icons">cloud_upload</i>
+                            </div>
+                            <div>
+                                <div class="event-date">Agosto</div>
+                                <h3 class="event-title">Migración Cloud</h3>
+                            </div>
+                        </div>
+                        <div class="event-content">
+                            <p>La DTIC ejecuta la migración crítica de infraestructura de correo y servicios en la nube para garantizar seguridad y soporte de modalidades híbridas.</p>
+                        </div>
+                        <div class="event-source"><a href="https://www.uce.edu.ec/web/dtic" target="_blank">Servicios de Red e Infraestructura - DTIC</a></div>
+                    </div>
+                    
+                    <div class="event-card">
+                        <div class="event-header">
+                            <div class="event-icon">
+                                <i class="material-icons">compute</i>
+                            </div>
+                            <div>
+                                <div class="event-date">Octubre</div>
+                                <h3 class="event-title">Potencia de Cómputo para Ingeniería Química</h3>
+                            </div>
+                        </div>
+                        <div class="event-content">
+                            <p>Consolidación de nuevas workstations de alto rendimiento en Ingeniería Química para simulación científica compleja.</p>
+                        </div>
+                        <div class="event-source"><a href="https://www.uce.edu.ec/archive_noticias?artID=3693355" target="_blank">Consolidación Académica Facultad Ing. Química</a></div>
+                    </div>
+                    
+                    <div class="event-card">
+                        <div class="event-header">
+                            <div class="event-icon">
+                                <i class="material-icons">location_city</i>
+                            </div>
+                            <div>
+                                <div class="event-date">Diciembre</div>
+                                <h3 class="event-title">Expansión Territorial - Nuevas Sedes</h3>
+                            </div>
+                        </div>
+                        <div class="event-content">
+                            <p>Inicio formal de proyectos tecnológicos para las sedes Cayambe y Santo Domingo, diseñando la conectividad desde la matriz.</p>
+                        </div>
+                        <div class="event-source"><a href="https://www.youtube.com/watch?v=UdRYRr3c4jw" target="_blank">Planificación Sedes Provinciales - Rendición de Cuentas</a></div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 2025 -->
+            <div class="year-section" id="year-2025">
+                <div class="year-title">
+                    <i class="material-icons">calendar_today</i> 2025
+                </div>
+                
+                <div class="events-container">
+                    <div class="event-card">
+                        <div class="event-header">
+                            <div class="event-icon">
+                                <i class="material-icons">data_object</i>
+                            </div>
+                            <div>
+                                <div class="event-date">Marzo</div>
+                                <h3 class="event-title">Ciencia de Datos e IA en Santo Domingo</h3>
+                            </div>
+                        </div>
+                        <div class="event-content">
+                            <p>Sede Santo Domingo: Lanzamiento de la nueva malla curricular y laboratorios especializados para la Licenciatura en Ciencia de Datos e Inteligencia Artificial.</p>
+                        </div>
+                        <div class="event-source"><a href="https://ucentral.org/informativo/index.php/facultad-de-ciencias/icdia/" target="_blank">Oferta Académica: Ingeniería en Ciencia de Datos e IA</a></div>
+                    </div>
+                    
+                    <div class="event-card">
+                        <div class="event-header">
+                            <div class="event-icon">
+                                <i class="material-icons">verified</i>
+                            </div>
+                            <div>
+                                <div class="event-date">Junio</div>
+                                <h3 class="event-title">Validación Académica</h3>
+                            </div>
+                        </div>
+                        <div class="event-content">
+                            <p>Publicación en Revista Cátedra sobre el desarrollo de competencias investigativas mediante IA como asistente avanzado.</p>
+                        </div>
+                        <div class="event-source"><a href="https://revistadigital.uce.edu.ec/index.php/CATEDRA/issue/view/744" target="_blank">Revista Cátedra - Vol. 8 Núm. 1 (Publicación 2025)</a></div>
+                    </div>
+                    
+                    <div class="event-card">
+                        <div class="event-header">
+                            <div class="event-icon">
+                                <i class="material-icons">apartment</i>
+                            </div>
+                            <div>
+                                <div class="event-date">Julio</div>
+                                <h3 class="event-title">Hito Santo Domingo - Aprobación Oficial</h3>
+                            </div>
+                        </div>
+                        <div class="event-content">
+                            <p>Aprobación oficial de la sede Santo Domingo (Res. 0178-2025). Implementación de aulas híbridas conectadas para los primeros 150 estudiantes.</p>
+                        </div>
+                        <div class="event-source"><a href="https://www.uce.edu.ec/archive_noticias?artID=4075470" target="_blank">Aprobación Campus Santo Domingo y Cayambe (Boletín)</a></div>
+                    </div>
+                    
+                    <div class="event-card">
+                        <div class="event-header">
+                            <div class="event-icon">
+                                <i class="material-icons">cast_for_education</i>
+                            </div>
+                            <div>
+                                <div class="event-date">Septiembre</div>
+                                <h3 class="event-title">Docencia 4.0 - Seminario de Innovación Pedagógica</h3>
+                            </div>
+                        </div>
+                        <div class="event-content">
+                            <p>Seminario de Innovación Pedagógica. Los docentes integran IA Generativa (Notion, Gemini) y podcasts en el diseño curricular.</p>
+                        </div>
+                        <div class="event-source"><a href="https://dda.uce.edu.ec/3_ia_innovacion_pedag/" target="_blank">III Seminario IA Generativa - Dirección Desarrollo Académico</a></div>
+                    </div>
+                    
+                    <div class="event-card">
+                        <div class="event-header">
+                            <div class="event-icon">
+                                <i class="material-icons">agriculture</i>
+                            </div>
+                            <div>
+                                <div class="event-date">Noviembre</div>
+                                <h3 class="event-title">Smart Farming Cayambe</h3>
+                            </div>
+                        </div>
+                        <div class="event-content">
+                            <p>Firma de alianza para la sede Cayambe. Implementación de infraestructura de red para Agronomía con enfoque en Smart Farming.</p>
+                        </div>
+                        <div class="event-source"><a href="https://dda.uce.edu.ec/nb/archive_noticias?artID=4345558" target="_blank">Hito Histórico: Espacio Físico Campus Cayambe</a></div>
+                    </div>
+                    
+                    <div class="event-card">
+                        <div class="event-header">
+                            <div class="event-icon">
+                                <i class="material-icons">water_drop</i>
+                            </div>
+                            <div>
+                                <div class="event-date">Diciembre</div>
+                                <h3 class="event-title">Posgrado Tecnológico</h3>
+                            </div>
+                        </div>
+                        <div class="event-content">
+                            <p>Presentación del Doctorado en Gestión Sostenible del Agua, utilizando modelado de datos y simulación de última generación.</p>
+                        </div>
+                        <div class="event-source"><a href="https://www.uce.edu.ec/archive_noticias?artID=4075470" target="_blank">Anuncio Encuentro Nacional Recursos Hídricos y Posgrado</a></div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 2026 -->
+            <div class="year-section" id="year-2026">
+                <div class="year-title">
+                    <i class="material-icons">calendar_today</i> 2026
+                </div>
+                
+                <div class="events-container">
+                    <div class="event-card">
+                        <div class="event-header">
+                            <div class="event-icon">
+                                <i class="material-icons">psychology</i>
+                            </div>
+                            <div>
+                                <div class="event-date">Enero</div>
+                                <h3 class="event-title">IA como Eje Transversal</h3>
+                            </div>
+                        </div>
+                        <div class="event-content">
+                            <p>Lanzamiento del curso masivo "Alfabetización en Inteligencia Artificial" (Boletín 253). La IA se declara obligatoria para administrativos, docentes y estudiantes.</p>
+                        </div>
+                        <div class="event-source"><a href="https://repositorio.uce.edu.ec/archivos/jmsalazara/Boletines/2026/Enero_/No._253_Capacitaci%C3%B3n_IA.pdf" target="_blank">Boletín de Prensa No. 253 - Curso Masivo IA (PDF)</a></div>
+                    </div>
+                    
+                    <div class="event-card">
+                        <div class="event-header">
+                            <div class="event-icon">
+                                <i class="material-icons">workspace_premium</i>
+                            </div>
+                            <div>
+                                <div class="event-date">Febrero</div>
+                                <h3 class="event-title">Productividad Académica con IA</h3>
+                            </div>
+                        </div>
+                        <div class="event-content">
+                            <p>Despliegue de herramientas de productividad (Copilot, Gemini) con enfoque en ética y eficiencia en toda la comunidad universitaria.</p>
+                        </div>
+                        <div class="event-source"><a href="https://www.uce.edu.ec/archive_noticias?artID=4409627" target="_blank">Lanzamiento Oficial Eje Estratégico IA 2026</a></div>
+                    </div>
+                    
+                    <div class="event-card">
+                        <div class="event-header">
+                            <div class="event-icon">
+                                <i class="material-icons">summarize</i>
+                            </div>
+                            <div>
+                                <div class="event-date">2026</div>
+                                <h3 class="event-title">El Cimiento Digital: Infraestructura Crítica y Adaptación</h3>
+                            </div>
+                        </div>
+                        <div class="event-content">
+                            <p>Una década de transformación tecnológica que muestra cómo la inversión en infraestructura crítica permitió a la UCE adaptarse a cambios disruptivos, desde el terremoto de 2016 y la pandemia COVID-19 hasta la integración de inteligencia artificial en todos los procesos académicos y administrativos.</p>
+                        </div>
+                        <div class="event-source"><a href="https://ldrv.ms/w/c/f73b3b9d89ee082b/lQAcrwwl8A9ERLduOEd7QeFTAQ_ceVxByOJxNMMqgMuzzfs?e=SpYyZE" target="_blank">Informe Completo y Detallado</a></div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </main>
+
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="footer-logo">UCE<span>TECH</span></div>
+            <p class="footer-info">Proyecto de investigación sobre la evolución tecnológica en la Universidad Central del Ecuador durante el período 2016-2026. Documentación histórica de infraestructura, transformación digital e innovación educativa.</p>
+            
+            <div style="margin: 30px 0;">
+                <a href="#home" class="btn" style="background: rgba(255,255,255,0.2); color: white; margin: 5px;">
+                    <i class="material-icons">arrow_upward</i> Volver al inicio
+                </a>
+                <a href="#team" class="btn" style="background: rgba(255,255,255,0.2); color: white; margin: 5px;">
+                    <i class="material-icons">groups</i> Equipo
+                </a>
+            </div>
+            
+            <div class="footer-copyright">
+                <p>&copy; 2026 Universidad Central del Ecuador - Facultad de Ingeniería, Ciencias Físicas y Matemática</p>
+                <p>Ingeniería en Sistemas de Información | Infraestructura II | SI5-001 | Tecnología en la UCE 2025-2026</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Scroll animation
+        document.addEventListener('DOMContentLoaded', function() {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, observerOptions);
+            
+            // Observe all event cards and year sections
+            document.querySelectorAll('.event-card, .year-section').forEach(el => {
+                observer.observe(el);
+            });
+            
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
