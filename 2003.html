@@ -3,37 +3,152 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Año 2003 - UCE</title>
+    <title>Año 2003: Conexión RedCLARA - UCE</title>
+    <script src="https://unpkg.com/lucide@latest"></script>
     <link rel="stylesheet" href="style.css">
     <style>
-        .academic-source { background-color: #e8f5e9; border-left: 5px solid #2e7d32; padding: 15px; margin: 20px 0; font-style: italic; }
+        /* Estilo para la cita académica */
+        .source-box {
+            background-color: #e8f5e9;
+            border-left: 5px solid #2e7d32;
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 5px;
+            font-style: italic;
+            color: #2e7d32;
+        }
+        .source-title {
+            font-weight: bold;
+            font-style: normal;
+            display: block;
+            margin-bottom: 10px;
+            color: #1b5e20;
+        }
+        
+        /* Tabla técnica mejorada */
+        .tech-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            font-size: 0.95rem;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+        }
+        .tech-table th, .tech-table td {
+            padding: 15px;
+            border: 1px solid #e0e0e0;
+            text-align: left;
+        }
+        .tech-table th {
+            background-color: var(--primary);
+            color: white;
+            font-weight: 600;
+            width: 30%;
+        }
+        .tech-table tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
     </style>
 </head>
 <body>
-    <header style="padding: 1rem;"><h3>Historia Tecnológica UCE</h3></header>
-    <div class="content-container">
-        <a href="index.html" class="btn-back">← Volver al Menú</a>
-        <h1 class="year-title">2003: La Primera Conexión a RedCLARA</h1>
 
-        <p class="intro-text">Tras la fundación de CEDIA el año anterior, el 2003 fue el año de la <strong>operativización</strong>. La Universidad Central logró su primer enlace estable para investigación, conectándose a la Cooperación Latinoamericana de Redes Avanzadas (RedCLARA).</p>
+    <header style="background: linear-gradient(135deg, var(--primary) 0%, #001a4d 100%);">
+        <h1>Año 2003</h1>
+        <p>Operativización y Radioenlaces</p>
+    </header>
 
-        <div class="academic-source">
-            <h4>📜 Fuente: Gaceta Universitaria (2003)</h4>
-            <p>"Se informa al Honorable Consejo Universitario sobre la instalación exitosa del nodo de conexión en la Facultad de Ingeniería, permitiendo por primera vez el tráfico de datos académicos diferenciado del tráfico comercial."</p>
-        </div>
-
-        <h3>Infraestructura: El Enlace de Microondas</h3>
-        <p>Antes de la fibra óptica masiva, la conexión inicial se realizó mediante enlaces de radioenlace y microondas hacia el nodo central de CEDIA.</p>
-        <table class="tech-table">
-            <tr><th>Tecnología</th><th>Detalle</th></tr>
-            <tr><td>Ancho de Banda</td><td>2 Mbps (Un salto gigante frente a los 256 kbps anteriores)</td></tr>
-            <tr><td>Protocolo</td><td>IPv4 (Inicio de pruebas experimentales con IPv6)</td></tr>
-        </table>
+    <div class="page-content">
         
-        <div style="text-align: center; margin: 30px 0;">
-            <img src="antena2003.jpg" alt="Antena de radioenlace antigua" class="evidence-photo">
-            <p style="font-size: 0.9rem; color: #666;">Figura 1: Infraestructura de radioenlace utilizada antes de la fibra soterrada.</p>
+        <a href="periodo_2001_2015.html" class="btn-back">
+            ← Volver al Periodo 2001-2015
+        </a>
+
+        <h1 class="year-title" style="margin-top: 20px;">2003: La Primera Conexión a RedCLARA</h1>
+
+        <p class="intro-text">
+            Tras la fundación de CEDIA el año anterior, el 2003 fue el año de la <strong>operativización</strong>. 
+            Mientras la infraestructura física de la ciudad aún era precaria, la Universidad Central logró su primer enlace estable para investigación, 
+            conectándose exitosamente a la <strong>Cooperación Latinoamericana de Redes Avanzadas (RedCLARA)</strong>.
+        </p>
+
+        <div class="source-box">
+            <span class="source-title"><i data-lucide="scroll-text" style="vertical-align: middle; margin-right: 5px;"></i> Fuente Histórica: Gaceta Universitaria (2003)</span>
+            "Se informa al Honorable Consejo Universitario sobre la instalación exitosa del nodo de conexión en la Facultad de Ingeniería, 
+            permitiendo por primera vez el tráfico de datos académicos diferenciado del tráfico comercial, abriendo las puertas a la investigación colaborativa regional."
         </div>
+
+        <h3>1. El Desafío de la "Última Milla": Radioenlaces</h3>
+        <p>
+            En 2003, el soterramiento de fibra óptica en Quito era limitado y costoso. Para superar este obstáculo físico y conectar el campus 
+            con el nodo central de CEDIA (ubicado estratégicamente en la ciudad), la universidad implementó una solución basada en <strong>Microondas</strong>.
+        </p>
+        <p>
+            Se instalaron antenas de radioenlace en los edificios más altos del campus (Administración y Facultad de Ingeniería), creando un "puente aéreo" de datos 
+            que evitaba depender del cableado de cobre telefónico de la calle.
+        </p>
+
+        <div style="text-align: center; margin: 40px 0;">
+            <img src="antena2003.jpg" alt="Infraestructura de radioenlace UCE 2003" style="max-width: 100%; border-radius: 8px; box-shadow: 0 10px 20px rgba(0,0,0,0.15);">
+            <p style="font-size: 0.9rem; color: #666; font-style: italic; margin-top: 10px;">Figura 1: Antenas de microondas utilizadas para el enlace troncal antes de la fibra óptica masiva.</p>
+        </div>
+
+        <h3>2. Ficha Técnica del Enlace (2003)</h3>
+        <p>
+            Aunque hoy parezca modesto, el salto técnico fue gigantesco para la época, multiplicando casi por diez la velocidad efectiva disponible para los investigadores.
+        </p>
+
+        <table class="tech-table">
+            <tr>
+                <th>Tecnología</th>
+                <th>Detalle Técnico</th>
+            </tr>
+            <tr>
+                <td><strong>Tipo de Conexión</strong></td>
+                <td>Radioenlace Punto a Punto (Microondas)</td>
+            </tr>
+            <tr>
+                <td><strong>Ancho de Banda</strong></td>
+                <td><strong>2 Mbps Dedicados</strong> (Un salto gigante frente a los 256 kbps compartidos del 2001)</td>
+            </tr>
+            <tr>
+                <td><strong>Protocolo</strong></td>
+                <td>IPv4 nativo (Con inicio de pruebas experimentales de túneles IPv6)</td>
+            </tr>
+            <tr>
+                <td><strong>Uso Principal</strong></td>
+                <td>Acceso a bibliotecas digitales internacionales y correo institucional para docentes</td>
+            </tr>
+        </table>
+
+        <h3>3. Impacto en la Investigación</h3>
+        <p>
+            Esta conexión permitió a la Facultad de Ciencias Médicas y a la de Ingeniería descargar por primera vez <em>papers</em> científicos completos 
+            sin que la red se cayera, marcando el inicio real de la <strong>biblioteca virtual</strong> universitaria.
+        </p>
+
+        <hr style="margin: 40px 0; border: 0; border-top: 1px solid #eee;">
+
+        <div style="font-size: 0.9rem; color: #555;">
+            <strong>Referencias:</strong>
+            <ul style="margin-top: 5px; padding-left: 20px;">
+                <li>Archivo de la Dirección de Tecnologías (DTIC) - Informes 2003.</li>
+                <li>RedCLARA - Hitos de conectividad en la Región Andina.</li>
+            </ul>
+        </div>
+
     </div>
+
+    <footer>
+        <div class="footer-content">
+            <p><strong>© 2026 Universidad Central del Ecuador</strong> - Facultad de Ingeniería, Ciencias Físicas y Matemática</p>
+            <p class="footer-details">
+                Ingeniería en Sistemas de Información | Infraestructura II | SI5-001 | Tecnología en la UCE 2025-2026
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        if(typeof lucide !== 'undefined') lucide.createIcons();
+    </script>
+
 </body>
 </html>
