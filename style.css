@@ -56,18 +56,38 @@ header p {
 
 /* Contenedor Principal */
 .main-container {
-    max-width: 1200px;
-    margin: 0 auto;
+    max-width: 1200px; /* Ancho máximo amplio */
+    width: 90%;        /* Ocupa el 90% de la pantalla */
+    margin: 0 auto;    /* Centrado */
     padding: 0 20px;
-    flex: 1; /* Empuja el footer hacia abajo */
+    flex: 1;
 }
 
-/* LA REJILLA DE LOS 5 BOTONES */
+/* --- LA REJILLA DE LOS BOTONES (Actualizado) --- */
 .dashboard-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
+    /* Esto crea columnas automáticas de mínimo 250px. 
+       Si tu pantalla es ancha, cabrán 3 o 4 en fila. */
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); 
+    gap: 30px; /* Espacio entre tarjetas */
     padding-bottom: 50px;
+    justify-content: center; /* Centrar todo el bloque */
+}
+
+/* --- AJUSTE PARA PANTALLAS GIGANTES (PC) --- */
+@media (min-width: 1000px) {
+    .dashboard-grid {
+        /* Fuerza 3 columnas exactas en computadoras grandes para que se vea ordenado */
+        grid-template-columns: repeat(3, 1fr); 
+    }
+}
+
+/* --- AJUSTE PARA MÓVILES (Celular) --- */
+@media (max-width: 600px) {
+    .dashboard-grid {
+        /* En celular sí queremos 1 sola columna para que se lea bien */
+        grid-template-columns: 1fr; 
+    }
 }
 
 /* TARJETAS DEL MENÚ */
