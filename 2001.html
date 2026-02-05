@@ -4,21 +4,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Año 2001: La Era Analógica - UCE</title>
+    <script src="https://unpkg.com/lucide@latest"></script>
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Estilos específicos para la tabla de este año */
+        .tech-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            font-size: 0.95rem;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+        }
+        .tech-table th, .tech-table td {
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        .tech-table th {
+            background-color: var(--primary);
+            color: white;
+            font-weight: 600;
+        }
+        .tech-table tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+    </style>
 </head>
 <body>
 
-    <header style="padding: 1rem;">
-        <h3>Historia Tecnológica UCE</h3>
+    <header style="background: linear-gradient(135deg, var(--primary) 0%, #001a4d 100%);">
+        <h1>Año 2001</h1>
+        <p>La Era de la Conectividad Limitada</p>
     </header>
 
-    <div class="content-container">
-        <a href="index.html" class="btn-back">← Volver al Menú Principal</a>
+    <div class="page-content">
+        
+        <a href="periodo_2001_2015.html" class="btn-back">
+            ← Volver al Periodo 2001-2015
+        </a>
 
-        <h1 class="year-title">Año 2001: La Era de la Conectividad Limitada</h1>
+        <h1 class="year-title" style="margin-top: 20px; color: var(--primary);">Año 2001: El "Punto Cero" Digital</h1>
 
         <p class="intro-text">
-            El año 2001 representa el "punto cero" de la brecha digital en la universidad pública. 
+            El año 2001 representa el inicio de la brecha digital en la universidad pública. 
             Mientras el mundo avanzaba hacia la banda ancha, la <strong>Universidad Central del Ecuador</strong> operaba bajo un modelo de 
             "islas informáticas", con recursos desconectados y una fuerte dependencia de la infraestructura telefónica básica.
         </p>
@@ -28,16 +56,17 @@
             En este año, la universidad no poseía fibra óptica propia. La conexión a internet era un servicio de lujo reservado 
             para autoridades y laboratorios muy específicos de la Facultad de Ingeniería y Administración.
         </p>
-        <ul style="line-height: 1.8; color: #444;">
+        
+        <ul style="background: #f4f7f6; padding: 20px 40px; border-radius: 8px; border-left: 4px solid var(--secondary);">
             <li><strong>Proveedor Principal:</strong> Andinatel S.A. (Empresa estatal de telefonía).</li>
             <li><strong>Tecnología:</strong> Enlaces de cobre (pares telefónicos) y módems de <em>Dial-up</em> (56 kbps) para oficinas.</li>
             <li><strong>Ancho de Banda Institucional:</strong> Se estima que toda la universidad compartía un canal que no superaba los <strong>256 kbps a 512 kbps</strong>.</li>
             <li><strong>Proveedores Satelitales:</strong> Algunas facultades contrataban servicios privados con <em>Ecuanet</em> o <em>Satnet</em> para evitar la congestión de la red estatal.</li>
         </ul>
 
-        <div style="text-align: center; margin: 30px 0;">
-             <img src="red2001.jpg" alt="Diagrama de red antigua o modem" class="evidence-photo">
-            <p style="font-size: 0.9rem; color: #666; font-style: italic;">Figura 1: Esquema de conexión vía par de cobre (tecnología predominante en 2001).</p>
+        <div style="text-align: center; margin: 40px 0;">
+             <img src="red2001.jpg" alt="Módem de 56k y cables de cobre" style="max-width: 100%; border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.15);">
+            <p style="font-size: 0.9rem; color: #666; font-style: italic; margin-top: 10px;">Figura 1: La tecnología de par de cobre limitaba la velocidad de conexión en 2001.</p>
         </div>
 
         <h3>2. El Parque Computacional (Hardware)</h3>
@@ -57,7 +86,7 @@
             </tr>
             <tr>
                 <td>Memoria RAM</td>
-                <td>64 MB a 128 MB (Megabytes, no Gigabytes)</td>
+                <td>64 MB a 128 MB (Megabytes)</td>
             </tr>
             <tr>
                 <td>Almacenamiento</td>
@@ -95,11 +124,11 @@
             marcando el fin de esta era de aislamiento digital.
         </p>
 
-        <hr style="margin: 40px 0; border: 0; border-top: 1px solid #ddd;">
+        <hr style="margin: 40px 0; border: 0; border-top: 1px solid #eee;">
 
-        <div style="background-color: #f9f9f9; padding: 20px; border-left: 5px solid var(--uce-blue);">
-            <h4 style="margin-top: 0;">Fuentes Consultadas:</h4>
-            <ul style="font-size: 0.9rem;">
+        <div style="background-color: #f8f9fa; padding: 20px; border-radius: 8px; font-size: 0.9rem; color: #555;">
+            <strong>Fuentes Consultadas:</strong>
+            <ul style="margin-top: 10px; padding-left: 20px;">
                 <li>Arcotel. (2015). <em>Evolución del Internet en Ecuador y proveedores históricos</em>.</li>
                 <li>Universidad Central del Ecuador. (2002). <em>Actas de Consejo Universitario: Informes de equipamiento</em>.</li>
                 <li>CEDIA. (2017). <em>Memoria Institucional: 15 años de historia</em>.</li>
@@ -107,6 +136,19 @@
         </div>
 
     </div>
+
+    <footer>
+        <div class="footer-content">
+            <p><strong>© 2026 Universidad Central del Ecuador</strong> - Facultad de Ingeniería, Ciencias Físicas y Matemática</p>
+            <p class="footer-details">
+                Ingeniería en Sistemas de Información | Infraestructura II | SI5-001 | Tecnología en la UCE 2025-2026
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        if(typeof lucide !== 'undefined') lucide.createIcons();
+    </script>
 
 </body>
 </html>
