@@ -54,7 +54,7 @@
             scrollbar-color: var(--col-blue) #e0e0e0;
         }
 
-        /* Línea Central - AUMENTADA para cubrir nuevos hitos */
+        /* Línea Central */
         .central-line {
             position: absolute;
             top: 50%;
@@ -69,7 +69,7 @@
         .timeline-wrapper {
             display: flex;
             align-items: center;
-            min-width: 4200px; /* Aumentado ancho total */
+            min-width: 4200px; /* Ancho suficiente para todos los hitos */
             position: relative;
             z-index: 2;
             padding-left: 80px;
@@ -164,12 +164,11 @@
             align-items: center;
             justify-content: center;
             transition: transform 0.3s ease, border-color 0.3s;
-            cursor: pointer; /* Manito al pasar el mouse */
+            cursor: pointer;
             position: relative;
-            z-index: 20; /* Asegurar que sea clickeable */
+            z-index: 20;
         }
         
-        /* Efecto al pasar el mouse sobre la foto */
         .card-img-wrapper:hover {
             transform: scale(1.1);
             border-color: var(--col-gold); 
@@ -181,25 +180,11 @@
             object-fit: cover;
         }
 
-        /* Enlace que envuelve la imagen */
-        .img-link {
-            display: block;
-            width: 100%;
-            height: 100%;
-        }
+        .img-link { display: block; width: 100%; height: 100%; }
 
         .event-card h3 { margin: 10px 0 5px 0; font-size: 1.1rem; color: #333; text-transform: uppercase; }
         .event-card p { font-size: 0.9rem; color: #666; line-height: 1.5; margin: 0; }
-        
-        /* Pequeño texto de ayuda en la tarjeta */
-        .click-hint {
-            font-size: 0.7rem;
-            color: #999;
-            margin-top: 8px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            display: block;
-        }
+        .click-hint { font-size: 0.7rem; color: #999; margin-top: 8px; text-transform: uppercase; letter-spacing: 1px; display: block; }
 
         /* --- ESTILOS POR ÉPOCA --- */
         .style-hist .event-card { border-top-color: var(--col-sepia); }
@@ -273,7 +258,7 @@
                 <div class="timeline-marker">1620</div>
                 <div class="event-card">
                     <div class="card-img-wrapper">
-                        <a href="1620.html" class="img-link">
+                        <a href="1620-1785.html" class="img-link">
                             <img src="images/1620.jpg" alt="1620" onerror="this.src='https://placehold.co/100x100?text=1620'">
                         </a>
                     </div>
@@ -287,7 +272,7 @@
                 <div class="timeline-marker">1754</div>
                 <div class="event-card">
                     <div class="card-img-wrapper">
-                        <a href="1754.html" class="img-link">
+                        <a href="1620-1785.html" class="img-link">
                             <img src="images/1754.jpg" alt="1754" onerror="this.src='https://placehold.co/100x100?text=Imprenta'">
                         </a>
                     </div>
@@ -300,7 +285,7 @@
                 <div class="timeline-marker">1836</div>
                 <div class="event-card">
                     <div class="card-img-wrapper">
-                        <a href="1836.html" class="img-link">
+                        <a href="1836-1901.html" class="img-link">
                             <img src="images/1836.jpg" alt="1836" onerror="this.src='https://placehold.co/100x100?text=Pizarra'">
                         </a>
                     </div>
@@ -313,7 +298,7 @@
                 <div class="timeline-marker">1870</div>
                 <div class="event-card">
                     <div class="card-img-wrapper">
-                        <a href="1870.html" class="img-link">
+                        <a href="1836-1901.html" class="img-link">
                             <img src="images/1870.jpg" alt="1870" onerror="this.src='https://placehold.co/100x100?text=Lab'">
                         </a>
                     </div>
@@ -326,7 +311,7 @@
                 <div class="timeline-marker">1902</div>
                 <div class="event-card">
                     <div class="card-img-wrapper">
-                        <a href="1902.html" class="img-link">
+                        <a href="1902-1929.html" class="img-link">
                             <img src="images/1902.jpg" alt="1902" onerror="this.src='https://placehold.co/100x100?text=Remington'">
                         </a>
                     </div>
@@ -339,7 +324,7 @@
                 <div class="timeline-marker">1945</div>
                 <div class="event-card">
                     <div class="card-img-wrapper">
-                        <a href="1945.html" class="img-link">
+                        <a href="1930-1950.html" class="img-link">
                             <img src="images/1945.jpg" alt="1945" onerror="this.src='https://placehold.co/100x100?text=Radio'">
                         </a>
                     </div>
@@ -352,7 +337,7 @@
                 <div class="timeline-marker">1950</div>
                 <div class="event-card">
                     <div class="card-img-wrapper">
-                        <a href="1950.html" class="img-link">
+                        <a href="1930-1950.html" class="img-link">
                             <img src="images/1950.jpg" alt="1950" onerror="this.src='https://placehold.co/100x100?text=Campus'">
                         </a>
                     </div>
@@ -365,7 +350,7 @@
                 <div class="timeline-marker">1969</div>
                 <div class="event-card">
                     <div class="card-img-wrapper">
-                        <a href="1969.html" class="img-link">
+                        <a href="menu.html" class="img-link">
                             <img src="images/1969.jpg" alt="1969" onerror="this.src='https://placehold.co/100x100?text=Reforma'">
                         </a>
                     </div>
