@@ -35,13 +35,13 @@
             background: linear-gradient(to right, #ffffff, #f4f7f9);
             border-bottom: 1px solid #e0e0e0;
             position: relative;
-            z-index: 100; /* Asegura que el header esté sobre todo */
+            z-index: 100;
         }
 
         h1 { margin: 0; color: var(--col-blue); text-transform: uppercase; font-weight: 800; }
         p.subtitle { color: #666; margin-top: 5px; font-size: 1rem; }
 
-        /* --- CONTENEDOR PRINCIPAL AJUSTADO --- */
+        /* --- CONTENEDOR PRINCIPAL --- */
         .timeline-container {
             flex-grow: 1;
             display: flex;
@@ -49,7 +49,7 @@
             justify-content: flex-start;
             position: relative;
             overflow-x: auto;
-            /* AUMENTADO: Padding superior e inferior para que quepan las tarjetas */
+            /* Padding ajustado para tarjetas */
             padding: 180px 50px; 
             scrollbar-width: thin;
             scrollbar-color: var(--col-blue) #e0e0e0;
@@ -60,7 +60,7 @@
             position: absolute;
             top: 50%;
             left: 0;
-            width: 300%;
+            width: 400%; /* Aumentado para cubrir los nuevos hitos */
             height: 4px;
             background-color: var(--line-color);
             transform: translateY(-50%);
@@ -70,10 +70,10 @@
         .timeline-wrapper {
             display: flex;
             align-items: center;
-            min-width: 2600px; 
+            min-width: 3200px; /* Aumentado ancho total */
             position: relative;
             z-index: 2;
-            padding-left: 80px; /* Margen inicial */
+            padding-left: 80px;
         }
 
         .timeline-item {
@@ -81,7 +81,7 @@
             width: 60px;
             height: 60px;
             flex-shrink: 0;
-            margin: 0 90px; /* Más espacio entre hitos */
+            margin: 0 90px;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -89,7 +89,7 @@
 
         /* Círculo del Año */
         .timeline-marker {
-            width: 70px; /* Un poco más grandes */
+            width: 70px;
             height: 70px;
             background-color: #fff;
             border: 5px solid var(--line-color);
@@ -113,7 +113,7 @@
             border-color: var(--col-blue);
         }
 
-        /* --- TARJETAS (EVENT CARDS) --- */
+        /* --- TARJETAS --- */
         .event-card {
             position: absolute;
             width: 280px;
@@ -124,12 +124,11 @@
             text-align: center;
             opacity: 0;
             visibility: hidden;
-            /* Inicia un poco desplazado para el efecto */
             transform: translateY(10px) scale(0.95);
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             z-index: 10;
             pointer-events: none;
-            border-top: 6px solid #ccc; /* Color por defecto */
+            border-top: 6px solid #ccc;
         }
 
         .timeline-item:hover .event-card {
@@ -139,94 +138,57 @@
             pointer-events: auto;
         }
 
-        /* POSICIÓN DE TARJETAS ( Ajustado para no cortarse ) */
-        
-        /* Arriba */
-        .timeline-item.top .event-card {
-            bottom: 95px; /* Sube la tarjeta por encima del círculo */
-        }
-        .timeline-item.top .event-card::before { /* Línea punteada */
-            content: '';
-            position: absolute;
-            bottom: -50px;
-            left: 50%;
-            height: 50px;
-            border-left: 2px dashed var(--line-color);
-            transform: translateX(-50%);
+        /* Posición Arriba */
+        .timeline-item.top .event-card { bottom: 95px; }
+        .timeline-item.top .event-card::before {
+            content: ''; position: absolute; bottom: -50px; left: 50%; height: 50px;
+            border-left: 2px dashed var(--line-color); transform: translateX(-50%);
         }
 
-        /* Abajo */
-        .timeline-item.bottom .event-card {
-            top: 95px; /* Baja la tarjeta por debajo del círculo */
-        }
-        .timeline-item.bottom .event-card::before { /* Línea punteada */
-            content: '';
-            position: absolute;
-            top: -50px;
-            left: 50%;
-            height: 50px;
-            border-left: 2px dashed var(--line-color);
-            transform: translateX(-50%);
+        /* Posición Abajo */
+        .timeline-item.bottom .event-card { top: 95px; }
+        .timeline-item.bottom .event-card::before {
+            content: ''; position: absolute; top: -50px; left: 50%; height: 50px;
+            border-left: 2px dashed var(--line-color); transform: translateX(-50%);
         }
 
-        /* --- IMÁGENES CIRCULARES --- */
+        /* --- IMÁGENES --- */
         .card-img-wrapper {
             width: 90px;
             height: 90px;
             border-radius: 50%;
-            margin: -60px auto 15px auto; /* Flota la imagen mitad adentro mitad afuera */
+            margin: -60px auto 15px auto;
             border: 5px solid #fff;
             background: #fff;
             box-shadow: 0 5px 15px rgba(0,0,0,0.15);
-            overflow: hidden; /* Para recortar la imagen */
+            overflow: hidden;
             display: flex;
             align-items: center;
             justify-content: center;
         }
-        
         .card-img-wrapper img {
             width: 100%;
             height: 100%;
-            object-fit: cover; /* Ajusta la imagen sin deformarla */
+            object-fit: cover;
         }
 
-        /* Texto */
-        .event-card h3 {
-            margin: 10px 0 5px 0;
-            font-size: 1.1rem;
-            color: #333;
-            text-transform: uppercase;
-        }
-        .event-card p {
-            font-size: 0.9rem;
-            color: #666;
-            line-height: 1.5;
-            margin: 0;
-        }
+        .event-card h3 { margin: 10px 0 5px 0; font-size: 1.1rem; color: #333; text-transform: uppercase; }
+        .event-card p { font-size: 0.9rem; color: #666; line-height: 1.5; margin: 0; }
 
         /* --- ESTILOS POR ÉPOCA --- */
-        /* Colonial (Sepia) */
         .style-hist .event-card { border-top-color: var(--col-sepia); }
-        .style-hist .timeline-marker { border-color: var(--col-sepia); }
-        .style-hist:hover .timeline-marker { background: var(--col-sepia); }
+        .style-hist:hover .timeline-marker { background: var(--col-sepia); border-color: var(--col-sepia); }
 
-        /* Mecánico (Rojo) */
         .style-mech .event-card { border-top-color: var(--col-red); }
-        .style-mech .timeline-marker { border-color: var(--col-red); }
-        .style-mech:hover .timeline-marker { background: var(--col-red); }
+        .style-mech:hover .timeline-marker { background: var(--col-red); border-color: var(--col-red); }
 
-        /* Legal (Dorado) */
         .style-gold .event-card { border-top-color: var(--col-gold); }
-        .style-gold .timeline-marker { border-color: var(--col-gold); }
-        .style-gold:hover .timeline-marker { background: var(--col-gold); }
+        .style-gold:hover .timeline-marker { background: var(--col-gold); border-color: var(--col-gold); }
 
-        /* Moderno (Azul) */
         .style-tech .event-card { border-top-color: var(--col-tech); }
-        .style-tech .timeline-marker { border-color: var(--col-tech); }
-        .style-tech:hover .timeline-marker { background: var(--col-tech); }
+        .style-tech:hover .timeline-marker { background: var(--col-tech); border-color: var(--col-tech); }
 
-
-        /* BOTÓN FLOTANTE */
+        /* Botón Flotante */
         .enter-section {
             position: fixed;
             bottom: 30px;
@@ -247,15 +209,11 @@
             box-shadow: 0 5px 20px rgba(0, 51, 102, 0.4);
             transition: transform 0.2s;
         }
-        .btn-enter:hover {
-            transform: scale(1.05);
-            background-color: #002244;
-        }
+        .btn-enter:hover { transform: scale(1.05); background-color: #002244; }
 
-        /* Instrucción */
         .hint {
             position: absolute;
-            top: 120px; /* Posicionado debajo del header */
+            top: 120px;
             left: 50%;
             transform: translateX(-50%);
             background: rgba(255,255,255,0.9);
@@ -288,9 +246,7 @@
             <div class="timeline-item top style-hist">
                 <div class="timeline-marker">1620</div>
                 <div class="event-card">
-                    <div class="card-img-wrapper">
-                        <img src="images/1620.jpg" alt="1620" onerror="this.src='https://placehold.co/100x100?text=1620'">
-                    </div>
+                    <div class="card-img-wrapper"><img src="images/1620.jpg" alt="1620" onerror="this.src='https://placehold.co/100x100?text=1620'"></div>
                     <h3>Fundación</h3>
                     <p>Inicio bajo modelo escolástico. Herramientas: Pluma, tinta y manuscritos.</p>
                 </div>
@@ -299,9 +255,7 @@
             <div class="timeline-item bottom style-hist">
                 <div class="timeline-marker">1754</div>
                 <div class="event-card">
-                    <div class="card-img-wrapper">
-                        <img src="images/1754.jpg" alt="1754" onerror="this.src='https://placehold.co/100x100?text=Imprenta'">
-                    </div>
+                    <div class="card-img-wrapper"><img src="images/1754.jpg" alt="1754" onerror="this.src='https://placehold.co/100x100?text=Imprenta'"></div>
                     <h3>Imprenta</h3>
                     <p>Llegada de la imprenta jesuita. Difusión masiva de textos locales.</p>
                 </div>
@@ -310,9 +264,7 @@
             <div class="timeline-item top style-hist">
                 <div class="timeline-marker">1836</div>
                 <div class="event-card">
-                    <div class="card-img-wrapper">
-                        <img src="images/1836.jpg" alt="1836" onerror="this.src='https://placehold.co/100x100?text=Pizarra'">
-                    </div>
+                    <div class="card-img-wrapper"><img src="images/1836.jpg" alt="1836" onerror="this.src='https://placehold.co/100x100?text=Pizarra'"></div>
                     <h3>La Pizarra</h3>
                     <p>Oficialización de la UCE. La pizarra permite la enseñanza colectiva.</p>
                 </div>
@@ -321,9 +273,7 @@
             <div class="timeline-item bottom style-mech">
                 <div class="timeline-marker">1870</div>
                 <div class="event-card">
-                    <div class="card-img-wrapper">
-                        <img src="images/1870.jpg" alt="1870" onerror="this.src='https://placehold.co/100x100?text=Lab'">
-                    </div>
+                    <div class="card-img-wrapper"><img src="images/1870.jpg" alt="1870" onerror="this.src='https://placehold.co/100x100?text=Lab'"></div>
                     <h3>Ciencia</h3>
                     <p>García Moreno importa laboratorios de precisión desde Europa.</p>
                 </div>
@@ -332,9 +282,7 @@
             <div class="timeline-item top style-mech">
                 <div class="timeline-marker">1902</div>
                 <div class="event-card">
-                    <div class="card-img-wrapper">
-                        <img src="images/1902.jpg" alt="1902" onerror="this.src='https://placehold.co/100x100?text=Remington'">
-                    </div>
+                    <div class="card-img-wrapper"><img src="images/1902.jpg" alt="1902" onerror="this.src='https://placehold.co/100x100?text=Remington'"></div>
                     <h3>Mecanización</h3>
                     <p>Máquinas de escribir Remington. Estandarización de documentos.</p>
                 </div>
@@ -343,75 +291,88 @@
             <div class="timeline-item bottom style-mech">
                 <div class="timeline-marker">1945</div>
                 <div class="event-card">
-                    <div class="card-img-wrapper">
-                        <img src="images/1945.jpg" alt="1945" onerror="this.src='https://placehold.co/100x100?text=Radio'">
-                    </div>
+                    <div class="card-img-wrapper"><img src="images/1945.jpg" alt="1945" onerror="this.src='https://placehold.co/100x100?text=Radio'"></div>
                     <h3>Radio</h3>
                     <p>Escuela de Periodismo y radiodifusión como extensión cultural.</p>
                 </div>
             </div>
 
-            <div class="timeline-item top style-gold">
+            <div class="timeline-item top style-mech">
+                <div class="timeline-marker">1950</div>
+                <div class="event-card">
+                    <div class="card-img-wrapper"><img src="images/1950.jpg" alt="1950" onerror="this.src='https://placehold.co/100x100?text=Campus'"></div>
+                    <h3>Ciudadela</h3>
+                    <p>Traslado al campus moderno. Infraestructura planificada para la ciencia.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item bottom style-tech">
+                <div class="timeline-marker">1992</div>
+                <div class="event-card">
+                    <div class="card-img-wrapper"><img src="images/1992.jpg" alt="1992" onerror="this.src='https://placehold.co/100x100?text=Internet'"></div>
+                    <h3>Primer Internet</h3>
+                    <p>Conexión vía telefónica (Ecuanex). Inicio de la era digital con el correo electrónico.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item top style-tech">
+                <div class="timeline-marker">2001</div>
+                <div class="event-card">
+                    <div class="card-img-wrapper"><img src="images/2001.jpg" alt="2001" onerror="this.src='https://placehold.co/100x100?text=Crisis'"></div>
+                    <h3>Crisis Técnica</h3>
+                    <p>Redes saturadas y equipos obsoletos antes de la gran modernización.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item bottom style-gold">
                 <div class="timeline-marker">2002</div>
                 <div class="event-card">
-                    <div class="card-img-wrapper">
-                        <img src="images/2002.jpg" alt="2002" onerror="this.src='https://placehold.co/100x100?text=CEDIA'">
-                    </div>
+                    <div class="card-img-wrapper"><img src="images/2002.jpg" alt="2002" onerror="this.src='https://placehold.co/100x100?text=CEDIA'"></div>
                     <h3>CEDIA</h3>
                     <p>Fundación de la red nacional de fibra óptica académica.</p>
                 </div>
             </div>
 
-            <div class="timeline-item bottom style-gold">
+            <div class="timeline-item top style-gold">
                 <div class="timeline-marker">2008</div>
                 <div class="event-card">
-                    <div class="card-img-wrapper">
-                        <img src="images/2008.jpg" alt="2008" onerror="this.src='https://placehold.co/100x100?text=Legal'">
-                    </div>
+                    <div class="card-img-wrapper"><img src="images/2008.jpg" alt="2008" onerror="this.src='https://placehold.co/100x100?text=Ley'"></div>
                     <h3>Derecho Digital</h3>
-                    <p>Constitución garantiza acceso TIC. Renovación de hardware.</p>
+                    <p>Constitución garantiza TIC. Decreto de Software Libre.</p>
                 </div>
             </div>
 
-            <div class="timeline-item top style-tech">
+            <div class="timeline-item bottom style-tech">
                 <div class="timeline-marker">2012</div>
                 <div class="event-card">
-                    <div class="card-img-wrapper">
-                        <img src="images/2012.jpg" alt="2012" onerror="this.src='https://placehold.co/100x100?text=DataCenter'">
-                    </div>
+                    <div class="card-img-wrapper"><img src="images/2012.jpg" alt="2012" onerror="this.src='https://placehold.co/100x100?text=Data'"></div>
                     <h3>Data Center</h3>
                     <p>Inauguración del "Cerebro Digital" y sistema SIIU.</p>
                 </div>
             </div>
 
-            <div class="timeline-item bottom style-tech">
+            <div class="timeline-item top style-tech">
                 <div class="timeline-marker">2013</div>
                 <div class="event-card">
-                    <div class="card-img-wrapper">
-                        <img src="images/2013.jpg" alt="2013" onerror="this.src='https://placehold.co/100x100?text=Moodle'">
-                    </div>
+                    <div class="card-img-wrapper"><img src="images/2013.jpg" alt="2013" onerror="this.src='https://placehold.co/100x100?text=Moodle'"></div>
                     <h3>Auge Virtual</h3>
                     <p>Masificación de Moodle y rol del docente virtual.</p>
                 </div>
             </div>
             
-            <div class="timeline-item top style-tech">
+            <div class="timeline-item bottom style-tech">
                 <div class="timeline-marker">2020</div>
                 <div class="event-card">
-                    <div class="card-img-wrapper">
-                        <img src="images/2020.jpg" alt="2020" onerror="this.src='https://placehold.co/100x100?text=Pandemia'">
-                    </div>
+                    <div class="card-img-wrapper"><img src="images/2020.jpg" alt="2020" onerror="this.src='https://placehold.co/100x100?text=COVID'"></div>
                     <h3>Pandemia</h3>
                     <p>Virtualidad forzada. Uso masivo de Teams y Zoom.</p>
                 </div>
             </div>
 
-            <div class="timeline-item bottom style-tech">
+            <div class="timeline-item top style-tech">
                 <div class="timeline-marker">2026</div>
                 <div class="event-card">
-                    <div class="card-img-wrapper">
-                        <img src="images/2026.jpg" alt="2026" onerror="this.src='https://placehold.co/100x100?text=IA'">
-                    </div>
+                    <div class="card-img-wrapper"><img src="images/2026.jpg" alt="2026" onerror="this.src='https://placehold.co/100x100?text=IA'"></div>
                     <h3>Era de la IA</h3>
                     <p>Integración de Inteligencia Artificial en la gestión educativa.</p>
                 </div>
@@ -428,8 +389,6 @@
 
     <script>
         lucide.createIcons();
-        
-        // Scroll horizontal con rueda del mouse
         const container = document.querySelector('.timeline-container');
         container.addEventListener('wheel', (evt) => {
             evt.preventDefault();
