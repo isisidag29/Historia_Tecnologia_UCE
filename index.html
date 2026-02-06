@@ -9,16 +9,14 @@
     
     <style>
         :root {
-            /* PALETA OFICIAL DEL PROYECTO */
             --bg-color: #f4f7f9;
             --line-color: #333;
-            
             /* Colores Institucionales */
-            --col-blue: #003366;      /* Azul UCE */
-            --col-red: #d62d20;       /* Rojo */
-            --col-sepia: #5D4037;     /* Café Histórico */
-            --col-gold: #C5A059;      /* Dorado Institucional */
-            --col-digital: #1565C0;   /* Azul claro para tecnología */
+            --col-blue: #003366;
+            --col-red: #d62d20;
+            --col-sepia: #5D4037;
+            --col-gold: #C5A059;
+            --col-tech: #1565C0;
         }
 
         body {
@@ -33,26 +31,17 @@
 
         header {
             text-align: center;
-            padding: 2rem;
+            padding: 1.5rem;
             background: linear-gradient(to right, #ffffff, #f4f7f9);
             border-bottom: 1px solid #e0e0e0;
+            position: relative;
+            z-index: 100; /* Asegura que el header esté sobre todo */
         }
 
-        h1 {
-            margin: 0;
-            color: var(--col-blue);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-weight: 800;
-        }
-        
-        p.subtitle {
-            color: #666;
-            margin-top: 10px;
-            font-size: 1.1rem;
-        }
+        h1 { margin: 0; color: var(--col-blue); text-transform: uppercase; font-weight: 800; }
+        p.subtitle { color: #666; margin-top: 5px; font-size: 1rem; }
 
-        /* CONTENEDOR DE LA LÍNEA DE TIEMPO */
+        /* --- CONTENEDOR PRINCIPAL AJUSTADO --- */
         .timeline-container {
             flex-grow: 1;
             display: flex;
@@ -60,8 +49,8 @@
             justify-content: flex-start;
             position: relative;
             overflow-x: auto;
-            padding: 120px 50px;
-            /* Scrollbar estilizado */
+            /* AUMENTADO: Padding superior e inferior para que quepan las tarjetas */
+            padding: 180px 50px; 
             scrollbar-width: thin;
             scrollbar-color: var(--col-blue) #e0e0e0;
         }
@@ -71,7 +60,7 @@
             position: absolute;
             top: 50%;
             left: 0;
-            width: 300%; /* Muy ancha para cubrir hasta 2026 */
+            width: 300%;
             height: 4px;
             background-color: var(--line-color);
             transform: translateY(-50%);
@@ -81,20 +70,18 @@
         .timeline-wrapper {
             display: flex;
             align-items: center;
-            /* Espacio suficiente para 13 eventos */
             min-width: 2600px; 
             position: relative;
             z-index: 2;
-            padding-left: 50px;
+            padding-left: 80px; /* Margen inicial */
         }
 
-        /* ÍTEM INDIVIDUAL */
         .timeline-item {
             position: relative;
             width: 60px;
             height: 60px;
             flex-shrink: 0;
-            margin: 0 70px; /* Espacio entre hitos */
+            margin: 0 90px; /* Más espacio entre hitos */
             display: flex;
             justify-content: center;
             align-items: center;
@@ -102,16 +89,16 @@
 
         /* Círculo del Año */
         .timeline-marker {
-            width: 60px;
-            height: 60px;
+            width: 70px; /* Un poco más grandes */
+            height: 70px;
             background-color: #fff;
-            border: 4px solid var(--line-color);
+            border: 5px solid var(--line-color);
             border-radius: 50%;
             display: flex;
             justify-content: center;
             align-items: center;
             font-weight: 700;
-            font-size: 0.9rem;
+            font-size: 1rem;
             color: var(--line-color);
             cursor: pointer;
             transition: all 0.3s ease;
@@ -119,33 +106,32 @@
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
 
-        /* Hover sobre el marcador */
         .timeline-item:hover .timeline-marker {
-            transform: scale(1.15);
+            transform: scale(1.2);
             background-color: var(--col-blue);
             color: #fff;
             border-color: var(--col-blue);
         }
 
-        /* TARJETA DE INFORMACIÓN (Oculta) */
+        /* --- TARJETAS (EVENT CARDS) --- */
         .event-card {
             position: absolute;
-            width: 300px;
-            padding: 25px;
-            border-radius: 12px;
+            width: 280px;
+            padding: 20px;
+            border-radius: 15px;
             background: #fff;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
             text-align: center;
             opacity: 0;
             visibility: hidden;
-            transform: translateY(20px) scale(0.95);
+            /* Inicia un poco desplazado para el efecto */
+            transform: translateY(10px) scale(0.95);
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             z-index: 10;
             pointer-events: none;
-            border-top: 5px solid transparent; /* Se colorea abajo */
+            border-top: 6px solid #ccc; /* Color por defecto */
         }
 
-        /* Mostrar tarjeta al hover */
         .timeline-item:hover .event-card {
             opacity: 1;
             visibility: visible;
@@ -153,122 +139,123 @@
             pointer-events: auto;
         }
 
-        /* POSICIONES (Arriba / Abajo) */
+        /* POSICIÓN DE TARJETAS ( Ajustado para no cortarse ) */
         
-        /* -- ARRIBA -- */
+        /* Arriba */
         .timeline-item.top .event-card {
-            bottom: 85px;
+            bottom: 95px; /* Sube la tarjeta por encima del círculo */
         }
-        .timeline-item.top .event-card::before {
+        .timeline-item.top .event-card::before { /* Línea punteada */
             content: '';
             position: absolute;
-            bottom: -40px;
+            bottom: -50px;
             left: 50%;
-            height: 40px;
+            height: 50px;
             border-left: 2px dashed var(--line-color);
             transform: translateX(-50%);
         }
 
-        /* -- ABAJO -- */
+        /* Abajo */
         .timeline-item.bottom .event-card {
-            top: 85px;
+            top: 95px; /* Baja la tarjeta por debajo del círculo */
         }
-        .timeline-item.bottom .event-card::before {
+        .timeline-item.bottom .event-card::before { /* Línea punteada */
             content: '';
             position: absolute;
-            top: -40px;
+            top: -50px;
             left: 50%;
-            height: 40px;
+            height: 50px;
             border-left: 2px dashed var(--line-color);
             transform: translateX(-50%);
         }
 
-        /* IMAGEN / ICONO DENTRO DE LA TARJETA */
-        .card-icon-wrapper {
-            width: 70px;
-            height: 70px;
+        /* --- IMÁGENES CIRCULARES --- */
+        .card-img-wrapper {
+            width: 90px;
+            height: 90px;
             border-radius: 50%;
-            margin: -50px auto 15px auto;
-            border: 4px solid #fff;
+            margin: -60px auto 15px auto; /* Flota la imagen mitad adentro mitad afuera */
+            border: 5px solid #fff;
+            background: #fff;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+            overflow: hidden; /* Para recortar la imagen */
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            background: #fff;
         }
-        .card-icon-wrapper i {
-            width: 32px;
-            height: 32px;
+        
+        .card-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ajusta la imagen sin deformarla */
         }
 
-        /* ESTILOS DE TEXTO */
+        /* Texto */
         .event-card h3 {
-            margin: 5px 0 10px 0;
+            margin: 10px 0 5px 0;
             font-size: 1.1rem;
-            font-weight: 700;
-            text-transform: uppercase;
             color: #333;
+            text-transform: uppercase;
         }
         .event-card p {
             font-size: 0.9rem;
-            color: #555;
-            line-height: 1.6;
+            color: #666;
+            line-height: 1.5;
             margin: 0;
         }
 
-        /* --- CLASES DE COLOR (Según tu paleta) --- */
-
-        /* Estilo Histórico (Café/Sepia) - Para 1620-1900 */
+        /* --- ESTILOS POR ÉPOCA --- */
+        /* Colonial (Sepia) */
         .style-hist .event-card { border-top-color: var(--col-sepia); }
-        .style-hist .card-icon-wrapper { background-color: var(--col-sepia); color: white; }
-        .style-hist:hover .timeline-marker { background-color: var(--col-sepia); border-color: var(--col-sepia); }
+        .style-hist .timeline-marker { border-color: var(--col-sepia); }
+        .style-hist:hover .timeline-marker { background: var(--col-sepia); }
 
-        /* Estilo Transición/Mecánico (Rojo) - Para 1900-1950 */
+        /* Mecánico (Rojo) */
         .style-mech .event-card { border-top-color: var(--col-red); }
-        .style-mech .card-icon-wrapper { background-color: var(--col-red); color: white; }
-        .style-mech:hover .timeline-marker { background-color: var(--col-red); border-color: var(--col-red); }
+        .style-mech .timeline-marker { border-color: var(--col-red); }
+        .style-mech:hover .timeline-marker { background: var(--col-red); }
 
-        /* Estilo Institucional (Dorado) - Para Leyes/Hitos Legales */
+        /* Legal (Dorado) */
         .style-gold .event-card { border-top-color: var(--col-gold); }
-        .style-gold .card-icon-wrapper { background-color: var(--col-gold); color: white; }
-        .style-gold:hover .timeline-marker { background-color: var(--col-gold); border-color: var(--col-gold); }
+        .style-gold .timeline-marker { border-color: var(--col-gold); }
+        .style-gold:hover .timeline-marker { background: var(--col-gold); }
 
-        /* Estilo Digital/Moderno (Azul UCE) - Para 2000-Presente */
-        .style-tech .event-card { border-top-color: var(--col-blue); }
-        .style-tech .card-icon-wrapper { background-color: var(--col-blue); color: white; }
-        .style-tech:hover .timeline-marker { background-color: var(--col-blue); border-color: var(--col-blue); }
+        /* Moderno (Azul) */
+        .style-tech .event-card { border-top-color: var(--col-tech); }
+        .style-tech .timeline-marker { border-color: var(--col-tech); }
+        .style-tech:hover .timeline-marker { background: var(--col-tech); }
 
 
-        /* BOTÓN DE ENTRADA */
+        /* BOTÓN FLOTANTE */
         .enter-section {
-            text-align: center;
-            padding: 2rem;
-            background: #fff;
             position: fixed;
-            bottom: 0;
-            width: 100%;
-            box-shadow: 0 -5px 20px rgba(0,0,0,0.05);
-            z-index: 100;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 200;
         }
         .btn-enter {
-            display: inline-block;
-            padding: 12px 35px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 30px;
             background-color: var(--col-blue);
             color: white;
             text-decoration: none;
-            font-weight: 600;
+            font-weight: 700;
             border-radius: 50px;
-            transition: 0.3s;
-            box-shadow: 0 4px 15px rgba(0,51,102,0.3);
+            box-shadow: 0 5px 20px rgba(0, 51, 102, 0.4);
+            transition: transform 0.2s;
         }
         .btn-enter:hover {
+            transform: scale(1.05);
             background-color: #002244;
-            transform: translateY(-2px);
         }
-        
+
+        /* Instrucción */
         .hint {
             position: absolute;
-            top: 15px;
+            top: 120px; /* Posicionado debajo del header */
             left: 50%;
             transform: translateX(-50%);
             background: rgba(255,255,255,0.9);
@@ -277,6 +264,8 @@
             font-size: 0.85rem;
             color: #666;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 50;
+            pointer-events: none;
         }
     </style>
 </head>
@@ -287,10 +276,11 @@
         <p class="subtitle">1620 – 2026</p>
     </header>
 
+    <div class="hint">
+        <i data-lucide="hand" style="width: 14px; vertical-align: middle;"></i> Desliza horizontalmente y pasa el mouse sobre los círculos
+    </div>
+
     <div class="timeline-container">
-        <div class="hint">
-            <i data-lucide="hand" style="width: 14px; vertical-align: middle;"></i> Desliza horizontalmente y pasa el mouse sobre los años
-        </div>
         <div class="central-line"></div>
 
         <div class="timeline-wrapper">
@@ -298,119 +288,141 @@
             <div class="timeline-item top style-hist">
                 <div class="timeline-marker">1620</div>
                 <div class="event-card">
-                    <div class="card-icon-wrapper"><i data-lucide="scroll"></i></div>
+                    <div class="card-img-wrapper">
+                        <img src="images/1620.jpg" alt="1620" onerror="this.src='https://placehold.co/100x100?text=1620'">
+                    </div>
                     <h3>Fundación</h3>
-                    <p>Inicio de la enseñanza bajo el modelo escolástico. Tecnología: Pluma, papel artesanal y manuscritos.</p>
+                    <p>Inicio bajo modelo escolástico. Herramientas: Pluma, tinta y manuscritos.</p>
                 </div>
             </div>
 
             <div class="timeline-item bottom style-hist">
                 <div class="timeline-marker">1754</div>
                 <div class="event-card">
-                    <div class="card-icon-wrapper"><i data-lucide="printer"></i></div>
+                    <div class="card-img-wrapper">
+                        <img src="images/1754.jpg" alt="1754" onerror="this.src='https://placehold.co/100x100?text=Imprenta'">
+                    </div>
                     <h3>Imprenta</h3>
-                    <p>Llegada de la primera imprenta a Quito. Difusión masiva del conocimiento impreso local.</p>
+                    <p>Llegada de la imprenta jesuita. Difusión masiva de textos locales.</p>
                 </div>
             </div>
 
             <div class="timeline-item top style-hist">
                 <div class="timeline-marker">1836</div>
                 <div class="event-card">
-                    <div class="card-icon-wrapper"><i data-lucide="presentation"></i></div>
-                    <h3>Uso de la Pizarra</h3>
-                    <p>Oficialización de la UCE. La pizarra permite la enseñanza colectiva y visual en el aula.</p>
+                    <div class="card-img-wrapper">
+                        <img src="images/1836.jpg" alt="1836" onerror="this.src='https://placehold.co/100x100?text=Pizarra'">
+                    </div>
+                    <h3>La Pizarra</h3>
+                    <p>Oficialización de la UCE. La pizarra permite la enseñanza colectiva.</p>
                 </div>
             </div>
 
             <div class="timeline-item bottom style-mech">
                 <div class="timeline-marker">1870</div>
                 <div class="event-card">
-                    <div class="card-icon-wrapper"><i data-lucide="microscope"></i></div>
-                    <h3>Ciencia Experimental</h3>
-                    <p>García Moreno importa los primeros laboratorios de precisión desde Francia y Alemania.</p>
+                    <div class="card-img-wrapper">
+                        <img src="images/1870.jpg" alt="1870" onerror="this.src='https://placehold.co/100x100?text=Lab'">
+                    </div>
+                    <h3>Ciencia</h3>
+                    <p>García Moreno importa laboratorios de precisión desde Europa.</p>
                 </div>
             </div>
 
             <div class="timeline-item top style-mech">
                 <div class="timeline-marker">1902</div>
                 <div class="event-card">
-                    <div class="card-icon-wrapper"><i data-lucide="type"></i></div>
+                    <div class="card-img-wrapper">
+                        <img src="images/1902.jpg" alt="1902" onerror="this.src='https://placehold.co/100x100?text=Remington'">
+                    </div>
                     <h3>Mecanización</h3>
-                    <p>Llegada de máquinas Remington. Estandarización de tesis y documentos administrativos.</p>
+                    <p>Máquinas de escribir Remington. Estandarización de documentos.</p>
                 </div>
             </div>
 
             <div class="timeline-item bottom style-mech">
                 <div class="timeline-marker">1945</div>
                 <div class="event-card">
-                    <div class="card-icon-wrapper"><i data-lucide="radio"></i></div>
-                    <h3>Era de la Radio</h3>
-                    <p>Fundación de la Escuela de Periodismo y uso de la radiodifusión como extensión cultural.</p>
+                    <div class="card-img-wrapper">
+                        <img src="images/1945.jpg" alt="1945" onerror="this.src='https://placehold.co/100x100?text=Radio'">
+                    </div>
+                    <h3>Radio</h3>
+                    <p>Escuela de Periodismo y radiodifusión como extensión cultural.</p>
                 </div>
             </div>
 
             <div class="timeline-item top style-gold">
                 <div class="timeline-marker">2002</div>
                 <div class="event-card">
-                    <div class="card-icon-wrapper"><i data-lucide="globe"></i></div>
-                    <h3>Red CEDIA</h3>
-                    <p>La UCE co-funda la red nacional de fibra óptica para investigación y academia.</p>
+                    <div class="card-img-wrapper">
+                        <img src="images/2002.jpg" alt="2002" onerror="this.src='https://placehold.co/100x100?text=CEDIA'">
+                    </div>
+                    <h3>CEDIA</h3>
+                    <p>Fundación de la red nacional de fibra óptica académica.</p>
                 </div>
             </div>
 
             <div class="timeline-item bottom style-gold">
                 <div class="timeline-marker">2008</div>
                 <div class="event-card">
-                    <div class="card-icon-wrapper"><i data-lucide="scale"></i></div>
+                    <div class="card-img-wrapper">
+                        <img src="images/2008.jpg" alt="2008" onerror="this.src='https://placehold.co/100x100?text=Legal'">
+                    </div>
                     <h3>Derecho Digital</h3>
-                    <p>La Constitución garantiza el acceso a TIC. Renovación masiva de hardware (Core 2 Duo).</p>
+                    <p>Constitución garantiza acceso TIC. Renovación de hardware.</p>
                 </div>
             </div>
 
             <div class="timeline-item top style-tech">
                 <div class="timeline-marker">2012</div>
                 <div class="event-card">
-                    <div class="card-icon-wrapper"><i data-lucide="server"></i></div>
+                    <div class="card-img-wrapper">
+                        <img src="images/2012.jpg" alt="2012" onerror="this.src='https://placehold.co/100x100?text=DataCenter'">
+                    </div>
                     <h3>Data Center</h3>
-                    <p>Inauguración del "Cerebro Digital" y lanzamiento del sistema integrado SIIU.</p>
+                    <p>Inauguración del "Cerebro Digital" y sistema SIIU.</p>
                 </div>
             </div>
 
             <div class="timeline-item bottom style-tech">
                 <div class="timeline-marker">2013</div>
                 <div class="event-card">
-                    <div class="card-icon-wrapper"><i data-lucide="graduation-cap"></i></div>
+                    <div class="card-img-wrapper">
+                        <img src="images/2013.jpg" alt="2013" onerror="this.src='https://placehold.co/100x100?text=Moodle'">
+                    </div>
                     <h3>Auge Virtual</h3>
-                    <p>Masificación de Moodle. El docente se transforma en un agente pedagógico virtual.</p>
+                    <p>Masificación de Moodle y rol del docente virtual.</p>
                 </div>
             </div>
-
+            
             <div class="timeline-item top style-tech">
                 <div class="timeline-marker">2020</div>
                 <div class="event-card">
-                    <div class="card-icon-wrapper"><i data-lucide="video"></i></div>
-                    <h3>Transformación Forzada</h3>
-                    <p>COVID-19 obliga a la virtualidad total (Teams/Zoom). Salto cuántico en competencias digitales.</p>
+                    <div class="card-img-wrapper">
+                        <img src="images/2020.jpg" alt="2020" onerror="this.src='https://placehold.co/100x100?text=Pandemia'">
+                    </div>
+                    <h3>Pandemia</h3>
+                    <p>Virtualidad forzada. Uso masivo de Teams y Zoom.</p>
                 </div>
             </div>
 
             <div class="timeline-item bottom style-tech">
                 <div class="timeline-marker">2026</div>
                 <div class="event-card">
-                    <div class="card-icon-wrapper"><i data-lucide="cpu"></i></div>
+                    <div class="card-img-wrapper">
+                        <img src="images/2026.jpg" alt="2026" onerror="this.src='https://placehold.co/100x100?text=IA'">
+                    </div>
                     <h3>Era de la IA</h3>
-                    <p>Integración de Inteligencia Artificial en procesos de aprendizaje y gestión universitaria.</p>
+                    <p>Integración de Inteligencia Artificial en la gestión educativa.</p>
                 </div>
             </div>
 
         </div>
     </div>
 
-    <div style="height: 100px;"></div>
-
     <div class="enter-section">
-        <a href="index.html" class="btn-enter">
-            Ingresar al Menú Principal <i data-lucide="arrow-right" style="vertical-align: middle; margin-left: 5px;"></i>
+        <a href="menu.html" class="btn-enter">
+            Ingresar al Menú Principal <i data-lucide="arrow-right"></i>
         </a>
     </div>
 
