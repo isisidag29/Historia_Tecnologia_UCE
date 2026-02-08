@@ -49,7 +49,8 @@
             justify-content: flex-start;
             position: relative;
             overflow-x: auto;
-            padding: 180px 50px; 
+            /* AUMENTADO: Mucho más espacio arriba y abajo para evitar cortes */
+            padding: 250px 50px; 
             scrollbar-width: thin;
             scrollbar-color: var(--col-blue) #e0e0e0;
         }
@@ -69,7 +70,7 @@
         .timeline-wrapper {
             display: flex;
             align-items: center;
-            min-width: 4200px; /* Ancho suficiente */
+            min-width: 4200px;
             position: relative;
             z-index: 2;
             padding-left: 80px;
@@ -137,16 +138,16 @@
             pointer-events: auto;
         }
 
-        /* Posiciones */
-        .timeline-item.top .event-card { bottom: 95px; }
+        /* Posiciones AJUSTADAS para acercarlas a la línea */
+        .timeline-item.top .event-card { bottom: 85px; } /* Estaba en 95px */
         .timeline-item.top .event-card::before {
-            content: ''; position: absolute; bottom: -50px; left: 50%; height: 50px;
+            content: ''; position: absolute; bottom: -40px; left: 50%; height: 40px;
             border-left: 2px dashed var(--line-color); transform: translateX(-50%);
         }
 
-        .timeline-item.bottom .event-card { top: 95px; }
+        .timeline-item.bottom .event-card { top: 85px; } /* Estaba en 95px */
         .timeline-item.bottom .event-card::before {
-            content: ''; position: absolute; top: -50px; left: 50%; height: 50px;
+            content: ''; position: absolute; top: -40px; left: 50%; height: 40px;
             border-left: 2px dashed var(--line-color); transform: translateX(-50%);
         }
 
@@ -199,7 +200,7 @@
         .style-tech .event-card { border-top-color: var(--col-tech); }
         .style-tech:hover .timeline-marker { background: var(--col-tech); border-color: var(--col-tech); }
 
-        /* Botón Flotante */
+        /* BOTÓN FLOTANTE AL MENÚ DETALLADO */
         .enter-section {
             position: fixed;
             bottom: 30px;
@@ -219,6 +220,7 @@
             border-radius: 50px;
             box-shadow: 0 5px 20px rgba(0, 51, 102, 0.4);
             transition: transform 0.2s;
+            border: 2px solid white; /* Borde blanco para resaltar */
         }
         .btn-enter:hover { transform: scale(1.05); background-color: #002244; }
 
@@ -511,7 +513,7 @@
 
     <div class="enter-section">
         <a href="menu.html" class="btn-enter">
-            Ingresar al Menú Principal <i data-lucide="arrow-right"></i>
+            Ver Menú Detallado por Periodos <i data-lucide="list" style="vertical-align: middle;"></i>
         </a>
     </div>
 
