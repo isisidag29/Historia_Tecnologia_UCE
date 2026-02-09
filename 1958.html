@@ -7,56 +7,49 @@
     <script src="https://unpkg.com/lucide@latest"></script>
     <link rel="stylesheet" href="style.css">
     <style>
-        /* Estilos específicos para la tabla técnica */
-        .tech-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 25px 0;
-            font-size: 0.95rem;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
-            border-radius: 8px;
-            overflow: hidden;
-        }
-        .tech-table th, .tech-table td {
-            padding: 15px;
-            border-bottom: 1px solid #eee;
-            text-align: left;
-        }
-        .tech-table th {
-            background-color: var(--primary);
-            color: white;
-            font-weight: 600;
-        }
-        .tech-table tr:nth-child(even) {
-            background-color: #f8f9fa;
-        }
-
-        /* Ficha del Proyecto */
-        .project-card {
-            background-color: #e3f2fd; /* Azul suave */
-            border-left: 5px solid #1565c0; /* Azul fuerte */
+        /* Estilos visuales para mantener el formato unificado */
+        .intro-card {
+            background-color: #fff;
+            border-left: 5px solid var(--primary);
             padding: 20px;
             margin: 30px 0;
-            border-radius: 0 8px 8px 0;
+            border-radius: 4px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.05);
         }
 
-        /* Contenedor de imágenes */
+        .section-box {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 25px;
+            margin: 30px 0;
+            border: 1px solid #eee;
+        }
+
+        .section-title {
+            color: #1565c0;
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
         .img-container {
             text-align: center;
-            margin: 40px 0;
+            margin-top: 20px;
         }
+
         .evidence-img {
             max-width: 100%;
             border-radius: 8px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
-            border: 1px solid #eee;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            border: 1px solid #ddd;
         }
+
         .img-caption {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             color: #666;
             font-style: italic;
-            margin-top: 10px;
+            margin-top: 8px;
         }
     </style>
 </head>
@@ -64,7 +57,7 @@
 
     <header style="background: linear-gradient(135deg, var(--primary) 0%, #001a4d 100%);">
         <h1>Año 1958</h1>
-        <p>Infraestructura Tecnológica y Cooperación Internacional</p>
+        <p>Infraestructura Tecnológica</p>
     </header>
 
     <div class="page-content">
@@ -73,70 +66,74 @@
             ← Volver al Periodo 1950-1989
         </a>
 
-        <h1 class="year-title" style="margin-top: 20px;">1958: Consolidación Científica</h1>
-
-        <p class="intro-text">
-            En el año 1958, según los <strong>Anales de la Universidad de Quito</strong>, la Universidad Central del Ecuador fortalece de manera visible su infraestructura tecnológica, consolidando los avances científicos iniciados a comienzos de la década.
-        </p>
-
-        <div class="project-card">
-            <h4 style="margin-top: 0; color: #1565c0; display: flex; align-items: center; gap: 10px;">
-                <i data-lucide="flask-conical"></i> Ficha Técnica: Instituto de Materiales
-            </h4>
-            <ul style="list-style: none; padding: 0; margin-top: 15px; line-height: 1.6;">
-                <li><strong>🏗 Obra:</strong> Pabellón del Instituto de Ensayo de Materiales y Estática.</li>
-                <li><strong>🤝 Cooperación:</strong> Donación de equipos modernos por parte de la UNESCO.</li>
-                <li><strong>🎯 Objetivo:</strong> Realización de ensayos de materiales y estudios de estática con tecnología de punta.</li>
-            </ul>
-        </div>
-
-        <h3>Instituto de Ensayo de Materiales</h3>
-        <p>
-            Durante el periodo 1957–1958 se concluye la construcción del <a href="1958.pdf" target="_blank" style="color:var(--primary); font-weight:bold;">Pabellón del Instituto</a>. 
-            Este edificio fue diseñado funcionalmente para la experimentación científica.
-        </p>
-
-        <div class="img-container">
-            <img src="materiales instituto.jpeg" alt="Instituto de Ensayo de Materiales y Estática" class="evidence-img">
-            <p class="img-caption">Figura 1: Fachada del Instituto de Ensayo de Materiales y Estática, equipado con tecnología UNESCO.</p>
-        </div>
-
-        <h3>Cooperación Rockefeller</h3>
-        <p>
-            En este año se concreta la oferta de <a href="1958.pdf" target="_blank" style="color:var(--primary); font-weight:bold;">cooperación de la Fundación Rockefeller</a>, destinada al fortalecimiento de la Facultad de Agronomía.
-        </p>
+        <h1 class="year-title" style="margin-top: 20px;">Consolidación de la infraestructura científica</h1>
         
-        <ul style="background: #f9f9f9; padding: 20px 40px; border-radius: 8px; border: 1px solid #eee;">
-            <li>Laboratorios científicos equipados.</li>
-            <li>Museos científicos para la docencia.</li>
-            <li>Hacienda modelo para prácticas técnicas de campo.</li>
-        </ul>
-
-        <div class="img-container">
-            <img src="fundacion.jpeg" alt="Cooperación Fundación Rockefeller" class="evidence-img">
-            <p class="img-caption">Figura 2: Apoyo internacional para el desarrollo científico en Agronomía.</p>
+        <div class="intro-card">
+            <p style="margin: 0; line-height: 1.6;">
+                En el año 1958, según los <strong>Anales de la Universidad de Quito</strong>,
+                la Universidad Central del Ecuador fortalece de manera visible su
+                infraestructura tecnológica, consolidando los avances científicos
+                iniciados a comienzos de la década.
+            </p>
         </div>
 
-        <hr style="margin: 40px 0; border: 0; border-top: 1px solid #eee;">
+        <div class="section-box">
+            <h2 class="section-title"><i data-lucide="flask-conical"></i> Instituto de Ensayo de Materiales y Estática</h2>
+            
+            <p>
+                Durante el periodo 1957–1958 se encuentra casi concluida la construcción
+                del <a href="1958.pdf" target="_blank" style="color: #1565c0; font-weight: bold;">Pabellón del Instituto de Ensayo de Materiales y Estática</a>,
+                un edificio diseñado de forma funcional para la realización de
+                <strong>ensayos de materiales y estudios de estática</strong>.
+            </p>
 
-        <div style="font-size: 0.9rem; color: #555;">
-            <strong>Referencias:</strong>
-            <ul style="margin-top: 5px; padding-left: 20px;">
-                <li>
-                    <a href="1958.pdf" target="_blank" style="color: #003366; text-decoration: underline;">
-                        Anales de la Universidad de Quito (1958) - Archivo Histórico
-                    </a>
-                </li>
+            <p>
+                Además, el instituto recibió una <strong>valiosa donación de equipos tecnológicos
+                por parte de la UNESCO</strong>, lo que permitió dotar al pabellón de
+                instrumental moderno para la época, incrementando significativamente
+                su capacidad experimental y científica.
+            </p>
+
+            <div class="img-container">
+                <img src="materiales instituto.jpeg" alt="Instituto de Ensayo de Materiales y Estática" class="evidence-img">
+                <p class="img-caption">Figura: Instituto de Ensayo de Materiales y Estática.</p>
+            </div>
+        </div>
+
+        <div class="section-box">
+            <h2 class="section-title"><i data-lucide="sprout"></i> Fundación Rockefeller y desarrollo científico</h2>
+            
+            <p>
+                En este año se menciona también la oferta de cooperación de la
+                <a href="1958.pdf" target="_blank" style="color: #1565c0; font-weight: bold;">cooperación de la Fundación Rockefeller</a>,
+                destinada al fortalecimiento de la Facultad de Agronomía.
+            </p>
+
+            <ul style="margin-top: 15px; background: #fff; padding: 15px 30px; border-radius: 4px; border: 1px solid #eee;">
+                <li>Laboratorios científicos</li>
+                <li>Museos científicos</li>
+                <li>Hacienda modelo para prácticas técnicas</li>
             </ul>
+
+            <p>
+                La donación estaba condicionada a la construcción previa de la
+                infraestructura correspondiente, evidenciando planificación y
+                compromiso institucional.
+            </p>
+
+            <div class="img-container">
+                <img src="fundacion.jpeg" alt="Apoyo de la Fundación Rockefeller al desarrollo científico" class="evidence-img">
+                <p class="img-caption">Figura: Apoyo de la Fundación Rockefeller al desarrollo científico.</p>
+            </div>
         </div>
 
     </div>
 
     <footer>
         <div class="footer-content">
-            <p><strong>© 2026 Universidad Central del Ecuador</strong> - Contexto Tecnológico Nacional</p>
+            <p>Anales de la Universidad de Quito – Año 1958</p>
             <p class="footer-details">
-                Proyecto: Tecnología en la UCE
+                Proyecto: Tecnología en la UCE · Universidad Central del Ecuador
             </p>
         </div>
     </footer>
