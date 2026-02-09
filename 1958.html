@@ -1,117 +1,149 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>1958 – Infraestructura Tecnológica en la UCE</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
+    <title>Año 1958: Infraestructura Tecnológica - UCE</title>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Estilos específicos para la tabla técnica */
+        .tech-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            font-size: 0.95rem;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .tech-table th, .tech-table td {
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+            text-align: left;
+        }
+        .tech-table th {
+            background-color: var(--primary);
+            color: white;
+            font-weight: 600;
+        }
+        .tech-table tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
 
+        /* Ficha del Proyecto */
+        .project-card {
+            background-color: #e3f2fd; /* Azul suave */
+            border-left: 5px solid #1565c0; /* Azul fuerte */
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 0 8px 8px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        /* Contenedor de imágenes */
+        .img-container {
+            text-align: center;
+            margin: 40px 0;
+        }
+        .evidence-img {
+            max-width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+            border: 1px solid #eee;
+        }
+        .img-caption {
+            font-size: 0.9rem;
+            color: #666;
+            font-style: italic;
+            margin-top: 10px;
+        }
+    </style>
+</head>
 <body>
 
-    <header>
-        <h1>1958 – Infraestructura Tecnológica</h1>
-        <p>Universidad Central del Ecuador</p>
+    <header style="background: linear-gradient(135deg, var(--primary) 0%, #001a4d 100%);">
+        <h1>Año 1958</h1>
+        <p>Infraestructura Tecnológica y Cooperación Internacional</p>
     </header>
 
-    <main class="section-container">
+    <div class="page-content">
+        
+        <a href="periodo_1950_1989.html" class="btn-back">
+            ← Volver al Periodo 1950-1989
+        </a>
 
-        <div class="page-content">
+        <h1 class="year-title" style="margin-top: 20px;">1958: Consolidación Científica</h1>
 
-            <!-- TARJETA 1 -->
-            <div class="section-card">
-                <h1>Consolidación de la infraestructura científica</h1>
-                <p>
-                    En el año 1958, según los <strong>Anales de la Universidad de Quito</strong>,
-                    la Universidad Central del Ecuador fortalece de manera visible su
-                    infraestructura tecnológica, consolidando los avances científicos
-                    iniciados a comienzos de la década.
-                </p>
-            </div>
+        <p class="intro-text">
+            En el año 1958, según los <strong>Anales de la Universidad de Quito</strong>, la Universidad Central del Ecuador fortalece de manera visible su infraestructura tecnológica, consolidando los avances científicos iniciados a comienzos de la década.
+        </p>
 
-            <!-- TARJETA 2 -->
-            <div class="section-card">
-                <h2>Instituto de Ensayo de Materiales y Estática </h2>
-
-                <div class="content-grid">
-                    <div>
-                        <p>
-                            Durante el periodo 1957–1958 se encuentra casi concluida la construcción
-                            del <a href="1958.pdf#page=373" target="_blank">Pabellón del Instituto de Ensayo de Materiales y Estática</a>,
-                            un edificio diseñado de forma funcional para la realización de
-                            <strong>ensayos de materiales y estudios de estática</strong>.
-                        </p>
-
-                        <p>
-                            Además, el instituto recibió una <strong>valiosa donación de equipos tecnológicos
-                                por parte de la UNESCO</strong>, lo que permitió dotar al pabellón de
-                            instrumental moderno para la época, incrementando significativamente
-                            su capacidad experimental y científica.
-                        </p>
-                    </div>
-
-                    <div>
-                        <img src="materiales instituto.jpeg" alt="Instituto de Ensayo de Materiales y Estática">
-                        <p style="font-size:0.85rem; text-align:center; opacity:0.7;">
-                            Figura: Instituto de Ensayo de Materiales y Estática.
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-
-            <!-- TARJETA 4 -->
-            <div class="section-card">
-                <h2>Fundación Rockefeller y desarrollo científico </h2>
-
-                <div class="content-grid">
-                    <div>
-                        <p>
-                            En este año se menciona también la oferta de cooperación de la
-                            <a href="1958.pdf#page=368" target="_blank"> cooperación de la Fundación Rockefeller</a>,
-                            destinada al fortalecimiento
-                            de la Facultad de Agronomía.
-                        </p>
-
-                        <ul>
-                            <li>Laboratorios científicos</li>
-                            <li>Museos científicos</li>
-                            <li>Hacienda modelo para prácticas técnicas</li>
-                        </ul>
-
-                        <p>
-                            La donación estaba condicionada a la construcción previa de la
-                            infraestructura correspondiente, evidenciando planificación y
-                            compromiso institucional.
-                        </p>
-                    </div>
-
-                    <div>
-                        <img src="fundacion.jpeg" alt="Apoyo de la Fundación Rockefeller al desarrollo científico">
-                        <p style="font-size:0.85rem; text-align:center; opacity:0.7;">
-                            Figura: Apoyo de la Fundación Rockefeller al desarrollo científico.
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-
-            <a href="index.html" class="btn-back">← Volver a la línea de tiempo</a>
-
+        <div class="project-card">
+            <h4 style="margin-top: 0; color: #1565c0; display: flex; align-items: center; gap: 10px;">
+                <i data-lucide="flask-conical"></i> Ficha Técnica: Instituto de Materiales
+            </h4>
+            <ul style="list-style: none; padding: 0; margin-top: 15px; line-height: 1.6;">
+                <li><strong>🏗 Obra:</strong> Pabellón del Instituto de Ensayo de Materiales y Estática.</li>
+                <li><strong>🤝 Cooperación:</strong> Donación de equipos modernos por parte de la UNESCO.</li>
+                <li><strong>🎯 Objetivo:</strong> Realización de ensayos de materiales y estudios de estática con tecnología de punta.</li>
+            </ul>
         </div>
 
-    </main>
+        <h3>Instituto de Ensayo de Materiales</h3>
+        <p>
+            Durante el periodo 1957–1958 se concluye la construcción del <a href="1958.pdf" target="_blank" style="color:var(--primary); font-weight:bold;">Pabellón del Instituto</a>. 
+            Este edificio fue diseñado funcionalmente para la experimentación científica.
+        </p>
+
+        <div class="img-container">
+            <img src="materiales instituto.jpeg" alt="Instituto de Ensayo de Materiales y Estática" class="evidence-img">
+            <p class="img-caption">Figura 1: Fachada del Instituto de Ensayo de Materiales y Estática, equipado con tecnología UNESCO.</p>
+        </div>
+
+        <h3>Cooperación Rockefeller</h3>
+        <p>
+            En este año se concreta la oferta de <a href="1958.pdf" target="_blank" style="color:var(--primary); font-weight:bold;">cooperación de la Fundación Rockefeller</a>, destinada al fortalecimiento de la Facultad de Agronomía.
+        </p>
+        
+        <ul style="background: #f9f9f9; padding: 20px 40px; border-radius: 8px; border: 1px solid #eee;">
+            <li>Laboratorios científicos equipados.</li>
+            <li>Museos científicos para la docencia.</li>
+            <li>Hacienda modelo para prácticas técnicas de campo.</li>
+        </ul>
+
+        <div class="img-container">
+            <img src="fundacion.jpeg" alt="Cooperación Fundación Rockefeller" class="evidence-img">
+            <p class="img-caption">Figura 2: Apoyo internacional para el desarrollo científico en Agronomía.</p>
+        </div>
+
+        <hr style="margin: 40px 0; border: 0; border-top: 1px solid #eee;">
+
+        <div style="font-size: 0.9rem; color: #555;">
+            <strong>Referencias:</strong>
+            <ul style="margin-top: 5px; padding-left: 20px;">
+                <li>
+                    <a href="1958.pdf" target="_blank" style="color: #003366; text-decoration: underline;">
+                        Anales de la Universidad de Quito (1958) - Archivo Histórico
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+    </div>
 
     <footer>
         <div class="footer-content">
-            <p>Anales de la Universidad de Quito – Año 1958</p>
-            <div class="footer-details">
-                Proyecto: Tecnología en la UCE · Universidad Central del Ecuador
-            </div>
+            <p><strong>© 2026 Universidad Central del Ecuador</strong> - Contexto Tecnológico Nacional</p>
+            <p class="footer-details">
+                Proyecto: Tecnología en la UCE
+            </p>
         </div>
     </footer>
 
-</body>
+    <script>
+        if(typeof lucide !== 'undefined') lucide.createIcons();
+    </script>
 
+</body>
 </html>
