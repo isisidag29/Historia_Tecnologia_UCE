@@ -52,6 +52,16 @@
             align-items: center;
             gap: 15px;
         }
+
+        /* Ficha del Proyecto (Nueva) */
+        .project-card {
+            background-color: #f3e5f5; /* Lila suave */
+            border-left: 5px solid #8e24aa;
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 0 8px 8px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
     </style>
 </head>
 <body>
@@ -74,8 +84,20 @@
             Se realizaron los primeros inventarios técnicos serios para identificar la distancia real entre la UCE y los estándares internacionales.
         </p>
 
+        <div class="project-card">
+            <h4 style="margin-top: 0; color: #7b1fa2; display: flex; align-items: center; gap: 10px;">
+                <i data-lucide="clipboard-list"></i> Ficha del Proyecto: Diagnóstico Situacional
+            </h4>
+            <ul style="list-style: none; padding: 0; margin-top: 15px; line-height: 1.6;">
+                <li><strong>📊 Proyecto:</strong> Levantamiento del Plan Estratégico de Desarrollo Institucional (PEDI).</li>
+                <li><strong>💰 Inversión:</strong> Gasto Administrativo (Consultoría interna y horas-hombre).</li>
+                <li><strong>👤 Encargado:</strong> Dirección General de Planificación Universitaria.</li>
+                <li><strong>🎯 Objetivo:</strong> Censo tecnológico para justificar el presupuesto de inversión 2008.</li>
+            </ul>
+        </div>
+
         <div class="source-box">
-            <strong>📜 Documento: Plan Estratégico de Desarrollo Institucional (2007)</strong>
+            <strong><i data-lucide="file-text" style="vertical-align: middle;"></i> Documento: Plan Estratégico (2007)</strong>
             <p style="margin-top: 10px; font-style: italic;">
                 "El diagnóstico situacional revela que solo el 15% de los docentes utiliza herramientas digitales en sus cátedras de manera regular. 
                 La infraestructura actual es insuficiente para soportar la demanda estudiantil, por lo que se propone el 'Plan Emergente de Conectividad'."
@@ -102,7 +124,7 @@
             </tr>
             <tr>
                 <td><strong>Web Institucional</strong></td>
-                <td><strong>Web 1.0 (Estática):</strong> Página HTML pura, informativa. No permitía trámites, matrículas ni consulta de notas en tiempo real.</td>
+                <td><strong>Web 1.0 (Estática):</strong> Página HTML pura, informativa. No permitía trámites ni consulta de notas en tiempo real.</td>
             </tr>
             <tr>
                 <td><strong>Conectividad Docente</strong></td>
@@ -111,18 +133,18 @@
         </table>
 
         <div class="gap-box">
-            <i data-lucide="globe" style="width: 40px; height: 40px; color: #f57c00;"></i>
+            <i data-lucide="globe" style="min-width: 40px; height: 40px; color: #f57c00;"></i>
             <div>
                 <strong>El problema de la Web Estática:</strong>
-                <p style="margin: 0; font-size: 0.9rem; color: #555;">
-                    En 2007, mientras el mundo ya usaba Facebook y YouTube (Web 2.0), la página de la UCE era un "tablón de anuncios digital". 
-                    Si un estudiante quería ver sus notas, tenía que ir físicamente a la secretaría a ver las listas pegadas en la pared.
+                <p style="margin: 5px 0 0 0; font-size: 0.9rem; color: #555;">
+                    En 2007, mientras el mundo ya usaba Facebook y la Web 2.0, la página de la UCE era un "tablón de anuncios digital". 
+                    Si un estudiante quería ver sus notas, tenía que ir físicamente a la secretaría a ver las listas de papel pegadas en la pared.
                 </p>
             </div>
         </div>
         
         <div style="text-align: center; margin: 40px 0;">
-            <img src="web2007.jpg" alt="Captura de la web antigua de la UCE en 2007" style="max-width: 100%; border-radius: 8px; box-shadow: 0 10px 20px rgba(0,0,0,0.15);">
+            <img src="2007Interfazantigua(casi).png" alt="Captura de la web antigua de la UCE" style="max-width: 100%; border-radius: 8px; box-shadow: 0 10px 20px rgba(0,0,0,0.15);">
             <p style="font-size: 0.9rem; color: #666; font-style: italic; margin-top: 10px;">
                 Figura 1: La antigua interfaz web institucional, carente de servicios en línea interactivos.
             </p>
