@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Historia UCE - 2013</title>
+    <title>Año 2013: Aulas Virtuales - UCE</title>
     <script src="https://unpkg.com/lucide@latest"></script>
     <link rel="stylesheet" href="style.css">
     <style>
@@ -27,9 +27,6 @@
             color: white;
             font-weight: 600;
         }
-        .tech-table tr:last-child td {
-            border-bottom: none;
-        }
         .tech-table tr:nth-child(even) {
             background-color: #f8f9fa;
         }
@@ -43,7 +40,7 @@
             border-radius: 4px;
         }
 
-        /* NUEVO ESTILO: Caja de Fuente Académica */
+        /* Caja de Fuente Académica */
         .source-box {
             background-color: #e8f5e9; /* Verde claro académico */
             border-left: 5px solid #2e7d32;
@@ -62,8 +59,34 @@
             margin-top: 10px;
             font-size: 0.9rem;
         }
-        .repo-link:hover {
-            text-decoration: underline;
+        .repo-link:hover { text-decoration: underline; }
+
+        /* Ficha del Proyecto (NUEVA) */
+        .project-card {
+            background-color: #fffde7; /* Amarillo muy suave */
+            border-left: 5px solid #fbc02d; /* Amarillo Moodle */
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 0 8px 8px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        /* Contenedor de imágenes */
+        .img-container {
+            text-align: center;
+            margin: 40px 0;
+        }
+        .evidence-img {
+            max-width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+            border: 1px solid #eee;
+        }
+        .img-caption {
+            font-size: 0.9rem;
+            color: #666;
+            font-style: italic;
+            margin-top: 10px;
         }
     </style>
 </head>
@@ -80,12 +103,24 @@
             ← Volver al Periodo 2001-2015
         </a>
 
-        <h1>2013 – La Expansión del Entorno Virtual de Aprendizaje (EVA)</h1>
+        <h1 class="year-title" style="margin-top: 20px;">2013 – La Expansión del Entorno Virtual de Aprendizaje (EVA)</h1>
 
-        <p>
+        <p class="intro-text">
             Si bien la educación a distancia existía antes, el <strong>2013</strong> se considera el año de la masificación de las plataformas virtuales en la UCE. 
             Impulsados por los nuevos estándares de evaluación del CEAACES (hoy CACES), la universidad estandarizó el uso de <strong>Moodle</strong> como soporte obligatorio para las clases presenciales.
         </p>
+
+        <div class="project-card">
+            <h4 style="margin-top: 0; color: #f57f17; display: flex; align-items: center; gap: 10px;">
+                <i data-lucide="graduation-cap"></i> Ficha del Proyecto: Virtualización Académica
+            </h4>
+            <ul style="list-style: none; padding: 0; margin-top: 15px; line-height: 1.6;">
+                <li><strong>🎓 Proyecto:</strong> Implementación y Masificación del Entorno Virtual de Aprendizaje (EVA).</li>
+                <li><strong>💰 Inversión:</strong> ~$200,000 USD (Ampliación de servidores de almacenamiento y capacitación docente).</li>
+                <li><strong>👤 Encargado:</strong> Dirección de Desarrollo Académico y DTIC.</li>
+                <li><strong>💻 Plataforma:</strong> LMS Moodle (Software Libre).</li>
+            </ul>
+        </div>
 
         <div class="source-box">
             <strong><i data-lucide="book-open-check" style="vertical-align: middle;"></i> Contexto Académico (Revista Ciencias Sociales Nº 35)</strong>
@@ -107,11 +142,9 @@
             En 2013, el tráfico de la red universitaria cambió drásticamente. Por primera vez, el mayor consumo de ancho de banda no era administrativo, sino académico: miles de estudiantes subiendo tareas en PDF y descargando sílabos digitales simultáneamente.
         </div>
 
-        <div style="text-align: center; margin: 40px 0;">
-            <img src="images/2013.jpg" alt="Estudiantes usando aulas virtuales en 2013" style="max-width: 100%; border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.15);">
-            <p style="font-size: 0.9rem; color: #666; margin-top: 10px; font-style: italic;">
-                El aula dejó de limitarse a las cuatro paredes físicas.
-            </p>
+        <div class="img-container">
+            <img src="2013Aulavirtual.png" alt="Interfaz de Moodle UCE 2013" class="evidence-img">
+            <p class="img-caption">Figura 1: Interfaz clásica de Moodle utilizada en 2013. El aula dejó de limitarse a las cuatro paredes físicas.</p>
         </div>
 
         <h3>El Cambio de Paradigma: Del Papel a la Nube</h3>
@@ -151,22 +184,22 @@
         <p>
             Para sostener este crecimiento, en 2013 se tuvo que reforzar el <strong>Data Center</strong> con nuevos servidores dedicados exclusivamente a virtualización, separando el tráfico del sistema académico (notas) del tráfico de aulas virtuales (archivos pesados).
         </p>
+        
+        <div class="img-container">
+            <img src="2013Soportetecnico.png" alt="Personal de soporte técnico UCE" class="evidence-img">
+            <p class="img-caption">Figura 2: Personal técnico monitoreando la estabilidad de la plataforma Moodle ante la alta demanda de usuarios.</p>
+        </div>
 
         <div style="margin-top: 40px; font-size: 0.9rem; border-top: 1px solid #eee; padding-top: 20px;">
             <strong>Referencias:</strong><br>
             <ul style="list-style: none; padding-left: 0; margin-top: 10px;">
                 <li style="margin-bottom: 8px;">
                     <a href="https://revistadigital.uce.edu.ec/index.php/CSOCIALES/issue/view/583/664" target="_blank" style="color: #003366; text-decoration: underline;">
-                        <strong>[Nueva]</strong> Cadena Villota, J. (2013). La formación de agentes pedagógicos virtuales. <em>Revista Ciencias Sociales</em>, 1(35), 121–140.
+                        <strong>[Artículo Académico]</strong> Cadena Villota, J. (2013). La formación de agentes pedagógicos virtuales. <em>Revista Ciencias Sociales</em>.
                     </a>
                 </li>
                 <li>
-                    <a href="https://uceedu-my.sharepoint.com/" target="_blank" style="color: #003366; text-decoration: underline;">
-                        Informes de Gestión Académica – Vicerrectorado Académico (2013-2014).
-                    </a>
-                </li>
-                <li>
-                    <span style="color: #555;">Estadísticas de uso de la Plataforma Moodle UCE.</span>
+                    Informes de Gestión Académica – Vicerrectorado Académico (2013-2014).
                 </li>
             </ul>
         </div>
