@@ -3,9 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Historia UCE - 2011</title>
+    <title>Año 2011: Nacimiento del SIIU - UCE</title>
     <script src="https://unpkg.com/lucide@latest"></script>
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Estilo para la Ficha del Proyecto (Software) */
+        .project-card {
+            background-color: #e0f7fa; /* Cyan muy suave */
+            border-left: 5px solid #006064; /* Cyan oscuro */
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 0 8px 8px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        
+        /* Caja de Referencia */
+        .ref-box {
+            margin-top: 40px; 
+            font-size: 0.9rem; 
+            border-top: 1px solid #eee; 
+            padding-top: 20px;
+            background-color: #fafafa;
+            padding: 20px;
+            border-radius: 8px;
+        }
+    </style>
 </head>
 <body>
 
@@ -20,33 +42,45 @@
             ← Volver al Periodo 2001-2015
         </a>
 
-        <h1>2011 – El inicio del Sistema Integral (SIIU)</h1>
+        <h1 class="year-title" style="margin-top: 20px;">2011 – El inicio del Sistema Integral (SIIU)</h1>
 
-        <p>
+        <p class="intro-text">
             El año 2011 marcó un hito operativo crítico: el despliegue inicial del <strong>Sistema Integral de Información Universitaria (SIIU)</strong>. 
             Tras la aprobación de la LOES el año anterior, la universidad necesitaba urgentemente dejar atrás las "islas de información" (bases de datos dispersas en cada facultad) para centralizar la gestión académica.
         </p>
+
+        <div class="project-card">
+            <h4 style="margin-top: 0; color: #006064; display: flex; align-items: center; gap: 10px;">
+                <i data-lucide="database"></i> Ficha del Proyecto: Centralización de Datos
+            </h4>
+            <ul style="list-style: none; padding: 0; margin-top: 15px; line-height: 1.6;">
+                <li><strong>💾 Sistema:</strong> SIIU (Sistema Integral de Información Universitaria).</li>
+                <li><strong>🎯 Objetivo:</strong> Unificar 40.000+ registros estudiantiles dispersos en una sola base de datos (Oracle).</li>
+                <li><strong>👤 Encargado:</strong> DTIC (Dirección de Tecnologías de la Información y Comunicación).</li>
+                <li><strong>⚡ Hito:</strong> Primer proceso de matriculación masiva con validación centralizada.</li>
+            </ul>
+        </div>
 
         <p>
             Este sistema se convirtió en el "cerebro digital" de la UCE, permitiendo por primera vez tener un registro único y estandarizado de matriculación, notas y carga horaria docente para toda la institución.
         </p>
 
         <div style="text-align: center; margin: 40px 0;">
-            <img src="images/2011.jpg" alt="Interfaz inicial del sistema SIIU y servidores" style="max-width: 100%; border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.15);">
+            <img src="2011 Interfaz SIIU.png" alt="Interfaz inicial del sistema SIIU" style="max-width: 100%; border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.15);">
             <p style="font-size: 0.9rem; color: #666; margin-top: 10px; font-style: italic;">
-                El SIIU permitió centralizar la información de más de 40.000 estudiantes que antes se manejaba manualmente en cada facultad.
+                Figura 1: Interfaz web clásica del SIIU. Este sistema permitió centralizar la información académica que antes se manejaba manualmente en cada facultad.
             </p>
         </div>
 
         <h3>Impacto Tecnológico</h3>
         <ul>
             <li><strong>Centralización de Datos:</strong> Migración de archivos físicos y hojas de cálculo locales a una base de datos institucional unificada (Oracle/SQL).</li>
-            <li><strong>Automatización de Matrículas:</strong> Se sentaron las bases para los primeros procesos de matriculación masiva en línea, reduciendo las largas filas físicas.</li>
+            <li><strong>Automatización de Matrículas:</strong> Se sentaron las bases para los primeros procesos de matriculación masiva en línea, reduciendo las largas filas físicas en las secretarías.</li>
             <li><strong>Reportes al Estado:</strong> Capacidad técnica para cumplir con los reportes obligatorios al SNIESE (Sistema Nacional de Información de Educación Superior).</li>
         </ul>
 
-        <div style="margin-top: 40px; font-size: 0.9rem; border-top: 1px solid #eee; padding-top: 20px;">
-            <strong>Referencia Institucional:</strong><br>
+        <div class="ref-box">
+            <strong><i data-lucide="file-text" style="vertical-align: middle;"></i> Referencia Institucional:</strong><br>
             <ul style="list-style: none; padding-left: 0; margin-top: 10px;">
                 <li>
                     <span style="color: #555;">Dirección de Tecnologías de la Información y Comunicación (DTIC) – Registros de Implementación SIIU (2011-2022).</span>
