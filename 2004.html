@@ -43,6 +43,34 @@
             font-size: 0.95rem;
             color: #5d4037;
         }
+
+        /* Estilo para la Ficha del Proyecto */
+        .project-card {
+            background-color: #fff3e0;
+            border-left: 5px solid #ef6c00;
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 0 8px 8px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        
+        /* Contenedor de imágenes */
+        .img-container {
+            text-align: center;
+            margin: 40px 0;
+        }
+        .img-caption {
+            font-size: 0.9rem;
+            color: #666;
+            font-style: italic;
+            margin-top: 10px;
+        }
+        .evidence-img {
+            max-width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+            border: 1px solid #eee;
+        }
     </style>
 </head>
 <body>
@@ -65,6 +93,18 @@
             Se inició el primer gran proyecto de obra civil tecnológica: el <strong>soterramiento de fibra óptica</strong> para crear el primer anillo de conexión 
             entre el Edificio Administrativo y las facultades más cercanas (Arquitectura, Filosofía y Jurisprudencia).
         </p>
+
+        <div class="project-card">
+            <h4 style="margin-top: 0; color: #e65100; display: flex; align-items: center; gap: 10px;">
+                <i data-lucide="network"></i> Ficha del Proyecto: Anillo de Fibra (Fase 1)
+            </h4>
+            <ul style="list-style: none; padding: 0; margin-top: 15px; line-height: 1.6;">
+                <li><strong>🛠 Proyecto:</strong> Implementación del Anillo de Fibra Óptica (Backbone) - Campus Central.</li>
+                <li><strong>💰 Inversión Estimada:</strong> $150,000 USD (Obra civil de soterramiento, ductería y equipamiento activo).</li>
+                <li><strong>👤 Encargado:</strong> Dirección General Académica / Unidad de Redes y Telecomunicaciones.</li>
+                <li><strong>⚙️ Hardware Clave:</strong> Switches 3Com SuperStack y Cisco Catalyst serie 2900.</li>
+            </ul>
+        </div>
 
         <h3>1. Ficha Técnica de la Infraestructura</h3>
         <p>
@@ -94,23 +134,26 @@
             </tr>
         </table>
 
+        <div class="img-container">
+            <img src="2004Switch.png" alt="Switch Cisco Catalyst 2004" class="evidence-img">
+            <p class="img-caption">Figura 1: Equipos de conmutación (Switches) Cisco Catalyst. El salto de Hubs a Switches eliminó las "colisiones" de datos.</p>
+        </div>
+
         <div class="tech-note">
             <strong><i data-lucide="zap" style="vertical-align: middle;"></i> El salto de Hub a Switch:</strong><br>
-            Hasta 2003, la UCE usaba "Hubs", dispositivos tontos que enviaban los datos a todas las computadoras a la vez, causando "colisiones" y lentitud. 
-            En 2004, con la llegada de los <strong>Switches</strong>, cada puerto se volvió inteligente, enviando los datos solo al destinatario correcto. Esto eliminó el caos en la red.
+            Hasta 2003, la UCE usaba "Hubs", dispositivos tontos que enviaban los datos a todas las computadoras a la vez, causando lentitud. 
+            En 2004, con la llegada de los <strong>Switches</strong>, cada puerto se volvió inteligente, enviando los datos solo al destinatario correcto.
         </div>
 
         <h3>2. Impacto en los Laboratorios</h3>
         <p>
             Los laboratorios de computación de la Facultad de Ingeniería experimentaron una mejora inmediata. Los estudiantes podían compartir archivos dentro de la red local 
-            sin que las computadoras se "congelaran" por saturación de tráfico.
+            sin que las computadoras se "congelaran" por saturación de tráfico. Además, se implementaron los primeros <strong>Racks de Comunicaciones</strong> organizados.
         </p>
         
-        <div style="text-align: center; margin: 40px 0;">
-            <img src="switch2004.jpg" alt="Equipos de red Cisco y 3Com de la época" style="max-width: 100%; border-radius: 8px; box-shadow: 0 10px 20px rgba(0,0,0,0.15);">
-            <p style="font-size: 0.9rem; color: #666; font-style: italic; margin-top: 10px;">
-                Figura 1: Switches montados en rack. Las luces verdes indicaban tráfico fluido a 100 Mbps.
-            </p>
+        <div class="img-container">
+            <img src="2004Rack.png" alt="Rack de comunicaciones antiguo UCE" class="evidence-img">
+            <p class="img-caption">Figura 2: Primeros Racks de comunicaciones instalados para organizar el cableado estructurado y la fibra óptica.</p>
         </div>
 
         <hr style="margin: 40px 0; border: 0; border-top: 1px solid #eee;">
@@ -120,6 +163,11 @@
             <ul style="margin-top: 5px; padding-left: 20px;">
                 <li>Plan de Desarrollo Institucional UCE (2004-2008) - Componente Infraestructura.</li>
                 <li>Inventario de Bienes Tecnológicos - Dirección Administrativa.</li>
+                <li>
+                    <a href="https://www.cisco.com/c/en/us/support/switches/catalyst-2900-series-switches/series.html" target="_blank" style="color: #003366; text-decoration: underline;">
+                        Especificaciones Técnicas: Cisco Catalyst 2900 Series
+                    </a>
+                </li>
             </ul>
         </div>
 
