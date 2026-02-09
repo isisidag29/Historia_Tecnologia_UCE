@@ -7,148 +7,62 @@
     <script src="https://unpkg.com/lucide@latest"></script>
     <link rel="stylesheet" href="style.css">
     <style>
-        /* Estilos específicos para la tabla de este año */
+        .project-card {
+            background-color: #f8f9fa;
+            border-left: 4px solid var(--secondary);
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
         .tech-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 25px 0;
-            font-size: 0.95rem;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+            width: 100%; border-collapse: collapse; margin: 25px 0; font-size: 0.95rem;
         }
         .tech-table th, .tech-table td {
-            padding: 12px 15px;
-            border: 1px solid #ddd;
-            text-align: left;
+            padding: 12px 15px; border: 1px solid #ddd; text-align: left;
         }
-        .tech-table th {
-            background-color: var(--primary);
-            color: white;
-            font-weight: 600;
-        }
-        .tech-table tr:nth-child(even) {
-            background-color: #f8f9fa;
-        }
+        .tech-table th { background-color: var(--primary); color: white; }
     </style>
 </head>
 <body>
-
     <header style="background: linear-gradient(135deg, var(--primary) 0%, #001a4d 100%);">
         <h1>Año 2001</h1>
         <p>La Era de la Conectividad Limitada</p>
     </header>
 
     <div class="page-content">
-        
-        <a href="periodo_2001_2015.html" class="btn-back">
-            ← Volver al Periodo 2001-2015
-        </a>
+        <a href="periodo_2001_2015.html" class="btn-back">← Volver al Periodo 2001-2015</a>
 
-        <h1 class="year-title" style="margin-top: 20px; color: var(--primary);">Año 2001: El "Punto Cero" Digital</h1>
+        <h1 class="year-title" style="margin-top: 20px; color: var(--primary);">2001: El "Punto Cero" Digital</h1>
 
         <p class="intro-text">
-            El año 2001 representa el inicio de la brecha digital en la universidad pública. 
-            Mientras el mundo avanzaba hacia la banda ancha, la <strong>Universidad Central del Ecuador</strong> operaba bajo un modelo de 
-            "islas informáticas", con recursos desconectados y una fuerte dependencia de la infraestructura telefónica básica.
+            El año 2001 representa el inicio de la brecha digital. La UCE operaba bajo un modelo de "islas informáticas" con dependencia de líneas telefónicas básicas.
         </p>
 
-        <h3>1. Infraestructura y Redes (El cuello de botella)</h3>
-        <p>
-            En este año, la universidad no poseía fibra óptica propia. La conexión a internet era un servicio de lujo reservado 
-            para autoridades y laboratorios muy específicos de la Facultad de Ingeniería y Administración.
-        </p>
-        
-        <ul style="background: #f4f7f6; padding: 20px 40px; border-radius: 8px; border-left: 4px solid var(--secondary);">
-            <li><strong>Proveedor Principal:</strong> Andinatel S.A. (Empresa estatal de telefonía).</li>
-            <li><strong>Tecnología:</strong> Enlaces de cobre (pares telefónicos) y módems de <em>Dial-up</em> (56 kbps) para oficinas.</li>
-            <li><strong>Ancho de Banda Institucional:</strong> Se estima que toda la universidad compartía un canal que no superaba los <strong>256 kbps a 512 kbps</strong>.</li>
-            <li><strong>Proveedores Satelitales:</strong> Algunas facultades contrataban servicios privados con <em>Ecuanet</em> o <em>Satnet</em> para evitar la congestión de la red estatal.</li>
-        </ul>
-
-        <div style="text-align: center; margin: 40px 0;">
-             <img src="red2001.jpg" alt="Módem de 56k y cables de cobre" style="max-width: 100%; border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.15);">
-            <p style="font-size: 0.9rem; color: #666; font-style: italic; margin-top: 10px;">Figura 1: La tecnología de par de cobre limitaba la velocidad de conexión en 2001.</p>
-        </div>
-
-        <h3>2. El Parque Computacional (Hardware)</h3>
-        <p>
-            Los laboratorios estudiantiles eran escasos. La relación era de aproximadamente <strong>una computadora por cada 150 estudiantes</strong>. 
-            Las características técnicas estándar de los equipos comprados en licitaciones de esa época eran:
-        </p>
-
-        <table class="tech-table">
-            <tr>
-                <th>Componente</th>
-                <th>Especificación Técnica (Estándar 2001)</th>
-            </tr>
-            <tr>
-                <td>Procesador</td>
-                <td>Intel Pentium III (700 MHz) o primeros Pentium 4</td>
-            </tr>
-            <tr>
-                <td>Memoria RAM</td>
-                <td>64 MB a 128 MB (Megabytes)</td>
-            </tr>
-            <tr>
-                <td>Almacenamiento</td>
-                <td>Discos Duros IDE de 10 GB a 20 GB</td>
-            </tr>
-            <tr>
-                <td>Monitor</td>
-                <td>CRT (Tubo de Rayos Catódicos) de 14" o 15"</td>
-            </tr>
-            <tr>
-                <td>Sistema Operativo</td>
-                <td>Windows 98 SE / Windows 2000 Professional</td>
-            </tr>
-            <tr>
-                <td>Almacenamiento Externo</td>
-                <td>Disquetes de 3½ pulgadas (1.44 MB)</td>
-            </tr>
-        </table>
-
-        <h3>3. Vida Académica y "Los Cybers"</h3>
-        <p>
-            Debido a la falta de conectividad en el campus, surgió un fenómeno cultural alrededor de la universidad: los <strong>Cibercafés</strong>.
-            Los estudiantes de la UCE abarrotaban los locales comerciales de la Av. América y la Av. Universitaria para realizar investigaciones, 
-            ya que la biblioteca central aún funcionaba con ficheros de cartón y libros físicos exclusivamente.
-        </p>
-        <p>
-            <strong>Software Educativo:</strong> En las aulas de informática se enseñaba programación con herramientas como <em>Turbo Pascal</em>, 
-            <em>Borland C++</em> y ofimática básica con <em>Microsoft Office 97/2000</em>.
-        </p>
-
-        <h3>4. El Hito Crítico (La necesidad del cambio)</h3>
-        <p>
-            La precariedad del servicio de Andinatel y los altos costos del "internet comercial" llevaron a las autoridades universitarias a buscar alternativas.
-            A finales de 2001, se iniciaron las conversaciones que desembocarían, un año después, en la fundación de <strong>CEDIA</strong> (Red Nacional de Investigación), 
-            marcando el fin de esta era de aislamiento digital.
-        </p>
-
-        <hr style="margin: 40px 0; border: 0; border-top: 1px solid #eee;">
-
-        <div style="background-color: #f8f9fa; padding: 20px; border-radius: 8px; font-size: 0.9rem; color: #555;">
-            <strong>Fuentes Consultadas:</strong>
-            <ul style="margin-top: 10px; padding-left: 20px;">
-                <li>Arcotel. (2015). <em>Evolución del Internet en Ecuador y proveedores históricos</em>.</li>
-                <li>Universidad Central del Ecuador. (2002). <em>Actas de Consejo Universitario: Informes de equipamiento</em>.</li>
-                <li>CEDIA. (2017). <em>Memoria Institucional: 15 años de historia</em>.</li>
+        <div class="project-card">
+            <h4 style="margin-top: 0; color: var(--primary);"><i data-lucide="folder-open" style="vertical-align: middle;"></i> Estado del Proyecto: Conectividad Básica</h4>
+            <ul style="list-style: none; padding: 0; margin-top: 10px;">
+                <li><strong>🔌 Tecnología:</strong> Dial-up (56 kbps) vía línea telefónica.</li>
+                <li><strong>💰 Presupuesto Operativo:</strong> Aprox. $12,000 USD anuales (Pago a Andinatel).</li>
+                <li><strong>👤 Encargado:</strong> Direcciones Administrativas de cada Facultad (Descentralizado).</li>
             </ul>
         </div>
 
-    </div>
-
-    <footer>
-        <div class="footer-content">
-            <p><strong>© 2026 Universidad Central del Ecuador</strong> - Facultad de Ingeniería, Ciencias Físicas y Matemática</p>
-            <p class="footer-details">
-                Ingeniería en Sistemas de Información | Infraestructura II | SI5-001 | Tecnología en la UCE 2025-2026
-            </p>
+        <div style="text-align: center; margin: 40px 0;">
+             <img src="2001.png" alt="Computadora antigua UCE 2001" style="max-width: 100%; border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.15);">
+            <p style="font-size: 0.9rem; color: #666; font-style: italic; margin-top: 10px;">Figura 1: Equipamiento típico en oficinas administrativas en 2001.</p>
         </div>
-    </footer>
 
-    <script>
-        if(typeof lucide !== 'undefined') lucide.createIcons();
-    </script>
+        <h3>Infraestructura Limitada</h3>
+        <p>La conexión a internet era un lujo. La mayoría de los trámites eran 100% físicos y las bibliotecas usaban ficheros de cartón.</p>
 
+        <div style="margin-top: 40px; font-size: 0.9rem; border-top: 1px solid #eee; padding-top: 20px;">
+            <strong>Fuentes:</strong>
+            <ul>
+                <li><a href="https://www.arcotel.gob.ec/" target="_blank" style="color:var(--primary);">Arcotel - Historia del Internet en Ecuador</a></li>
+                <li>Informes de Gestión 2001 - Archivo General UCE.</li>
+            </ul>
+        </div>
+    </div>
+    <script>lucide.createIcons();</script>
 </body>
 </html>
