@@ -3,9 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Año 2005: Bibliotecas Digitales - UCE</title>
+    <title>Año 2005: WinISIS - UCE</title>
     <script src="https://unpkg.com/lucide@latest"></script>
     <link rel="stylesheet" href="style.css">
+    <style>
+        .project-card {
+            background-color: #e3f2fd;
+            border-left: 5px solid #1565c0;
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 4px;
+        }
+        .img-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 40px 0;
+        }
+        .img-item img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            border: 1px solid #eee;
+        }
+        .img-caption {
+            font-size: 0.85rem;
+            color: #666;
+            margin-top: 8px;
+            font-style: italic;
+            text-align: center;
+        }
+        @media (max-width: 768px) {
+            .img-grid { grid-template-columns: 1fr; }
+        }
+    </style>
 </head>
 <body>
 
@@ -27,16 +58,20 @@
             En 2005, la UCE consolidó sus pilotos para automatizar el catálogo, permitiendo por primera vez búsquedas digitales locales.
         </p>
 
-        <div style="background-color: #e3f2fd; border-left: 5px solid #1565c0; padding: 20px; margin: 30px 0; border-radius: 4px;">
-            <strong><i data-lucide="book-open-check" style="vertical-align: middle;"></i> Validación Histórica:</strong>
-            <p style="margin-top: 10px; font-style: italic; color: #333;">
-                "La Universidad Central adoptó el sistema <strong>WinISIS</strong> (desarrollado por la UNESCO) como estándar para la gestión de sus bases de datos bibliográficas, permitiendo la normalización de registros de tesis y libros antes de la migración a sistemas web."
-            </p>
-            <div style="margin-top: 10px; font-size: 0.85rem;">
-                <a href="https://unesdoc.unesco.org/ark:/48223/pf0000124330" target="_blank" style="color: #1565c0; text-decoration: underline; font-weight: bold;">
-                    🔗 Ver Manual Oficial de Referencia UNESCO (WinISIS)
-                </a>
-            </div>
+        <div class="project-card">
+            <h4 style="margin-top: 0; color: #0d47a1;"><i data-lucide="book-open-check" style="vertical-align: middle;"></i> Ficha del Proyecto: SIBUCE Digital</h4>
+            <ul style="list-style: none; padding: 0; margin-top: 10px;">
+                <li><strong>💾 Software:</strong> CDS/WinISIS (Desarrollado por la UNESCO).</li>
+                <li><strong>💰 Costo:</strong> Bajo (Software gratuito), inversión principal en personal de digitación.</li>
+                <li><strong>👤 Encargado:</strong> Lcda. Matilde V. (Jefatura de Biblioteca General).</li>
+                <li><strong>🎯 Objetivo:</strong> Normalizar registros de tesis y libros en una base de datos local.</li>
+            </ul>
+        </div>
+
+        <div style="margin-top: 10px; font-size: 0.9rem;">
+            <a href="https://unesdoc.unesco.org/ark:/48223/pf0000124330" target="_blank" style="color: #1565c0; text-decoration: underline; font-weight: bold;">
+                🔗 Ver Manual Oficial de Referencia UNESCO (WinISIS)
+            </a>
         </div>
 
         <h3>El Software: WinISIS</h3>
@@ -51,9 +86,15 @@
             <li><strong>Limitación:</strong> Solo funcionaba dentro de la biblioteca (Intranet).</li>
         </ul>
 
-         <div style="text-align: center; margin: 40px 0;">
-            <img src="images/biblio2005.jpg" alt="Bibliotecarios digitalizando fichas en 2005" style="max-width: 100%; border-radius: 8px; box-shadow: 0 10px 20px rgba(0,0,0,0.15);">
-            <p style="font-size: 0.9rem; color: #666; font-style: italic; margin-top: 10px;">Figura 1: Personal administrativo en proceso de migración de fichas de cartón a registros digitales (PCs con Windows XP).</p>
+        <div class="img-grid">
+            <div class="img-item">
+                <img src="2005digitalización.png" alt="Proceso de digitalización de fichas">
+                <p class="img-caption">Figura 1: Proceso manual de migración de datos desde fichas físicas.</p>
+            </div>
+            <div class="img-item">
+                <img src="2005WinISIS.png" alt="Interfaz de WinISIS">
+                <p class="img-caption">Figura 2: Interfaz del software WinISIS utilizado para catalogar el acervo.</p>
+            </div>
         </div>
 
         <hr style="margin: 40px 0; border: 0; border-top: 1px solid #eee;">
