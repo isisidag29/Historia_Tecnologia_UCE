@@ -5,25 +5,145 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Periodo 1620-1950 | Historia UCE</title>
     <script src="https://unpkg.com/lucide@latest"></script>
-    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css"> <style>
+        /* Estilos específicos para este periodo (Tonos Tierra/Históricos) */
+        :root {
+            --bg-color: #fcf8f5; /* Fondo crema suave */
+            --primary-hist: #5D4037; /* Café oscuro */
+            --secondary-hist: #8D6E63; /* Café claro */
+            --card-bg: #ffffff;
+            --text-color: #3e2723;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+        }
+
+        /* Header específico para este periodo */
+        header {
+            background: linear-gradient(135deg, #3E2723 0%, #5D4037 100%);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+            border-bottom: 5px solid var(--secondary-hist);
+        }
+
+        /* Grid de Tarjetas */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Tarjeta de Hito (Milestone Card) */
+        .milestone-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(93, 64, 55, 0.1);
+            text-decoration: none;
+            color: inherit;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid rgba(141, 110, 99, 0.2);
+        }
+
+        .milestone-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(93, 64, 55, 0.2);
+            border-color: var(--secondary-hist);
+        }
+
+        /* Badge del Año */
+        .year-badge {
+            background: var(--secondary-hist);
+            color: white;
+            padding: 8px 15px;
+            font-weight: 700;
+            text-align: center;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+        }
+
+        /* Contenido de la Tarjeta */
+        .card-content {
+            padding: 25px;
+            text-align: center;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .card-icon {
+            margin-bottom: 15px;
+            width: 48px;
+            height: 48px;
+            stroke-width: 1.5;
+        }
+
+        .card-content h3 {
+            margin: 0 0 10px 0;
+            color: var(--primary-hist);
+            font-size: 1.25rem;
+            font-weight: 700;
+        }
+
+        .card-content p {
+            font-size: 0.95rem;
+            color: #6d4c41; /* Café suave para texto */
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        /* Botón Volver */
+        .btn-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            color: var(--primary-hist);
+            font-weight: 600;
+            padding: 10px 25px;
+            background: white;
+            border: 1px solid var(--secondary-hist);
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            margin-top: 40px;
+        }
+
+        .btn-back:hover {
+            background: var(--primary-hist);
+            color: white;
+            border-color: var(--primary-hist);
+        }
+
+    </style>
 </head>
 <body>
 
-    <header style="background: linear-gradient(135deg, #5D4037 0%, #3E2723 100%);">
+    <header>
         <h1>Periodo 1620 - 1950</h1>
         <p>De la Real Audiencia a la Modernidad: Los Cimientos de la Central</p>
     </header>
 
-    <div class="section-container">
+    <div class="section-container" style="padding: 40px 20px;">
         
-        <p style="text-align: center; color: #666; margin-bottom: 40px; font-size: 1.1rem;">
-            Explora las etapas fundacionales de nuestra universidad:
+        <p style="text-align: center; color: #5D4037; margin-bottom: 40px; font-size: 1.2rem; max-width: 800px; margin-left: auto; margin-right: auto;">
+            Explora las etapas fundacionales de nuestra universidad, desde sus raíces coloniales hasta la consolidación del campus moderno.
         </p>
 
         <div class="cards-grid">
             
             <a href="1620-1785.html" class="milestone-card">
-                <div class="year-badge" style="background: #8D6E63;">1620 - 1785</div>
+                <div class="year-badge">1620 - 1785</div>
                 <div class="card-content">
                     <i data-lucide="scroll" class="card-icon" style="color: #5D4037;"></i>
                     <h3>Orígenes Coloniales</h3>
@@ -32,7 +152,7 @@
             </a>
 
             <a href="1786-1835.html" class="milestone-card">
-                <div class="year-badge" style="background: #8D6E63;">1786 - 1835</div>
+                <div class="year-badge">1786 - 1835</div>
                 <div class="card-content">
                     <i data-lucide="feather" class="card-icon" style="color: #5D4037;"></i>
                     <h3>Transición e Independencia</h3>
@@ -41,7 +161,7 @@
             </a>
 
             <a href="1836-1901.html" class="milestone-card">
-                <div class="year-badge" style="background: #8D6E63;">1836 - 1901</div>
+                <div class="year-badge">1836 - 1901</div>
                 <div class="card-content">
                     <i data-lucide="landmark" class="card-icon" style="color: #5D4037;"></i>
                     <h3>Fundación Oficial UCE</h3>
@@ -50,7 +170,7 @@
             </a>
 
             <a href="1902-1929.html" class="milestone-card">
-                <div class="year-badge" style="background: #8D6E63;">1902 - 1929</div>
+                <div class="year-badge">1902 - 1929</div>
                 <div class="card-content">
                     <i data-lucide="book-open" class="card-icon" style="color: #5D4037;"></i>
                     <h3>Liberalismo y Autonomía</h3>
@@ -59,7 +179,7 @@
             </a>
 
             <a href="1930-1950.html" class="milestone-card">
-                <div class="year-badge" style="background: #8D6E63;">1930 - 1950</div>
+                <div class="year-badge">1930 - 1950</div>
                 <div class="card-content">
                     <i data-lucide="printer" class="card-icon" style="color: #5D4037;"></i>
                     <h3>Expansión y Ciudadela</h3>
@@ -69,16 +189,16 @@
 
         </div>
 
-        <div style="text-align: center; margin-top: 50px;">
-            <a href="index.html" class="btn-back">
-                ← Volver al Inicio
+        <div style="text-align: center; margin-bottom: 40px;">
+            <a href="menu.html" class="btn-back">
+                <i data-lucide="home"></i> Volver al Menú Principal
             </a>
         </div>
 
     </div>
 
     <footer>
-        <div class="footer-content">
+        <div class="footer-content" style="text-align: center; padding: 20px; color: #666; font-size: 0.9rem; border-top: 1px solid #ddd;">
             <p><strong>© 2026 Universidad Central del Ecuador</strong> - Facultad de Ingeniería, Ciencias Físicas y Matemática</p>
             <p class="footer-details">
                 Ingeniería en Sistemas de Información | Infraestructura II | SI5-001 | Tecnología en la UCE 2025-2026
