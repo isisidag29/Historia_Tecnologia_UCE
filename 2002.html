@@ -7,16 +7,6 @@
     <script src="https://unpkg.com/lucide@latest"></script>
     <link rel="stylesheet" href="style.css">
     <style>
-        /* Estilo para la Ficha del Proyecto */
-        .project-card {
-            background-color: #e8f5e9; /* Verde muy suave */
-            border-left: 5px solid #2e7d32; /* Verde CEDIA */
-            padding: 20px;
-            margin: 30px 0;
-            border-radius: 4px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-        }
-        
         /* Estilos específicos para la tabla */
         .tech-table {
             width: 100%;
@@ -38,19 +28,37 @@
         .tech-table tr:nth-child(even) {
             background-color: #f8f9fa;
         }
+
+        /* Estilo para la Ficha del Proyecto */
+        .project-card {
+            background-color: #e8f5e9; /* Verde muy suave */
+            border-left: 5px solid #2e7d32; /* Verde CEDIA */
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 0 8px 8px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
     </style>
 </head>
 <body>
+
     <header style="background: linear-gradient(135deg, var(--primary) 0%, #001a4d 100%);">
         <h1>Año 2002</h1>
         <p>El Nacimiento de la Red Académica</p>
     </header>
 
     <div class="page-content">
-        <a href="periodo_2001_2015.html" class="btn-back">← Volver al Periodo 2001-2015</a>
+        
+        <a href="periodo_2001_2015.html" class="btn-back">
+            ← Volver al Periodo 2001-2015
+        </a>
 
         <h1 class="year-title" style="margin-top: 20px;">Año 2002: Fundación de CEDIA</h1>
-        
+
+        <p class="intro-text">
+            Si el 2001 fue el año de la precariedad, el 2002 fue el año de la <strong>visión estratégica</strong>. La UCE se convirtió en miembro fundador de <strong>CEDIA</strong>.
+        </p>
+
         <div class="project-card">
             <h4 style="margin-top: 0; color: #1b5e20; display: flex; align-items: center; gap: 10px;">
                 <i data-lucide="file-check"></i> Ficha del Proyecto: Red Avanzada
@@ -63,16 +71,12 @@
             </ul>
         </div>
 
-        <p class="intro-text">
-            Si el 2001 fue el año de la precariedad, el 2002 fue el año de la <strong>visión estratégica</strong>. La UCE se convirtió en miembro fundador de <strong>CEDIA</strong>.
-        </p>
-
         <h3>1. El Hito Histórico</h3>
-        <p>Las principales universidades del país se unieron para crear una infraestructura propia de fibra óptica, rompiendo la dependencia de los proveedores comerciales limitados.</p>
+        <p>Las principales universidades del país se unieron para crear una infraestructura propia de fibra óptica.</p>
 
         <div style="text-align: center; margin: 30px 0;">
-            <img src="2002UniversidadesCEDIA.png" alt="Universidades fundadoras de CEDIA" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-            <p style="font-size: 0.9rem; color: #666; font-style: italic; margin-top: 10px;">Figura 1: Alianza interuniversitaria fundacional.</p>
+            <img src="2002UniversidadesCEDIA.png" alt="Firma del acuerdo CEDIA" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+            <p style="font-size: 0.9rem; color: #666; font-style: italic; margin-top: 10px;">Figura 1: Alianza interuniversitaria para la creación de la red.</p>
         </div>
 
         <h3>2. Comparativa Técnica</h3>
@@ -84,24 +88,29 @@
             </tr>
             <tr>
                 <td>Velocidad</td>
-                <td>Baja (Kbps - Dial up/Cobre)</td>
+                <td>Baja (Kbps - Dial up)</td>
                 <td>Alta (Mbps - Fibra Óptica)</td>
             </tr>
             <tr>
-                <td>Uso Principal</td>
-                <td>Administrativo básico</td>
-                <td>Investigación y bases de datos</td>
+                <td>Estabilidad</td>
+                <td>Intermitente</td>
+                <td>Dedicada 24/7</td>
+            </tr>
+            <tr>
+                <td>Uso</td>
+                <td>Administrativo</td>
+                <td>Investigación Científica</td>
             </tr>
         </table>
 
         <h3>3. Impacto en la Investigación</h3>
         <p>
-            Esta nueva red permitió por primera vez el acceso estable a repositorios científicos internacionales, cambiando la forma de hacer ciencia en la universidad.
+            Esta alianza permitió acceder a bases de datos científicas que antes eran inalcanzables por la lentitud de la red comercial.
         </p>
 
         <div style="text-align: center; margin: 30px 0;">
-            <img src="2002investigación.png" alt="Documentos de investigación 2002" style="max-width: 80%; border-radius: 8px; border: 1px solid #eee;">
-            <p style="font-size: 0.9rem; color: #666; font-style: italic; margin-top: 10px;">Figura 2: Primeros pasos hacia la digitalización de la investigación.</p>
+            <img src="2002investigacion.png" alt="Documentos de investigación" style="max-width: 80%; border-radius: 8px; border: 1px solid #eee;">
+            <p style="font-size: 0.9rem; color: #666; font-style: italic; margin-top: 10px;">Figura 2: Documentación del proyecto de investigación impulsado por la nueva red.</p>
         </div>
 
         <div style="margin-top: 50px; background-color: #f8f9fa; padding: 25px; border-radius: 8px; border-left: 4px solid var(--primary);">
@@ -128,8 +137,15 @@
     </div>
     
     <footer>
-        <div class="footer-content"><p>© 2026 Universidad Central del Ecuador</p></div>
+        <div class="footer-content">
+            <p><strong>© 2026 Universidad Central del Ecuador</strong> - Facultad de Ingeniería, Ciencias Físicas y Matemática</p>
+            <p class="footer-details">Ingeniería en Sistemas de Información | Infraestructura II</p>
+        </div>
     </footer>
-    <script>lucide.createIcons();</script>
+
+    <script>
+        if(typeof lucide !== 'undefined') lucide.createIcons();
+    </script>
+
 </body>
 </html>
