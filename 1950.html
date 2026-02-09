@@ -7,56 +7,49 @@
     <script src="https://unpkg.com/lucide@latest"></script>
     <link rel="stylesheet" href="style.css">
     <style>
-        /* Estilos específicos para la tabla técnica */
-        .tech-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 25px 0;
-            font-size: 0.95rem;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
-            border-radius: 8px;
-            overflow: hidden;
-        }
-        .tech-table th, .tech-table td {
-            padding: 15px;
-            border-bottom: 1px solid #eee;
-            text-align: left;
-        }
-        .tech-table th {
-            background-color: var(--primary);
-            color: white;
-            font-weight: 600;
-        }
-        .tech-table tr:nth-child(even) {
-            background-color: #f8f9fa;
-        }
-
-        /* Ficha del Proyecto */
-        .project-card {
-            background-color: #fff3e0; /* Naranja suave */
-            border-left: 5px solid #ef6c00; /* Naranja fuerte */
+        /* Estilos visuales unificados */
+        .intro-card {
+            background-color: #fff;
+            border-left: 5px solid var(--primary);
             padding: 20px;
             margin: 30px 0;
-            border-radius: 0 8px 8px 0;
+            border-radius: 4px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.05);
         }
 
-        /* Contenedor de imágenes */
+        .section-box {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 25px;
+            margin: 30px 0;
+            border: 1px solid #eee;
+        }
+
+        .section-title {
+            color: #1565c0;
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
         .img-container {
             text-align: center;
-            margin: 40px 0;
+            margin-top: 20px;
         }
+
         .evidence-img {
             max-width: 100%;
             border-radius: 8px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
-            border: 1px solid #eee;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            border: 1px solid #ddd;
         }
+
         .img-caption {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             color: #666;
             font-style: italic;
-            margin-top: 10px;
+            margin-top: 8px;
         }
     </style>
 </head>
@@ -73,62 +66,61 @@
             ← Volver al Periodo 1950-1989
         </a>
 
-        <h1 class="year-title" style="margin-top: 20px;">1950: Modernización Telefónica</h1>
+        <h1 class="year-title" style="margin-top: 20px;">Inicio de la modernización telefónica en el Ecuador</h1>
 
-        <p class="intro-text">
-            En el año 1950 inicia formalmente la operación de la <strong>Empresa de Teléfonos de Quito (ETQ)</strong>, creada en 1949, 
-            marcando un paso importante en la modernización de las telecomunicaciones en el país. Este proceso impactó directamente en la vida urbana y administrativa del Ecuador.
-        </p>
-
-        <div class="project-card">
-            <h4 style="margin-top: 0; color: #e65100; display: flex; align-items: center; gap: 10px;">
-                <i data-lucide="phone-call"></i> Ficha Técnica: Central Mariscal Sucre
-            </h4>
-            <ul style="list-style: none; padding: 0; margin-top: 15px; line-height: 1.6;">
-                <li><strong>📞 Capacidad:</strong> 3.000 líneas telefónicas tipo AGF de Ericsson.</li>
-                <li><strong>👥 Abonados:</strong> 1.000 usuarios conectados inicialmente.</li>
-                <li><strong>🏗 Infraestructura:</strong> 10.000 km de líneas físicas (telegráficas y telefónicas).</li>
-            </ul>
+        <div class="intro-card">
+            <p>
+                En el año 1950 inicia formalmente la operación de la 
+                <strong>Empresa de Teléfonos de Quito (ETQ)</strong>, creada en 1949,
+                marcando un paso importante en la modernización de las 
+                telecomunicaciones en el país.
+            </p>
+            <p>
+                Este proceso representa un contexto tecnológico clave para la época,
+                ya que consolida el desarrollo de infraestructura técnica y sistemas
+                de comunicación modernos que impactaron directamente en la vida urbana
+                y administrativa del Ecuador.
+            </p>
         </div>
 
-        <h3>Central Telefónica Mariscal Sucre</h3>
-        <p>
-            En 1950 entró en funcionamiento la <a href="Situacion telecomunicaciones.pdf" target="_blank" style="color:var(--primary); font-weight:bold;">central telefónica Mariscal Sucre</a>.
-            Para esa fecha, en el Ecuador existían aproximadamente 32.000 líneas telefónicas urbanas en funcionamiento.
-        </p>
+        <div class="section-box">
+            <h2 class="section-title"><i data-lucide="phone"></i> Central Telefónica Mariscal Sucre</h2>
+            
+            <p>
+                En 1950 entró en funcionamiento la <a href="Situacion telecomunicaciones.pdf#page=2" target="_blank" style="color: #1565c0; font-weight: bold;">central telefónica Mariscal Sucre</a>,
+                con una capacidad de <strong>3.000 líneas telefónicas tipo AGF de Ericsson</strong>
+                y aproximadamente <strong>1.000 abonados conectados</strong>.
+            </p>
 
-        <div class="img-container">
-            <img src="Telefonos Ericson.jpg" alt="Central Telefónica Mariscal Sucre 1950" class="evidence-img">
-            <p class="img-caption">Figura 1: Teléfonos Ericsson AGF similares a los usados en la época de la modernización.</p>
-        </div>
+            <p>
+                Para esa fecha, en el Ecuador existían aproximadamente:
+            </p>
 
-        <h3>Expansión Nacional</h3>
-        <p>
-            Posteriormente, en 1953, se crea la <strong>Empresa de Teléfonos de Guayaquil (ETG)</strong>, con capacidades técnicas y administrativas similares a la ETQ, 
-            consolidando así la expansión del sistema telefónico nacional.
-        </p>
-
-        <hr style="margin: 40px 0; border: 0; border-top: 1px solid #eee;">
-
-        <div style="font-size: 0.9rem; color: #555;">
-            <strong>Referencias:</strong>
-            <ul style="margin-top: 5px; padding-left: 20px;">
-                <li>
-                    <a href="Situacion telecomunicaciones.pdf" target="_blank" style="color: #003366; text-decoration: underline;">
-                        Situación de las Telecomunicaciones en Ecuador (Documento PDF)
-                    </a>
-                </li>
+            <ul style="margin-top: 15px; background: #fff; padding: 15px 30px; border-radius: 4px; border: 1px solid #eee;">
+                <li>10.000 km de líneas físicas para servicios telegráficos y telefónicos.</li>
+                <li>32.000 líneas telefónicas urbanas en funcionamiento.</li>
             </ul>
+
+            <p>
+                Posteriormente, en 1953, se crea la <strong>Empresa de Teléfonos de Guayaquil (ETG)</strong>,
+                con capacidades técnicas y administrativas similares a la ETQ,
+                consolidando así la expansión del sistema telefónico nacional.
+            </p>
+
+            <div class="img-container">
+                <img src="Teléfonos Ericson.jpg" alt="Central Telefónica Mariscal Sucre 1950" class="evidence-img">
+                <p class="img-caption">Figura: Teléfonos Ericsson AGF similares a los usados en la época.</p>
+            </div>
         </div>
 
     </div>
 
     <footer>
         <div class="footer-content">
-            <p><strong>© 2026 Universidad Central del Ecuador</strong> - Contexto Tecnológico Nacional</p>
-            <p class="footer-details">
-                Proyecto: Tecnología en la UCE
-            </p>
+            <p>Contexto tecnológico nacional – Año 1950</p>
+            <div class="footer-details">
+                Proyecto: Tecnología en la UCE · Universidad Central del Ecuador
+            </div>
         </div>
     </footer>
 
@@ -138,4 +130,3 @@
 
 </body>
 </html>
-
