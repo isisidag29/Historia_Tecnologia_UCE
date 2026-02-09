@@ -56,6 +56,34 @@
             font-size: 0.9rem;
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
+
+        /* Estilo para la Ficha de Situación (NUEVO) */
+        .status-card {
+            background-color: #ffebee; /* Rojo suave */
+            border-left: 5px solid #d32f2f; /* Rojo alerta */
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 0 8px 8px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        /* Contenedor de imágenes */
+        .img-container {
+            text-align: center;
+            margin: 40px 0;
+        }
+        .evidence-img {
+            max-width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+            border: 1px solid #eee;
+        }
+        .img-caption {
+            font-size: 0.9rem;
+            color: #666;
+            font-style: italic;
+            margin-top: 10px;
+        }
     </style>
 </head>
 <body>
@@ -79,6 +107,18 @@
             sino un <strong>cuarto de servidores adaptado</strong> que ponía en riesgo la información académica de más de 40.000 estudiantes.
         </p>
 
+        <div class="status-card">
+            <h4 style="margin-top: 0; color: #c62828; display: flex; align-items: center; gap: 10px;">
+                <i data-lucide="siren"></i> Ficha de Situación: Riesgo Operativo
+            </h4>
+            <ul style="list-style: none; padding: 0; margin-top: 15px; line-height: 1.6; color: #333;">
+                <li><strong>📉 Estado:</strong> Crítico. Hardware obsoleto y sin redundancia.</li>
+                <li><strong>❌ Equipamiento:</strong> Servidores IBM Netfinity y Compaq ProLiant (Torres).</li>
+                <li><strong>💰 Costo Mantenimiento:</strong> Muy elevado por fallas constantes de hardware viejo.</li>
+                <li><strong>👤 Responsable:</strong> Dirección de Computación e Informática (Nombre anterior a la DTIC).</li>
+            </ul>
+        </div>
+
         <div style="background-color: #f5f5f5; padding: 20px; border-radius: 8px; font-style: italic; border-left: 4px solid #666; margin: 30px 0;">
             <strong>📜 Informe Técnico: Evaluación CONEA (2009)</strong><br>
             "Se evidencia la falta de seguridades físicas y lógicas en el manejo de la información. Los servidores principales se encuentran en espacios sin climatización de precisión ni sistemas de extinción de incendios adecuados."
@@ -93,6 +133,11 @@
                 <li><strong>Refrigeración Doméstica:</strong> Aires acondicionados tipo Split (de hogar) que goteaban agua y fallaban frecuentemente, causando sobrecalentamiento de los equipos.</li>
                 <li><strong>Sin Respaldo Eléctrico:</strong> No existía un generador (UPS) dedicado de larga duración. Si se iba la luz en el barrio Santa Clara, se apagaba el sistema de notas.</li>
             </ul>
+        </div>
+
+        <div class="img-container">
+            <img src="2009servidorestipotorre.png" alt="Servidores tipo torre antiguos" class="evidence-img">
+            <p class="img-caption">Figura 1: Servidores tipo torre dispersos, sin rackear y expuestos al polvo y calor.</p>
         </div>
 
         <h3>2. Equipamiento: Los "Dinosaurios" Tecnológicos</h3>
@@ -129,9 +174,9 @@
             </tr>
         </table>
 
-        <div style="text-align: center; margin: 40px 0;">
-            <img src="servidores2009.jpg" alt="Antiguo cuarto de servidores con cables desordenados" style="max-width: 100%; border-radius: 8px; box-shadow: 0 10px 20px rgba(0,0,0,0.15);">
-            <p style="font-size: 0.9rem; color: #666; font-style: italic; margin-top: 10px;">Figura 1: El caos de cables y servidores tipo torre característico de la época pre-modernización.</p>
+        <div class="img-container">
+            <img src="2009modeloservidorantiguo.png" alt="Modelo de servidor antiguo IBM" class="evidence-img">
+            <p class="img-caption">Figura 2: Detalle de un servidor IBM Netfinity, estándar en la UCE antes de la virtualización.</p>
         </div>
 
         <h3>3. El Software Heredado (Legacy)</h3>
