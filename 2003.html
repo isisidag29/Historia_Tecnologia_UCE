@@ -7,25 +7,27 @@
     <script src="https://unpkg.com/lucide@latest"></script>
     <link rel="stylesheet" href="style.css">
     <style>
+        /* Estilo para la Ficha del Proyecto */
+        .project-card {
+            background-color: #e3f2fd; /* Azul cielo */
+            border-left: 5px solid #0288d1;
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 4px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
         /* Estilo para la cita académica */
         .source-box {
-            background-color: #e8f5e9;
-            border-left: 5px solid #2e7d32;
+            background-color: #f1f8e9;
+            border-left: 5px solid #558b2f;
             padding: 20px;
             margin: 30px 0;
             border-radius: 5px;
             font-style: italic;
-            color: #2e7d32;
-        }
-        .source-title {
-            font-weight: bold;
-            font-style: normal;
-            display: block;
-            margin-bottom: 10px;
-            color: #1b5e20;
+            color: #33691e;
         }
         
-        /* Tabla técnica mejorada */
         .tech-table {
             width: 100%;
             border-collapse: collapse;
@@ -65,37 +67,43 @@
         <h1 class="year-title" style="margin-top: 20px;">2003: La Primera Conexión a RedCLARA</h1>
 
         <p class="intro-text">
-            Tras la fundación de CEDIA el año anterior, el 2003 fue el año de la <strong>operativización</strong>. 
+            Tras la fundación de CEDIA, el 2003 fue el año de la <strong>operativización</strong>. 
             Mientras la infraestructura física de la ciudad aún era precaria, la Universidad Central logró su primer enlace estable para investigación, 
             conectándose exitosamente a la <strong>Cooperación Latinoamericana de Redes Avanzadas (RedCLARA)</strong>.
         </p>
 
+        <div class="project-card">
+            <h4 style="margin-top: 0; color: #0277bd; display: flex; align-items: center; gap: 10px;">
+                <i data-lucide="radio-tower"></i> Ficha del Proyecto: Última Milla (Radioenlace)
+            </h4>
+            <ul style="list-style: none; padding: 0; margin-top: 15px; line-height: 1.6;">
+                <li><strong>📡 Proyecto:</strong> Instalación de enlace de microondas (Radioenlace) para conexión con nodo CEDIA.</li>
+                <li><strong>💰 Inversión Estimada:</strong> $15,000 USD (Torres, antenas y equipos de transmisión).</li>
+                <li><strong>👤 Encargado:</strong> Unidad de Redes y Telecomunicaciones (Facultad de Ingeniería).</li>
+                <li><strong>🎯 Objetivo:</strong> Superar la falta de fibra óptica soterrada en la ciudad para conectar el campus.</li>
+            </ul>
+        </div>
+
         <div class="source-box">
-            <span class="source-title"><i data-lucide="scroll-text" style="vertical-align: middle; margin-right: 5px;"></i> Fuente Histórica: Gaceta Universitaria (2003)</span>
+            <strong><i data-lucide="scroll-text" style="vertical-align: middle; margin-right: 5px;"></i> Fuente Histórica: Gaceta Universitaria (2003)</strong>
+            <p style="margin-top: 10px;">
             "Se informa al Honorable Consejo Universitario sobre la instalación exitosa del nodo de conexión en la Facultad de Ingeniería, 
             permitiendo por primera vez el tráfico de datos académicos diferenciado del tráfico comercial, abriendo las puertas a la investigación colaborativa regional."
+            </p>
         </div>
 
         <h3>1. El Desafío de la "Última Milla": Radioenlaces</h3>
         <p>
-            En 2003, el soterramiento de fibra óptica en Quito era limitado y costoso. Para superar este obstáculo físico y conectar el campus 
-            con el nodo central de CEDIA (ubicado estratégicamente en la ciudad), la universidad implementó una solución basada en <strong>Microondas</strong>.
-        </p>
-        <p>
-            Se instalaron antenas de radioenlace en los edificios más altos del campus (Administración y Facultad de Ingeniería), creando un "puente aéreo" de datos 
-            que evitaba depender del cableado de cobre telefónico de la calle.
+            En 2003, el soterramiento de fibra óptica en Quito era limitado y costoso. Para superar este obstáculo físico, la universidad implementó una solución basada en <strong>Microondas</strong>.
+            Se instalaron antenas en los edificios más altos del campus, creando un "puente aéreo" de datos.
         </p>
 
         <div style="text-align: center; margin: 40px 0;">
-            <img src="antena2003.jpg" alt="Infraestructura de radioenlace UCE 2003" style="max-width: 100%; border-radius: 8px; box-shadow: 0 10px 20px rgba(0,0,0,0.15);">
-            <p style="font-size: 0.9rem; color: #666; font-style: italic; margin-top: 10px;">Figura 1: Antenas de microondas utilizadas para el enlace troncal antes de la fibra óptica masiva.</p>
+            <img src="2003Radioenlace.png" alt="Torre de Radioenlace UCE 2003" style="max-width: 80%; border-radius: 8px; box-shadow: 0 10px 20px rgba(0,0,0,0.15);">
+            <p style="font-size: 0.9rem; color: #666; font-style: italic; margin-top: 10px;">Figura 1: Infraestructura de antenas utilizada para el enlace troncal antes de la fibra óptica masiva.</p>
         </div>
 
         <h3>2. Ficha Técnica del Enlace (2003)</h3>
-        <p>
-            Aunque hoy parezca modesto, el salto técnico fue gigantesco para la época, multiplicando casi por diez la velocidad efectiva disponible para los investigadores.
-        </p>
-
         <table class="tech-table">
             <tr>
                 <th>Tecnología</th>
@@ -107,31 +115,37 @@
             </tr>
             <tr>
                 <td><strong>Ancho de Banda</strong></td>
-                <td><strong>2 Mbps Dedicados</strong> (Un salto gigante frente a los 256 kbps compartidos del 2001)</td>
+                <td><strong>2 Mbps Dedicados</strong> (Un salto gigante frente a los 256 kbps del 2001)</td>
             </tr>
             <tr>
                 <td><strong>Protocolo</strong></td>
-                <td>IPv4 nativo (Con inicio de pruebas experimentales de túneles IPv6)</td>
+                <td>IPv4 nativo (Inicio de pruebas experimentales IPv6)</td>
             </tr>
             <tr>
                 <td><strong>Uso Principal</strong></td>
-                <td>Acceso a bibliotecas digitales internacionales y correo institucional para docentes</td>
+                <td>Acceso a bibliotecas digitales internacionales</td>
             </tr>
         </table>
 
-        <h3>3. Impacto en la Investigación</h3>
-        <p>
-            Esta conexión permitió a la Facultad de Ciencias Médicas y a la de Ingeniería descargar por primera vez <em>papers</em> científicos completos 
-            sin que la red se cayera, marcando el inicio real de la <strong>biblioteca virtual</strong> universitaria.
-        </p>
-
-        <hr style="margin: 40px 0; border: 0; border-top: 1px solid #eee;">
-
-        <div style="font-size: 0.9rem; color: #555;">
-            <strong>Referencias:</strong>
-            <ul style="margin-top: 5px; padding-left: 20px;">
-                <li>Archivo de la Dirección de Tecnologías (DTIC) - Informes 2003.</li>
-                <li>RedCLARA - Hitos de conectividad en la Región Andina.</li>
+        <div style="margin-top: 50px; background-color: #f8f9fa; padding: 25px; border-radius: 8px; border-left: 4px solid var(--primary);">
+            <h4 style="margin-top: 0; color: var(--primary);"><i data-lucide="link" style="vertical-align: middle;"></i> Fuentes y Enlaces Directos:</h4>
+            <ul style="list-style: none; padding-left: 0; margin-top: 15px;">
+                <li style="margin-bottom: 15px;">
+                    <a href="https://www.cedia.edu.ec/servicios/conectividad" target="_blank" style="color: #003366; font-weight: bold; text-decoration: none; display: flex; align-items: center; gap: 8px;">
+                        <i data-lucide="external-link" style="width: 16px;"></i> CEDIA: Servicios de Conectividad
+                    </a>
+                    <span style="font-size: 0.9rem; color: #555; display: block; margin-left: 24px;">
+                        Evolución de la red académica ecuatoriana desde los enlaces de radio hasta la fibra óptica.
+                    </span>
+                </li>
+                <li>
+                    <span style="color: #003366; font-weight: bold; display: flex; align-items: center; gap: 8px;">
+                        <i data-lucide="file-text" style="width: 16px;"></i> Archivo DTIC
+                    </span>
+                    <span style="font-size: 0.9rem; color: #555; display: block; margin-left: 24px;">
+                        Informe técnico de instalación de nodos de red (2003).
+                    </span>
+                </li>
             </ul>
         </div>
 
@@ -140,9 +154,6 @@
     <footer>
         <div class="footer-content">
             <p><strong>© 2026 Universidad Central del Ecuador</strong> - Facultad de Ingeniería, Ciencias Físicas y Matemática</p>
-            <p class="footer-details">
-                Ingeniería en Sistemas de Información | Infraestructura II | SI5-001 | Tecnología en la UCE 2025-2026
-            </p>
         </div>
     </footer>
 
