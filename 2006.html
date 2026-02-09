@@ -38,10 +38,31 @@
             color: #b71c1c;
         }
 
-        /* Estilo para la lista de problemas */
-        .problem-list li {
-            margin-bottom: 10px;
-            padding-left: 10px;
+        /* Estilo para la Ficha de Situación (Nueva) */
+        .status-card {
+            background-color: #ffebee; /* Rojo muy suave */
+            border-left: 5px solid #e53935; /* Rojo alerta */
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 0 8px 8px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .img-container {
+            text-align: center;
+            margin: 40px 0;
+        }
+        .evidence-img {
+            max-width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+            border: 1px solid #eee;
+        }
+        .img-caption {
+            font-size: 0.9rem;
+            color: #666;
+            font-style: italic;
+            margin-top: 10px;
         }
     </style>
 </head>
@@ -64,6 +85,18 @@
             El año 2006 se caracterizó por un estancamiento severo en la renovación tecnológica. La inestabilidad política y económica del país afectó las asignaciones presupuestarias universitarias. 
             El resultado: gran parte del parque computacional (adquirido en 2000-2001) llegó al final de su vida útil y no pudo ser reemplazado por equipos de marca.
         </p>
+
+        <div class="status-card">
+            <h4 style="margin-top: 0; color: #c62828; display: flex; align-items: center; gap: 10px;">
+                <i data-lucide="alert-triangle"></i> Ficha de Situación: Obsolescencia
+            </h4>
+            <ul style="list-style: none; padding: 0; margin-top: 15px; line-height: 1.6; color: #333;">
+                <li><strong>📉 Estado:</strong> Crítico. Parque computacional mixto sin garantía vigente.</li>
+                <li><strong>💰 Presupuesto Mantenimiento:</strong> Insuficiente (Aprox. $50,000 USD para repuestos genéricos).</li>
+                <li><strong>🛠 Soporte Técnico:</strong> Reactivo (Formateo constante por virus).</li>
+                <li><strong>⚠️ Riesgo Principal:</strong> Pérdida masiva de información por virus de USB.</li>
+            </ul>
+        </div>
 
         <h3>1. La Solución Barata: El auge de los "Clones"</h3>
         <p>
@@ -98,6 +131,11 @@
             </tr>
         </table>
 
+        <div class="img-container">
+            <img src="2006.png" alt="Entorno informático UCE 2006" class="evidence-img">
+            <p class="img-caption">Figura 1: Entorno de trabajo típico en 2006, con equipos ensamblados y monitores CRT.</p>
+        </div>
+
         <h3>2. La Epidemia Silenciosa: Virus por USB</h3>
         <p>
             2006 fue el año en que los estudiantes dejaron de usar disquetes masivamente y pasaron a las <strong>memorias USB (Flash Drivers)</strong>. 
@@ -106,16 +144,16 @@
 
         <div class="crisis-box">
             <strong><i data-lucide="shield-alert" style="vertical-align: middle;"></i> El Caos del "Autorun.inf":</strong>
-            <ul class="problem-list" style="margin-top: 10px;">
+            <ul style="margin-top: 10px; padding-left: 20px;">
                 <li><strong>El problema:</strong> Al conectar una USB, Windows XP ejecutaba automáticamente los virus.</li>
                 <li><strong>El síntoma:</strong> Los archivos de tesis y deberes "desaparecían" (se ocultaban) y eran reemplazados por accesos directos (.lnk).</li>
-                <li><strong>La consecuencia:</strong> Pérdida masiva de información estudiantil y saturación del departamento de soporte técnico formateando máquinas diariamente.</li>
+                <li><strong>La consecuencia:</strong> Pérdida masiva de información estudiantil y saturación del departamento de soporte técnico.</li>
             </ul>
         </div>
         
-        <div style="text-align: center; margin: 40px 0;">
-            <img src="virus2006.jpg" alt="Pantalla de error Windows XP y virus de acceso directo" style="max-width: 100%; border-radius: 8px; box-shadow: 0 10px 20px rgba(0,0,0,0.15);">
-            <p style="font-size: 0.9rem; color: #666; font-style: italic; margin-top: 10px;">Figura 1: Las fallas de sistema y virus eran la rutina diaria en los laboratorios de 2006.</p>
+        <div class="img-container">
+            <img src="2006Virus.png" alt="Pantalla de error Windows XP" class="evidence-img">
+            <p class="img-caption">Figura 2: Las fallas de sistema (BSOD) y virus eran la rutina diaria en los laboratorios de 2006.</p>
         </div>
 
         <hr style="margin: 40px 0; border: 0; border-top: 1px solid #eee;">
@@ -124,7 +162,7 @@
             <strong>Referencias:</strong>
             <ul style="margin-top: 5px; padding-left: 20px;">
                 <li>Informes de Soporte Técnico - Facultad de Ingeniería (2006-2007).</li>
-                <li>Actas de baja de equipos informáticos - Dirección de Bienes.</li>
+                <li>Actas de baja de equipos informáticos - Dirección de Bienes Universitaria.</li>
             </ul>
         </div>
 
