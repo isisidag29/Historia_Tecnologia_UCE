@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Línea de Tiempo: 1980-1985 - Contexto Nacional de Tecnología y Educación en Ecuador</title>
+        <link rel="stylesheet" href="style.css"> 
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <style>
+            /* ====== DEFINICIÓN DE VARIABLES (Para que funcionen los colores) ====== */
+            :root {
+                --primary: #002b5c;   /* Azul UCE */
+                --secondary: #e31e24; /* Rojo */
+                --accent: #00c6ff;
+            }
+
+            body {
+                margin: 0;
+                font-family: "Segoe UI", Arial, sans-serif;
+                background-color: #f4f4f4;
+            }
+
+            /* ====== SOLUCIÓN TITULOS TRANSPARENTES ====== */
+            /* Faltaba ponerle fondo a la cabecera principal */
+            header {
+                background: linear-gradient(135deg, #003366 0%, #001a4d 100%);
+                padding: 40px 20px;
+                text-align: center;
+                box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+                margin-bottom: 30px;
+            }
+
+            header h1,
+            header p {
+                color: #ffffff !important;
+                text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
+                margin: 10px 0;
+            }
+            
+            /* Corrección para títulos internos */
+            .year-header h2,
+            .education-panel h3,
+            footer h3 {
+                color: #ffffff !important;
+                text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
+            }
+
+            .timeline-event h3 {
+                color: #002b5c !important; /* Azul oscuro para títulos dentro de tarjetas blancas */
+                text-shadow: none;
+                margin-top: 0;
+            }
+
+            /* ====== BOTON VOLVER ====== */
+            .btn-back {
+                background: linear-gradient(135deg, #00c6ff, #0072ff);
+                color: white;
+                padding: 12px 25px;
+                border-radius: 25px;
+                text-decoration: none;
+                font-weight: bold;
+                transition: 0.3s ease;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+                display: inline-block; /* Importante para que respete padding */
+            }
+
+            .btn-back:hover {
+                background: linear-gradient(135deg, #0072ff, #00c6ff);
+                transform: scale(1.05);
+            }
+
+            /* ====== ESTILOS DE ESTRUCTURA ====== */
+            .timeline-container {
+                max-width: 1200px;
+                margin: 40px auto;
+                padding: 0 20px;
+            }
+            .year-section {
+                margin-bottom: 60px;
+                position: relative;
+            }
+            .year-header {
+                background: linear-gradient(135deg, var(--primary) 0%, #001a4d 100%);
+                color: white;
+                padding: 20px 30px;
+                border-radius: 10px;
+                margin-bottom: 30px;
+                position: sticky;
+                top: 0; /* Ajustado a 0 para mejor efecto */
+                z-index: 100;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            }
+            .events-container {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+                gap: 25px;
+            }
+            .timeline-event {
+                background: white;
+                padding: 25px;
+                border-radius: 10px;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+                border-left: 5px solid var(--secondary);
+                transition: transform 0.3s;
+            }
+            .timeline-event:hover {
+                transform: translateY(-5px);
+            }
+            .event-date {
+                background: #e6f2ff;
+                color: var(--primary);
+                padding: 8px 15px;
+                border-radius: 20px;
+                display: inline-block;
+                font-weight: bold;
+                margin-bottom: 15px;
+                font-size: 0.9rem;
+            }
+            .reference-box {
+                background: #f8f9fa;
+                padding: 20px;
+                border-radius: 10px;
+                margin-top: 15px;
+                border-left: 4px solid var(--primary);
+            }
+
+            .verified-source {
+                background: #ffffff; /* Asegurar fondo blanco */
+                border-left: 5px solid #28a745;
+            }
+            .historical-context {
+                background: #fff3e0;
+                padding: 15px;
+                border-radius: 8px;
+                margin: 15px 0;
+                border-left: 4px solid #fd7e14;
+            }
+
+            /* IMAGENES */
+            .image-container {
+                width: 100%;
+                margin: 20px 0;
+                text-align: center;
+            }
+            .verified-image {
+                width: 100%;
+                max-width: 600px;
+                height: auto;
+                border-radius: 8px;
+                box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+                border: 3px solid #28a745;
+            }
+            .image-caption {
+                font-size: 0.9em;
+                color: #666;
+                margin-top: 10px;
+                font-style: italic;
+            }
+            .image-source {
+                font-size: 0.8em;
+                color: #999;
+                margin-top: 5px;
+            }
+            .image-placeholder {
+                width: 100%;
+                height: 200px;
+                background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 8px;
+                margin: 20px 0;
+                color: #666;
+                border: 2px dashed #b3cde0;
+            }
+
+            .education-panel {
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                color: white;
+                padding: 30px;
+                border-radius: 10px;
+                margin: 40px 0;
+            }
+            .source-link {
+                color: #0066cc;
+                text-decoration: underline;
+                font-size: 0.9em;
+            }
+
+            .data-table {
+                width: 100%;
+                border-collapse: collapse;
+                margin: 20px 0;
+                box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+                font-size: 0.95em;
+            }
+            .data-table th {
+                background: var(--primary);
+                color: white;
+                padding: 12px;
+                text-align: left;
+            }
+            .data-table td {
+                padding: 12px;
+                border-bottom: 1px solid #eee;
+            }
+            .data-table tr:nth-child(even) {
+                background: #f9f9f9;
+            }
+            
+            /* Footer */
+            footer {
+                background: #1a1a1a;
+                color: white;
+                padding: 40px 20px;
+                text-align: center;
+                margin-top: 50px;
+            }
+            .footer-details {
+                font-size: 0.8em;
+                color: #aaa;
+                margin-top: 20px;
+            }
+        </style>
+    </head>
+    <body>
+
+        <header>
+            <h1><i class="fas fa-history"></i> Línea de Tiempo: 1980-1985</h1>
+            <p>Contexto histórico nacional de tecnología, educación superior y desarrollo institucional en Ecuador</p>
+            <div style="margin-top: 20px; display: flex; gap: 10px; flex-wrap: wrap; justify-content: center;">
+                <a href="index.html" class="btn-back">
+                    <i class="fas fa-arrow-left"></i> Volver al Inicio
+                </a>
+            </div>
+        </header>
+
+        <div class="timeline-container">
+            <div class="year-section">
+                <div class="year-header">
+                    <h2><i class="fas fa-calendar"></i> 1980-1982: Contexto Nacional de Educación y Tecnología</h2>
+                </div>
+
+                <div class="events-container">
+                    <div class="timeline-event verified-source">
+                        <span class="event-date">1980</span>
+                        <h3>Panorama de la Educación Superior en Ecuador a Inicios de la Década</h3>
+
+                        <div class="image-container">
+                            <img src="images/PalacioUCE.jpg"
+                                 alt="Palacio de la Universidad Central del Ecuador" 
+                                 class="verified-image">
+                            <div class="image-caption">Palacio de la Universidad Central del Ecuador - Sede histórica de la institución</div>
+                            <div class="image-source">Fuente: <a href="https://commons.wikimedia.org/wiki/File:Quito_-_Palacio_de_la_Universidad_Central.jpg" class="source-link" target="_blank">Wikimedia Commons</a></div>
+                        </div>
+
+                        <p><strong>Contexto histórico educativo:</strong> A inicios de la década de 1980, Ecuador contaba con un sistema de educación superior compuesto por aproximadamente 20 universidades, siendo la Universidad Central del Ecuador la institución más antigua y una de las más grandes del país. Fundada en 1826, la UCE mantenía una estructura organizacional tradicional con facultades establecidas décadas atrás, incluyendo la Facultad de Ingeniería, Ciencias Físicas y Matemáticas como una de sus unidades académicas fundacionales.</p>
+
+                        <p>Durante este período, la educación superior en Ecuador enfrentaba desafíos significativos relacionados con la expansión de cobertura, modernización de infraestructura, actualización de planes de estudio, y limitaciones presupuestarias. El contexto político nacional, marcado por el retorno a la democracia en 1979 tras casi una década de gobierno militar, creaba expectativas de reforma y modernización en todos los sectores, incluyendo la educación superior.</p>
+
+                        <div style="background: #f0f7ff; padding: 15px; border-radius: 8px; margin: 10px 0;">
+                            <h4 style="margin-top: 0;">Estructura típica de facultades universitarias (1980):</h4>
+                            <ul>
+                                <li><strong>Facultad de Ingeniería, Ciencias Físicas y Matemáticas:</strong> Una de las facultades tradicionales con carreras establecidas desde mediados del siglo XX</li>
+                                <li><strong>Facultad de Medicina:</strong> Otra facultad fundacional con amplia tradición</li>
+                                <li><strong>Facultad de Jurisprudencia:</strong> Entre las más antiguas de la universidad</li>
+                                <li><strong>Facultad de Filosofía, Letras y Ciencias de la Educación:</strong> Tradicional en formación docente</li>
+                                <li><strong>Facultad de Ciencias Económicas:</strong> Reflejo del desarrollo de disciplinas sociales</li>
+                            </ul>
+                        </div>
+
+                        <div class="reference-box">
+                            <small><i class="fas fa-book"></i> <strong>Fuente histórica institucional:</strong> 
+                                <a href="https://www.uce.edu.ec/" class="source-link" target="_blank">
+                                    Universidad Central del Ecuador - Sitio oficial
+                                </a> - Información histórica institucional que documenta la trayectoria y estructura de la universidad desde su fundación.
+                            </small>
+                        </div>
+                    </div>
+
+                    <div class="timeline-event verified-source">
+                        <span class="event-date">1982</span>
+                        <h3>Creación del CONACYT y Marco Legal para la Ciencia y Tecnología</h3>
+
+                        <div class="image-container">
+                            <img src="images/CONCACYT.jpeg"
+                                 class="verified-image">
+                            <div class="image-caption">Representación del documento de creación del CONACYT - Consejo Nacional de Ciencia y Tecnología</div>
+                        </div>
+
+                        <p><strong>Hito institucional documentado:</strong> El Consejo Nacional de Ciencia y Tecnología (CONACYT) fue creado mediante decreto ejecutivo en 1982 como organismo rector de las políticas científicas y tecnológicas del Ecuador. Esta creación respondía a una creciente conciencia internacional sobre la importancia estratégica de la ciencia y tecnología para el desarrollo nacional, así como a presiones internas de la comunidad académica y científica por contar con un marco institucional que coordinara y promoviera la investigación.</p>
+
+                        <p>El CONACYT tenía entre sus objetivos principales la formulación de políticas nacionales de ciencia y tecnología, la promoción de la investigación científica, la coordinación entre instituciones académicas y productivas, y el fomento de la innovación tecnológica. Su establecimiento marcó un reconocimiento formal por parte del Estado ecuatoriano de la importancia de desarrollar capacidades científicas y tecnológicas propias, aunque su implementación efectiva enfrentaría numerosos desafíos en los años siguientes debido a limitaciones presupuestarias y la complejidad de coordinar múltiples actores institucionales.</p>
+
+                        <div style="background: #e8f5e9; padding: 15px; border-radius: 8px; margin: 10px 0;">
+                            <h4 style="margin-top: 0;">Funciones principales establecidas para el CONACYT:</h4>
+                            <ul>
+                                <li><strong>Formulación de políticas:</strong> Desarrollo de estrategias nacionales para ciencia y tecnología</li>
+                                <li><strong>Coordinación interinstitucional:</strong> Articulación entre universidades, centros de investigación, y sector productivo</li>
+                                <li><strong>Fomento a la investigación:</strong> Establecimiento de programas de financiamiento para proyectos científicos</li>
+                                <li><strong>Desarrollo de indicadores:</strong> Creación de sistemas de medición del avance científico y tecnológico nacional</li>
+                                <li><strong>Cooperación internacional:</strong> Gestión de acuerdos y proyectos con organismos científicos internacionales</li>
+                                <li><strong>Difusión científica:</strong> Promoción de la cultura científica en la sociedad ecuatoriana</li>
+                            </ul>
+                        </div>
+
+                        <div class="reference-box">
+                            <small><i class="fas fa-file-pdf"></i> <strong>Documento oficial histórico:</strong> 
+                                <a href="https://www.educacionsuperior.gob.ec/wp-content/uploads/downloads/2014/03/LEY_DE_CREACION_CONACYT.pdf" class="source-link" target="_blank">
+                                    Ley de Creación del CONACYT - Documento completo
+                                </a> - Este documento legal establece formalmente la creación del Consejo Nacional de Ciencia y Tecnología y define sus funciones básicas dentro del aparato estatal ecuatoriano.
+                            </small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="education-panel">
+                <h3 style="margin-top: 0; text-align: center;"><i class="fas fa-university"></i> Educación Superior en Ecuador (1980-1982)</h3>
+
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; text-align: center; margin-top: 20px;">
+                    <div>
+                        <div style="font-size: 2rem; font-weight: bold;">~20</div>
+                        <p>Universidades</p>
+                        <p><small>(Sistema nacional)</small></p>
+                    </div>
+                    <div>
+                        <div style="font-size: 2rem; font-weight: bold;">1826</div>
+                        <p>Fundación UCE</p>
+                        <p><small>(Universidad más antigua)</small></p>
+                    </div>
+                    <div>
+                        <div style="font-size: 2rem; font-weight: bold;">5-6</div>
+                        <p>Años carreras</p>
+                        <p><small>(Duración típica)</small></p>
+                    </div>
+                    <div>
+                        <div style="font-size: 2rem; font-weight: bold;">~8</div>
+                        <p>Facultades UCE</p>
+                        <p><small>(Estructura tradicional)</small></p>
+                    </div>
+                </div>
+
+                <div style="margin-top: 25px; background: rgba(255,255,255,0.2); padding: 15px; border-radius: 8px;">
+                    <p><strong>Contexto institucional:</strong> A principios de los años 80, la Universidad Central del Ecuador mantenía una estructura organizacional tradicional con facultades establecidas décadas atrás. La Facultad de Ingeniería, Ciencias Físicas y Matemáticas era una de estas unidades académicas fundacionales, ofreciendo carreras tradicionales de ingeniería con planes de estudio que combinaban formación teórica sólida con aplicaciones prácticas limitadas por las restricciones tecnológicas y presupuestarias de la época.</p>
+                </div>
+            </div>
+
+            <div class="year-section">
+                <div class="year-header">
+                    <h2><i class="fas fa-calendar"></i> 1983: Avances Tecnológicos y su Impacto en la Educación</h2>
+                </div>
+
+                <div class="events-container">
+                    <div class="timeline-event verified-source">
+                        <span class="event-date">1983</span>
+                        <h3>La Revolución de la Computación Personal y su Llegada a Ecuador</h3>
+
+                        <div class="image-container">
+                            <img src="images/ibm.jpg" 
+                                 alt="IBM 5150 - Primera computadora personal" 
+                                 class="verified-image">
+                            <div class="image-caption">IBM 5150 (1981) - Computadora personal que estableció estándares y llegó a instituciones ecuatorianas alrededor de 1983</div>
+                            <div class="image-source">Fuente: <a href="https://commons.wikimedia.org/wiki/File:IBM_PC_5150.jpg" class="source-link" target="_blank">Wikimedia Commons</a></div>
+                        </div>
+
+                        <p><strong>Contexto tecnológico internacional verificable:</strong> La IBM 5150, lanzada originalmente en agosto de 1981, se había convertido para 1983 en el estándar dominante de la computación personal a nivel mundial. Este equipo marcó un punto de inflexión en la historia de la informática al establecer arquitecturas y estándares que perdurarían por décadas. Su diseño abierto permitió la creación de una industria de compatibles que democratizó gradualmente el acceso a la computación.</p>
+
+                        <p>En el contexto ecuatoriano de 1983, equipos como la IBM 5150 comenzaban a aparecer en instituciones educativas y empresas pioneras, aunque su adquisición representaba una inversión significativa. La llegada de estas computadoras personales coincidió con un período de relativa apertura comercial en Ecuador, lo que facilitó su importación a pesar de las barreras arancelarias y los controles de cambio existentes. Para instituciones como la Universidad Central del Ecuador, la adquisición de estos equipos representaba tanto un desafío financiero como una oportunidad estratégica para modernizar procesos académicos y administrativos.</p>
+
+                        <div style="background: #fff3e0; padding: 15px; border-radius: 8px; margin: 10px 0;">
+                            <h4 style="margin-top: 0;">Especificaciones técnicas documentadas de la IBM 5150:</h4>
+                            <ul>
+                                <li><strong>Procesador:</strong> Intel 8088 funcionando a 4.77 MHz, arquitectura de 16 bits</li>
+                                <li><strong>Memoria:</strong> Configuración base de 16 KB, expandible hasta 256 KB</li>
+                                <li><strong>Almacenamiento:</strong> Disquetes de 5.25 pulgadas con capacidad de 160 KB, sin disco duro en modelos básicos</li>
+                                <li><strong>Sistema operativo:</strong> PC DOS 1.0 desarrollado por Microsoft específicamente para esta plataforma</li>
+                                <li><strong>Precio original en EE.UU.:</strong> USD 1,565 para el modelo básico sin monitor (aproximadamente USD 4,500 en valores actuales)</li>
+                                <li><strong>Impacto educativo:</strong> Permitió introducción de computación en currículos universitarios de manera práctica</li>
+                            </ul>
+                        </div>
+
+                        <div class="reference-box">
+                            <small><i class="fas fa-external-link-alt"></i> <strong>Fuente técnica verificada:</strong> 
+                                <a href="https://www.ibm.com/ibm/history/exhibits/pc/pc_1.html" class="source-link" target="_blank">
+                                    IBM Archives: The IBM PC - Documentación histórica oficial
+                                </a> - Archivos corporativos de IBM que documentan el desarrollo, especificaciones técnicas y contexto histórico del lanzamiento de la IBM 5150.
+                            </small>
+                        </div>
+                    </div>
+
+                    <div class="timeline-event">
+                        <span class="event-date">1983</span>
+                        <h3>La Facultad de Ingeniería de la UCE: Tradición y Modernización</h3>
+
+                        <div class="image-container">
+                            <img src="images/FICA.jpg" 
+                                 class="verified-image"> 
+                            <div class="image-caption">Representación de la Facultad de Ingeniería, Ciencias Físicas y Matemáticas de la UCE - Una de las facultades tradicionales con amplia historia</div>
+                        </div>
+
+                        <p><strong>Tradición académica establecida:</strong> Para 1983, la Facultad de Ingeniería, Ciencias Físicas y Matemáticas de la Universidad Central del Ecuador tenía décadas de trayectoria formando profesionales en diversas disciplinas de ingeniería. Como una de las facultades fundacionales de la universidad, mantenía una estructura organizacional tradicional con departamentos especializados y carreras establecidas que reflejaban las necesidades de desarrollo del país y las tendencias internacionales en formación ingenieril.</p>
+
+                        <p>La formación en la Facultad de Ingeniería durante este período combinaba fundamentos teóricos sólidos con aplicaciones prácticas limitadas por las restricciones tecnológicas y de infraestructura de la época. Los planes de estudio generalmente tenían duración de 5 a 6 años e incluían ciclos básicos de ciencias exactas, ciclos intermedios de formación disciplinaria, y ciclos finales de especialización y trabajo de titulación. La metodología de enseñanza tendía a ser tradicional, con énfasis en clases magistrales, laboratorios básicos, y trabajos prácticos que utilizaban tecnologías disponibles en el contexto nacional.</p>
+
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Carrera de Ingeniería</th>
+                                    <th style="width: 40%;">Enfoque Principal</th>
+                                    <th style="width: 25%;">Duración Típica</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Ingeniería Civil</td>
+                                    <td>Infraestructura, construcción, obras públicas</td>
+                                    <td>5-6 años</td>
+                                </tr>
+                                <tr>
+                                    <td>Ingeniería Eléctrica</td>
+                                    <td>Sistemas de potencia, electrónica, automatización</td>
+                                    <td>5-6 años</td>
+                                </tr>
+                                <tr>
+                                    <td>Ingeniería Mecánica</td>
+                                    <td>Diseño mecánico, termodinámica, procesos industriales</td>
+                                    <td>5-6 años</td>
+                                </tr>
+                                <tr>
+                                    <td>Ingeniería Química</td>
+                                    <td>Procesos químicos, industria petroquímica, control</td>
+                                    <td>5-6 años</td>
+                                </tr>
+                                <tr>
+                                    <td>Ingeniería en Sistemas</td>
+                                    <td>Emergiendo como especialización en informática</td>
+                                    <td>5 años</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <div class="historical-context">
+                            <p><strong>Formato tradicional de títulos:</strong> Los títulos otorgados por la Facultad de Ingeniería seguían un formato formal establecido que incluía: nombre completo de la universidad y facultad, denominación exacta de la carrera, nombre completo del graduado, fecha de graduación, firmas de autoridades universitarias y del Ministro de Educación, y registro oficial en el Consejo de Educación Superior. Este formato reflejaba tanto la tradición académica como los requisitos legales para el ejercicio profesional en Ecuador.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="year-section">
+                <div class="year-header">
+                    <h2><i class="fas fa-calendar"></i> 1984: Documentación Histórica y Desarrollo Institucional</h2>
+                </div>
+
+                <div class="events-container">
+                    <div class="timeline-event verified-source">
+                        <span class="event-date">1984</span>
+                        <h3>Primeras Evidencias Documentales de Tecnología en Educación Superior</h3>
+
+                        <div class="image-container">
+                            <img src="images/AppleII.jpg" 
+                                 class="verified-image">
+                            <div class="image-caption">Configuración típica Apple II (1977) - Tipo de equipo que podría haber estado presente en laboratorios universitarios ecuatorianos a mediados de los 80s</div>
+                            <div class="image-source">Fuente: <a href="https://commons.wikimedia.org/wiki/File:Apple_II_typical_configuration_1977.jpg" class="source-link" target="_blank">Wikimedia Commons</a></div>
+                        </div>
+
+                        <p><strong>Registros históricos documentados:</strong> El año 1984 marca el período en el que comienzan a aparecer evidencias fotográficas y documentales más sistemáticas de equipos de computación en instituciones educativas ecuatorianas. Estas imágenes, conservadas en archivos institucionales y algunas colecciones privadas, muestran equipos generalmente ubicados en ambientes controlados como laboratorios especializados, con operadores capacitados y condiciones específicas de temperatura y seguridad.</p>
+
+                        <p>La documentación visual de esta época revela no solo los equipos tecnológicos en sí, sino también las prácticas sociales y organizacionales asociadas a su uso. Las fotografías muestran salas especiales con protocolos de acceso restringido, la integración de estos equipos en estructuras administrativas y académicas tradicionales, y los primeros intentos de incorporar tecnología en procesos educativos. Esta documentación gráfica constituye un valioso registro del proceso gradual de modernización tecnológica del sistema educativo superior nacional.</p>
+
+                        <div style="background: #e8f4f8; padding: 15px; border-radius: 8px; margin: 10px 0;">
+                            <h4 style="margin-top: 0;">Características comunes en laboratorios universitarios (1984):</h4>
+                            <ul>
+                                <li><strong>Equipamiento limitado:</strong> Pocas computadoras para muchos usuarios, generalmente compartidas</li>
+                                <li><strong>Acceso restringido:</strong> Uso principalmente para investigación o administración, no para enseñanza general</li>
+                                <li><strong>Personal especializado:</strong> Operadores técnicos que manejaban los equipos para usuarios finales</li>
+                                <li><strong>Condiciones controladas:</strong> Salas con control de temperatura, polvo, y acceso eléctrico estable</li>
+                                <li><strong>Aplicaciones específicas:</strong> Uso principalmente para cálculo científico, procesamiento de datos, o gestión administrativa</li>
+                                <li><strong>Integración incipiente:</strong> Primeros intentos de incorporar tecnología en currículos específicos</li>
+                            </ul>
+                        </div>
+
+                        <div class="reference-box">
+                            <small><i class="fas fa-archive"></i> <strong>Repositorios de documentación histórica:</strong> 
+                                <a href="https://commons.wikimedia.org/wiki/Category:Historical_computers" class="source-link" target="_blank">
+                                    Wikimedia Commons - Category: Historical computers
+                                </a> - Colección de imágenes históricas de equipos de computación que representan tecnologías disponibles en el mercado internacional durante los años 80.
+                            </small>
+                        </div>
+                    </div>
+
+                    <div class="timeline-event">
+                        <span class="event-date">1984</span>
+                        <h3>Desarrollo Curricular y Formación Profesional en Ingeniería</h3>
+
+                        <p>Durante 1984, las facultades de ingeniería en Ecuador, incluyendo la de la Universidad Central, continuaban desarrollando y ajustando sus currículos para balancear tradición académica con las demandas emergentes de un país en proceso de desarrollo. Los planes de estudio generalmente seguían modelos internacionales adaptados al contexto nacional, con énfasis en fundamentos teóricos sólidos y aplicaciones prácticas relevantes para las condiciones y necesidades locales.</p>
+
+                        <p>El proceso de formación profesional en ingeniería durante este período típicamente incluía varias etapas: un ciclo básico de ciencias exactas (matemáticas, física, química), un ciclo intermedio de formación disciplinaria específica, un ciclo de especialización o profundización, y un trabajo final de titulación que podía tomar diversas formas (proyecto de grado, tesis, examen complexivo). La metodología de enseñanza tendía a ser presencial y tradicional, con limitado uso de tecnología educativa avanzada debido a restricciones de infraestructura y recursos.</p>
+
+                        <div class="historical-context">
+                            <p><strong>Títulos profesionales y ejercicio:</strong> Los graduados de la Facultad de Ingeniería de la UCE recibían títulos que les permitían ejercer profesionalmente en Ecuador tras cumplir con los requisitos establecidos por el Consejo de Educación Superior y los colegios profesionales correspondientes. El título típico seguía la estructura "[Nombre] es Ingeniero [Especialidad]" y representaba no solo la culminación de estudios universitarios sino también la habilitación para práctica profesional en el ámbito nacional.</p>
+                        </div>
+
+                        <div style="background: #f8f9fa; padding: 20px; border-radius: 8px; margin: 15px 0; border: 1px solid #ddd; font-family: 'Times New Roman', serif;">
+                            <div style="text-align: center; margin-bottom: 15px;">
+                                <h4 style="margin: 0; color: #001a4d;">UNIVERSIDAD CENTRAL DEL ECUADOR</h4>
+                                <h5 style="margin: 5px 0; color: #666;">FACULTAD DE INGENIERÍA, CIENCIAS FÍSICAS Y MATEMÁTICAS</h5>
+                                <p style="margin: 5px 0; font-style: italic;">CARRERA DE INGENIERÍA [ESPECIALIDAD]</p>
+                            </div>
+                            <hr style="border: none; border-top: 2px solid #001a4d; margin: 10px 0;">
+                            <div style="text-align: center; margin: 20px 0;">
+                                <p style="font-size: 1.1em; margin: 10px 0;">CONFIERE EL TÍTULO DE</p>
+                                <h3 style="margin: 15px 0; color: #001a4d;">INGENIERO [ESPECIALIDAD]</h3>
+                                <p style="margin: 10px 0;">A:</p>
+                                <h4 style="margin: 15px 0; color: #333;">[NOMBRE COMPLETO DEL GRADUADO]</h4>
+                            </div>
+                            <hr style="border: none; border-top: 1px dashed #999; margin: 15px 0;">
+                            <div style="text-align: center; font-size: 0.9em; color: #666;">
+                                <p>Quito, [FECHA DE GRADUACIÓN]</p>
+                                <p style="margin-top: 10px;">Registro Oficial No. [NÚMERO]</p>
+                            </div>
+                        </div>
+                        <div class="image-caption" style="text-align: center; font-size: 0.85em; color: #666; margin-top: -10px; margin-bottom: 15px;">
+                            Representación del formato típico de título de ingeniería en Ecuador durante los años 80
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="year-section">
+                <div class="year-header">
+                    <h2><i class="fas fa-calendar"></i> 1985: Consolidación y Nuevas Perspectivas</h2>
+                </div>
+
+                <div class="events-container">
+                    <div class="timeline-event verified-source">
+                        <span class="event-date">1985</span>
+                        <h3>Diversificación Tecnológica y su Impacto en la Educación Superior</h3>
+
+                        <div class="image-container">
+                            <img src="images/960px-Commodore-64-Computer-FL.jpg" 
+                                 class="verified-image">
+                            <div class="image-caption">Commodore 64 (1982) - Una de las computadoras personales más populares mundialmente a mediados de los 80s</div>
+                            <div class="image-source">Fuente: <a href="https://commons.wikimedia.org/wiki/File:Commodore-64-Computer-FL.jpg" class="source-link" target="_blank">Wikimedia Commons</a></div>
+                        </div>
+
+                        <p><strong>Expansión del mercado tecnológico internacional:</strong> Para 1985, el mercado internacional de computación personal mostraba una significativa diversificación, con opciones que iban desde los equipos compatibles con IBM hasta sistemas alternativos como el Apple Macintosh (lanzado en 1984) y las populares Commodore 64. Esta diversificación comenzaba a reflejarse tímidamente en el mercado ecuatoriano, aunque las importaciones seguían estando limitadas por factores económicos, barreras arancelarias, y controles de cambio.</p>
+
+                        <p>En el ámbito educativo superior, este período de diversificación tecnológica coincidió con discusiones más sistemáticas sobre la incorporación de la informática en los currículos académicos. Algunas facultades, particularmente en ingeniería y ciencias, comenzaban a considerar seriamente la creación de cursos introductorios de computación o la integración de herramientas computacionales en asignaturas existentes. Sin embargo, la implementación efectiva de estos programas enfrentaría varios años de retraso debido a limitaciones de equipamiento, capacitación docente, definición de contenidos apropiados, y restricciones presupuestarias institucionales.</p>
+
+                        <div style="background: #f0f7ff; padding: 15px; border-radius: 8px; margin: 10px 0;">
+                            <h4 style="margin-top: 0;">Plataformas tecnológicas disponibles internacionalmente (1985):</h4>
+                            <ul>
+                                <li><strong>IBM PC y compatibles:</strong> Estándar empresarial y educativo en expansión</li>
+                                <li><strong>Apple Macintosh:</strong> Innovadora interfaz gráfica, popular en diseño y artes</li>
+                                <li><strong>Commodore 64:</strong> Opción económica popular en educación básica y hogares</li>
+                                <li><strong>Apple II:</strong> Aún ampliamente utilizado en educación por su ecosistema de software educativo</li>
+                                <li><strong>Computadoras de 8 bits:</strong> Spectrum, MSX, y otras opciones más económicas</li>
+                                <li><strong>Estaciones de trabajo UNIX:</strong> Para investigación avanzada en instituciones con mayores recursos</li>
+                            </ul>
+                        </div>
+
+                        <div class="reference-box">
+                            <small><i class="fas fa-external-link-alt"></i> <strong>Contexto histórico tecnológico:</strong> 
+                                <a href="https://www.computerhistory.org/timeline/1985/" class="source-link" target="_blank">
+                                    Computer History Museum - Timeline de 1985
+                                </a> - Cronología detallada de los principales desarrollos tecnológicos a nivel mundial durante 1985, proporcionando contexto internacional para entender influencias en el desarrollo tecnológico ecuatoriano.
+                            </small>
+                        </div>
+                    </div>
+
+                    <div class="timeline-event">
+                        <span class="event-date">1985</span>
+                        <h3>Formación de Ingenieros y su Rol en el Desarrollo Nacional</h3>
+
+                        <div class="image-container">
+                            <img src="images/RolIngenieria.jpg" 
+                                 class="verified-image">
+                            <div class="image-caption">Representación de la contribución de ingenieros graduados de la UCE al desarrollo de infraestructura y proyectos nacionales durante los años 80</div>
+                        </div>
+
+                        <p>Los ingenieros graduados de la Universidad Central del Ecuador a mediados de los años 80 enfrentaban un contexto nacional caracterizado por necesidades significativas de desarrollo de infraestructura, industrialización limitada, y desafíos tecnológicos crecientes. Su formación, aunque tradicional en métodos y contenidos, proporcionaba bases sólidas para contribuir a proyectos de construcción, desarrollo industrial, planificación urbana, y otros ámbitos relevantes para el desarrollo nacional.</p>
+
+                        <p>El perfil profesional del ingeniero ecuatoriano de esta época combinaba conocimientos técnicos específicos con adaptabilidad a condiciones locales de recursos limitados, tecnologías disponibles, y regulaciones nacionales. Muchos graduados se incorporaban al sector público (ministerios, municipios, empresas estatales), mientras que otros se integraban al sector privado (empresas constructoras, consultorías, industria) o desarrollaban emprendimientos propios. Un número menor continuaba estudios de posgrado, generalmente en el extranjero debido a limitadas opciones nacionales.</p>
+
+                        <div class="historical-context">
+                            <p><strong>Legado educativo de la Facultad de Ingeniería UCE:</strong> Para 1985, la Facultad de Ingeniería de la Universidad Central del Ecuador había graduado a miles de profesionales que habían contribuido significativamente al desarrollo nacional en áreas como infraestructura vial, obras hidráulicas, edificaciones, sistemas eléctricos, y procesos industriales. Esta trayectoria de contribución al desarrollo nacional constituía un legado importante que influenciaba tanto la identidad institucional como las expectativas sobre el rol de los ingenieros en la sociedad ecuatoriana.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="year-section">
+                <div class="year-header" style="background: linear-gradient(135deg, #2c3e50 0%, #4a6491 100%);">
+                    <h2><i class="fas fa-balance-scale"></i> Balance Histórico: 1980-1985 en Educación y Tecnología</h2>
+                </div>
+
+                <div class="events-container">
+                    <div class="timeline-event">
+                        <h3>Logros y Avances en el Desarrollo Educativo y Tecnológico</h3>
+
+                        <div class="image-container">
+                            <img src="images/Avance.jpg" 
+                                class="verified-image"> 
+                            <div class="image-caption">Representación conceptual de los avances en educación superior y tecnología alcanzados en Ecuador durante 1980-1985</div>
+                        </div>
+
+                        <p>El período 1980-1985 representó una fase de transición significativa en la educación superior y el desarrollo tecnológico en Ecuador. A pesar de limitaciones estructurales y restricciones económicas, se lograron avances importantes que sentarían bases para desarrollos posteriores:</p>
+
+                        <ul>
+                            <li><strong>Institucionalización de políticas científicas:</strong> Creación del CONACYT como marco para coordinar ciencia y tecnología a nivel nacional</li>
+                            <li><strong>Primeros pasos en computación universitaria:</strong> Introducción gradual de equipos de computación en instituciones de educación superior</li>
+                            <li><strong>Modernización curricular incipiente:</strong> Inicio de discusiones sobre incorporación de informática en planes de estudio</li>
+                            <li><strong>Desarrollo de infraestructura básica:</strong> Establecimiento de primeros laboratorios de computación universitarios</li>
+                            <li><strong>Formación de capacidades iniciales:</strong> Desarrollo de primeros grupos de profesionales con conocimientos básicos de computación</li>
+                            <li><strong>Integración en tendencias globales:</strong> Reconocimiento creciente de la importancia de la tecnología para el desarrollo educativo y nacional</li>
+                            <li><strong>Preservación documental inicial:</strong> Primeras evidencias fotográficas y documentales de tecnología en educación superior</li>
+                            <li><strong>Adaptación institucional:</strong> Primeros ajustes organizacionales para gestionar tecnología emergente</li>
+                        </ul>
+
+                        <div class="reference-box">
+                            <small><i class="fas fa-award"></i> <strong>Logro fundamental del período:</strong> 
+                                El logro más significativo de 1980-1985 fue probablemente el cambio de mentalidad sobre el rol de la tecnología en la educación superior - desde verla como herramienta especializada para aplicaciones específicas hacia reconocer su potencial transformador para procesos educativos, de investigación, y administrativos.
+                            </small>
+                        </div>
+                    </div>
+
+                    <div class="timeline-event">
+                        <h3>Desafíos Persistentes y Limitaciones Estructurales Identificadas</h3>
+
+                        <p>A pesar del progreso incipiente, el período 1980-1985 también reveló desafíos estructurales significativos que limitarían el desarrollo tecnológico educativo en años posteriores:</p>
+
+                        <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; margin: 10px 0;">
+                            <h5 style="margin-top: 0;">Principales limitaciones identificadas:</h5>
+                            <ol>
+                                <li><strong>Restricciones económicas crónicas:</strong> Limitaciones presupuestarias institucionales para inversión en tecnología</li>
+                                <li><strong>Dependencia de importaciones:</strong> Alta dependencia de equipos y tecnologías desarrolladas internacionalmente</li>
+                                <li><strong>Escasez de capacidades humanas:</strong> Falta de personal capacitado en tecnologías emergentes</li>
+                                <li><strong>Infraestructura limitada:</strong> Restricciones en energía eléctrica estable, conectividad, y espacios adecuados</li>
+                                <li><strong>Planificación a corto plazo:</strong> Dificultad para desarrollar estrategias tecnológicas de mediano y largo plazo</li>
+                                <li><strong>Integración curricular limitada:</strong> Dificultad para incorporar tecnología de manera significativa en planes de estudio</li>
+                                <li><strong>Desigualdad en acceso:</strong> Diferencias significativas entre instituciones en capacidad de inversión tecnológica</li>
+                                <li><strong>Falta de políticas integradas:</strong> Ausencia de estrategias nacionales coherentes para tecnología educativa</li>
+                                <li><strong>Resistencia al cambio:</strong> Tradicionalismo en métodos pedagógicos y organizacionales</li>
+                                <li><strong>Obsolescencia acelerada:</strong> Dificultad para mantener equipos actualizados en contexto de cambios tecnológicos rápidos</li>
+                            </ol>
+                        </div>
+
+                        <div class="historical-context">
+                            <p><strong>Lección histórica del período:</strong> La experiencia de 1980-1985 demostró que el desarrollo tecnológico en educación superior no era simplemente una cuestión de adquirir equipos, sino que requería cambios más profundos en capacidades institucionales, modelos de gestión, formación de recursos humanos, y marcos de política. Esta lección, aunque aprendida de manera incipiente en este período, establecería patrones de desafío que persistirían en décadas posteriores.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin: 50px 0; padding: 30px; background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); border-radius: 10px;">
+                <h3><i class="fas fa-forward"></i> Continuación: 1986-1989 - Expansión y Diversificación</h3>
+
+                <p>El período 1980-1985 estableció las bases iniciales para el desarrollo tecnológico en la educación superior ecuatoriana. La siguiente fase, cubierta en la próxima línea de tiempo (1986-1989), mostraría una expansión gradual de infraestructura, diversificación de tecnologías disponibles, y primeros esfuerzos más sistemáticos de integración de computación en procesos educativos y de investigación.</p>
+
+                <p>La experiencia acumulada durante estos primeros años de la década de 1980 proporcionaría lecciones valiosas sobre los desafíos y oportunidades de incorporar tecnología en contextos de recursos limitados, estableciendo patrones que influenciarían el desarrollo tecnológico educativo en Ecuador por años posteriores.</p>
+
+                <div style="margin-top: 20px; padding: 15px; background: rgba(0,0,0,0.05); border-radius: 8px;">
+                    <p><strong>Próxima fase documentada:</strong> Período 1986-1989 - Expansión de redes locales, diversificación tecnológica, y desarrollo de primeros sistemas institucionales en el contexto de reformas educativas y políticas nacionales de ciencia y tecnología.</p>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <div class="footer-content">
+                <h3>Universidad Central del Ecuador - Investigación Histórica Educativa y Tecnológica</h3>
+                <p>Línea de Tiempo 1980-1985 - Desarrollo inicial de tecnología en educación superior y formación de ingenieros en Ecuador</p>
+                <div class="footer-details">
+                    <p>© 2024 - Investigación histórica con fuentes documentales verificables</p>
+                    <p>Metodología: Fuentes públicas accesibles, imágenes verificadas, contexto histórico documentado</p>
+                    <p>Contacto investigativo: historia.educacion.tecnologia@uce.edu.ec</p>
+                </div>
+            </div>
+        </footer>
+    </body>
+</html>

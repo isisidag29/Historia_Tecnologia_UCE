@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Línea de Tiempo: 1990-1994 - Internet en Ecuador</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* ====== 1. DEFINICIÓN DE VARIABLES DE COLOR ====== */
+        :root {
+            --primary: #002b5c;   /* Azul UCE */
+            --secondary: #e31e24; /* Rojo */
+        }
+
+        body {
+            margin: 0;
+            font-family: "Segoe UI", Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        /* ====== 2. ARREGLO DEL ENCABEZADO ====== */
+        header {
+            /* Degradado azul para que resalte el texto blanco */
+            background: linear-gradient(135deg, #003366 0%, #4a1e8f 100%);
+            padding: 40px 20px;
+            text-align: center;
+            color: white; /* Texto blanco explícito */
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            margin-bottom: 30px;
+        }
+
+        header h1, header p {
+            margin: 10px 0;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
+        }
+
+        /* ====== 3. ESTILO DEL BOTÓN VOLVER ====== */
+        .btn-back {
+            background: linear-gradient(135deg, #00c6ff, #0072ff);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            display: inline-block;
+        }
+
+        .btn-back:hover {
+            background: linear-gradient(135deg, #0072ff, #00c6ff);
+            transform: scale(1.05);
+        }
+
+        /* ====== TUS ESTILOS ORIGINALES ====== */
+        .timeline-container {max-width: 1200px; margin: 40px auto; padding: 0 20px;}
+        .year-section {margin-bottom: 60px; position: relative;}
+        
+        .year-header {
+            background: linear-gradient(135deg, var(--primary) 0%, #001a4d 100%); 
+            color: white; 
+            padding: 20px 30px; 
+            border-radius: 10px; 
+            margin-bottom: 30px; 
+            position: sticky; 
+            top: 0; /* Ajustado a 0 para mejor efecto sticky */
+            z-index: 100; 
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .year-header h2 { margin: 0; color: white !important; }
+
+        .events-container {display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 25px;}
+        
+        .timeline-event {
+            background: white; 
+            padding: 25px; 
+            border-radius: 10px; 
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08); 
+            border-left: 5px solid #28a745; 
+            transition: transform 0.3s;
+        }
+        
+        .timeline-event h3 { color: var(--primary); margin-top: 0; }
+        
+        .timeline-event:hover {transform: translateY(-5px);}
+        .event-date {background: #d4edda; color: #155724; padding: 8px 15px; border-radius: 20px; display: inline-block; font-weight: bold; margin-bottom: 15px; font-size: 0.9rem;}
+        .reference-box {background: #f8f9fa; padding: 20px; border-radius: 10px; margin-top: 15px; border-left: 4px solid var(--primary);}
+        
+        .verified-source {background: #ffffff; border-left: 5px solid #28a745;} /* Fondo blanco para legibilidad */
+        .historical-context {background: #fff3e0; padding: 15px; border-radius: 8px; margin: 15px 0; border-left: 4px solid #fd7e14;}
+        
+        /* Estilos para imágenes verificadas */
+        .image-container {width: 100%; margin: 20px 0; text-align: center;}
+        .verified-image {width: 100%; max-width: 600px; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); border: 3px solid #28a745;}
+        .image-caption {font-size: 0.9em; color: #666; margin-top: 10px; font-style: italic;}
+        .image-source {font-size: 0.8em; color: #999; margin-top: 5px;}
+        .image-placeholder {width: 100%; height: 200px; background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); display: flex; align-items: center; justify-content: center; border-radius: 8px; margin: 20px 0; color: #666; border: 2px dashed #b3cde0;}
+        
+        /* Panel especial para hitos de Internet */
+        .internet-panel {background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); color: white; padding: 30px; border-radius: 10px; margin: 40px 0;}
+        .source-link {color: #0066cc; text-decoration: underline; font-size: 0.9em;}
+        
+        /* Footer */
+        footer {
+            background: #1a1a1a;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            margin-top: 50px;
+        }
+        .footer-details {
+            font-size: 0.8em;
+            color: #aaa;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1><i class="fas fa-globe-americas"></i> Línea de Tiempo: 1990-1994</h1>
+        <p>La llegada de Internet a Ecuador y su impacto en la educación superior</p>
+        
+        <div style="margin-top: 20px; display: flex; gap: 10px; flex-wrap: wrap; justify-content: center;">
+            <a href="index.html" class="btn-back">
+                <i class="fas fa-arrow-left"></i> Volver al Inicio
+            </a>
+        </div>
+    </header>
+
+    <div class="timeline-container">
+        <div class="year-section">
+            <div class="year-header">
+                <h2><i class="fas fa-calendar"></i> 1990: Contexto Internacional de Internet</h2>
+            </div>
+            
+            <div class="events-container">
+                <div class="timeline-event verified-source">
+                    <span class="event-date">1990</span>
+                    <h3>La World Wide Web: Propuesta Original de Tim Berners-Lee</h3>
+                    
+                    <div class="image-container">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/WWW_logo_by_Robert_Cailliau.svg/600px-WWW_logo_by_Robert_Cailliau.svg.png" 
+                             alt="Logo original de la World Wide Web" 
+                             class="verified-image">
+                        <div class="image-caption">Logo original de la World Wide Web diseñado por Robert Cailliau - Símbolo del proyecto que transformaría Internet</div>
+                        <div class="image-source">Fuente: <a href="https://commons.wikimedia.org/wiki/File:WWW_logo_by_Robert_Cailliau.svg" class="source-link" target="_blank">Wikimedia Commons</a></div>
+                    </div>
+                    
+                    <p><strong>Momento histórico internacional:</strong> En marzo de 1990, Tim Berners-Lee, investigador del CERN en Suiza, presentó formalmente su propuesta para un sistema de gestión de información que denominaría "World Wide Web". Este documento, titulado "Information Management: A Proposal", describía un sistema basado en hipertexto para facilitar el intercambio de información entre investigadores. Aunque inicialmente concebido para necesidades específicas del CERN, este proyecto contenía las bases conceptuales de lo que eventualmente se convertiría en la web global que conocemos hoy.</p>
+                    
+                    <p>La propuesta de Berners-Lee describía tres tecnologías fundamentales que permitirían la web: HTML (HyperText Markup Language) para crear documentos web, URI (Uniform Resource Identifier) para identificar recursos en la web, y HTTP (Hypertext Transfer Protocol) para transferir estos recursos. Estas especificaciones técnicas, aunque rudimentarias en su primera versión, establecieron principios de diseño que garantizarían la escalabilidad y descentralización del sistema.</p>
+                    
+                    <div style="background: #e8f4f8; padding: 15px; border-radius: 8px; margin: 10px 0;">
+                        <h4 style="margin-top: 0;">Elementos clave de la propuesta original (1990):</h4>
+                        <ul>
+                            <li><strong>Arquitectura cliente-servidor:</strong> Propuesta clara de separación entre navegadores (clientes) y servidores web</li>
+                            <li><strong>Sistema de hipertexto:</strong> Enlaces entre documentos como mecanismo fundamental de navegación</li>
+                            <li><strong>Acceso universal:</strong> Visión de un sistema accesible desde cualquier plataforma computacional</li>
+                            <li><strong>Gestión descentralizada:</strong> Diseño que no requería control centralizado de contenidos</li>
+                            <li><strong>Interoperabilidad:</strong> Énfasis en estándares abiertos para garantizar compatibilidad</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="reference-box">
+                        <small><i class="fas fa-file-alt"></i> <strong>Documento histórico fundamental:</strong> 
+                            <a href="https://www.w3.org/History/1989/proposal.html" class="source-link" target="_blank">
+                                Propuesta original de la World Wide Web - Tim Berners-Lee, marzo 1990
+                            </a> - Documento fundacional que describe la visión y arquitectura técnica inicial de lo que se convertiría en la web.
+                        </small>
+                    </div>
+                </div>
+                
+                <div class="timeline-event">
+                    <span class="event-date">1990</span>
+                    <h3>Infraestructura de Telecomunicaciones en Ecuador a Inicios de los 90s</h3>
+                    
+                    <div class="image-container">
+                        <img src="images/Redes.png" 
+                        class="verified-image">
+                        <div class="image-caption">Representación de la infraestructura de telecomunicaciones en Ecuador a principios de los 90s</div>
+                    </div>
+                    
+                    <p>A principios de la década de 1990, Ecuador contaba con una infraestructura de telecomunicaciones en proceso de modernización pero aún predominantemente analógica. El servicio telefónico, operado por estatal IETEL (Instituto Ecuatoriano de Telecomunicaciones), presentaba limitaciones significativas en capacidad y cobertura. La densidad telefónica era baja en comparación con estándares internacionales, y el acceso a servicios de datos era extremadamente limitado y costoso.</p>
+                    
+                    <p>Para las instituciones de educación superior, estas limitaciones de infraestructura representaban barreras significativas para la adopción de tecnologías de red avanzadas. Las conexiones entre ciudades requerían generalmente el uso de líneas dedicadas analógicas con capacidades limitadas (generalmente 9.6 Kbps a 64 Kbps) y costos prohibitivos para aplicaciones académicas. La falta de competencia en el sector de telecomunicaciones y las restricciones regulatorias adicionales complicaban aún más el panorama para instituciones que buscaban mejorar su conectividad.</p>
+                    
+                    <div class="historical-context">
+                        <p><strong>Contexto regulatorio:</strong> El sector de telecomunicaciones en Ecuador operaba bajo un modelo estatal monopólico que comenzaría a transformarse gradualmente durante la década de 1990. Este contexto regulatorio afectaba directamente la disponibilidad, calidad y costo de los servicios de comunicación de datos necesarios para el desarrollo de redes académicas y el eventual acceso a Internet.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="year-section">
+            <div class="year-header" style="background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);">
+                <h2><i class="fas fa-calendar-star"></i> 1991: Nacimiento de Internet en Ecuador</h2>
+            </div>
+            
+            <div class="events-container">
+                <div class="timeline-event verified-source">
+                    <span class="event-date" style="background: #6a11cb; color: white;">Diciembre 1991</span>
+                    <h3>Creación de ECUANEX: Primer Proveedor de Internet en Ecuador</h3>
+                    
+                    <div class="image-container">
+                        <img src="images/Arpanet_logical_map,_march_1977.png" 
+                             class="verified-image">
+                        <div class="image-caption">Mapa lógico de ARPANET (1977) - Predecesor tecnológico de las redes que llegarían a Ecuador en 1991</div>
+                        <div class="image-source">Fuente: <a href="https://commons.wikimedia.org/wiki/File:ARPANET_logical_map,_march_1977.png" class="source-link" target="_blank">Wikimedia Commons</a></div>
+                    </div>
+                    
+                    <p><strong>Hito histórico documentado:</strong> En diciembre de 1991 se estableció formalmente ECUANEX (Ecuadorian Network for Exchange), reconociéndose históricamente como el primer proveedor de servicios de Internet en Ecuador. Esta iniciativa pionera surgió de la colaboración entre varias instituciones académicas y de investigación, respondiendo a la creciente necesidad de conectividad internacional para proyectos científicos y de cooperación académica.</p>
+                    
+                    <p>ECUANEX inició operaciones utilizando tecnología UUCP (Unix-to-Unix Copy Protocol) sobre conexiones telefónicas internacionales, implementando un modelo de store-and-forward para servicios de correo electrónico y transferencia de archivos. La conectividad internacional inicial se estableció a través de enlaces satelitales hacia Estados Unidos, con velocidades iniciales extremadamente limitadas (generalmente 9.6 Kbps) que reflejaban tanto las restricciones tecnológicas de la época como las limitaciones presupuestarias de las instituciones participantes.</p>
+                    
+                    <div style="background: #f0f7ff; padding: 15px; border-radius: 8px; margin: 10px 0;">
+                        <h4 style="margin-top: 0;">Características técnicas iniciales de ECUANEX:</h4>
+                        <ul>
+                            <li><strong>Protocolo principal:</strong> UUCP (Unix-to-Unix Copy) para transferencia asíncrona de datos</li>
+                            <li><strong>Servicios ofrecidos:</strong> Correo electrónico, transferencia de archivos, acceso a grupos de noticias seleccionados</li>
+                            <li><strong>Conectividad internacional:</strong> Enlace satelital hacia nodos en Estados Unidos, generalmente en Florida o Texas</li>
+                            <li><strong>Modelo de operación:</strong> Store-and-forward con actualizaciones periódicas en lugar de conexión permanente</li>
+                            <li><strong>Instituciones fundadoras:</strong> Colaboración entre ESPOL, algunas universidades de Quito, y organismos de investigación</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="reference-box">
+                        <small><i class="fas fa-network-wired"></i> <strong>Fuente histórica académica:</strong> 
+                            <a href="https://www.itu.int/net/itunews/issues/1994/08/12.aspx" class="source-link" target="_blank">
+                                "Internet Development in Latin America" - ITU News, 1994
+                            </a> - Análisis contemporáneo del desarrollo de Internet en América Latina que documenta los inicios de servicios como ECUANEX en el contexto regional.
+                        </small>
+                    </div>
+                </div>
+                
+                <div class="timeline-event">
+                    <span class="event-date">1991</span>
+                    <h3>Primeras Conexiones Académicas Internacionales desde Ecuador</h3>
+                    
+                    <div class="image-container">
+                        <img src="images/Satelite.jpeg" 
+                             class="verified-image">
+                        <div class="image-caption">Representación de la tecnología de comunicación satelital utilizada para las primeras conexiones internacionales de Ecuador</div>
+                    </div>
+                    
+                    <p>Las primeras conexiones de Internet desde Ecuador establecidas en 1991 representaron un logro tecnológico significativo en el contexto nacional. Estas conexiones generalmente utilizaban tecnología satelital (VSAT) o líneas dedicadas internacionales para establecer enlaces con proveedores de backbone en Estados Unidos. El proceso de establecimiento de estas conexiones involucró complejas negociaciones con operadores internacionales, trámites regulatorios con autoridades de telecomunicaciones ecuatorianas, y significativas inversiones en equipamiento especializado.</p>
+                    
+                    <p>Para las instituciones académicas que participaron en estas primeras conexiones, el acceso a Internet abrió posibilidades radicalmente nuevas para la colaboración internacional, el acceso a recursos de información global, y la participación en comunidades académicas virtuales. Sin embargo, estos beneficios iniciales estuvieron limitados a pequeños grupos de investigadores y administradores, dada la capacidad extremadamente limitada de las conexiones y los altos costos involucrados.</p>
+                    
+                    <div class="historical-context">
+                        <p><strong>Impacto académico inicial:</strong> Aunque limitado en alcance, el acceso a Internet comenzó a transformar gradualmente prácticas de investigación en instituciones ecuatorianas. Investigadores pudieron acceder a bases de datos académicas internacionales, participar en listas de discusión especializadas, y establecer colaboraciones directas con colegas en otras partes del mundo sin la necesidad de costosos viajes o correspondencia postal lenta.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="internet-panel">
+            <h3 style="margin-top: 0; text-align: center;"><i class="fas fa-chart-line"></i> Contexto Global de Internet en 1991</h3>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 20px; text-align: center; margin-top: 20px;">
+                <div>
+                    <div style="font-size: 2rem; font-weight: bold;">~600K</div>
+                    <p>Hosts Internet globales</p>
+                    <p><small>(RFC 1296, enero 1992)</small></p>
+                </div>
+                <div>
+                    <div style="font-size: 2rem; font-weight: bold;">~4.5M</div>
+                    <p>Usuarios Internet globales</p>
+                    <p><small>(Estimación Internet Society)</small></p>
+                </div>
+                <div>
+                    <div style="font-size: 2rem; font-weight: bold;">10</div>
+                    <p>Países América Latina con Internet</p>
+                    <p><small>(Ecuador entre primeros)</small></p>
+                </div>
+                <div>
+                    <div style="font-size: 2rem; font-weight: bold;">9.6</div>
+                    <p>Kbps típicos conexión</p>
+                    <p><small>(Velocidad inicial Ecuador)</small></p>
+                </div>
+            </div>
+            
+            <div style="margin-top: 25px; background: rgba(255,255,255,0.2); padding: 15px; border-radius: 8px;">
+                <p><strong>Perspectiva histórica:</strong> Cuando Ecuador se conectó a Internet en 1991, la red global tenía aproximadamente 600,000 hosts y servía a unos 4.5 millones de usuarios principalmente en países desarrollados. Ecuador se encontraba entre los primeros 10 países de América Latina en establecer conectividad, aunque con capacidades extremadamente limitadas comparadas con países pioneros como Brasil o Chile.</p>
+            </div>
+        </div>
+
+        <div class="year-section">
+            <div class="year-header">
+                <h2><i class="fas fa-calendar"></i> 1992-1993: Expansión y Adopción Académica</h2>
+            </div>
+            
+            <div class="events-container">
+                <div class="timeline-event verified-source">
+                    <span class="event-date">1992-1993</span>
+                    <h3>Expansión de Servicios Internet en Universidades Ecuatorianas</h3>
+                    
+                    <div class="image-container">
+                        <img src="images/Mosaic.jpg" 
+                             class="verified-image">
+                        <div class="image-caption">NCSA Mosaic (1993) - Primer navegador web gráfico popular que transformó el acceso a Internet</div>
+                        <div class="image-source">Fuente: <a href="https://commons.wikimedia.org/wiki/File:Mosaic_web_browser_screenshot.png" class="source-link" target="_blank">Wikimedia Commons</a></div>
+                    </div>
+                    
+                    <p><strong>Adopción gradual en educación superior:</strong> Durante 1992 y 1993, un número creciente de universidades ecuatorianas comenzó a establecer conexiones a Internet, generalmente a través de ECUANEX o mediante acuerdos directos con proveedores internacionales. Este proceso de adopción fue gradual y desigual, con instituciones más grandes y con mayores recursos técnicos liderando el camino, mientras que universidades más pequeñas o con menos recursos enfrentaban mayores desafíos para establecer y mantener conectividad.</p>
+                    
+                    <p>La expansión de servicios Internet en este período coincidió con desarrollos tecnológicos internacionales significativos. En particular, el lanzamiento del navegador web NCSA Mosaic en 1993 representó un punto de inflexión en la usabilidad de Internet, transformándola de una herramienta principalmente basada en texto a un medio visual más accesible. Aunque la adopción de Mosaic en Ecuador fue lenta debido a limitaciones de ancho de banda y capacidad de hardware, su existencia comenzó a cambiar expectativas sobre lo que era posible con acceso a Internet.</p>
+                    
+                    <div style="background: #e8f5e9; padding: 15px; border-radius: 8px; margin: 10px 0;">
+                        <h4 style="margin-top: 0;">Servicios Internet disponibles 1992-1993:</h4>
+                        <ul>
+                            <li><strong>Correo electrónico:</strong> Servicio más utilizado, generalmente a través de clientes como Pine o Elm en sistemas Unix</li>
+                            <li><strong>FTP (File Transfer Protocol):</strong> Para transferencia de archivos, incluyendo software y documentos académicos</li>
+                            <li><strong>Telnet:</strong> Acceso remoto a sistemas académicos y catálogos bibliotecarios internacionales</li>
+                            <li><strong>Gopher:</strong> Sistema de menús jerárquicos para navegación de información (predecesor de la web)</li>
+                            <li><strong>USENET/Newsgroups:</strong> Grupos de discusión temáticos, aunque con acceso limitado por restricciones de ancho de banda</li>
+                            <li><strong>WAIS (Wide Area Information Servers):</strong> Sistema de búsqueda de información distribuida</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="reference-box">
+                        <small><i class="fas fa-browser"></i> <strong>Historia del navegador web:</strong> 
+                            <a href="https://www.nsf.gov/news/special_reports/nsf-net/mosaic.jsp" class="source-link" target="_blank">
+                                NCSA Mosaic: The First Global Web Browser - National Science Foundation
+                            </a> - Documentación histórica sobre el desarrollo e impacto del primer navegador web gráfico popular.
+                        </small>
+                    </div>
+                </div>
+                
+                <div class="timeline-event">
+                    <span class="event-date">1993</span>
+                    <h3>Primeros Sitios Web en Dominio .ec y Desarrollo de Contenido Local</h3>
+                    
+                    <div class="image-container">
+                        <img src="images/web.jpg" 
+                         class="verified-image">
+                        <div class="image-caption">Representación de los primeros sitios web con dominio .ec desarrollados alrededor de 1993</div>
+                    </div>
+                    
+                    <p>Aproximadamente en 1993 comenzaron a aparecer los primeros sitios web alojados en el dominio de código de país .ec para Ecuador. Estos sitios pioneros eran generalmente extremadamente básicos en términos de diseño y funcionalidad, creados utilizando HTML 1.0 o 2.0 con estructuras simples de texto y enlaces. La mayoría carecía de imágenes debido a limitaciones de ancho de banda y preocupaciones sobre tiempos de carga, y su contenido tendía a ser institucional básico más que aplicaciones interactivas complejas.</p>
+                    
+                    <p>El desarrollo de estos primeros sitios web representó un proceso de aprendizaje significativo para las instituciones involucradas. Equipos técnicos tuvieron que adquirir conocimientos sobre protocolos web, configuración de servidores HTTP, y principios básicos de diseño de información para la web. Este proceso de aprendizaje incluyó experimentación con diferentes tecnologías, adaptación de herramientas desarrolladas internacionalmente a necesidades locales, y desarrollo de prácticas institucionales para la gestión de contenido web.</p>
+                    
+                    <div class="historical-context">
+                        <p><strong>Registro de dominios .ec:</strong> La administración del dominio de nivel superior .ec para Ecuador fue delegada por IANA (Internet Assigned Numbers Authority) a la Escuela Superior Politécnica del Litoral (ESPOL) en los primeros años de los 90s. Este arreglo institucional reflejaba el papel pionero de ESPOL en el desarrollo de Internet en Ecuador y estableció un modelo de gestión de dominio que perduraría por varios años antes de evolucionar hacia estructuras más formalizadas.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="year-section">
+            <div class="year-header">
+                <h2><i class="fas fa-calendar"></i> 1994: Consolidación y Crecimiento Acelerado</h2>
+            </div>
+            
+            <div class="events-container">
+                <div class="timeline-event verified-source">
+                    <span class="event-date">1994</span>
+                    <h3>Explosión Global de la World Wide Web y su Impacto en Ecuador</h3>
+                    
+                    <div class="image-container">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/First_Web_Server.jpg/600px-First_Web_Server.jpg" 
+                             alt="Primer servidor web del CERN" 
+                             class="verified-image">
+                        <div class="image-caption">Primer servidor web en el CERN (NeXT Computer) - Tecnología que hizo posible la expansión global de la web</div>
+                        <div class="image-source">Fuente: <a href="https://commons.wikimedia.org/wiki/File:First_Web_Server.jpg" class="source-link" target="_blank">Wikimedia Commons</a></div>
+                    </div>
+                    
+                    <p><strong>El "año de la web":</strong> 1994 es frecuentemente identificado como el año en que la World Wide Web alcanzó masa crítica a nivel global. Varios desarrollos clave convergieron para acelerar dramáticamente la adopción de la web: la fundación del World Wide Web Consortium (W3C) en octubre para estandarizar tecnologías web, el lanzamiento de Netscape Navigator que popularizó la navegación web gráfica, y la creciente cobertura mediática que llevó el concepto de "web" al conocimiento público general.</p>
+                    
+                    <p>En Ecuador, este contexto global de aceleración web tuvo varios efectos significativos. Primero, aumentó la presión sobre instituciones para desarrollar presencia web y capacidades relacionadas. Segundo, expandió la conciencia sobre el potencial de Internet más allá de círculos técnicos especializados. Tercero, estimuló la demanda de capacitación en tecnologías web y desarrollo de contenido digital. Sin embargo, estas tendencias globales chocaron con las realidades locales de limitada infraestructura, altos costos de conectividad, y escasez de personal capacitado.</p>
+                    
+                    <div style="background: #f0f8ff; padding: 15px; border-radius: 8px; margin: 10px 0;">
+                        <h4 style="margin-top: 0;">Estadísticas globales de crecimiento web (1994):</h4>
+                        <ul>
+                            <li><strong>Sitios web globales:</strong> Aproximadamente 10,000 a finales de 1994 (crecimiento exponencial desde ~130 en 1993)</li>
+                            <li><strong>Tráfico web:</strong> Comenzó a superar otros protocolos Internet como FTP y Gopher</li>
+                            <li><strong>Navegadores:</strong> Netscape Navigator capturó rápidamente 75% del mercado tras su lanzamiento en diciembre</li>
+                            <li><strong>Contenido:</strong> Transición de sitios predominantemente académicos/gubernamentales a incluir contenido comercial y personal</li>
+                            <li><strong>Tecnologías:</strong> Introducción de características como formularios web, tablas HTML, y soporte inicial para imágenes mejor integradas</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="reference-box">
+                        <small><i class="fas fa-chart-line"></i> <strong>Crecimiento histórico de la web:</strong> 
+                            <a href="https://www.internetlivestats.com/total-number-of-websites/" class="source-link" target="_blank">
+                                Historical Growth of Websites - Internet Live Stats
+                            </a> - Datos históricos sobre el crecimiento exponencial del número de sitios web durante los primeros años de la web.
+                        </small>
+                    </div>
+                </div>
+                
+                <div class="timeline-event">
+                    <span class="event-date">1994</span>
+                    <h3>Desarrollo de Infraestructura y Políticas Institucionales para Internet</h3>
+                    
+                    <p>A medida que el uso de Internet crecía en instituciones de educación superior ecuatorianas durante 1994, surgió la necesidad de desarrollar infraestructura más robusta y políticas institucionales más formales para su gestión. Este proceso incluyó varios componentes interrelacionados: expansión de capacidad de red interna para soportar mayor tráfico Internet, adquisición de equipamiento especializado como routers y firewalls, desarrollo de políticas de uso aceptable, establecimiento de estructuras organizacionales para gestión de tecnología, y creación de programas de capacitación para usuarios.</p>
+                    
+                    <p>Las decisiones sobre inversión en infraestructura Internet durante este período involucraron complejos análisis costo-beneficio, dado el alto costo relativo de equipamiento y conectividad en el contexto ecuatoriano. Instituciones tuvieron que balancear la necesidad de capacidades técnicas avanzadas con restricciones presupuestarias reales, priorizando generalmente conectividad básica y servicios esenciales sobre capacidades avanzadas o redundancia extensiva. Este proceso de toma de decisiones sentó precedentes importantes para la evolución posterior de infraestructura tecnológica institucional.</p>
+                    
+                    <div class="historical-context">
+                        <p><strong>Contexto económico nacional:</strong> El año 1994 en Ecuador estuvo marcado por procesos de liberalización económica y reformas estructurales que afectaron indirectamente el desarrollo tecnológico. Políticas de apertura comercial facilitaron la importación de equipamiento tecnológico, mientras que reformas en telecomunicaciones comenzaron a crear condiciones para mayor competencia en servicios de conectividad. Estos factores macroeconómicos crearon un entorno más favorable para la expansión de infraestructura Internet, aunque su impacto pleno se materializaría gradualmente en años posteriores.</p>
+                    </div>
+                    
+                    <div class="image-container">
+                        <img src="images/historia_d_internet_3.png" 
+                             class="verified-image">
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+
+        <div class="year-section">
+            <div class="year-header" style="background: linear-gradient(135deg, #2c3e50 0%, #4a6491 100%);">
+                <h2><i class="fas fa-balance-scale"></i> Balance Histórico: 1990-1994</h2>
+            </div>
+            
+            <div class="events-container">
+                <div class="timeline-event">
+                    <h3>Logros y Avances Documentables del Período</h3>
+                    
+                    <div class="image-container">
+                        <img src="images/Conceptual.jpg" 
+                        class="verified-image">
+                        <div class="image-caption">Representación conceptual del impacto transformador de Internet en la educación superior ecuatoriana</div>
+                    </div>
+                    
+                    <p>El período 1990-1994 representó una fase fundacional crítica para el desarrollo de Internet en la educación superior ecuatoriana. Entre los logros históricamente significativos de este período se pueden identificar:</p>
+                    
+                    <ul>
+                        <li><strong>Establecimiento de conectividad inicial:</strong> Conexión de Ecuador a Internet global a través de iniciativas pioneras como ECUANEX</li>
+                        <li><strong>Creación de capacidades técnicas básicas:</strong> Desarrollo del primer grupo significativo de profesionales ecuatorianos con experiencia práctica en tecnologías de red Internet</li>
+                        <li><strong>Inicio de presencia digital institucional:</strong> Creación de los primeros sitios web y servicios en línea de instituciones académicas ecuatorianas</li>
+                        <li><strong>Integración en redes académicas globales:</strong> Participación inicial en comunidades y recursos académicos internacionales accesibles a través de Internet</li>
+                        <li><strong>Establecimiento de precedentes institucionales:</strong> Desarrollo de modelos organizacionales y políticas iniciales para la gestión de tecnologías Internet en contextos académicos</li>
+                        <li><strong>Democratización incipiente del acceso:</strong> Primeros pasos hacia el acceso más amplio a recursos de información global, aunque limitado a círculos académicos y técnicos</li>
+                    </ul>
+                    
+                    <div class="reference-box">
+                        <small><i class="fas fa-award"></i> <strong>Significado histórico:</strong> 
+                            Este período transformó fundamentalmente las posibilidades de comunicación, colaboración y acceso a información para la comunidad académica ecuatoriana, estableciendo bases para desarrollos más acelerados en la segunda mitad de la década de 1990.
+                        </small>
+                    </div>
+                </div>
+                
+                <div class="timeline-event">
+                    <h3>Limitaciones y Desafíos Persistentes Identificados</h3>
+                    
+                    <p>Junto con los avances significativos, el período 1990-1994 también reveló limitaciones estructurales y desafíos persistentes que afectarían el desarrollo tecnológico posterior:</p>
+                    
+                    <ol>
+                        <li><strong>Infraestructura insuficiente:</strong> Limitaciones crónicas en capacidad de red, confiabilidad de conexiones, y acceso eléctrico estable afectaron la experiencia de usuario y aplicaciones posibles</li>
+                        <li><strong>Asimetría de acceso:</strong> Grandes desigualdades en calidad y disponibilidad de conectividad entre instituciones, regiones, y grupos socioeconómicos</li>
+                        <li><strong>Dependencia tecnológica externa:</strong> Alta dependencia de equipamiento importado, estándares internacionales, y expertise externo para implementación y mantenimiento</li>
+                        <li><strong>Falta de políticas nacionales integradas:</strong> Ausencia de estrategias nacionales coherentes para el desarrollo de Internet en educación, investigación e innovación</li>
+                        <li><strong>Barreras económicas:</strong> Altos costos relativos de equipamiento, conectividad, y capacitación en el contexto de restricciones presupuestarias institucionales</li>
+                        <li><strong>Brecha digital emergente:</strong> Creciente distancia entre instituciones con acceso robusto a Internet y aquellas con acceso limitado o nulo</li>
+                        <li><strong>Desafíos de sostenibilidad:</strong> Dificultades para mantener y actualizar infraestructura y capacidades en contextos de incertidumbre presupuestaria</li>
+                    </ol>
+                    
+                    <div class="historical-context">
+                        <p><strong>Legado para el futuro:</strong> Estas limitaciones no solo caracterizaron el período 1990-1994, sino que establecerían patrones que persistirían en diversos grados durante la siguiente década, influenciando la trayectoria del desarrollo tecnológico en la educación superior ecuatoriana y requiriendo respuestas políticas, institucionales y técnicas específicas.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="year-section">
+            <div class="year-header" style="background: linear-gradient(135deg, #6f42c1 0%, #4a1e8f 100%);">
+                <h2><i class="fas fa-book"></i> Fuentes y Metodología para 1990-1994</h2>
+            </div>
+            
+            <div class="events-container">
+                <div class="timeline-event">
+                    <h3>Repositorios Documentales para la Historia Temprana de Internet en Ecuador</h3>
+                    
+                    <p>La investigación histórica sobre el período fundacional de Internet en Ecuador (1990-1994) se basa en varios tipos de fuentes documentales, cada una con sus características y limitaciones específicas:</p>
+                    
+                    <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; margin: 10px 0;">
+                        <h5 style="margin-top: 0;">Tipos de fuentes utilizadas:</h5>
+                        <ul>
+                            <li><strong>Documentos técnicos históricos:</strong> RFCs (Request for Comments), especificaciones de protocolos, documentación de software histórico</li>
+                            <li><strong>Publicaciones académicas contemporáneas:</strong> Artículos en revistas especializadas que documentan desarrollos tecnológicos del período</li>
+                            <li><strong>Archivos web históricos:</strong> Capturas del Internet Archive (Wayback Machine) de sitios pioneros</li>
+                            <li><strong>Documentación institucional:</strong> Informes anuales, planes estratégicos, y documentos de política de instituciones académicas</li>
+                            <li><strong>Fuentes periodísticas históricas:</strong> Artículos en medios de comunicación que cubrieron el surgimiento de Internet en Ecuador</li>
+                            <li><strong>Testimonios publicados:</strong> Entrevistas y relatos de pioneros publicados en formatos accesibles</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="reference-box">
+                        <small><i class="fas fa-archive"></i> <strong>Repositorios clave consultados:</strong> 
+                            Internet Archive (archive.org), RFC Editor (rfc-editor.org), Library of Congress Web Archives, colecciones digitales de universidades con documentación histórica tecnológica, archivos de publicaciones periódicas especializadas en tecnología.
+                        </small>
+                    </div>
+                </div>
+                
+                <div class="timeline-event">
+                    <h3>Consideraciones para la Preservación de la Historia Digital Temprana</h3>
+                    
+                    <p>La investigación histórica sobre los primeros años de Internet en Ecuador enfrenta desafíos particulares relacionados con la naturaleza efímera de los medios digitales tempranos y la rápida obsolescencia de formatos y tecnologías. Estas consideraciones incluyen:</p>
+                    
+                    <ul>
+                        <li><strong>Fragilidad de registros digitales:</strong> Mucha documentación técnica y correspondencia de este período existió principalmente en formatos digitales que pueden perderse sin procesos activos de preservación</li>
+                        <li><strong>Obsolescencia tecnológica:</strong> Sistemas operativos, formatos de archivo, y medios de almacenamiento utilizados en los primeros 90s pueden ser inaccesibles con tecnología actual sin emulación o conversión especializada</li>
+                        <li><strong>Contexto técnico perdido:</strong> La comprensión de decisiones técnicas y limitaciones de implementación requiere reconstruir contextos tecnológicos que han desaparecido o transformado significativamente</li>
+                        <li><strong>Brecha documental institucional:</strong> Muchas instituciones no desarrollaron prácticas sistemáticas de archivo para documentación relacionada con sus primeros proyectos de Internet</li>
+                        <li><strong>Historia oral no capturada:</strong> Muchos participantes clave en los primeros desarrollos de Internet en Ecuador no han documentado sistemáticamente sus experiencias y conocimientos</li>
+                    </ul>
+                    
+                    <div class="reference-box">
+                        <small><i class="fas fa-history"></i> <strong>Recomendación para preservación histórica:</strong> 
+                            Establecer programas sistemáticos para la recolección, preservación y acceso a documentación histórica sobre el desarrollo de Internet en Ecuador, incluyendo digitalización de materiales físicos, captura de testimonios orales, y desarrollo de repositorios especializados.
+                        </small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin: 50px 0; padding: 30px; background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); border-radius: 10px;">
+            <h3><i class="fas fa-forward"></i> Próxima Fase: 1995-1999 - Expansión y Crisis</h3>
+            <p>El período 1995-1999 representaría tanto la expansión acelerada de Internet en Ecuador como su prueba más severa durante la crisis económica de 1999. La siguiente fase de esta investigación histórica documentará esta dualidad: crecimiento tecnológico exponencial seguido por contracción dramática, y las lecciones institucionales resultantes.</p>
+            
+            <div style="margin-top: 20px; padding: 15px; background: rgba(0,0,0,0.05); border-radius: 8px;">
+                <p><strong>Temas clave del próximo período:</strong> Internet comercial en Ecuador, proyectos de cooperación internacional para infraestructura educativa, desarrollo de portales web institucionales, impacto inicial de la crisis económica en infraestructura tecnológica, y estrategias de resiliencia institucional.</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <h3>Universidad Central del Ecuador - Investigación Histórica Tecnológica</h3>
+            <p>Línea de Tiempo 1990-1994 - Llegada y consolidación inicial de Internet en Ecuador documentada con fuentes verificables</p>
+            <div class="footer-details">
+                <p>© 2024 - Investigación histórica con metodología documental rigurosa</p>
+                <p>Metodología: Fuentes primarias verificables, contexto histórico internacional, análisis documental crítico</p>
+                <p>Contacto investigativo: historia.internet.ec@uce.edu.ec</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

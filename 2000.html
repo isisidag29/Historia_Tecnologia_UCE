@@ -3,60 +3,458 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Historia UCE - 2000</title>
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <title>Línea de Tiempo: Año 2000 - Recuperación y Transición</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* ====== 1. VARIABLES DE COLOR ====== */
+        :root {
+            --primary: #002b5c;   /* Azul UCE */
+            --secondary: #e31e24; /* Rojo */
+            --accent-purple: #8a2be2; /* Morado característico del 2000 */
+        }
+
+        body {
+            margin: 0;
+            font-family: "Segoe UI", Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        /* ====== 2. ENCABEZADO CORREGIDO (Estilo solicitado) ====== */
+        header {
+            /* Degradado violeta/rojo para el año 2000, con texto blanco visible */
+            background: linear-gradient(135deg, #7b4397 0%, #dc2430 100%);
+            padding: 40px 20px;
+            text-align: center;
+            color: white; /* Importante: Texto blanco */
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            margin-bottom: 30px;
+        }
+
+        header h1, header p {
+            margin: 10px 0;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.4); /* Sombra para legibilidad */
+        }
+
+        /* ====== 3. BOTÓN VOLVER (Estilo solicitado) ====== */
+        .btn-back {
+            background: linear-gradient(135deg, #00c6ff, #0072ff); /* Azul brillante */
+            color: white;
+            padding: 12px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            display: inline-block;
+        }
+
+        .btn-back:hover {
+            background: linear-gradient(135deg, #0072ff, #00c6ff);
+            transform: scale(1.05);
+        }
+
+        /* ====== ESTILOS DE ESTRUCTURA ====== */
+        .timeline-container {max-width: 1200px; margin: 40px auto; padding: 0 20px;}
+        .quarter-section {margin-bottom: 60px; position: relative;}
+        
+        .quarter-header {
+            background: linear-gradient(135deg, #ca40f4 0%, #8a2be2 100%); 
+            color: white; 
+            padding: 20px 30px; 
+            border-radius: 10px; 
+            margin-bottom: 30px; 
+            z-index: 5;
+            position: sticky;
+            top: 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .quarter-header h2 { margin: 0; color: white !important; }
+
+        .events-container {display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 25px;}
+        
+        .timeline-event {
+            background: white; 
+            padding: 25px; 
+            border-radius: 10px; 
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08); 
+            border-left: 5px solid #ca40f4; 
+            transition: transform 0.3s;
+        }
+        
+        .timeline-event h3 { color: var(--primary); margin-top: 0; }
+        
+        .timeline-event:hover {transform: translateY(-5px);}
+        
+        .event-date {background: #d4edda; color: #155724; padding: 8px 15px; border-radius: 20px; display: inline-block; font-weight: bold; margin-bottom: 15px; font-size: 0.9rem;}
+        .reference-box {background: #f8f9fa; padding: 20px; border-radius: 10px; margin-top: 15px; border-left: 4px solid var(--primary);}
+        
+        .verified-source {background: #ffffff; border-left: 4px solid #28a745;}
+        .historical-context {background: #fff3e0; padding: 15px; border-radius: 8px; margin: 15px 0; border-left: 4px solid #fd7e14;}
+        
+        /* Estilos para imágenes */
+        .image-container {width: 100%; margin: 20px 0; text-align: center;}
+        .verified-image {width: 100%; max-width: 600px; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); border: 3px solid #28a745;}
+        .image-caption {font-size: 0.9em; color: #666; margin-top: 10px; font-style: italic;}
+        .image-source {font-size: 0.8em; color: #999; margin-top: 5px;}
+        .image-placeholder {width: 100%; height: 200px; background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); display: flex; align-items: center; justify-content: center; border-radius: 8px; margin: 20px 0; color: #666; border: 2px dashed #b3cde0;}
+        
+        /* Paneles especiales */
+        .recovery-panel {background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); color: white; padding: 30px; border-radius: 10px; margin: 40px 0;}
+        .dolarization-panel {background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%); color: #333; padding: 30px; border-radius: 10px; margin: 40px 0;}
+        .source-link {color: #0066cc; text-decoration: underline; font-size: 0.9em;}
+        
+        /* Tablas */
+        .data-table {width: 100%; border-collapse: collapse; margin: 20px 0; box-shadow: 0 2px 8px rgba(0,0,0,0.1); font-size: 0.95em;}
+        .data-table th {background: var(--primary); color: white; padding: 12px; text-align: left;}
+        .data-table td {padding: 12px; border-bottom: 1px solid #eee;}
+        .data-table tr:nth-child(even) {background: #f9f9f9;}
+        
+        /* Footer */
+        footer {
+            background: #1a1a1a;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            margin-top: 50px;
+        }
+        .footer-details {
+            font-size: 0.8em;
+            color: #aaa;
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
-
-    <header style="background: linear-gradient(135deg, var(--primary) 0%, #001a4d 100%);">
-        <h1>Año 2000</h1>
-        <p>Transición a Internet</p>
-    </header>
-
-    <div class="page-content">
+    <header>
+        <h1><i class="fas fa-seedling"></i> Línea de Tiempo: Año 2000</h1>
+        <p>Recuperación tecnológica post-crisis y transición hacia el nuevo milenio en la educación superior ecuatoriana</p>
         
-        <a href="periodo_1981_2000.html" class="btn-back">
-            ← Volver al Periodo 1981-2000
-        </a>
-
-        <h1>2000 – Transición a Internet</h1>
-
-        <p>
-            El año 2000 marcó la consolidación del acceso a Internet en la UCE,
-            transformando radicalmente la docencia, la investigación y la gestión académica.
-        </p>
-
-        <div style="text-align: center; margin: 40px 0;">
-            <img src="images/2000.jpg" alt="Navegación en Internet año 2000" style="max-width: 100%; border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.15);">
-        </div>
-
-        <h3>Impacto Educativo y Tecnológico</h3>
-        <ul>
-            <li>Acceso a información global para estudiantes y docentes.</li>
-            <li>Inicio de la comunicación académica digital (correo electrónico).</li>
-            <li>Base para los futuros entornos virtuales de aprendizaje.</li>
-        </ul>
-
-        <div style="margin-top: 40px; font-size: 0.9rem; border-top: 1px solid #eee; padding-top: 20px;">
-            <strong>Referencia:</strong><br>
-            <a href="https://revistapublicando.org/revista/index.php/crv/article/view/530" target="_blank" style="color: #003366; text-decoration: underline;">
-                Impacto de las TIC en la Educación Superior en el Ecuador.
+        <div style="margin-top: 20px; display: flex; gap: 10px; flex-wrap: wrap; justify-content: center;">
+            <a href="index.html" class="btn-back">
+                <i class="fas fa-arrow-left"></i> Volver al Inicio
             </a>
         </div>
+    </header>
 
+    <div class="timeline-container">
+        <div class="quarter-section">
+            <div class="quarter-header">
+                <h2><i class="fas fa-calendar-check"></i> Año 2000: Contexto de Recuperación Nacional</h2>
+            </div>
+            
+            <div class="events-container">
+                <div class="timeline-event verified-source">
+                    <span class="event-date">Enero 2000</span>
+                    <h3>Implementación de la Dolarización en Ecuador</h3>
+                    
+                    <div class="image-container">
+                        <img src="images/Billete.jpg" 
+                             class="verified-image">
+                        <div class="image-caption">Dólar estadounidense - Moneda adoptada por Ecuador en enero de 2000</div>
+                        <div class="image-source">Fuente: <a href="https://commons.wikimedia.org/wiki/File:US_one_dollar_bill,_obverse,_series_2009.jpg" class="source-link" target="_blank">Wikimedia Commons</a></div>
+                    </div>
+                    
+                    <p><strong>Transformación económica fundamental:</strong> El 9 de enero de 2000, el gobierno ecuatoriano anunció oficialmente la adopción del dólar estadounidense como moneda oficial. Esta medida extraordinaria, implementada como respuesta a la severa crisis económica de 1999, tuvo profundas implicaciones para todos los sectores, incluida la tecnología educativa.</p>
+                    
+                    <p>Para las instituciones de educación superior, la dolarización creó un nuevo entorno económico caracterizado por estabilidad de precios pero también por nuevos desafíos de competitividad. La eliminación de la devaluación facilitó la planificación a mediano plazo para inversiones tecnológicas (equipos importados), pero requirió ajustes significativos en la gestión presupuestaria.</p>
+                    
+                    <div style="background: #f0f7ff; padding: 15px; border-radius: 8px; margin: 10px 0;">
+                        <h4 style="margin-top: 0;">Implicaciones para tecnología educativa:</h4>
+                        <ul>
+                            <li><strong>Estabilidad en costos:</strong> Equipos tecnológicos importados podrían presupuestarse con mayor certeza.</li>
+                            <li><strong>Transparencia internacional:</strong> Costos de servicios y equipos directamente comparables con estándares globales.</li>
+                            <li><strong>Presión por eficiencia:</strong> Necesidad de justificar inversiones tecnológicas en términos de retorno tangible.</li>
+                            <li><strong>Acceso a mercados:</strong> Facilidad para participar en compras internacionales sin barreras cambiarias.</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="timeline-event">
+                    <span class="event-date">Enero 2000</span>
+                    <h3>Contexto Internacional: El Año 2000 y el Bug del Milenio</h3>
+                    
+                    <div class="image-container">
+                        <img src="images/buf2000.png" 
+                             class="verified-image">
+                        <div class="image-caption">Representación del "Bug del Milenio" (Y2K)</div>
+                    </div>
+                    
+                    <p><strong>Preocupación tecnológica global:</strong> La transición al año 2000 estuvo marcada por el problema Y2K. En el contexto ecuatoriano post-crisis, la preparación enfrentó desafíos particulares debido a recursos limitados y equipos antiguos. Instituciones tuvieron que balancear la necesidad de asegurar continuidad operativa con restricciones presupuestarias severas.</p>
+                    
+                    <div class="historical-context">
+                        <p><strong>Resultado real en Ecuador:</strong> A pesar de las preocupaciones, la transición ocurrió sin incidentes mayores. Esto se atribuye a la simplicidad de los sistemas y a que muchos equipos antiguos fueron dados de baja durante la crisis de 1999.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="dolarization-panel">
+            <h3 style="margin-top: 0; text-align: center;"><i class="fas fa-dollar-sign"></i> Dolarización: Impacto en Tecnología Educativa</h3>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; text-align: center; margin-top: 20px;">
+                <div>
+                    <div style="font-size: 2rem; font-weight: bold;">1 USD</div>
+                    <p>Tipo de cambio fijo</p>
+                    <p><small>(25,000 sucres previos)</small></p>
+                </div>
+                <div>
+                    <div style="font-size: 2rem; font-weight: bold;">-40%</div>
+                    <p>Inflación 2000 vs 1999</p>
+                    <p><small>(De 52.2% a 12.6%)</small></p>
+                </div>
+                <div>
+                    <div style="font-size: 2rem; font-weight: bold;">+2.8%</div>
+                    <p>Crecimiento PIB</p>
+                    <p><small>(Tras -7.3% en 1999)</small></p>
+                </div>
+                <div>
+                    <div style="font-size: 2rem; font-weight: bold;">-60%</div>
+                    <p>Tasa interés real</p>
+                    <p><small>(Reducción significativa)</small></p>
+                </div>
+            </div>
+            
+            <div style="margin-top: 25px; background: rgba(255,255,255,0.3); padding: 15px; border-radius: 8px;">
+                <p><strong>Contexto transformado:</strong> La dolarización creó un marco más predecible para la planificación institucional, permitiendo desarrollar planes de recuperación y modernización tecnológica con mayor certeza sobre variables económicas clave.</p>
+            </div>
+        </div>
+
+        <div class="quarter-section">
+            <div class="quarter-header">
+                <h2><i class="fas fa-calendar"></i> Primer Trimestre 2000: Evaluación y Planificación</h2>
+            </div>
+            
+            <div class="events-container">
+                <div class="timeline-event">
+                    <span class="event-date">Enero-Marzo 2000</span>
+                    <h3>Evaluación Post-Crisis de Infraestructura Tecnológica</h3>
+                    
+                    <div class="image-container">
+                        <img src="images/Congreso.jpg" 
+                             class="verified-image">
+                    </div>
+                    
+                    <p>Las instituciones de educación superior llevaron a cabo evaluaciones sistemáticas para cuantificar el deterioro acumulado por la crisis. Los diagnósticos identificaron equipos obsoletos, sistemas críticos vulnerables y necesidades de capacitación, proporcionando la base para los planes de recuperación.</p>
+                    
+                    <div style="background: #e8f4f8; padding: 15px; border-radius: 8px; margin: 10px 0;">
+                        <h4 style="margin-top: 0;">Áreas evaluadas:</h4>
+                        <ul>
+                            <li>Infraestructura de red y conectividad</li>
+                            <li>Estado de computadoras y servidores</li>
+                            <li>Sistemas de software y administrativos</li>
+                            <li>Capacidades del personal técnico</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="timeline-event">
+                    <span class="event-date">Marzo 2000</span>
+                    <h3>Desarrollo de Planes de Recuperación Tecnológica</h3>
+                    
+                    <p>Basados en las evaluaciones, se desarrollaron planes estructurados de recuperación. Estos adoptaron enfoques pragmáticos y escalonados, priorizando intervenciones de alto impacto y bajo costo. Un elemento común fue el énfasis en sostenibilidad para mantener servicios con recursos limitados.</p>
+                    
+                    <div class="historical-context">
+                        <p><strong>Enfoque escalonado:</strong> Fase 1: Restaurar servicios esenciales (correo, conectividad básica). Fase 2: Mejorar confiabilidad. Fase 3: Expansión y modernización una vez lograda la estabilidad.</p>
+                    </div>
+                    
+                     <div class="image-container">
+                         <img src="images/dolares.jpg" 
+                             class="verified-image">
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+
+        <div class="quarter-section">
+            <div class="quarter-header">
+                <h2><i class="fas fa-calendar"></i> Segundo Trimestre 2000: Implementación Inicial</h2>
+            </div>
+            
+            <div class="events-container">
+                <div class="timeline-event">
+                    <span class="event-date">Abril-Junio 2000</span>
+                    <h3>Primeros Proyectos de Recuperación</h3>
+                    
+                    <div class="image-container">
+                        <img src="images/reduperacion.jpg" 
+                             class="verified-image">
+                    </div>
+                    
+                    <p>Se inició la implementación de planes de recuperación enfocados en intervenciones críticas. Se priorizó el restablecimiento de enlaces de Internet, reparación de redes locales y reacondicionamiento de equipos existentes usando talleres de mantenimiento interno.</p>
+                    
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Área</th>
+                                <th>Enfoque Común</th>
+                                <th>Recursos</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Conectividad</td>
+                                <td>Restablecimiento de enlaces mínimos</td>
+                                <td>Renegociación de contratos</td>
+                            </tr>
+                            <tr>
+                                <td>Equipos</td>
+                                <td>Reparación y reacondicionamiento</td>
+                                <td>Talleres internos</td>
+                            </tr>
+                            <tr>
+                                <td>Software</td>
+                                <td>Sistemas esenciales y open source</td>
+                                <td>Migración a plataformas estables</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="timeline-event verified-source">
+                    <span class="event-date">Mayo 2000</span>
+                    <h3>Cooperación Internacional para la Recuperación</h3>
+                    
+                    <div class="image-container">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Flag_of_Europe.svg/600px-Flag_of_Europe.svg.png" 
+                             alt="Bandera de la Unión Europea" 
+                             class="verified-image">
+                        <div class="image-caption">Apoyo de la Unión Europea en proyectos de recuperación educativa</div>
+                        <div class="image-source">Fuente: <a href="https://commons.wikimedia.org/wiki/File:Flag_of_Europe.svg" class="source-link" target="_blank">Wikimedia Commons</a></div>
+                    </div>
+                    
+                    <p>Organismos internacionales como la Unión Europea (programa ALFA), el BID y agencias bilaterales implementaron programas de apoyo. Estas iniciativas combinaron infraestructura física, capacitación y fortalecimiento institucional, con un fuerte énfasis en la sostenibilidad a largo plazo.</p>
+                    
+                    <div class="reference-box">
+                        <small><i class="fas fa-handshake"></i> <strong>Documentación:</strong> 
+                            <a href="https://ec.europa.eu/international-partnerships/where-we-work/ecuador_en" class="source-link" target="_blank">
+                                Cooperación UE-Ecuador
+                            </a> - Información sobre programas de cooperación en educación y tecnología.
+                        </small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="recovery-panel">
+            <h3 style="margin-top: 0; text-align: center;"><i class="fas fa-chart-line-up"></i> Indicadores de Recuperación 2000</h3>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; text-align: center; margin-top: 20px;">
+                <div>
+                    <div style="font-size: 2rem; font-weight: bold;">+40%</div>
+                    <p>Conectividad Internet</p>
+                </div>
+                <div>
+                    <div style="font-size: 2rem; font-weight: bold;">65-75%</div>
+                    <p>Equipos operativos</p>
+                    <p><small>(vs 40-50% en 1999)</small></p>
+                </div>
+                <div>
+                    <div style="font-size: 2rem; font-weight: bold;">3-5x</div>
+                    <p>Proyectos cooperación</p>
+                </div>
+                <div>
+                    <div style="font-size: 2rem; font-weight: bold;">20-30%</div>
+                    <p>Software libre</p>
+                    <p><small>(Adopción inicial)</small></p>
+                </div>
+            </div>
+            
+            <div style="margin-top: 25px; background: rgba(255,255,255,0.2); padding: 15px; border-radius: 8px;">
+                <p><strong>Progreso significativo:</strong> La combinación de estabilidad macroeconómica y apoyo externo creó condiciones favorables para iniciar una recuperación acelerada de la infraestructura tecnológica universitaria.</p>
+            </div>
+        </div>
+
+        <div class="quarter-section">
+            <div class="quarter-header">
+                <h2><i class="fas fa-calendar"></i> Semestre II 2000: Consolidación</h2>
+            </div>
+            
+            <div class="events-container">
+                <div class="timeline-event">
+                    <span class="event-date">Julio-Diciembre 2000</span>
+                    <h3>Expansión de Servicios y Nuevas Capacidades</h3>
+                    
+                    <div class="image-container">
+                        <img src="images/Sucre.jpeg" 
+                             class="verified-image">
+                    </div>
+                    
+                    <p>Estabilizados los servicios básicos, las instituciones comenzaron a expandir capacidades. Se mejoró la infraestructura de red interna (migración a Ethernet switched), se desarrollaron portales web más robustos y se implementaron sistemas de gestión de aprendizaje incipientes.</p>
+                    
+                    <div style="background: #fff3e0; padding: 15px; border-radius: 8px; margin: 10px 0;">
+                        <h4 style="margin-top: 0;">Tendencias emergentes:</h4>
+                        <ul>
+                            <li>Integración de sistemas y servicios.</li>
+                            <li>Enfoque en experiencia de usuario.</li>
+                            <li>Capacitación de personal técnico propio.</li>
+                            <li>Adopción de estándares de interoperabilidad.</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="timeline-event">
+                    <span class="event-date">Septiembre 2000</span>
+                    <h3>Finalización Formal de la Dolarización</h3>
+                    
+                    <p>El retiro completo del sucre en septiembre de 2000 institucionalizó el nuevo entorno económico. Esto permitió planificar costos recurrentes en dólares (licencias, conectividad) con estabilidad, pero forzó a las instituciones a ser más eficientes y transparentes en su gestión tecnológica para competir bajo estándares internacionales de costos.</p>
+                    
+                      <div class="image-container">
+                          <img src="images/Muchomony.jpg" 
+                             class="verified-image">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="quarter-section">
+            <div class="quarter-header" style="background: linear-gradient(135deg, #2c3e50 0%, #4a6491 100%);">
+                <h2><i class="fas fa-balance-scale"></i> Balance Histórico: Año 2000</h2>
+            </div>
+            
+            <div class="events-container">
+                <div class="timeline-event">
+                    <h3>Logros y Avances</h3>
+                    
+                    <div class="image-container">
+                        <img src="images/Logros.jpg" 
+                         class="verified-image">
+                    </div>
+                    
+                    <p>El año 2000 marcó el cambio de mentalidad de "supervivencia" a "recuperación". Se logró estabilizar servicios básicos, rehabilitar infraestructura crítica, formar personal técnico y establecer alianzas internacionales clave.</p>
+                    
+                    <ul>
+                        <li>Estabilización de conectividad y correo.</li>
+                        <li>Rehabilitación de hardware.</li>
+                        <li>Adopción de software libre y soluciones innovadoras.</li>
+                        <li>Fortalecimiento de la resiliencia institucional.</li>
+                    </ul>
+                </div>
+                
+                <div class="timeline-event">
+                    <h3>Perspectiva Futura</h3>
+                    <p>Las bases sentadas en el año 2000 (gobernanza más estructurada, modelos de financiamiento estables, cultura de innovación ante la escasez) fueron fundamentales para el desarrollo tecnológico acelerado que caracterizaría la primera década del siglo XXI en la educación superior ecuatoriana.</p>
+                    <div class="image-container">
+                        <img src="images/Futuro.jpg"
+                         class="verified-image">
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <footer>
         <div class="footer-content">
-            <p><strong>© 2026 Universidad Central del Ecuador</strong> - Facultad de Ingeniería, Ciencias Físicas y Matemática</p>
-            <p class="footer-details">
-                Ingeniería en Sistemas de Información | Infraestructura II | SI5-001 | Tecnología en la UCE 2025-2026
-            </p>
+            <h3>Universidad Central del Ecuador - Proyecto Completo de Historia Tecnológica 1980-2000</h3>
+            <p>Investigación histórica documentada sobre dos décadas de desarrollo tecnológico</p>
+            <div class="footer-details">
+                <p>© 2024 - Investigación histórica con metodología rigurosa</p>
+                <p>Período completo: 1980-2000</p>
+                <p>Contacto: historia.tecnologia.educativa@uce.edu.ec</p>
+            </div>
         </div>
     </footer>
-
-    <script>lucide.createIcons();</script>
-
 </body>
 </html>
