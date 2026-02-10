@@ -7,7 +7,7 @@
     <script src="https://unpkg.com/lucide@latest"></script>
     <link rel="stylesheet" href="style.css">
     <style>
-        /* Pequeño estilo extra para las imágenes de este año */
+        /* Estilos específicos para las imágenes de este año */
         .img-container {
             text-align: center;
             margin: 30px 0;
@@ -25,13 +25,38 @@
             margin-top: 8px;
             font-style: italic;
         }
-        /* Grid para poner 2 imágenes juntas si es necesario */
+        /* Grid para poner 2 imágenes juntas */
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 20px;
             margin: 30px 0;
         }
+
+        /* Ficha del Proyecto (Datos Financieros) */
+        .project-card {
+            background-color: #e8f5e9; /* Verde muy suave */
+            border-left: 5px solid #2e7d32; /* Verde bosque */
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 0 8px 8px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        /* Enlace de Compras Públicas */
+        .sercop-link {
+            display: inline-block;
+            margin-top: 10px;
+            color: #00695c;
+            font-weight: bold;
+            font-size: 0.9rem;
+            text-decoration: none;
+            background: #b2dfdb;
+            padding: 8px 12px;
+            border-radius: 4px;
+            transition: background 0.3s;
+        }
+        .sercop-link:hover { background: #80cbc4; }
     </style>
 </head>
 <body>
@@ -76,6 +101,19 @@
         <p>
             El proyecto contempló la instalación de cerca de <strong>900 puntos de acceso WiFi</strong> en todo el campus, permitiendo a estudiantes, docentes y personal administrativo conectarse de manera ágil utilizando sus credenciales institucionales.
         </p>
+
+        <div class="project-card">
+            <h4 style="margin-top: 0; color: #1b5e20; display: flex; align-items: center; gap: 10px;">
+                <i data-lucide="file-text"></i> Datos del Proceso de Contratación
+            </h4>
+            <ul style="list-style: none; padding: 0; margin-top: 15px; line-height: 1.6;">
+                <li><strong>💰 Inversión Aproximada:</strong> $1,176,000 USD</li>
+                <li><strong>📡 Objetivo:</strong> Adquisición, instalación y puesta en marcha de la solución inalámbrica.</li>
+            </ul>
+            <a href="https://www.compraspublicas.gob.ec/ProcesoContratacion/compras/PC/informacionProcesoContratacion2.cpe?idSoliCompra=zmvRT9kzfRG8r90ZL6katFuEVhPx1F0CoPEVzgFPTm0%2C&utm_source" target="_blank" class="sercop-link">
+                <i data-lucide="external-link" style="width: 16px; vertical-align: middle;"></i> Ver Proceso en Compras Públicas
+            </a>
+        </div>
 
         <h3>3. Innovación: Laboratorio Virtual y Repositorio</h3>
         <p>
