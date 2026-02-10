@@ -57,7 +57,7 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
 
-        /* Estilo para la Ficha de Situación (NUEVO) */
+        /* Estilo para la Ficha de Situación */
         .status-card {
             background-color: #ffebee; /* Rojo suave */
             border-left: 5px solid #d32f2f; /* Rojo alerta */
@@ -103,8 +103,7 @@
 
         <p class="intro-text">
             Antes de la nube y la virtualización, la "inteligencia" de la Universidad Central vivía en condiciones críticas. 
-            El 2009 fue el año del diagnóstico: el informe del <strong>CONEA</strong> (Consejo Nacional de Evaluación y Acreditación) reveló que la universidad no tenía un Data Center real, 
-            sino un <strong>cuarto de servidores adaptado</strong> que ponía en riesgo la información académica de más de 40.000 estudiantes.
+            El 2009 fue el año del diagnóstico: la evaluación del <strong>CONEA</strong> (Consejo Nacional de Evaluación y Acreditación) evidenció brechas tecnológicas severas, revelando que la universidad operaba con un <strong>cuarto de servidores adaptado</strong> y no con un Data Center bajo estándares internacionales.
         </p>
 
         <div class="status-card">
@@ -112,92 +111,97 @@
                 <i data-lucide="siren"></i> Ficha de Situación: Riesgo Operativo
             </h4>
             <ul style="list-style: none; padding: 0; margin-top: 15px; line-height: 1.6; color: #333;">
-                <li><strong>📉 Estado:</strong> Crítico. Hardware obsoleto y sin redundancia.</li>
-                <li><strong>❌ Equipamiento:</strong> Servidores IBM Netfinity y Compaq ProLiant (Torres).</li>
-                <li><strong>💰 Costo Mantenimiento:</strong> Muy elevado por fallas constantes de hardware viejo.</li>
-                <li><strong>👤 Responsable:</strong> Dirección de Computación e Informática (Nombre anterior a la DTIC).</li>
+                <li><strong>📉 Estado:</strong> Crítico. Hardware sin redundancia y alta vulnerabilidad física.</li>
+                <li><strong>❌ Equipamiento:</strong> Servidores dispersos tipo torre (IBM Netfinity / Compaq).</li>
+                <li><strong>💰 Impacto:</strong> Altos costos de mantenimiento correctivo y "caídas de sistema" frecuentes.</li>
+                <li><strong>👤 Gestión:</strong> Dirección de Computación e Informática (Predecesora de la actual DTIC).</li>
             </ul>
         </div>
 
         <div style="background-color: #f5f5f5; padding: 20px; border-radius: 8px; font-style: italic; border-left: 4px solid #666; margin: 30px 0;">
-            <strong>📜 Informe Técnico: Evaluación CONEA (2009)</strong><br>
-            "Se evidencia la falta de seguridades físicas y lógicas en el manejo de la información. Los servidores principales se encuentran en espacios sin climatización de precisión ni sistemas de extinción de incendios adecuados."
+            <strong>📜 Contexto del Informe CONEA (2009)</strong><br>
+            "Aunque la UCE se ubicó en la Categoría A, el informe señaló la urgencia de modernizar la infraestructura de soporte académico y administrativo, impulsando la transición de sistemas legados a plataformas integradas."
         </div>
 
         <h3>1. ¿Cómo era el "Antiguo Data Center"?</h3>
         
         <div class="alert-box">
-            <span class="alert-title"><i data-lucide="alert-triangle" style="vertical-align: middle;"></i> Condiciones Críticas Detectadas:</span>
+            <span class="alert-title"><i data-lucide="alert-triangle" style="vertical-align: middle;"></i> Condiciones Técnicas Detectadas:</span>
             <ul style="margin-top: 10px; padding-left: 20px;">
-                <li><strong>Ubicación Insegura:</strong> Un cuarto cerrado en el Edificio Administrativo sin suelo falso (los cables iban por el piso, creando "fideos" de red propensos a desconexiones).</li>
-                <li><strong>Refrigeración Doméstica:</strong> Aires acondicionados tipo Split (de hogar) que goteaban agua y fallaban frecuentemente, causando sobrecalentamiento de los equipos.</li>
-                <li><strong>Sin Respaldo Eléctrico:</strong> No existía un generador (UPS) dedicado de larga duración. Si se iba la luz en el barrio Santa Clara, se apagaba el sistema de notas.</li>
+                <li><strong>Infraestructura Inadecuada:</strong> Espacio físico adaptado en el Edificio Administrativo sin suelo falso técnico (cableado expuesto).</li>
+                <li><strong>Climatización Doméstica:</strong> Uso de aires acondicionados tipo "Split" residenciales, insuficientes para la carga térmica de los servidores.</li>
+                <li><strong>Energía:</strong> Carencia de sistemas de respaldo (UPS) de larga duración para el 100% de la carga crítica.</li>
             </ul>
         </div>
 
         <div class="img-container">
             <img src="2009servidorestipotorre.png" alt="Servidores tipo torre antiguos" class="evidence-img">
-            <p class="img-caption">Figura 1: Servidores tipo torre dispersos, sin rackear y expuestos al polvo y calor.</p>
+            <p class="img-caption">Figura 1: Representación de servidores tipo torre utilizados antes de la implementación de racks y blades.</p>
         </div>
 
         <h3>2. Equipamiento: Los "Dinosaurios" Tecnológicos</h3>
         <p>
-            A diferencia de los servidores <em>Blade</em> modernos (delgados y eficientes), en 2009 se utilizaban enormes torres físicas. 
-            Cada sistema (Notas, Personal, Web) tenía su propia torre dedicada, desperdiciando recursos y electricidad.
+            A diferencia de los servidores <em>Blade</em> modernos, en 2009 la universidad dependía de torres físicas independientes para cada servicio (Notas, Web, Nómina), lo que generaba un uso ineficiente de energía y espacio.
         </p>
 
         <table class="tech-table">
             <tr>
-                <th>Equipo</th>
-                <th>Especificaciones Técnicas (Estándar 2009)</th>
+                <th>Componente</th>
+                <th>Estándar Tecnológico (2009)</th>
             </tr>
             <tr>
-                <td><strong>Servidores Principales</strong></td>
+                <td><strong>Servidores</strong></td>
                 <td>
-                    IBM Netfinity 5000 / Compaq ProLiant ML370<br>
-                    <span style="font-size:0.85rem; color:#666;">(Procesadores Pentium III Xeon, Torres pesadas y ruidosas)</span>
+                    Arquitectura x86 (Torres físicas).<br>
+                    <span style="font-size:0.85rem; color:#666;">Modelos típicos: IBM Netfinity, HP ProLiant ML.</span>
                 </td>
             </tr>
             <tr>
                 <td><strong>Almacenamiento</strong></td>
                 <td>
-                    Discos SCSI de baja capacidad (36 GB o 72 GB).<br>
-                    <span style="font-size:0.85rem; color:#666;">No existían cabinas SAN (Storage Area Network) para compartir datos.</span>
+                    Discos internos SCSI/SAS de baja capacidad.<br>
+                    <span style="font-size:0.85rem; color:#666;">Sin redes de almacenamiento centralizado (SAN) de alto rendimiento.</span>
                 </td>
             </tr>
             <tr>
-                <td><strong>Copias de Seguridad</strong></td>
+                <td><strong>Respaldos</strong></td>
                 <td>
-                    <strong>Cintas Magnéticas (Tape Drives):</strong><br>
-                    Los respaldos se hacían manualmente insertando casetes de cinta (DAT o LTO-1) cada noche. Si la cinta fallaba, se perdían los datos del día.
+                    <strong>Manuales (Cinta):</strong><br>
+                    Dependencia de unidades de cinta magnética (LTO/DAT) y operación manual diaria.
                 </td>
             </tr>
         </table>
 
-        <div class="img-container">
-            <img src="2009modeloservidorantiguo.png" alt="Modelo de servidor antiguo IBM" class="evidence-img">
-            <p class="img-caption">Figura 2: Detalle de un servidor IBM Netfinity, estándar en la UCE antes de la virtualización.</p>
-        </div>
-
         <h3>3. El Software Heredado (Legacy)</h3>
         <p>
-            Los sistemas no eran web. Los secretarios de facultad usaban pantallas negras o azules (sistemas desarrollados en FoxPro o COBOL visual) instalados localmente en cada PC, lo que dificultaba el mantenimiento.
+            La gestión académica dependía de sistemas "Cliente-Servidor" (desarrollados en FoxPro o Visual Basic), que requerían instalación en cada PC y no permitían acceso web remoto para los estudiantes.
         </p>
         
         <div class="terminal-box">
-            > SYSTEM_ERROR: CONNECTION_LOST_ON_PORT_8080<br>
-            > DATABASE_NOT_FOUND: \ADMIN\NOTAS.DBF<br>
+            > SYSTEM_ERROR: CONNECTION_LOST_ON_PORT_1433<br>
+            > ODBC_DRIVER_FAIL: \SERVER_ADMIN\NOTAS_DB<br>
             > REINTENTAR CONEXIÓN? (S/N)_ <span style="animation: blink 1s infinite;">█</span>
         </div>
-        <p style="font-size: 0.85rem; color: #666; margin-top: -15px;">*Simulación de los errores frecuentes que sufrían las secretarías al saturarse la red de cobre.</p>
+        <p style="font-size: 0.85rem; color: #666; margin-top: -15px;">*Simulación de errores de conectividad comunes en sistemas no web.</p>
 
         <hr style="margin: 40px 0; border: 0; border-top: 1px solid #eee;">
 
         <div style="font-size: 0.9rem; color: #555;">
-            <strong>Referencias:</strong>
-            <ul style="margin-top: 5px; padding-left: 20px;">
-                <li>Informe de Evaluación Externa - CONEA (2009).</li>
-                <li>Inventario de Bienes Obsoletos - Dirección de Tecnologías UCE.</li>
+            <strong>Referencias y Validación Técnica:</strong>
+            <p style="margin-top: 5px; font-style: italic;">
+                Los detalles sobre la precariedad del "antiguo data center" se validan retrospectivamente en los informes técnicos de la UCE generados para el proyecto del Nuevo Data Center (2016-2017).
+            </p>
+            <ul style="margin-top: 10px; padding-left: 20px;">
+                <li>
+                    <a href="https://publicaciones.ucuenca.edu.ec/ojs/index.php/maskana/article/view/1468/1141" target="_blank" style="color: #003366; text-decoration: underline;">
+                        <i data-lucide="file-text" style="width: 14px; vertical-align: middle;"></i> Paper: Diseño e implementación de un centro de datos en la UCE (Cadena & Enríquez, 2017)
+                    </a> - <em>Documenta la situación previa ("As-Is") para justificar la nueva inversión.</em>
+                </li>
+                <li>
+                    <a href="https://www.educacionsuperior.gob.ec/wp-content/uploads/downloads/2012/07/Extracto_informe_CONEA.pdf" target="_blank" style="color: #003366; text-decoration: underline;">
+                        <i data-lucide="external-link" style="width: 14px; vertical-align: middle;"></i> Informe CONEA 2009 (Evaluación de Desempeño Institucional)
+                    </a>
+                </li>
             </ul>
         </div>
 
