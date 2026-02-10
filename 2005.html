@@ -36,6 +36,25 @@
         @media (max-width: 768px) {
             .img-grid { grid-template-columns: 1fr; }
         }
+        
+        /* Estilo para enlace de Paper */
+        .paper-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background-color: #f5f5f5;
+            padding: 10px 15px;
+            border-radius: 6px;
+            text-decoration: none;
+            color: #333;
+            border: 1px solid #ddd;
+            transition: all 0.2s;
+        }
+        .paper-link:hover {
+            background-color: #e3f2fd;
+            border-color: #1565c0;
+            color: #0d47a1;
+        }
     </style>
 </head>
 <body>
@@ -64,13 +83,13 @@
                 <li><strong>💾 Software Estándar:</strong> CDS/WinISIS (Distribuido por la UNESCO para LatAm).</li>
                 <li><strong>💰 Modelo:</strong> Software gratuito para instituciones educativas sin presupuesto para licencias comerciales.</li>
                 <li><strong>👤 Operación:</strong> Bibliotecarios digitadores (Migración manual de fichas a PC).</li>
-                <li><strong>🎯 Contexto:</strong> Paso previo necesario antes de la implementación de sistemas web integrados (como el actual AbsysNet).</li>
+                <li><strong>🎯 Contexto:</strong> Paso previo necesario antes de la implementación de sistemas web integrados.</li>
             </ul>
         </div>
 
         <div style="margin-top: 10px; font-size: 0.9rem;">
             <a href="https://unesdoc.unesco.org/ark:/48223/pf0000124330" target="_blank" style="color: #1565c0; text-decoration: underline; font-weight: bold;">
-                🔗 Referencia: Manual Oficial UNESCO para WinISIS (Tecnología vigente en 2005)
+                🔗 Fuente Primaria: Manual Oficial UNESCO para WinISIS (Tecnología vigente en 2005)
             </a>
         </div>
 
@@ -102,15 +121,28 @@
         <div style="font-size: 0.9rem; color: #555;">
             <strong>Nota sobre las Fuentes:</strong>
             <p style="margin-top: 5px; font-style: italic;">
-                La referencia al uso de WinISIS se basa en el contexto histórico de la automatización de bibliotecas en Ecuador y las directrices de la UNESCO para universidades públicas en la década del 2000, más que en un informe administrativo específico de la UCE de ese año.
+                Dado que los archivos digitales de la UCE de 2005 no están disponibles, se referencia la documentación académica regional que valida el uso de WinISIS como el estándar de automatización en Latinoamérica en ese periodo.
             </p>
-            <ul style="margin-top: 10px; padding-left: 20px;">
-                <li>
-                     <a href="http://eprints.rclis.org/10766/" target="_blank" style="color: #003366; text-decoration: underline;">
-                        Paper: La automatización de bibliotecas en América Latina (WinISIS)
-                    </a>
-                </li>
-            </ul>
+            
+            <div style="margin-top: 15px;">
+                <a href="https://www.aacademica.org/egiordanino/8.pdf" target="_blank" class="paper-link">
+                    <i data-lucide="file-text"></i>
+                    <div>
+                        <strong>Paper Académico:</strong> "Winisis, herramienta para bibliotecarios"<br>
+                        <span style="font-size: 0.8rem; color: #666;">Valida el impacto y adopción masiva del software en la región</span>
+                    </div>
+                </a>
+            </div>
+            
+            <div style="margin-top: 10px;">
+                <a href="http://www.ibiblio.org/rlit/docs/Ponencias/5%20Encuentro/automatizacion.pdf" target="_blank" class="paper-link">
+                    <i data-lucide="file-text"></i>
+                    <div>
+                        <strong>Ponencia Regional:</strong> "Informatización en la biblioteca: la opción CDS/ISIS"<br>
+                        <span style="font-size: 0.8rem; color: #666;">Documento histórico sobre la implementación en universidades</span>
+                    </div>
+                </a>
+            </div>
         </div>
 
     </div>
