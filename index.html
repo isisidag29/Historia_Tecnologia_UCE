@@ -1,529 +1,183 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Línea de Tiempo Evolutiva - UCE</title>
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;600;700&display=swap" rel="stylesheet">
-    
-    <style>
-        :root {
-            --bg-color: #f4f7f9;
-            --line-color: #333;
-            /* Colores Institucionales */
-            --col-blue: #003366;
-            --col-red: #d62d20;
-            --col-sepia: #5D4037;
-            --col-gold: #C5A059;
-            --col-tech: #1565C0;
-        }
+<meta charset="UTF-8">
+<title>Evolución Tecnológica - Ecuador y UCE</title>
 
-        body {
-            margin: 0;
-            font-family: 'Segoe UI', sans-serif;
-            background-color: var(--bg-color);
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-            overflow-x: hidden;
-        }
+<style>
+body {
+    margin: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #ffffff;
+    color: #1f1f1f;
+}
 
-        header {
-            text-align: center;
-            padding: 1.5rem;
-            background: linear-gradient(to right, #ffffff, #f4f7f9);
-            border-bottom: 1px solid #e0e0e0;
-            position: relative;
-            z-index: 100;
-        }
+/* ===== FRANJA SUPERIOR ===== */
+.header {
+    background: #0a3d91;
+    color: white;
+    padding: 40px 20px;
+    text-align: center;
+}
 
-        h1 { margin: 0; color: var(--col-blue); text-transform: uppercase; font-weight: 800; }
-        p.subtitle { color: #666; margin-top: 5px; font-size: 1rem; }
+.header h1 {
+    margin: 0;
+    font-size: 34px;
+    letter-spacing: 1px;
+}
 
-        /* --- CONTENEDOR PRINCIPAL --- */
-        .timeline-container {
-            flex-grow: 1;
-            display: flex;
-            align-items: center;
-            justify-content: flex-start;
-            position: relative;
-            overflow-x: auto;
-            /* AUMENTADO: Mucho más espacio arriba y abajo para evitar cortes */
-            padding: 250px 50px; 
-            scrollbar-width: thin;
-            scrollbar-color: var(--col-blue) #e0e0e0;
-        }
+/* ===== LINEA DE TIEMPO ===== */
+.timeline {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    padding: 70px 40px;
+    flex-wrap: wrap;
+}
 
-        /* Línea Central */
-        .central-line {
-            position: absolute;
-            top: 50%;
-            left: 0;
-            width: 550%; 
-            height: 4px;
-            background-color: var(--line-color);
-            transform: translateY(-50%);
-            z-index: 1;
-        }
+/* ===== TARJETAS ===== */
+.card {
+    width: 270px;
+    background: #ffffff;
+    border: 2px solid #0a3d91;
+    padding: 22px;
+    text-decoration: none;
+    color: #1f1f1f;
+    position: relative;
+    transition: all 0.4s ease;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
 
-        .timeline-wrapper {
-            display: flex;
-            align-items: center;
-            min-width: 4200px;
-            position: relative;
-            z-index: 2;
-            padding-left: 80px;
-        }
+.card:hover {
+    transform: translateY(-15px) scale(1.05);
+    box-shadow: 0 18px 40px rgba(10,61,145,0.25);
+}
 
-        .timeline-item {
-            position: relative;
-            width: 60px;
-            height: 60px;
-            flex-shrink: 0;
-            margin: 0 90px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+/* ===== TITULO PERIODO ===== */
+.period {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #0a3d91;
+}
 
-        /* Círculo del Año */
-        .timeline-marker {
-            width: 70px;
-            height: 70px;
-            background-color: #fff;
-            border: 5px solid var(--line-color);
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-weight: 700;
-            font-size: 1rem;
-            color: var(--line-color);
-            cursor: pointer;
-            transition: all 0.3s ease;
-            z-index: 3;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        }
+/* ===== IMAGEN ===== */
+.card img {
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+    border: 1px solid #0a3d91;
+    margin-bottom: 15px;
+}
 
-        .timeline-item:hover .timeline-marker {
-            transform: scale(1.2);
-            background-color: var(--col-blue);
-            color: #fff;
-            border-color: var(--col-blue);
-        }
+/* ===== LISTA ===== */
+.card ul {
+    padding-left: 18px;
+    font-size: 14px;
+    line-height: 1.5;
+}
 
-        /* --- TARJETAS --- */
-        .event-card {
-            position: absolute;
-            width: 280px;
-            padding: 20px;
-            border-radius: 15px;
-            background: #fff;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
-            text-align: center;
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(10px) scale(0.95);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            z-index: 10;
-            pointer-events: none;
-            border-top: 6px solid #ccc;
-        }
+.card ul li {
+    margin-bottom: 8px;
+}
 
-        .timeline-item:hover .event-card {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0) scale(1);
-            pointer-events: auto;
-        }
+/* ===== MARCO DECORATIVO ===== */
+.card::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 4px;
+    width: 0%;
+    background: #0a3d91;
+    transition: width 0.4s ease;
+}
 
-        /* Posiciones AJUSTADAS para acercarlas a la línea */
-        .timeline-item.top .event-card { bottom: 85px; } /* Estaba en 95px */
-        .timeline-item.top .event-card::before {
-            content: ''; position: absolute; bottom: -40px; left: 50%; height: 40px;
-            border-left: 2px dashed var(--line-color); transform: translateX(-50%);
-        }
-
-        .timeline-item.bottom .event-card { top: 85px; } /* Estaba en 95px */
-        .timeline-item.bottom .event-card::before {
-            content: ''; position: absolute; top: -40px; left: 50%; height: 40px;
-            border-left: 2px dashed var(--line-color); transform: translateX(-50%);
-        }
-
-        /* --- IMÁGENES INTERACTIVAS --- */
-        .card-img-wrapper {
-            width: 90px;
-            height: 90px;
-            border-radius: 50%;
-            margin: -60px auto 15px auto;
-            border: 5px solid #fff;
-            background: #fff;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: transform 0.3s ease, border-color 0.3s;
-            cursor: pointer;
-            position: relative;
-            z-index: 20;
-        }
-        
-        .card-img-wrapper:hover {
-            transform: scale(1.1);
-            border-color: var(--col-gold); 
-        }
-
-        .card-img-wrapper img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .img-link { display: block; width: 100%; height: 100%; }
-
-        .event-card h3 { margin: 10px 0 5px 0; font-size: 1.1rem; color: #333; text-transform: uppercase; }
-        .event-card p { font-size: 0.9rem; color: #666; line-height: 1.5; margin: 0; }
-        .click-hint { font-size: 0.7rem; color: #999; margin-top: 8px; text-transform: uppercase; letter-spacing: 1px; display: block; }
-
-        /* --- ESTILOS POR ÉPOCA --- */
-        .style-hist .event-card { border-top-color: var(--col-sepia); }
-        .style-hist:hover .timeline-marker { background: var(--col-sepia); border-color: var(--col-sepia); }
-
-        .style-mech .event-card { border-top-color: var(--col-red); }
-        .style-mech:hover .timeline-marker { background: var(--col-red); border-color: var(--col-red); }
-
-        .style-gold .event-card { border-top-color: var(--col-gold); }
-        .style-gold:hover .timeline-marker { background: var(--col-gold); border-color: var(--col-gold); }
-
-        .style-tech .event-card { border-top-color: var(--col-tech); }
-        .style-tech:hover .timeline-marker { background: var(--col-tech); border-color: var(--col-tech); }
-
-        /* BOTÓN FLOTANTE AL MENÚ DETALLADO */
-        .enter-section {
-            position: fixed;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 200;
-        }
-        .btn-enter {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            padding: 12px 30px;
-            background-color: var(--col-blue);
-            color: white;
-            text-decoration: none;
-            font-weight: 700;
-            border-radius: 50px;
-            box-shadow: 0 5px 20px rgba(0, 51, 102, 0.4);
-            transition: transform 0.2s;
-            border: 2px solid white; /* Borde blanco para resaltar */
-        }
-        .btn-enter:hover { transform: scale(1.05); background-color: #002244; }
-
-        .hint {
-            position: absolute;
-            top: 120px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: rgba(255,255,255,0.9);
-            padding: 8px 20px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            color: #666;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            z-index: 50;
-            pointer-events: none;
-        }
-    </style>
+.card:hover::after {
+    width: 100%;
+}
+</style>
 </head>
+
 <body>
 
-    <header>
-        <h1>Evolución Tecnológica UCE</h1>
-        <p class="subtitle">1620 – 2026</p>
-    </header>
+<div class="header">
+    <h1>Evolución Tecnológica en Ecuador y la Universidad Central</h1>
+</div>
 
-    <div class="hint">
-        <i data-lucide="hand" style="width: 14px; vertical-align: middle;"></i> Desliza horizontalmente y haz clic en las imágenes para ver más
-    </div>
+<div class="timeline">
 
-    <div class="timeline-container">
-        <div class="central-line"></div>
+    <!-- 1980 - 1985 -->
+    <a href="1980-1985.html" class="card">
+        <div class="period">1980 – 1985</div>
+        <img src="computación en la UCE.jpg">
+        <ul>
+            <li>Creación del CONUEP y fortalecimiento del CONACYT.</li>
+            <li>Primeros IBM PC en la UCE (modelo 5150).</li>
+            <li>Inicio de enseñanza de informática en 1981.</li>
+            <li>Uso académico de BASIC y FORTRAN.</li>
+            <li>Base para Matemática y Ciencias Computacionales.</li>
+            <li>Automatización administrativa inicial.</li>
+        </ul>
+    </a>
 
-        <div class="timeline-wrapper">
+    <!-- 1985 - 1990 -->
+    <a href="1985-1990.html" class="card">
+        <div class="period">1985 – 1990</div>
+        <img src="Creación del CONUEP.png">
+        <ul>
+            <li>Expansión de laboratorios de computación.</li>
+            <li>Capacitación docente en informática.</li>
+            <li>Primeros sistemas académicos digitales.</li>
+            <li>Modernización del sector financiero.</li>
+            <li>Uso de software educativo.</li>
+            <li>Gestión informática universitaria inicial.</li>
+        </ul>
+    </a>
 
-            <div class="timeline-item top style-hist">
-                <div class="timeline-marker">1620</div>
-                <div class="event-card">
-                    <div class="card-img-wrapper">
-                        <a href="1620-1785.html" class="img-link">
-                            <img src="images/1620.jpeg" alt="1620" onerror="this.src='https://placehold.co/100x100?text=1620'">
-                        </a>
-                    </div>
-                    <h3>Fundación</h3>
-                    <p>Inicio bajo modelo escolástico. Herramientas: Pluma, tinta y manuscritos.</p>
-                    <span class="click-hint">Clic para ver detalles</span>
-                </div>
-            </div>
+    <!-- 1990 - 1995 -->
+    <a href="1990-1995.html" class="card">
+        <div class="period">1990 – 1995</div>
+        <img src="Llegada del Internet al Ecuador.png">
+        <ul>
+            <li>Llegada del Internet al Ecuador.</li>
+            <li>Formalización de Ingeniería en Sistemas.</li>
+            <li>Correo electrónico institucional.</li>
+            <li>Redes académicas universitarias.</li>
+            <li>Uso de bases de datos.</li>
+            <li>Bibliotecas con sistemas digitales.</li>
+        </ul>
+    </a>
 
-            <div class="timeline-item bottom style-hist">
-                <div class="timeline-marker">1651</div>
-                <div class="event-card">
-                    <div class="card-img-wrapper">
-                        <a href="1620-1785.html" class="img-link">
-                            <img src="images/1651.jpeg" alt="1651" onerror="this.src='https://placehold.co/100x100?text=LibroOro'">
-                        </a>
-                    </div>
-                    <h3>Libro de Oro</h3>
-                    <p>Registro histórico de grados y autoridades en papel de alta calidad.</p>
-                    <span class="click-hint">Clic para ver detalles</span>
-                </div>
-            </div>
+    <!-- 1995 - 2000 -->
+    <a href="1995-2000.html" class="card">
+        <div class="period">1995 – 2000</div>
+        <img src="Feriado Bancario.jpg">
+        <ul>
+            <li>Expansión del acceso a Internet.</li>
+            <li>Páginas web institucionales.</li>
+            <li>Software académico y administrativo.</li>
+            <li>Impacto tecnológico del feriado bancario.</li>
+            <li>Actualización curricular en Sistemas.</li>
+            <li>Proyectos tecnológicos universitarios.</li>
+        </ul>
+    </a>
 
-            <div class="timeline-item top style-hist">
-                <div class="timeline-marker">1754</div>
-                <div class="event-card">
-                    <div class="card-img-wrapper">
-                        <a href="1620-1785.html" class="img-link">
-                            <img src="images/1754.jpeg" alt="1754" onerror="this.src='https://placehold.co/100x100?text=Imprenta'">
-                        </a>
-                    </div>
-                    <h3>Imprenta</h3>
-                    <p>Llegada de la imprenta jesuita. Difusión masiva de textos locales.</p>
-                </div>
-            </div>
+    <!-- 2000 -->
+    <a href="2000.html" class="card">
+        <div class="period">Año 2000</div>
+        <img src="2000 .png"">
+        <ul>
+            <li>Consolidación del uso de Internet en la UCE.</li>
+            <li>Implementación de aulas informáticas modernas.</li>
+            <li>Uso masivo del correo electrónico académico.</li>
+            <li>Inicio de plataformas virtuales de apoyo.</li>
+            <li>Mayor enfoque en software y redes.</li>
+            <li>Base para la educación tecnológica del siglo XXI.</li>
+        </ul>
+    </a>
 
-            <div class="timeline-item bottom style-hist">
-                <div class="timeline-marker">1836</div>
-                <div class="event-card">
-                    <div class="card-img-wrapper">
-                        <a href="1836-1901.html" class="img-link">
-                            <img src="images/1836.jpeg" alt="1836" onerror="this.src='https://placehold.co/100x100?text=Pizarra'">
-                        </a>
-                    </div>
-                    <h3>La Pizarra</h3>
-                    <p>Oficialización de la UCE. La pizarra permite la enseñanza colectiva.</p>
-                </div>
-            </div>
+</div>
 
-            <div class="timeline-item top style-mech">
-                <div class="timeline-marker">1870</div>
-                <div class="event-card">
-                    <div class="card-img-wrapper">
-                        <a href="1836-1901.html" class="img-link">
-                            <img src="images/1870.jpeg" alt="1870" onerror="this.src='https://placehold.co/100x100?text=Lab'">
-                        </a>
-                    </div>
-                    <h3>Ciencia</h3>
-                    <p>García Moreno importa laboratorios de precisión desde Europa.</p>
-                </div>
-            </div>
-
-            <div class="timeline-item bottom style-mech">
-                <div class="timeline-marker">1902</div>
-                <div class="event-card">
-                    <div class="card-img-wrapper">
-                        <a href="1902-1929.html" class="img-link">
-                            <img src="images/1902.jpeg" alt="1902" onerror="this.src='https://placehold.co/100x100?text=Remington'">
-                        </a>
-                    </div>
-                    <h3>Mecanización</h3>
-                    <p>Máquinas de escribir Remington. Estandarización de documentos.</p>
-                </div>
-            </div>
-
-            <div class="timeline-item top style-mech">
-                <div class="timeline-marker">1945</div>
-                <div class="event-card">
-                    <div class="card-img-wrapper">
-                        <a href="1930-1950.html" class="img-link">
-                            <img src="images/1945.jpg" alt="1945" onerror="this.src='https://placehold.co/100x100?text=Radio'">
-                        </a>
-                    </div>
-                    <h3>Radio</h3>
-                    <p>Escuela de Periodismo y radiodifusión como extensión cultural.</p>
-                </div>
-            </div>
-
-            <div class="timeline-item bottom style-mech">
-                <div class="timeline-marker">1969</div>
-                <div class="event-card">
-                    <div class="card-img-wrapper">
-                        <a href="menu.html" class="img-link">
-                            <img src="images/1969.jpg" alt="1969" onerror="this.src='https://placehold.co/100x100?text=Reforma'">
-                        </a>
-                    </div>
-                    <h3>Masificación</h3>
-                    <p>Segunda Reforma Universitaria. Explosión demográfica estudiantil.</p>
-                </div>
-            </div>
-
-            <div class="timeline-item top style-gold">
-                <div class="timeline-marker">1982</div>
-                <div class="event-card">
-                    <div class="card-img-wrapper">
-                        <a href="1982.html" class="img-link">
-                            <img src="images/1982.jpg" alt="1982" onerror="this.src='https://placehold.co/100x100?text=Ley'">
-                        </a>
-                    </div>
-                    <h3>Institucionalización</h3>
-                    <p>Creación del CONUEP y CONACYT. Regulación estatal de la universidad.</p>
-                    <span class="click-hint">Clic para ver detalles</span>
-                </div>
-            </div>
-
-            <div class="timeline-item bottom style-tech">
-                <div class="timeline-marker">1985</div>
-                <div class="event-card">
-                    <div class="card-img-wrapper">
-                        <a href="1985.html" class="img-link">
-                            <img src="images/1985.jpg" alt="1985" onerror="this.src='https://placehold.co/100x100?text=PC'">
-                        </a>
-                    </div>
-                    <h3>Microcomputación</h3>
-                    <p>Inicio de la informatización. Adquisición de microcomputadoras para cálculo.</p>
-                </div>
-            </div>
-
-            <div class="timeline-item top style-tech">
-                <div class="timeline-marker">1991</div>
-                <div class="event-card">
-                    <div class="card-img-wrapper">
-                        <a href="1991.html" class="img-link">
-                            <img src="images/1991.jpg" alt="1991" onerror="this.src='https://placehold.co/100x100?text=Internet'">
-                        </a>
-                    </div>
-                    <h3>Conexión Global</h3>
-                    <p>Creación de ECUANEX. La UCE vislumbra el acceso a redes globales.</p>
-                    <span class="click-hint">Clic para ver detalles</span>
-                </div>
-            </div>
-
-            <div class="timeline-item bottom style-gold">
-                <div class="timeline-marker">1999</div>
-                <div class="event-card">
-                    <div class="card-img-wrapper">
-                        <a href="1999.html" class="img-link">
-                            <img src="images/1999.jpg" alt="1999" onerror="this.src='https://placehold.co/100x100?text=Crisis'">
-                        </a>
-                    </div>
-                    <h3>Resiliencia</h3>
-                    <p>Feriado Bancario. Congelamiento de la inversión tecnológica.</p>
-                    <span class="click-hint">Clic para ver detalles</span>
-                </div>
-            </div>
-
-            <div class="timeline-item top style-tech">
-                <div class="timeline-marker">2001</div>
-                <div class="event-card">
-                    <div class="card-img-wrapper">
-                        <a href="2001.html" class="img-link">
-                            <img src="images/2001.png" alt="2001" onerror="this.src='https://placehold.co/100x100?text=Redes'">
-                        </a>
-                    </div>
-                    <h3>Estado Crítico</h3>
-                    <p>Redes saturadas y equipos obsoletos antes de la gran modernización.</p>
-                </div>
-            </div>
-
-            <div class="timeline-item bottom style-gold">
-                <div class="timeline-marker">2002</div>
-                <div class="event-card">
-                    <div class="card-img-wrapper">
-                        <a href="2002.html" class="img-link">
-                            <img src="images/2002.png" alt="2002" onerror="this.src='https://placehold.co/100x100?text=CEDIA'">
-                        </a>
-                    </div>
-                    <h3>CEDIA</h3>
-                    <p>Fundación de la red nacional de fibra óptica académica.</p>
-                </div>
-            </div>
-
-            <div class="timeline-item top style-gold">
-                <div class="timeline-marker">2008</div>
-                <div class="event-card">
-                    <div class="card-img-wrapper">
-                        <a href="2008.html" class="img-link">
-                            <img src="images/2008.jpg" alt="2008" onerror="this.src='https://placehold.co/100x100?text=Ley'">
-                        </a>
-                    </div>
-                    <h3>Derecho Digital</h3>
-                    <p>Constitución garantiza TIC. Decreto de Software Libre.</p>
-                </div>
-            </div>
-
-            <div class="timeline-item bottom style-tech">
-                <div class="timeline-marker">2012</div>
-                <div class="event-card">
-                    <div class="card-img-wrapper">
-                        <a href="2012.html" class="img-link">
-                            <img src="images/2012.png" alt="2012" onerror="this.src='https://placehold.co/100x100?text=Data'">
-                        </a>
-                    </div>
-                    <h3>Data Center</h3>
-                    <p>Inauguración del "Cerebro Digital" y sistema SIIU.</p>
-                </div>
-            </div>
-
-            <div class="timeline-item top style-tech">
-                <div class="timeline-marker">2013</div>
-                <div class="event-card">
-                    <div class="card-img-wrapper">
-                        <a href="2013.html" class="img-link">
-                            <img src="images/2013.png" alt="2013" onerror="this.src='https://placehold.co/100x100?text=Moodle'">
-                        </a>
-                    </div>
-                    <h3>Auge Virtual</h3>
-                    <p>Masificación de Moodle y rol del docente virtual.</p>
-                </div>
-            </div>
-            
-            <div class="timeline-item bottom style-tech">
-                <div class="timeline-marker">2020</div>
-                <div class="event-card">
-                    <div class="card-img-wrapper">
-                        <a href="periodo_2016_2026.html" class="img-link">
-                            <img src="images/2020.png" alt="2020" onerror="this.src='https://placehold.co/100x100?text=COVID'">
-                        </a>
-                    </div>
-                    <h3>Pandemia</h3>
-                    <p>Virtualidad forzada. Uso masivo de Teams y Zoom.</p>
-                </div>
-            </div>
-
-            <div class="timeline-item top style-tech">
-                <div class="timeline-marker">2026</div>
-                <div class="event-card">
-                    <div class="card-img-wrapper">
-                        <a href="periodo_2016_2026.html" class="img-link">
-                            <img src="images/2026.png" alt="2026" onerror="this.src='https://placehold.co/100x100?text=IA'">
-                        </a>
-                    </div>
-                    <h3>Era de la IA</h3>
-                    <p>Integración de Inteligencia Artificial en la gestión educativa.</p>
-                </div>
-            </div>
-
-        </div>
-    </div>
-
-    <div class="enter-section">
-        <a href="menu.html" class="btn-enter">
-            Ver Menú Detallado por Periodos <i data-lucide="list" style="vertical-align: middle;"></i>
-        </a>
-    </div>
-
-    <script>
-        lucide.createIcons();
-        const container = document.querySelector('.timeline-container');
-        container.addEventListener('wheel', (evt) => {
-            evt.preventDefault();
-            container.scrollLeft += evt.deltaY;
-        });
-    </script>
 </body>
 </html>
