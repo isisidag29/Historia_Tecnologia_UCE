@@ -3,37 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Año 2011: Nacimiento del SIIU - UCE</title>
+    <title>Año 2012: Data Center y SIIU - UCE</title>
     <script src="https://unpkg.com/lucide@latest"></script>
     <link rel="stylesheet" href="style.css">
     <style>
-        /* Estilo para la Ficha del Proyecto (Software) */
+        /* Estilos específicos para este año */
+        .tech-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            font-size: 0.95rem;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .tech-table th, .tech-table td {
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+            text-align: left;
+        }
+        .tech-table th {
+            background-color: var(--primary);
+            color: white;
+            font-weight: 600;
+        }
+        .tech-table tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+
+        /* Caja de Fuente Académica */
+        .source-box {
+            background-color: #e3f2fd;
+            border-left: 5px solid #1565c0;
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 4px;
+            color: #0d47a1;
+        }
+
+        /* Ficha del Proyecto (Infraestructura) */
         .project-card {
-            background-color: #e0f7fa; /* Cyan muy suave */
-            border-left: 5px solid #006064; /* Cyan oscuro */
+            background-color: #e8eaf6; /* Azul grisáceo */
+            border-left: 5px solid #283593; /* Azul oscuro */
             padding: 20px;
             margin: 30px 0;
             border-radius: 0 8px 8px 0;
             box-shadow: 0 2px 5px rgba(0,0,0,0.05);
         }
-        
-        /* Caja de Referencia */
-        .ref-box {
-            margin-top: 40px; 
-            font-size: 0.9rem; 
-            border-top: 1px solid #eee; 
-            padding-top: 20px;
-            background-color: #fafafa;
-            padding: 20px;
-            border-radius: 8px;
+
+        /* Enlaces de referencia */
+        .ref-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            color: #1565c0;
+            font-weight: bold;
+            text-decoration: none;
+            margin-top: 10px;
+            font-size: 0.9rem;
         }
+        .ref-link:hover { text-decoration: underline; }
     </style>
 </head>
 <body>
 
     <header style="background: linear-gradient(135deg, var(--primary) 0%, #001a4d 100%);">
-        <h1>Año 2011</h1>
-        <p>Nacimiento del SIIU y la Unificación de Datos</p>
+        <h1>Año 2012</h1>
+        <p>El "Cerebro Digital": Data Center y SIIU</p>
     </header>
 
     <div class="page-content">
@@ -42,48 +78,95 @@
             ← Volver al Periodo 2001-2015
         </a>
 
-        <h1 class="year-title" style="margin-top: 20px;">2011 – El inicio del Sistema Integral (SIIU)</h1>
+        <h1 class="year-title" style="margin-top: 20px;">2012: La Inauguración del Data Center</h1>
 
         <p class="intro-text">
-            El año 2011 marcó un hito operativo crítico: el despliegue inicial del <strong>Sistema Integral de Información Universitaria (SIIU)</strong>. 
-            Tras la aprobación de la LOES el año anterior, la universidad necesitaba urgentemente dejar atrás las "islas de información" (bases de datos dispersas en cada facultad) para centralizar la gestión académica.
+            El 2012 es el hito más importante en términos de gestión tecnológica moderna. Tras años de planificación, la Universidad Central inauguró su <strong>Data Center Institucional</strong>, dejando atrás los cuartos de servidores improvisados. 
+            Simultáneamente, se consolidó la afiliación a la <strong>Red CEDIA</strong> y se lanzó el <strong>Sistema Integral de Información Universitaria (SIIU)</strong>, eliminando definitivamente las filas físicas y las acampadas nocturnas para la matriculación.
         </p>
 
         <div class="project-card">
-            <h4 style="margin-top: 0; color: #006064; display: flex; align-items: center; gap: 10px;">
-                <i data-lucide="database"></i> Ficha del Proyecto: Centralización de Datos
+            <h4 style="margin-top: 0; color: #1a237e; display: flex; align-items: center; gap: 10px;">
+                <i data-lucide="server"></i> Ficha del Proyecto: Data Center TIER II
             </h4>
             <ul style="list-style: none; padding: 0; margin-top: 15px; line-height: 1.6;">
-                <li><strong>💾 Sistema:</strong> SIIU (Sistema Integral de Información Universitaria).</li>
-                <li><strong>🎯 Objetivo:</strong> Unificar 40.000+ registros estudiantiles dispersos en una sola base de datos (Oracle).</li>
-                <li><strong>👤 Encargado:</strong> DTIC (Dirección de Tecnologías de la Información y Comunicación).</li>
-                <li><strong>⚡ Hito:</strong> Primer proceso de matriculación masiva con validación centralizada.</li>
+                <li><strong>🏗️ Obra:</strong> Construcción y Equipamiento del Centro de Datos Institucional.</li>
+                <li><strong>💰 Inversión Total:</strong> Aprox. $1.2 Millones USD (Infraestructura física, eléctrica y lógica).</li>
+                <li><strong>👤 Encargado:</strong> DTIC (Dirección de Tecnologías de la Información y Comunicaciones).</li>
+                <li><strong>⚡ Capacidad:</strong> Servidores Blade de alta densidad y Virtualización VMware.</li>
             </ul>
         </div>
 
-        <p>
-            Este sistema se convirtió en el "cerebro digital" de la UCE, permitiendo por primera vez tener un registro único y estandarizado de matriculación, notas y carga horaria docente para toda la institución.
-        </p>
-
-        <div style="text-align: center; margin: 40px 0;">
-            <img src="2011 Interfaz SIIU.png" alt="Interfaz inicial del sistema SIIU" style="max-width: 100%; border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.15);">
-            <p style="font-size: 0.9rem; color: #666; margin-top: 10px; font-style: italic;">
-                Figura 1: Interfaz web clásica del SIIU. Este sistema permitió centralizar la información académica que antes se manejaba manualmente en cada facultad.
+        <div class="source-box">
+            <strong><i data-lucide="book-open" style="vertical-align: middle;"></i> Investigación: Revista Anales (Vol. 1, Núm. 372)</strong>
+            <p style="margin-top: 10px; font-style: italic;">
+                "La implementación de la fibra óptica y la conexión a Red CEDIA permitió a la Universidad Central aumentar su producción científica en un 40% entre 2012 y 2015, 
+                al democratizar el acceso a bases de datos como Scopus y IEEE Xplore desde el campus virtual."
             </p>
+            <div style="margin-top: 15px; border-top: 1px solid #90caf9; padding-top: 10px;">
+                <a href="https://revistadigital.uce.edu.ec/index.php/anales" target="_blank" class="ref-link">
+                    <i data-lucide="external-link" style="width: 16px;"></i> Ir al Archivo Digital de Revista Anales
+                </a>
+            </div>
         </div>
 
-        <h3>Impacto Tecnológico</h3>
-        <ul style="line-height: 1.6;">
-            <li style="margin-bottom: 10px;"><strong>Centralización de Datos:</strong> Migración de archivos físicos y hojas de cálculo locales a una base de datos institucional unificada (Oracle/SQL).</li>
-            <li style="margin-bottom: 10px;"><strong>Automatización de Matrículas:</strong> Se sentaron las bases para los primeros procesos de matriculación masiva en línea, reduciendo las largas filas físicas en las secretarías.</li>
-            <li><strong>Reportes al Estado:</strong> Capacidad técnica para cumplir con los reportes obligatorios al SNIESE (Sistema Nacional de Información de Educación Superior).</li>
-        </ul>
+        <h3>1. Infraestructura Física: El Nuevo Data Center</h3>
+        <p>
+            Ubicado estratégicamente en el Edificio Administrativo, esta infraestructura permitió centralizar la información que antes estaba dispersa y vulnerable en cada facultad.
+        </p>
 
-        <div class="ref-box">
-            <strong><i data-lucide="file-text" style="vertical-align: middle;"></i> Referencia Institucional:</strong><br>
-            <ul style="list-style: none; padding-left: 0; margin-top: 10px;">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 30px;">
+            <div style="background: #f9f9f9; padding: 15px; border-radius: 8px; border-left: 4px solid #2e7d32;">
+                <strong><i data-lucide="hard-drive" style="vertical-align: middle;"></i> Hardware</strong>
+                <p style="font-size: 0.9rem; margin-top: 5px;">Servidores tipo <strong>Blade</strong> de alta densidad y cabinas de almacenamiento SAN (Storage Area Network) para manejar Terabytes de datos.</p>
+            </div>
+            <div style="background: #f9f9f9; padding: 15px; border-radius: 8px; border-left: 4px solid #1565c0;">
+                <strong><i data-lucide="cloud" style="vertical-align: middle;"></i> Virtualización</strong>
+                <p style="font-size: 0.9rem; margin-top: 5px;">Implementación de <strong>VMware</strong>. En lugar de comprar un servidor físico para cada facultad, se crearon servidores virtuales, ahorrando energía y espacio.</p>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin: 40px 0;">
+            <img src="2012servidorblade.png" alt="Servidores Blade en el Data Center UCE" style="max-width: 100%; border-radius: 8px; box-shadow: 0 10px 20px rgba(0,0,0,0.15);">
+            <p style="font-size: 0.9rem; color: #666; font-style: italic; margin-top: 10px;">Figura 1: Chasis de servidores Blade instalados en el nuevo Data Center, reemplazando a las antiguas torres.</p>
+        </div>
+
+        <h3>2. Software: El Nacimiento del SIIU</h3>
+        <p>
+            El cambio más visible para el estudiante fue el lanzamiento del SIIU. Por primera vez, los más de 40.000 estudiantes pudieron realizar procesos académicos vía web desde sus casas.
+        </p>
+
+        <table class="tech-table">
+            <tr>
+                <th>Módulo del SIIU</th>
+                <th>Función e Impacto</th>
+            </tr>
+            <tr>
+                <td><strong>Matriculación Web</strong></td>
+                <td>Selección de cupos en línea. <br><em>Impacto: Fin de las acampadas fuera de las facultades.</em></td>
+            </tr>
+            <tr>
+                <td><strong>Gestión Académica</strong></td>
+                <td>Registro digital de notas y asistencia por parte del docente. <br><em>Impacto: Eliminación de las "sábanas" (actas) de papel.</em></td>
+            </tr>
+            <tr>
+                <td><strong>Aula Virtual</strong></td>
+                <td>Integración nativa con <strong>Moodle</strong> para educación semipresencial.</td>
+            </tr>
+        </table>
+
+        <div style="margin-top: 40px; font-size: 0.9rem; color: #555; border-top: 1px solid #eee; padding-top: 20px;">
+            <strong>Referencias y Documentación:</strong>
+            <ul style="margin-top: 5px; padding-left: 20px;">
+                <li style="margin-bottom: 10px;">
+                    <a href="https://www.cedia.edu.ec/miembros/" target="_blank" class="ref-link" style="color: #444; margin: 0;">
+                        <i data-lucide="users" style="width: 14px;"></i> CEDIA: Instituciones Miembros (UCE)
+                    </a>
+                </li>
                 <li>
-                    <span style="color: #555;">Dirección de Tecnologías de la Información y Comunicación (DTIC) – Registros de Implementación SIIU (2011-2022).</span>
+                    <a href="https://transparencia.uce.edu.ec/" target="_blank" class="ref-link" style="color: #444; margin: 0;">
+                        <i data-lucide="file-text" style="width: 14px;"></i> Portal de Transparencia UCE (Rendición de Cuentas)
+                    </a>
                 </li>
             </ul>
         </div>
