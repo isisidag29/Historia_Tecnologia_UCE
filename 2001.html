@@ -29,7 +29,7 @@
             background-color: #f8f9fa;
         }
 
-        /* Estilo para la nueva Ficha del Proyecto */
+        /* Estilo para la Ficha del Proyecto */
         .project-card {
             background-color: #f8f9fa;
             border-left: 4px solid var(--secondary);
@@ -37,6 +37,32 @@
             margin: 30px 0;
             border-radius: 0 8px 8px 0;
             box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            font-family: sans-serif;
+        }
+
+        /* Estilos para la galería de imágenes (NUEVO) */
+        .image-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            margin: 40px 0;
+        }
+        .image-item {
+            flex: 1;
+            min-width: 300px;
+            max-width: 450px;
+            text-align: center;
+        }
+        .image-item img {
+            width: 100%;
+            height: auto;
+            max-height: 300px;
+            object-fit: contain;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+            background-color: #fff;
+            padding: 10px;
         }
     </style>
 </head>
@@ -61,32 +87,32 @@
             "islas informáticas", con recursos desconectados y una fuerte dependencia de la infraestructura telefónica básica.
         </p>
 
-<div class="project-card" style="border: 1px solid #ddd; padding: 20px; border-radius: 8px; font-family: sans-serif;">
-    <h4 style="margin-top: 0; color: #2c3e50;">
-        <i data-lucide="folder-open" style="vertical-align: middle;"></i> 
-        Ficha de Situación: Conectividad Básica (2001)
-    </h4>
-    <ul style="list-style: none; padding: 0; margin-top: 10px;">
-        <li style="margin-bottom: 10px;">
-            <strong>🔌 Tecnología:</strong> Dial-up (56 kbps) vía Red Telefónica Conmutada (Pares de cobre).
-        </li>
-        <li style="margin-bottom: 10px;">
-            <strong>💰 Gasto Operativo:</strong> Estructura de costo descentralizada. El presupuesto se fragmentaba en pagos por consumo (pulsos telefónicos) gestionados independientemente por cada facultad.
-        </li>
-        <li style="margin-bottom: 10px;">
-            <strong>👤 Gestión:</strong> Direcciones Administrativas de cada Facultad (Modelo de islas informáticas sin red troncal unificada).
-        </li>
-        <li style="margin-bottom: 10px; font-style: italic; font-size: 0.9em; color: #666;">
-            <strong>Nota:</strong> En el contexto de la reciente dolarización, las tarifas de acceso portador en Ecuador eran de las más costosas de la región debido al monopolio de la telefonía fija.
-        </li>
-        <li style="margin-top: 15px; padding-top: 10px; border-top: 1px solid #eee;">
-            <strong>📚 Fuente verificable:</strong> 
-            <a href="https://hdr.undp.org/system/files/documents/ecuador2001sp.pdf" target="_blank" style="color: #3498db; text-decoration: none; font-weight: bold;">
-                Informe sobre Desarrollo Humano Ecuador 2001 (PNUD) Pag 20 y 21
-            </a>
-        </li>
-    </ul>
-</div>
+        <div class="project-card">
+            <h4 style="margin-top: 0; color: #2c3e50;">
+                <i data-lucide="folder-open" style="vertical-align: middle;"></i> 
+                Ficha de Situación: Conectividad Básica (2001)
+            </h4>
+            <ul style="list-style: none; padding: 0; margin-top: 10px;">
+                <li style="margin-bottom: 10px;">
+                    <strong>🔌 Tecnología:</strong> Dial-up (56 kbps) vía Red Telefónica Conmutada (Pares de cobre).
+                </li>
+                <li style="margin-bottom: 10px;">
+                    <strong>💰 Gasto Operativo:</strong> Estructura de costo descentralizada. El presupuesto se fragmentaba en pagos por consumo (pulsos telefónicos) gestionados independientemente por cada facultad.
+                </li>
+                <li style="margin-bottom: 10px;">
+                    <strong>👤 Gestión:</strong> Direcciones Administrativas de cada Facultad (Modelo de islas informáticas sin red troncal unificada).
+                </li>
+                <li style="margin-bottom: 10px; font-style: italic; font-size: 0.9em; color: #666;">
+                    <strong>Nota:</strong> En el contexto de la reciente dolarización, las tarifas de acceso portador en Ecuador eran de las más costosas de la región debido al monopolio de la telefonía fija.
+                </li>
+                <li style="margin-top: 15px; padding-top: 10px; border-top: 1px solid #eee;">
+                    <strong>📚 Fuente verificable:</strong> 
+                    <a href="https://hdr.undp.org/system/files/documents/ecuador2001sp.pdf" target="_blank" style="color: #3498db; text-decoration: none; font-weight: bold;">
+                        Informe sobre Desarrollo Humano Ecuador 2001 (PNUD) Pag 20 y 21
+                    </a>
+                </li>
+            </ul>
+        </div>
 
         <h3>1. Infraestructura y Redes (El cuello de botella)</h3>
         <p>
@@ -97,13 +123,23 @@
         <ul style="background: #fff; padding: 20px 40px; border-radius: 8px; border: 1px solid #eee;">
             <li><strong>Proveedor Principal:</strong> Andinatel S.A. (Empresa estatal de telefonía).</li>
             <li><strong>Tecnología:</strong> Enlaces de cobre (pares telefónicos) y módems de <em>Dial-up</em> (56 kbps) para oficinas.</li>
-            <li><strong>Ancho de Banda Institucional:</strong> Descentralizado. No existía una red troncal única; cada unidad administrativa gestionaba sus propias cuentas de acceso, limitadas por la capacidad de las líneas telefónicas individuales..</li>
+            <li><strong>Ancho de Banda Institucional:</strong> Descentralizado. No existía una red troncal única; cada unidad administrativa gestionaba sus propias cuentas de acceso, limitadas por la capacidad de las líneas telefónicas individuales.</li>
             <li><strong>Proveedores Satelitales:</strong> Algunas facultades contrataban servicios privados con <em>Ecuanet</em> o <em>Satnet</em> para evitar la congestión de la red estatal.</li>
         </ul>
 
-        <div style="text-align: center; margin: 40px 0;">
-             <img src="2001.png" alt="Computadora antigua y modem" style="max-width: 100%; border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.15);">
-            <p style="font-size: 0.9rem; color: #666; font-style: italic; margin-top: 10px;">Figura 1: Equipamiento informático típico en 2001, dependiente de líneas telefónicas.</p>
+        <div class="image-gallery">
+            <div class="image-item">
+                <img src="2001 windows 98.png" alt="Computadora con Windows 98">
+                <p style="font-size: 0.9rem; color: #666; font-style: italic; margin-top: 10px;">
+                    Figura 1.1: Estación de trabajo estándar (Pentium III) con monitor CRT y Windows 98.
+                </p>
+            </div>
+            <div class="image-item">
+                <img src="2001 modem.png" alt="Modem US Robotics 56k">
+                <p style="font-size: 0.9rem; color: #666; font-style: italic; margin-top: 10px;">
+                    Figura 1.2: Módem US Robotics de 56k, dispositivo clave para la conexión vía línea telefónica.
+                </p>
+            </div>
         </div>
 
         <h3>2. El Parque Computacional (Hardware)</h3>
@@ -161,22 +197,22 @@
             marcando el fin de esta era de aislamiento digital.
         </p>
 
-<div style="margin-top: 40px; font-size: 0.9rem; border-top: 1px solid #eee; padding-top: 20px;">
-    <strong>Fuentes Consultadas:</strong>
-    <ul style="margin-top: 10px; padding-left: 20px;">
-        <li style="margin-bottom: 5px;">
-            <a href="https://www.arcotel.gob.ec/wp-content/uploads/2015/11/Boletin6.pdf" target="_blank" style="color:var(--primary);">Arcotel - Historia del Internet en Ecuador</a>
-        </li>
-        <li style="margin-bottom: 5px;">
-            <a href="https://www.arcotel.gob.ec/wp-content/uploads/downloads/2013/07/RTV-576-15-CONATEL-2011.pdf" target="_blank" style="color:var(--primary);">Resolución TEL-576-15-CONATEL-2011</a>
-        </li>
-        <li style="margin-bottom: 5px;">
-            <a href="https://cedia.edu.ec/sobre-nosotros/" target="_blank" style="color:var(--primary);">CEDIA: Historia y Memoria Institucional</a>
-        </li>
-    </ul>
-</div>
+        <div style="margin-top: 40px; font-size: 0.9rem; border-top: 1px solid #eee; padding-top: 20px;">
+            <strong>Fuentes Consultadas:</strong>
+            <ul style="margin-top: 10px; padding-left: 20px;">
+                <li style="margin-bottom: 5px;">
+                    <a href="https://www.arcotel.gob.ec/wp-content/uploads/2015/11/Boletin6.pdf" target="_blank" style="color:var(--primary);">Arcotel - Historia del Internet en Ecuador</a>
+                </li>
+                <li style="margin-bottom: 5px;">
+                    <a href="https://www.arcotel.gob.ec/wp-content/uploads/downloads/2013/07/RTV-576-15-CONATEL-2011.pdf" target="_blank" style="color:var(--primary);">Resolución TEL-576-15-CONATEL-2011</a>
+                </li>
+                <li style="margin-bottom: 5px;">
+                    <a href="https://cedia.edu.ec/sobre-nosotros/" target="_blank" style="color:var(--primary);">CEDIA: Historia y Memoria Institucional</a>
+                </li>
+            </ul>
+        </div>
 
-    <footer>
+    </div> <footer>
         <div class="footer-content">
             <p><strong>© 2026 Universidad Central del Ecuador</strong> - Facultad de Ingeniería, Ciencias Físicas y Matemática</p>
             <p class="footer-details">
