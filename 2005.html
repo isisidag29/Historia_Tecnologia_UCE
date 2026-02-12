@@ -3,65 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Año 2005: WinISIS - UCE</title>
+    <title>Año 2005: El Catálogo Digital - UCE</title>
     <script src="https://unpkg.com/lucide@latest"></script>
     <link rel="stylesheet" href="style.css">
     <style>
+        /* Estilos generales */
+        body { font-family: sans-serif; color: #333; }
+
+        /* Ficha del Proyecto - Gris Plomo Suave */
         .project-card {
-            background-color: #e3f2fd;
-            border-left: 5px solid #1565c0;
+            background-color: #f1f3f5; 
+            border-left: 5px solid #6c757d; 
+            color: #343a40;
             padding: 20px;
             margin: 30px 0;
-            border-radius: 4px;
+            border-radius: 0 8px 8px 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
         }
-        .img-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            margin: 40px 0;
-        }
-        .img-item img {
+        .project-card strong { color: #212529; }
+        .project-card h3 { color: #495057; margin-top: 0; display: flex; align-items: center; gap: 10px; }
+
+        /* Tabla Técnica */
+        .tech-table {
             width: 100%;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            border: 1px solid #eee;
+            border-collapse: collapse;
+            margin: 25px 0;
+            font-size: 0.95rem;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
         }
-        .img-caption {
-            font-size: 0.85rem;
-            color: #666;
-            margin-top: 8px;
-            font-style: italic;
-            text-align: center;
+        .tech-table th, .tech-table td {
+            padding: 15px;
+            border: 1px solid #e0e0e0;
+            text-align: left;
         }
-        @media (max-width: 768px) {
-            .img-grid { grid-template-columns: 1fr; }
+        .tech-table th {
+            background-color: #546e7a; /* Azul grisáceo */
+            color: white;
+            font-weight: 600;
         }
-        
-        /* Estilo para enlace de Paper */
-        .paper-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background-color: #f5f5f5;
-            padding: 10px 15px;
-            border-radius: 6px;
-            text-decoration: none;
-            color: #333;
+        .tech-table tr:nth-child(even) { background-color: #f8f9fa; }
+
+        /* Imágenes */
+        .img-container { text-align: center; margin: 40px 0; }
+        .evidence-img {
+            max-width: 80%;
+            border-radius: 4px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
             border: 1px solid #ddd;
-            transition: all 0.2s;
+            padding: 5px;
+            background: #fff;
         }
-        .paper-link:hover {
-            background-color: #e3f2fd;
-            border-color: #1565c0;
-            color: #0d47a1;
+        .img-caption { font-size: 0.9rem; color: #666; font-style: italic; margin-top: 10px; }
+
+        /* Sección de Fuentes */
+        .sources-section {
+            margin-top: 50px;
+            background-color: #f8f9fa;
+            padding: 25px;
+            border-radius: 8px;
+            border-left: 4px solid #546e7a;
         }
     </style>
 </head>
 <body>
 
-    <header style="background: linear-gradient(135deg, var(--primary) 0%, #001a4d 100%);">
+    <header style="background: linear-gradient(135deg, #455a64 0%, #263238 100%);">
         <h1>Año 2005</h1>
-        <p>Primeros Pasos en Automatización Bibliotecaria</p>
+        <p>Gestión del Conocimiento: El Catálogo Digital</p>
     </header>
 
     <div class="page-content">
@@ -70,79 +78,110 @@
             ← Volver al Periodo 2001-2015
         </a>
 
-        <h1 class="year-title" style="margin-top: 20px;">2005: El Catálogo Digital (WinISIS)</h1>
+        <h1 class="year-title" style="margin-top: 20px; color: #37474f;">2005: De los Ficheros de Madera al Bit (WinISIS)</h1>
 
         <p class="intro-text">
             A mediados de la década, la gestión de la información en las universidades públicas pasaba por una transición crítica: del fichero manual de madera a las primeras bases de datos locales. 
-            Este periodo se caracterizó por el uso de herramientas de software libre impulsadas por organismos internacionales.
+            Este periodo se caracterizó por el uso de herramientas de software libre impulsadas por la UNESCO, permitiendo la creación de catálogos digitales sin costos de licencia.
         </p>
 
         <div class="project-card">
-            <h4 style="margin-top: 0; color: #0d47a1;"><i data-lucide="book-open-check" style="vertical-align: middle;"></i> Ficha Técnica: Tecnología de la Época</h4>
-            <ul style="list-style: none; padding: 0; margin-top: 10px;">
-                <li><strong>💾 Software Estándar:</strong> CDS/WinISIS (Distribuido por la UNESCO para LatAm).</li>
-                <li><strong>💰 Modelo:</strong> Software gratuito para instituciones educativas sin presupuesto para licencias comerciales.</li>
-                <li><strong>👤 Operación:</strong> Bibliotecarios digitadores (Migración manual de fichas a PC).</li>
-                <li><strong>🎯 Contexto:</strong> Paso previo necesario antes de la implementación de sistemas web integrados.</li>
+            <h3>
+                <i data-lucide="database"></i> Ficha Técnica: Tecnología de la Época
+            </h3>
+            <ul style="list-style: none; padding: 0; margin-top: 15px; line-height: 1.6;">
+                <li><strong>💾 Software Estándar:</strong> CDS/WinISIS (Versión 1.5, distribuida gratuitamente por UNESCO).</li>
+                <li><strong>💰 Modelo:</strong> Software libre para países en desarrollo. "Un buen producto a precio regalado" (Estivill & Cantos, 1992).</li>
+                <li><strong>👤 Operación:</strong> Bibliotecarios digitadores (Migración manual de fichas físicas a registros ISO 2709).</li>
+                <li><strong>🌐 Publicación Web:</strong> Uso experimental de <strong>GenIsisWeb</strong> para consultas vía Intranet.</li>
             </ul>
         </div>
 
-        <div style="margin-top: 10px; font-size: 0.9rem;">
-            <a href="https://unesdoc.unesco.org/ark:/48223/pf0000124330" target="_blank" style="color: #1565c0; text-decoration: underline; font-weight: bold;">
-                🔗 Fuente Primaria: Manual Oficial UNESCO para WinISIS (Tecnología vigente en 2005)
-            </a>
-        </div>
-
-        <h3>El Estándar: WinISIS</h3>
+        <h3>1. El Estándar: WinISIS y la Estructura ISO 2709</h3>
         <p>
             Mientras las grandes universidades privadas adquirían sistemas costosos, la universidad pública ecuatoriana se apoyó en <strong>CDS/ISIS para Windows</strong>. 
-            Esta herramienta permitía crear bases de datos bibliográficas locales (Intranet), funcionando en computadoras independientes sin necesidad de servidores complejos o conexión a internet permanente.
+            Esta herramienta permitía crear bases de datos bibliográficas locales, funcionando en computadoras independientes.
         </p>
         
-        <ul style="background: #f9f9f9; padding: 20px 40px; border-radius: 8px; border: 1px solid #eee;">
-            <li><strong>Base de Datos:</strong> Estructura no relacional (ideal para descripciones bibliográficas variables).</li>
-            <li><strong>Limitación Técnica:</strong> No era un sistema en línea (OPAC Web), solo consultable dentro de la biblioteca.</li>
-            <li><strong>Legado:</strong> Los datos ingresados en esta época sirvieron de base para las migraciones futuras.</li>
+        <p style="margin-top: 10px;">
+            A diferencia de las bases de datos relacionales (como SQL) que eran rígidas, CDS/ISIS utilizaba una estructura basada en la norma <strong>ISO 2709</strong>, ideal para bibliotecas por dos características clave:
+        </p>
+        <ul style="margin-left: 20px; margin-bottom: 20px;">
+            <li><strong>Campos de longitud variable:</strong> Ahorraban espacio en disco (crítico en 2005) al no reservar bytes vacíos.</li>
+            <li><strong>Campos repetitivos:</strong> Permitían ingresar múltiples autores o materias en un solo registro sin duplicar datos.</li>
         </ul>
 
-        <div class="img-grid">
-            <div class="img-item">
-                <img src="2005digitalizacion.png" alt="Proceso de digitalización de fichas">
-                <p class="img-caption">Figura 1: Representación del proceso de digitación desde ficheros físicos.</p>
-            </div>
-            <div class="img-item">
-                <img src="2005WinISIS.png" alt="Interfaz de WinISIS">
-                <p class="img-caption">Figura 2: Interfaz del software WinISIS, estándar en bibliotecas latinoamericanas en los 2000s.</p>
-            </div>
+        <div class="img-container">
+            <img src="2005 winisis.png" alt="Interfaz WinISIS UNESCO" class="evidence-img">
+            <p class="img-caption">
+                Figura 1: Interfaz del software WinISIS 1.5. Su diseño simple escondía un potente motor de recuperación de texto completo.
+            </p>
         </div>
 
-        <hr style="margin: 40px 0; border: 0; border-top: 1px solid #eee;">
+        <h3>2. GenIsisWeb: El Primer Paso hacia Internet</h3>
+        <p>
+            Para publicar estas bases de datos en la naciente web universitaria, se utilizó herramientas complementarias como <strong>GenIsisWeb</strong>. 
+            Este software permitía generar formularios de búsqueda en HTML que consultaban la base CDS/ISIS, sirviendo como los primeros OPACs (Catálogos de Acceso Público en Línea).
+        </p>
 
-        <div style="font-size: 0.9rem; color: #555;">
-            <strong>Nota sobre las Fuentes:</strong>
-            <p style="margin-top: 5px; font-style: italic;">
-                Dado que los archivos digitales de la UCE de 2005 no están disponibles, se referencia la documentación académica regional que valida el uso de WinISIS como el estándar de automatización en Latinoamérica en ese periodo.
+        <table class="tech-table">
+            <tr>
+                <th>Característica</th>
+                <th>Detalle Técnico (Hito 2005)</th>
+            </tr>
+            <tr>
+                <td><strong>Motor de Base de Datos</strong></td>
+                <td>No relacional (Texto plano). Optimizada para recuperación de información, no para transacciones.</td>
+            </tr>
+            <tr>
+                <td><strong>Limitación Técnica</strong></td>
+                <td>La actualización no era en línea. Se digitaba en local y luego se "subía" la base al servidor web.</td>
+            </tr>
+            <tr>
+                <td><strong>Legado</strong></td>
+                <td>Los datos ingresados en esta época (bajo estándar ISO) sirvieron de base para las migraciones futuras a KOHA.</td>
+            </tr>
+        </table>
+
+        <div class="img-container">
+            <img src="2005 fichero.png" alt="Ficheros de biblioteca antiguos" class="evidence-img">
+            <p class="img-caption">
+                Figura 2: La digitalización fue un proceso manual intensivo. Estudiantes y bibliotecarios trasladaron la memoria institucional del papel al disco duro.
             </p>
-            
-            <div style="margin-top: 15px;">
-                <a href="https://www.aacademica.org/egiordanino/8.pdf" target="_blank" class="paper-link">
-                    <i data-lucide="file-text"></i>
-                    <div>
-                        <strong>Paper Académico:</strong> "Winisis, herramienta para bibliotecarios"<br>
-                        <span style="font-size: 0.8rem; color: #666;">Valida el impacto y adopción masiva del software en la región</span>
-                    </div>
-                </a>
-            </div>
-            
-            <div style="margin-top: 10px;">
-                <a href="http://www.ibiblio.org/rlit/docs/Ponencias/5%20Encuentro/automatizacion.pdf" target="_blank" class="paper-link">
-                    <i data-lucide="file-text"></i>
-                    <div>
-                        <strong>Ponencia Regional:</strong> "Informatización en la biblioteca: la opción CDS/ISIS"<br>
-                        <span style="font-size: 0.8rem; color: #666;">Documento histórico sobre la implementación en universidades</span>
-                    </div>
-                </a>
-            </div>
+        </div>
+
+        <div class="sources-section">
+            <h4 style="margin-top: 0; color: #455a64;"><i data-lucide="link" style="vertical-align: middle;"></i> Fuentes de Validación Documental:</h4>
+            <ul style="list-style: none; padding-left: 0; margin-top: 15px;">
+                
+                <li style="margin-bottom: 15px;">
+                    <a href="Giordanino, Eduardo Pablo (1998). Winisis, herramienta para bibliotecarios.pdf" target="_blank" style="color: #003366; font-weight: bold; text-decoration: none; display: flex; align-items: center; gap: 8px;">
+                        <i data-lucide="file-text" style="width: 16px;"></i> Paper: "Winisis, herramienta para bibliotecarios" (Giordanino, 1998)
+                    </a>
+                    <span style="font-size: 0.9rem; color: #555; display: block; margin-left: 24px;">
+                        Fuente primaria (PDF Local) que valida la adopción masiva de WinISIS en la región como herramienta de transición hacia la "biblioteca virtual".
+                    </span>
+                </li>
+
+                <li style="margin-bottom: 15px;">
+                    <a href="https://bid.ub.edu/11chave2.htm" target="_blank" style="color: #003366; font-weight: bold; text-decoration: none; display: flex; align-items: center; gap: 8px;">
+                        <i data-lucide="globe" style="width: 16px;"></i> Universidad de Barcelona: Reseña de GenIsisWeb (2003)
+                    </a>
+                    <span style="font-size: 0.9rem; color: #555; display: block; margin-left: 24px;">
+                        Artículo técnico que describe a <strong>GenIsisWeb</strong> como la solución estándar para publicar bases CDS/ISIS en Internet, validando la arquitectura web utilizada.
+                    </span>
+                </li>
+
+                <li>
+                    <a href="https://cdsisis-org.translate.goog/doku.php?_x_tr_sl=en&_x_tr_tl=es&_x_tr_hl=es&_x_tr_pto=tc#history" target="_blank" style="color: #003366; font-weight: bold; text-decoration: none; display: flex; align-items: center; gap: 8px;">
+                        <i data-lucide="history" style="width: 16px;"></i> Historia de CDS/ISIS (Comunidad Oficial)
+                    </a>
+                    <span style="font-size: 0.9rem; color: #555; display: block; margin-left: 24px;">
+                        Documentación histórica que confirma el desarrollo del software por la UNESCO y su liberación como tecnología gratuita para países en desarrollo.
+                    </span>
+                </li>
+
+            </ul>
         </div>
 
     </div>
@@ -150,9 +189,6 @@
     <footer>
         <div class="footer-content">
             <p><strong>© 2026 Universidad Central del Ecuador</strong> - Facultad de Ingeniería, Ciencias Físicas y Matemática</p>
-            <p class="footer-details">
-                Ingeniería en Sistemas de Información | Infraestructura II | SI5-001 | Tecnología en la UCE 2025-2026
-            </p>
         </div>
     </footer>
 
