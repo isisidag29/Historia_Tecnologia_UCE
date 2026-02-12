@@ -10,17 +10,18 @@
         /* Estilos generales */
         body { font-family: sans-serif; color: #333; }
 
-        /* Ficha del Proyecto */
+        /* Ficha del Proyecto - MODIFICADA A GRIS PLOMO */
         .project-card {
-            background-color: #e64a19; /* Naranja ladrillo (Referencia a Fibra OM1) */
-            color: white;
+            background-color: #f1f3f5; /* Gris plomo muy suave */
+            border-left: 5px solid #6c757d; /* Borde gris sólido */
+            color: #343a40;
             padding: 20px;
             margin: 30px 0;
-            border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            border-radius: 0 8px 8px 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
         }
-        .project-card strong { color: #fff3e0; }
-        .project-card h3 { color: white; margin-top: 0; display: flex; align-items: center; gap: 10px; }
+        .project-card strong { color: #212529; }
+        .project-card h3 { color: #495057; margin-top: 0; display: flex; align-items: center; gap: 10px; }
 
         /* Nota Técnica */
         .tech-note {
@@ -106,7 +107,7 @@
             </h3>
             <ul style="list-style: none; padding: 0; margin-top: 15px; line-height: 1.6;">
                 <li><strong>🛠 Proyecto:</strong> Implementación del Anillo de Fibra Óptica Campus Central.</li>
-                <li><strong>💰 Actividade Realizadas:</strong> (Obra civil, ductería y equipamiento activo 3Com/Cisco).</li>
+                <li><strong>💰 Actividades Realizadas:</strong> Obra civil, ductería y equipamiento activo 3Com/Cisco.</li>
                 <li><strong>⚙️ Hardware Clave:</strong> Switches <strong>3Com SuperStack</strong> y <strong>Cisco Catalyst 2950</strong>.</li>
             </ul>
         </div>
@@ -125,6 +126,8 @@
         <p>
             Se abandonó el cable coaxial para los enlaces entre edificios, adoptando estándares internacionales de cableado estructurado.
         </p>
+
+        
 
         <table class="tech-table">
             <tr>
@@ -146,6 +149,10 @@
             <tr>
                 <td><strong>Equipos de Borde</strong></td>
                 <td>Switches Cisco Catalyst Serie 2950 / 3Com SuperStack 3.</td>
+            </tr>
+            <tr>
+                <td><strong>Topología</strong></td>
+                <td>Estrella Extendida (Centralizado en el Edificio Administrativo).</td>
             </tr>
         </table>
 
@@ -175,39 +182,39 @@
             </p>
         </div>
 
-<div style="margin-top: 50px; background-color: #f8f9fa; padding: 25px; border-radius: 8px; border-left: 4px solid var(--primary);">
-    <h4 style="margin-top: 0; color: var(--primary);"><i data-lucide="link" style="vertical-align: middle;"></i> Fuentes de Validación Documental:</h4>
-    <ul style="list-style: none; padding-left: 0; margin-top: 15px;">
-        
-        <li style="margin-bottom: 15px;">
-            <a href="https://www.educacionsuperior.gob.ec/wp-content/uploads/downloads/2014/09/LOTAIP.pdf" target="_blank" style="color: #003366; font-weight: bold; text-decoration: none; display: flex; align-items: center; gap: 8px;">
-                <i data-lucide="scale" style="width: 16px;"></i> Ley Orgánica de Transparencia (LOTAIP) - Mayo 2004
-            </a>
-            <span style="font-size: 0.9rem; color: #555; display: block; margin-left: 24px;">
-                Ver <strong>Página 1</strong>: Registro Oficial Suplemento 337 (18 de Mayo de 2004). Documento oficial que obligó a las instituciones públicas a digitalizar su información, impulsando la modernización de redes.
-            </span>
-        </li>
+        <div style="margin-top: 50px; background-color: #f8f9fa; padding: 25px; border-radius: 8px; border-left: 4px solid var(--primary);">
+            <h4 style="margin-top: 0; color: var(--primary);"><i data-lucide="link" style="vertical-align: middle;"></i> Fuentes de Validación Documental:</h4>
+            <ul style="list-style: none; padding-left: 0; margin-top: 15px;">
+                
+                <li style="margin-bottom: 15px;">
+                    <a href="https://www.educacionsuperior.gob.ec/wp-content/uploads/downloads/2014/09/LOTAIP.pdf" target="_blank" style="color: #003366; font-weight: bold; text-decoration: none; display: flex; align-items: center; gap: 8px;">
+                        <i data-lucide="scale" style="width: 16px;"></i> Ley Orgánica de Transparencia (LOTAIP) - Mayo 2004
+                    </a>
+                    <span style="font-size: 0.9rem; color: #555; display: block; margin-left: 24px;">
+                        Ver <strong>Página 1</strong>: Registro Oficial Suplemento 337 (18 de Mayo de 2004). Documento oficial que obligó a las instituciones públicas a digitalizar su información, impulsando la modernización de redes.
+                    </span>
+                </li>
 
-        <li style="margin-bottom: 15px;">
-            <a href="https://www.cisco.com/c/dam/en/us/td/docs/switches/lan/catalyst2955/software/release/12_1_12c_ea1/command/reference/cr2955.pdf" target="_blank" style="color: #003366; font-weight: bold; text-decoration: none; display: flex; align-items: center; gap: 8px;">
-                <i data-lucide="server" style="width: 16px;"></i> Cisco Catalyst 2950/2955 Command Reference (Feb 2003)
-            </a>
-            <span style="font-size: 0.9rem; color: #555; display: block; margin-left: 24px;">
-                Ver <strong>Portada</strong>: Manual oficial del fabricante que confirma que la serie Catalyst 2950/2955 con software IOS 12.1 era el estándar tecnológico vigente.
-            </span>
-        </li>
+                <li style="margin-bottom: 15px;">
+                    <a href="https://www.cisco.com/c/dam/en/us/td/docs/switches/lan/catalyst2955/software/release/12_1_12c_ea1/command/reference/cr2955.pdf" target="_blank" style="color: #003366; font-weight: bold; text-decoration: none; display: flex; align-items: center; gap: 8px;">
+                        <i data-lucide="server" style="width: 16px;"></i> Cisco Catalyst 2950/2955 Command Reference (Feb 2003)
+                    </a>
+                    <span style="font-size: 0.9rem; color: #555; display: block; margin-left: 24px;">
+                        Ver <strong>Portada</strong>: Manual oficial del fabricante que confirma que la serie Catalyst 2950/2955 con software IOS 12.1 era el estándar tecnológico vigente.
+                    </span>
+                </li>
 
-        <li>
-            <a href="https://www.thefoa.org/tech/ref/basic/fiber.html" target="_blank" style="color: #003366; font-weight: bold; text-decoration: none; display: flex; align-items: center; gap: 8px;">
-                <i data-lucide="activity" style="width: 16px;"></i> The Fiber Optic Association: Especificaciones de Fibra OM1
-            </a>
-            <span style="font-size: 0.9rem; color: #555; display: block; margin-left: 24px;">
-                Referencia técnica (Tabla "Fiber Types"): Valida que la fibra de <strong>62.5/125 micras (OM1)</strong> era el estándar para redes LAN universitarias en la época.
-            </span>
-        </li>
+                <li>
+                    <a href="https://www.thefoa.org/tech/ref/basic/fiber.html" target="_blank" style="color: #003366; font-weight: bold; text-decoration: none; display: flex; align-items: center; gap: 8px;">
+                        <i data-lucide="activity" style="width: 16px;"></i> The Fiber Optic Association: Especificaciones de Fibra OM1
+                    </a>
+                    <span style="font-size: 0.9rem; color: #555; display: block; margin-left: 24px;">
+                        Referencia técnica (Tabla "Fiber Types"): Valida que la fibra de <strong>62.5/125 micras (OM1)</strong> era el estándar para redes LAN universitarias en la época.
+                    </span>
+                </li>
 
-    </ul>
-</div>
+            </ul>
+        </div>
 
     </div>
 
