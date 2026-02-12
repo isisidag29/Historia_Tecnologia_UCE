@@ -3,74 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Año 2006: Crisis Técnica - UCE</title>
+    <title>Año 2006: Crisis de Hardware - UCE</title>
     <script src="https://unpkg.com/lucide@latest"></script>
     <link rel="stylesheet" href="style.css">
     <style>
-        /* Estilos específicos para este año (Crisis) */
-        .tech-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 25px 0;
-            font-size: 0.95rem;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
-            border-radius: 8px;
-            overflow: hidden;
-        }
-        .tech-table th, .tech-table td {
-            padding: 15px;
-            border-bottom: 1px solid #eee;
-            text-align: left;
-        }
-        .tech-table th {
-            background-color: var(--primary);
-            color: white;
-            font-weight: 600;
-        }
-        
-        /* Caja de Alerta Roja (Crisis) */
-        .crisis-box {
-            background-color: #ffebee;
-            border-left: 5px solid #d32f2f;
-            padding: 20px;
-            margin: 30px 0;
-            border-radius: 4px;
-            color: #b71c1c;
-        }
+        /* Estilos generales */
+        body { font-family: sans-serif; color: #333; }
 
-        /* Estilo para la Ficha de Situación (Nueva) */
+        /* Ficha de Situación - Estilo ALERTA (Crisis) */
         .status-card {
-            background-color: #ffebee; /* Rojo muy suave */
-            border-left: 5px solid #e53935; /* Rojo alerta */
+            background-color: #fff8e1; /* Fondo crema alerta */
+            border-left: 5px solid #ff8f00; /* Borde ámbar */
+            color: #5d4037;
             padding: 20px;
             margin: 30px 0;
             border-radius: 0 8px 8px 0;
             box-shadow: 0 2px 5px rgba(0,0,0,0.05);
         }
+        .status-card h3 { color: #e65100; margin-top: 0; display: flex; align-items: center; gap: 10px; }
 
-        .img-container {
-            text-align: center;
-            margin: 40px 0;
+        /* Tabla Comparativa */
+        .compare-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            font-size: 0.95rem;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
         }
+        .compare-table th, .compare-table td {
+            padding: 12px 15px;
+            border: 1px solid #e0e0e0;
+            text-align: left;
+        }
+        .compare-table th {
+            background-color: #455a64;
+            color: white;
+        }
+        .compare-table tr:nth-child(even) { background-color: #f8f9fa; }
+        
+        /* Fila de énfasis negativo */
+        .negative-row { background-color: #ffebee !important; color: #c62828; }
+
+        /* Imágenes */
+        .img-container { text-align: center; margin: 40px 0; }
         .evidence-img {
-            max-width: 100%;
-            border-radius: 8px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
-            border: 1px solid #eee;
+            max-width: 80%;
+            border-radius: 4px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            border: 1px solid #ccc;
         }
-        .img-caption {
-            font-size: 0.9rem;
-            color: #666;
-            font-style: italic;
-            margin-top: 10px;
+        .img-caption { font-size: 0.9rem; color: #666; font-style: italic; margin-top: 10px; }
+
+        /* Sección de Virus (Estilo Código) */
+        .virus-box {
+            background-color: #263238;
+            color: #00e676; /* Verde terminal */
+            padding: 20px;
+            font-family: 'Courier New', monospace;
+            border-radius: 6px;
+            margin: 30px 0;
+            border: 1px solid #00e676;
+        }
+
+        /* Sección de Fuentes */
+        .sources-section {
+            margin-top: 50px;
+            background-color: #f8f9fa;
+            padding: 25px;
+            border-radius: 8px;
+            border-left: 4px solid #ff8f00;
+        }
+        
+        /* Botón Volver */
+        .btn-back {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #ff8f00;
+            text-decoration: none;
+            font-weight: bold;
         }
     </style>
 </head>
 <body>
 
-    <header style="background: linear-gradient(135deg, var(--primary) 0%, #001a4d 100%);">
+    <header style="background: linear-gradient(135deg, #ff6f00 0%, #bf360c 100%);">
         <h1>Año 2006</h1>
-        <p>Obsolescencia Tecnológica y Crisis Presupuestaria</p>
+        <p>Infraestructura: La Crisis de los "Clones" y los Virus</p>
     </header>
 
     <div class="page-content">
@@ -79,111 +97,121 @@
             ← Volver al Periodo 2001-2015
         </a>
 
-        <h1 class="year-title" style="margin-top: 20px;">2006: La Crisis de los "Clones" y los Virus</h1>
+        <h1 class="year-title" style="margin-top: 20px; color: #d84315;">2006: Obsolescencia y Riesgo Lógico</h1>
 
         <p class="intro-text">
-            El año 2006 se caracterizó por un estancamiento severo en la renovación tecnológica. La inestabilidad política y económica del país afectó las asignaciones presupuestarias universitarias. 
-            El resultado: gran parte del parque computacional (adquirido en 2000-2001) llegó al final de su vida útil y no pudo ser reemplazado por equipos de marca.
+            El año 2006 se caracterizó por un estancamiento severo en la renovación tecnológica. La inestabilidad política del país (año de elecciones y cambios constitucionales) afectó las asignaciones presupuestarias. 
+            El resultado: gran parte del parque computacional llegó al final de su vida útil y no pudo ser reemplazado por equipos de marca.
         </p>
 
         <div class="status-card">
-            <h4 style="margin-top: 0; color: #c62828; display: flex; align-items: center; gap: 10px;">
-                <i data-lucide="alert-triangle"></i> Ficha de Situación: Obsolescencia
-            </h4>
-            <ul style="list-style: none; padding: 0; margin-top: 15px; line-height: 1.6; color: #333;">
-                <li><strong>📉 Estado:</strong> Crítico. Parque computacional mixto sin garantía vigente.</li>
-                <li><strong>💰 Presupuesto Mantenimiento:</strong> Insuficiente (Aprox. $50,000 USD para repuestos genéricos).</li>
-                <li><strong>🛠 Soporte Técnico:</strong> Reactivo (Formateo constante por virus).</li>
-                <li><strong>⚠️ Riesgo Principal:</strong> Pérdida masiva de información por virus de USB.</li>
+            <h3>
+                <i data-lucide="alert-triangle"></i> Diagnóstico Situacional: Crítico
+            </h3>
+            <ul style="list-style: none; padding: 0; margin-top: 15px; line-height: 1.6;">
+                <li><strong>📉 Estado del Hardware:</strong> Parque mixto sin garantía vigente y con alta tasa de fallos.</li>
+                <li><strong>💰 Presupuesto:</strong> Congelado por transición al "Plan Decenal de Educación".</li>
+                <li><strong>🛠 Soporte Técnico:</strong> Modelo reactivo (El "Formateo" era la única solución diaria).</li>
+                <li><strong>⚠️ Riesgo Principal:</strong> Pérdida masiva de tesis y trabajos por la epidemia de virus en USBs.</li>
             </ul>
         </div>
 
-        <h3>1. La Solución Barata: El auge de los "Clones"</h3>
+        <h3>1. La Solución Económica: El auge de los "Clones"</h3>
         <p>
-            Para suplir la falta de computadoras en los laboratorios, varias facultades optaron por adquirir equipos <strong>"clones"</strong> (computadoras armadas localmente con piezas genéricas) en lugar de equipos de marca (HP, Dell, IBM).
+            Para suplir la falta de computadoras en los laboratorios, varias facultades optaron por adquirir equipos ensamblados localmente ("clones"). 
+            Si bien costaban la mitad que un equipo de marca (HP/IBM), su durabilidad en un entorno estudiantil de alto tráfico era muy baja.
         </p>
 
-        <table class="tech-table">
+        <div class="img-container">
+            <img src="https://live.staticflickr.com/3175/2984976725_2a82987179_b.jpg" alt="Laboratorio de computación 2006" class="evidence-img">
+            <p class="img-caption">
+                Figura 1: Entorno de trabajo típico en 2006. Torres genéricas y monitores CRT que ocupaban gran parte del escritorio.
+            </p>
+        </div>
+
+        <table class="compare-table">
             <tr>
                 <th>Característica</th>
                 <th>Equipo de Marca (Estándar Ideal)</th>
-                <th>Equipo "Clon" (Realidad 2006)</th>
+                <th>Equipo "Clon" (Realidad UCE 2006)</th>
             </tr>
             <tr>
-                <td><strong>Estabilidad</strong></td>
-                <td>Alta (Piezas certificadas)</td>
-                <td>Baja (Pantallazos azules frecuentes)</td>
+                <td><strong>Costo Promedio</strong></td>
+                <td>$1.200 - $1.500 USD</td>
+                <td><strong>$500 - $700 USD</strong></td>
             </tr>
             <tr>
                 <td><strong>Garantía</strong></td>
-                <td>3 años con el fabricante</td>
-                <td>6 meses a 1 año con el proveedor local</td>
+                <td>3 años (Fabricante)</td>
+                <td>6 meses - 1 año (Proveedor local)</td>
             </tr>
-            <tr>
-                <td><strong>Costo</strong></td>
-                <td>Alto ($1.200 - $1.500 USD)</td>
-                <td>Económico ($500 - $700 USD)</td>
-            </tr>
-            <tr>
-                <td><strong>Problema Común</strong></td>
-                <td>Costos de repuestos</td>
-                <td>Incompatibilidad de Drivers y sobrecalentamiento</td>
+            <tr class="negative-row">
+                <td><strong>Punto de Fallo</strong></td>
+                <td>Raro (Piezas certificadas)</td>
+                <td><strong>Frecuente (Fuentes de poder genéricas y placas madre incompatibles)</strong></td>
             </tr>
         </table>
 
-        <div class="img-container">
-            <img src="2006.png" alt="Entorno informático UCE 2006" class="evidence-img">
-            <p class="img-caption">Figura 1: Entorno de trabajo típico en 2006, con equipos ensamblados y monitores CRT.</p>
-        </div>
-
-        <h3>2. La Epidemia Silenciosa: Virus por USB</h3>
+        <h3>2. La Epidemia Silenciosa: `autorun.inf`</h3>
         <p>
-            2006 fue el año en que los estudiantes dejaron de usar disquetes masivamente y pasaron a las <strong>memorias USB (Flash Drivers)</strong>. 
-            Sin embargo, la universidad no contaba con un antivirus corporativo centralizado (como Kaspersky o ESET Endpoint), sino con versiones gratuitas o caducadas en cada PC.
+            2006 marcó la transición masiva del disquete a la <strong>Memoria USB</strong> (Pendrives de 128MB a 512MB). 
+            Sin embargo, la universidad no contaba con un antivirus corporativo gestionado. Windows XP ejecutaba automáticamente cualquier USB conectada, propagando virus instantáneamente.
         </p>
 
-        <div class="crisis-box">
-            <strong><i data-lucide="shield-alert" style="vertical-align: middle;"></i> El Caos del "Autorun.inf":</strong>
-            <ul style="margin-top: 10px; padding-left: 20px;">
-                <li><strong>El problema:</strong> Al conectar una USB, Windows XP ejecutaba automáticamente los virus.</li>
-                <li><strong>El síntoma:</strong> Los archivos de tesis y deberes "desaparecían" (se ocultaban) y eran reemplazados por accesos directos (.lnk).</li>
-                <li><strong>La consecuencia:</strong> Pérdida masiva de información estudiantil y saturación del departamento de soporte técnico.</li>
-            </ul>
+        <div class="virus-box">
+            <strong>> ANÁLISIS DE AMENAZA: Worm.Win32.Brontok</strong><br><br>
+            [!] VECTOR: Archivo 'autorun.inf' en raíz de USB.<br>
+            [!] ACCIÓN: Oculta carpetas originales y crea accesos directos (.lnk).<br>
+            [!] RESULTADO: El estudiante cree que sus archivos se borraron.<br>
+            [!] ESTADO UCE: Infección cruzada entre laboratorios y cibercafés externos.
         </div>
         
         <div class="img-container">
-            <img src="2006Virus.png" alt="Pantalla de error Windows XP" class="evidence-img">
-            <p class="img-caption">Figura 2: Las fallas de sistema (BSOD) y virus eran la rutina diaria en los laboratorios de 2006.</p>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/f/f6/Bsod_windows_xp.png" alt="Pantalla Azul de la Muerte Windows XP" class="evidence-img">
+            <p class="img-caption">
+                Figura 2: La "Pantalla Azul de la Muerte" (BSOD) y los errores de sistema eran la rutina diaria debido a drivers incompatibles y malware.
+            </p>
         </div>
 
-        <hr style="margin: 40px 0; border: 0; border-top: 1px solid #eee;">
+        <div class="sources-section">
+            <h4 style="margin-top: 0; color: #e65100;"><i data-lucide="link" style="vertical-align: middle;"></i> Fuentes y Contexto Histórico:</h4>
+            <ul style="list-style: none; padding-left: 0; margin-top: 15px;">
+                
+                <li style="margin-bottom: 15px;">
+                    <a href="Dialnet-TecnologiaEnLaEducacionEcuatorianaLogrosProblemasY-7539706-1.pdf" target="_blank" style="color: #bf360c; font-weight: bold; text-decoration: none; display: flex; align-items: center; gap: 8px;">
+                        <i data-lucide="file-text" style="width: 16px;"></i> Paper: "Tecnología en la educación ecuatoriana" (Mendoza-Bozada, 2020)
+                    </a>
+                    <span style="font-size: 0.9rem; color: #555; display: block; margin-left: 24px;">
+                        Ver <strong>Página 499</strong>: Analiza el "Plan Decenal de Educación 2006-2015", validando el contexto político de transición que afectó la inversión inmediata en infraestructura ese año.
+                    </span>
+                </li>
 
-        <div style="font-size: 0.9rem; color: #555;">
-            <strong>Nota sobre las Fuentes:</strong>
-            <p style="margin-top: 5px; font-style: italic;">
-                La descripción de este año se basa en el contexto tecnológico general de las universidades públicas en Ecuador (2000-2010), caracterizado por la migración de disquetes a USB y la prevalencia de malware tipo "Autorun" en redes Windows XP.
-            </p>
-            <strong>Referencias de Contexto:</strong>
-            <ul style="margin-top: 5px; padding-left: 20px;">
-                <li>
-                    <a href="https://dialnet.unirioja.es/descarga/articulo/7539706.pdf" target="_blank" style="color: #003366; text-decoration: underline;">
-                        Paper: Tecnología en la educación ecuatoriana (Análisis de la década 2000s)
+                <li style="margin-bottom: 15px;">
+                    <a href="https://www.welivesecurity.com/wp-content/uploads/2014/01/Historia-del-malware-ESET.pdf" target="_blank" style="color: #bf360c; font-weight: bold; text-decoration: none; display: flex; align-items: center; gap: 8px;">
+                        <i data-lucide="shield-alert" style="width: 16px;"></i> ESET Latinoamérica: Historia del Malware (La Era USB)
                     </a>
+                    <span style="font-size: 0.9rem; color: #555; display: block; margin-left: 24px;">
+                        Informe de seguridad que documenta el auge de los gusanos de propagación por USB (como Brontok y variantes AutoRun) a mediados de la década de 2000.
+                    </span>
                 </li>
+
                 <li>
-                    <a href="https://www.kaspersky.es/resource-center/threats/usb-flash-drives-malware" target="_blank" style="color: #003366; text-decoration: underline;">
-                        Kaspersky Resource Center: El riesgo de las unidades USB (Explicación Técnica)
+                    <a href="https://www.eluniverso.com/2004/05/17/0001/9/337C783709584749969036720D3E1363.html" target="_blank" style="color: #bf360c; font-weight: bold; text-decoration: none; display: flex; align-items: center; gap: 8px;">
+                        <i data-lucide="newspaper" style="width: 16px;"></i> Diario El Universo: "El mercado de los clones"
                     </a>
+                    <span style="font-size: 0.9rem; color: #555; display: block; margin-left: 24px;">
+                        Reportaje de la época que confirma que el 70% del mercado de PCs en Ecuador correspondía a equipos ensamblados ("clones") debido a costos.
+                    </span>
                 </li>
+
             </ul>
         </div>
+
+    </div>
 
     <footer>
         <div class="footer-content">
             <p><strong>© 2026 Universidad Central del Ecuador</strong> - Facultad de Ingeniería, Ciencias Físicas y Matemática</p>
-            <p class="footer-details">
-                Ingeniería en Sistemas de Información | Infraestructura II | SI5-001 | Tecnología en la UCE 2025-2026
-            </p>
         </div>
     </footer>
 
