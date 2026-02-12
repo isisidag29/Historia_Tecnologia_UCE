@@ -10,17 +10,17 @@
         /* Estilos generales */
         body { font-family: sans-serif; color: #333; }
 
-        /* Ficha de Situación - Estilo ALERTA (Crisis) */
+        /* Ficha de Situación - Estilo AZUL OSCURO GRIS (Corporativo/Sobrio) */
         .status-card {
-            background-color: #fff8e1; /* Fondo crema alerta */
-            border-left: 5px solid #ff8f00; /* Borde ámbar */
-            color: #5d4037;
+            background-color: #eceff1; /* Gris azulado muy claro */
+            border-left: 5px solid #37474f; /* Azul grisáceo oscuro */
+            color: #263238; /* Casi negro azulado */
             padding: 20px;
             margin: 30px 0;
             border-radius: 0 8px 8px 0;
             box-shadow: 0 2px 5px rgba(0,0,0,0.05);
         }
-        .status-card h3 { color: #e65100; margin-top: 0; display: flex; align-items: center; gap: 10px; }
+        .status-card h3 { color: #37474f; margin-top: 0; display: flex; align-items: center; gap: 10px; }
 
         /* Tabla Comparativa */
         .compare-table {
@@ -36,12 +36,12 @@
             text-align: left;
         }
         .compare-table th {
-            background-color: #455a64;
+            background-color: #455a64; /* Azul gris medio */
             color: white;
         }
         .compare-table tr:nth-child(even) { background-color: #f8f9fa; }
         
-        /* Fila de énfasis negativo */
+        /* Fila de énfasis negativo - Mantenemos rojo suave para indicar el fallo */
         .negative-row { background-color: #ffebee !important; color: #c62828; }
 
         /* Imágenes */
@@ -56,13 +56,13 @@
 
         /* Sección de Virus (Estilo Código) */
         .virus-box {
-            background-color: #263238;
+            background-color: #263238; /* Fondo oscuro terminal */
             color: #00e676; /* Verde terminal */
             padding: 20px;
             font-family: 'Courier New', monospace;
             border-radius: 6px;
             margin: 30px 0;
-            border: 1px solid #00e676;
+            border: 1px solid #455a64;
         }
 
         /* Sección de Fuentes */
@@ -71,14 +71,14 @@
             background-color: #f8f9fa;
             padding: 25px;
             border-radius: 8px;
-            border-left: 4px solid #ff8f00;
+            border-left: 4px solid #37474f; /* Borde Azul Oscuro Gris */
         }
         
         /* Botón Volver */
         .btn-back {
             display: inline-block;
             margin-bottom: 20px;
-            color: #ff8f00;
+            color: #37474f;
             text-decoration: none;
             font-weight: bold;
         }
@@ -86,7 +86,7 @@
 </head>
 <body>
 
-    <header style="background: linear-gradient(135deg, #ff6f00 0%, #bf360c 100%);">
+    <header style="background: linear-gradient(135deg, #37474f 0%, #212121 100%);">
         <h1>Año 2006</h1>
         <p>Infraestructura: La Crisis de los "Clones" y los Virus</p>
     </header>
@@ -97,7 +97,7 @@
             ← Volver al Periodo 2001-2015
         </a>
 
-        <h1 class="year-title" style="margin-top: 20px; color: #d84315;">2006: Obsolescencia y Riesgo Lógico</h1>
+        <h1 class="year-title" style="margin-top: 20px; color: #263238;">2006: Obsolescencia y Riesgo Lógico</h1>
 
         <p class="intro-text">
             El año 2006 se caracterizó por un estancamiento severo en la renovación tecnológica. La inestabilidad política del país (año de elecciones y cambios constitucionales) afectó las asignaciones presupuestarias. 
@@ -174,11 +174,11 @@
         </div>
 
         <div class="sources-section">
-            <h4 style="margin-top: 0; color: #e65100;"><i data-lucide="link" style="vertical-align: middle;"></i> Fuentes y Contexto Histórico:</h4>
+            <h4 style="margin-top: 0; color: #37474f;"><i data-lucide="link" style="vertical-align: middle;"></i> Fuentes y Contexto Histórico:</h4>
             <ul style="list-style: none; padding-left: 0; margin-top: 15px;">
                 
             <li style="margin-bottom: 15px;">
-                <a href="Dialnet.png" target="_blank" style="color: #bf360c; font-weight: bold; text-decoration: none; display: flex; align-items: center; gap: 8px;">
+                <a href="Dialnet.pdf" target="_blank" style="color: #2c3e50; font-weight: bold; text-decoration: none; display: flex; align-items: center; gap: 8px;">
                     <i data-lucide="file-text" style="width: 16px;"></i> Paper: "Tecnología en la educación ecuatoriana" (Mendoza-Bozada, 2020)
                 </a>
                 <span style="font-size: 0.9rem; color: #555; display: block; margin-left: 24px;">
@@ -187,7 +187,7 @@
             </li>
 
                 <li style="margin-bottom: 15px;">
-                    <a href="https://www.kaspersky.es/resource-center/threats" target="_blank" style="color: #bf360c; font-weight: bold; text-decoration: none; display: flex; align-items: center; gap: 8px;">
+                    <a href="https://www.kaspersky.es/resource-center/threats" target="_blank" style="color: #2c3e50; font-weight: bold; text-decoration: none; display: flex; align-items: center; gap: 8px;">
                         <i data-lucide="shield-alert" style="width: 16px;"></i> Kaspersky Resource Center: Amenazas y Malware
                     </a>
                     <span style="font-size: 0.9rem; color: #555; display: block; margin-left: 24px;">
