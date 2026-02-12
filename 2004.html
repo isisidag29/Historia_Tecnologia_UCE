@@ -7,69 +7,77 @@
     <script src="https://unpkg.com/lucide@latest"></script>
     <link rel="stylesheet" href="style.css">
     <style>
-        /* Estilos específicos para la tabla técnica */
-        .tech-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 25px 0;
-            font-size: 0.95rem;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
-            border-radius: 8px;
-            overflow: hidden;
-        }
-        .tech-table th, .tech-table td {
-            padding: 15px;
-            border-bottom: 1px solid #eee;
-            text-align: left;
-        }
-        .tech-table th {
-            background-color: var(--primary);
-            color: white;
-            font-weight: 600;
-        }
-        .tech-table tr:last-child td {
-            border-bottom: none;
-        }
-        .tech-table tr:nth-child(even) {
-            background-color: #f8f9fa;
-        }
+        /* Estilos generales */
+        body { font-family: sans-serif; color: #333; }
 
-        /* Caja explicativa técnica */
+        /* Ficha del Proyecto */
+        .project-card {
+            background-color: #e64a19; /* Naranja ladrillo (Referencia a Fibra OM1) */
+            color: white;
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        .project-card strong { color: #fff3e0; }
+        .project-card h3 { color: white; margin-top: 0; display: flex; align-items: center; gap: 10px; }
+
+        /* Nota Técnica */
         .tech-note {
             background-color: #fff3e0;
-            border-left: 5px solid #ff9800;
+            border-left: 5px solid #ef6c00;
             padding: 20px;
             margin: 30px 0;
             font-size: 0.95rem;
             color: #5d4037;
         }
 
-        /* Estilo para la Ficha del Proyecto */
-        .project-card {
-            background-color: #fff3e0;
-            border-left: 5px solid #ef6c00;
+        /* Contexto Legal (LOTAIP) */
+        .legal-context {
+            background-color: #f3e5f5;
+            border-left: 5px solid #8e24aa;
             padding: 20px;
             margin: 30px 0;
-            border-radius: 0 8px 8px 0;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
         }
-        
-        /* Contenedor de imágenes */
-        .img-container {
-            text-align: center;
-            margin: 40px 0;
+
+        /* Tabla Técnica */
+        .tech-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            font-size: 0.95rem;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
         }
-        .img-caption {
-            font-size: 0.9rem;
-            color: #666;
-            font-style: italic;
-            margin-top: 10px;
+        .tech-table th, .tech-table td {
+            padding: 15px;
+            border: 1px solid #e0e0e0;
+            text-align: left;
         }
+        .tech-table th {
+            background-color: var(--primary);
+            color: white;
+            font-weight: 600;
+            width: 35%;
+        }
+        .tech-table tr:nth-child(even) { background-color: #f8f9fa; }
+
+        /* Imágenes */
+        .img-container { text-align: center; margin: 40px 0; }
         .evidence-img {
-            max-width: 100%;
+            max-width: 85%;
             border-radius: 8px;
             box-shadow: 0 10px 20px rgba(0,0,0,0.15);
             border: 1px solid #eee;
+        }
+        .img-caption { font-size: 0.9rem; color: #666; font-style: italic; margin-top: 10px; }
+        
+        /* Botón Volver */
+        .btn-back {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: bold;
         }
     </style>
 </head>
@@ -77,7 +85,7 @@
 
     <header style="background: linear-gradient(135deg, var(--primary) 0%, #001a4d 100%);">
         <h1>Año 2004</h1>
-        <p>Construcción del "Backbone" de Fibra Óptica (Fase 1)</p>
+        <p>Infraestructura: La Columna Vertebral Digital</p>
     </header>
 
     <div class="page-content">
@@ -86,29 +94,37 @@
             ← Volver al Periodo 2001-2015
         </a>
 
-        <h1 class="year-title" style="margin-top: 20px;">2004: La Columna Vertebral Digital</h1>
+        <h1 class="year-title" style="margin-top: 20px; color: var(--primary);">2004: El Primer Anillo de Fibra Óptica</h1>
 
         <p class="intro-text">
-            Con la conexión externa a Internet ya asegurada, el reto de 2004 fue distribuir esa señal dentro del campus sin perder velocidad. 
-            Se inició el primer gran proyecto de obra civil tecnológica: el <strong>soterramiento de fibra óptica</strong> para crear el primer anillo de conexión 
-            entre el Edificio Administrativo y las facultades más cercanas (Arquitectura, Filosofía y Jurisprudencia).
+            Con la conexión externa asegurada, el reto de 2004 fue distribuir esa señal. Se inició el primer gran proyecto de obra civil tecnológica: el <strong>soterramiento de fibra óptica</strong> para crear el "Backbone" (columna vertebral) entre el Edificio Administrativo y las facultades más cercanas.
         </p>
 
         <div class="project-card">
-            <h4 style="margin-top: 0; color: #e65100; display: flex; align-items: center; gap: 10px;">
+            <h3>
                 <i data-lucide="network"></i> Ficha del Proyecto: Anillo de Fibra (Fase 1)
-            </h4>
+            </h3>
             <ul style="list-style: none; padding: 0; margin-top: 15px; line-height: 1.6;">
-                <li><strong>🛠 Proyecto:</strong> Implementación del Anillo de Fibra Óptica (Backbone) - Campus Central.</li>
-                <li><strong>💰 Inversión Estimada:</strong> $150,000 USD (Obra civil de soterramiento, ductería y equipamiento activo).</li>
-                <li><strong>👤 Encargado:</strong> Dirección General Académica / Unidad de Redes y Telecomunicaciones.</li>
-                <li><strong>⚙️ Hardware Clave:</strong> Switches 3Com SuperStack y Cisco Catalyst serie 2900.</li>
+                <li><strong>🛠 Proyecto:</strong> Implementación del Anillo de Fibra Óptica Campus Central.</li>
+                <li><strong>💰 Inversión Estimada:</strong> ~$150,000 USD (Obra civil, ductería y equipamiento activo 3Com/Cisco).</li>
+                <li><strong>👤 Encargado:</strong> Dirección General Académica / Unidad de Redes.</li>
+                <li><strong>⚙️ Hardware Clave:</strong> Switches <strong>3Com SuperStack</strong> y <strong>Cisco Catalyst 2950</strong>.</li>
             </ul>
         </div>
 
-        <h3>1. Ficha Técnica de la Infraestructura</h3>
+        <div class="legal-context">
+            <h4 style="margin-top: 0; color: #6a1b9a;">
+                <i data-lucide="scale" style="vertical-align: middle;"></i> El Impulso Legal: Ley de Transparencia (LOTAIP)
+            </h4>
+            <p style="margin-top: 10px; font-size: 0.95rem;">
+                En mayo de 2004, se promulgó la <strong>Ley Orgánica de Transparencia y Acceso a la Información Pública (LOTAIP)</strong>. 
+                Esta normativa (Suplemento No. 337) obligó a la Universidad Central a invertir en infraestructura para digitalizar sus procesos y publicarlos en la web.
+            </p>
+        </div>
+
+        <h3>1. Ficha Técnica de la Infraestructura (El Estándar 2004)</h3>
         <p>
-            Se abandonó el cable coaxial y el par de cobre para enlaces entre edificios, adoptando estándares internacionales de cableado estructurado.
+            Se abandonó el cable coaxial para los enlaces entre edificios, adoptando estándares internacionales de cableado estructurado.
         </p>
 
         <table class="tech-table">
@@ -118,62 +134,79 @@
             </tr>
             <tr>
                 <td><strong>Medio de Transmisión</strong></td>
-                <td>Fibra Óptica Multimodo (62.5 micras) - Estándar OM1 (Color Naranja)</td>
+                <td>Fibra Óptica Multimodo (62.5/125 micras) - <strong>Estándar OM1 (Color Naranja)</strong></td>
             </tr>
             <tr>
-                <td><strong>Velocidad de Red (LAN)</strong></td>
-                <td>Upgrade masivo de 10 Mbps a <strong>100 Mbps (Fast Ethernet)</strong></td>
+                <td><strong>Velocidad Backbone</strong></td>
+                <td><strong>1000 Mbps (1 Gigabit)</strong> entre edificios principales.</td>
             </tr>
             <tr>
-                <td><strong>Equipos de Borde (Core)</strong></td>
-                <td>Switches Administrables <strong>3Com SuperStack</strong> y Cisco Catalyst Serie 2900</td>
+                <td><strong>Velocidad de Usuario</strong></td>
+                <td>Upgrade masivo de 10 Mbps a <strong>100 Mbps (Fast Ethernet)</strong>.</td>
             </tr>
             <tr>
-                <td><strong>Topología</strong></td>
-                <td>Estrella Extendida (Todo centralizado en el Data Center del Edificio Administrativo)</td>
+                <td><strong>Equipos de Borde</strong></td>
+                <td>Switches Cisco Catalyst Serie 2950 / 3Com SuperStack 3.</td>
             </tr>
         </table>
 
         <div class="img-container">
-            <img src="2004Switch.png" alt="Switch Cisco Catalyst 2004" class="evidence-img">
-            <p class="img-caption">Figura 1: Equipos de conmutación (Switches) Cisco Catalyst. El salto de Hubs a Switches eliminó las "colisiones" de datos.</p>
+            <img src="2004 switch.png" alt="Switch Cisco Catalyst 2950 de 2004" class="evidence-img">
+            <p class="img-caption">
+                Figura 1: Switch Cisco Catalyst 2950. El reemplazo de los viejos "Hubs" por Switches administrables eliminó las colisiones de datos.
+            </p>
         </div>
 
         <div class="tech-note">
-            <strong><i data-lucide="zap" style="vertical-align: middle;"></i> El salto de Hub a Switch:</strong><br>
-            Hasta 2003, la UCE usaba "Hubs", dispositivos tontos que enviaban los datos a todas las computadoras a la vez, causando lentitud. 
-            En 2004, con la llegada de los <strong>Switches</strong>, cada puerto se volvió inteligente, enviando los datos solo al destinatario correcto.
+            <strong><i data-lucide="zap" style="vertical-align: middle;"></i> Diferencia Clave: Hub vs Switch</strong><br>
+            Hasta 2003, la UCE usaba "Hubs", dispositivos básicos que enviaban los datos a todas las computadoras a la vez, causando lentitud. 
+            En 2004, con la llegada de los <strong>Switches</strong>, cada puerto se volvió inteligente, mejorando drásticamente la velocidad en los laboratorios.
         </div>
 
         <h3>2. Impacto en los Laboratorios</h3>
         <p>
-            Los laboratorios de computación de la Facultad de Ingeniería experimentaron una mejora inmediata. Los estudiantes podían compartir archivos dentro de la red local 
-            sin que las computadoras se "congelaran" por saturación de tráfico. Además, se implementaron los primeros <strong>Racks de Comunicaciones</strong> organizados.
+            Los laboratorios de la Facultad de Ingeniería fueron los primeros beneficiados. Se implementaron los primeros <strong>Racks de Comunicaciones</strong> estandarizados, 
+            organizando el cableado mediante Patch Panels y fibra óptica.
         </p>
         
         <div class="img-container">
-            <img src="2004Rack.png" alt="Rack de comunicaciones antiguo UCE" class="evidence-img">
-            <p class="img-caption">Figura 2: Primeros Racks de comunicaciones instalados para organizar el cableado estructurado y la fibra óptica.</p>
+            <img src="2004 fibra.png" alt="Cableado de fibra óptica naranja OM1" class="evidence-img">
+            <p class="img-caption">
+                Figura 2: Fibra óptica multimodo OM1 (color naranja) con conectores ST/SC, el estándar instalado en el anillo de la UCE en 2004.
+            </p>
         </div>
 
-        <hr style="margin: 40px 0; border: 0; border-top: 1px solid #eee;">
+        <div style="margin-top: 50px; background-color: #f8f9fa; padding: 25px; border-radius: 8px; border-left: 4px solid var(--primary);">
+            <h4 style="margin-top: 0; color: var(--primary);"><i data-lucide="link" style="vertical-align: middle;"></i> Fuentes de Validación Documental:</h4>
+            <ul style="list-style: none; padding-left: 0; margin-top: 15px;">
+                
+                <li style="margin-bottom: 15px;">
+                    <a href="LOTAIP.pdf" target="_blank" style="color: #003366; font-weight: bold; text-decoration: none; display: flex; align-items: center; gap: 8px;">
+                        <i data-lucide="scale" style="width: 16px;"></i> Ley Orgánica de Transparencia (LOTAIP) - Mayo 2004
+                    </a>
+                    <span style="font-size: 0.9rem; color: #555; display: block; margin-left: 24px;">
+                        Ver <strong>Página 1</strong>: Registro Oficial Suplemento 337 (18 de Mayo de 2004). Obliga a las instituciones públicas a digitalizar y publicar información, impulsando la inversión en redes.
+                    </span>
+                </li>
 
-        <div style="font-size: 0.9rem; color: #555;">
-            <strong>Referencias y Documentación Técnica:</strong>
-            <ul style="margin-top: 5px; padding-left: 20px;">
-                <li>
-                    <em>Plan de Desarrollo Institucional UCE (2004-2008)</em> - Archivo General (Documento Físico).
-                </li>
-                <li>
-                    <a href="https://www.cisco.com/c/en/us/products/collateral/switches/catalyst-2900-series-switches/product_data_sheet09186a0080196623.html" target="_blank" style="color: #003366; text-decoration: underline;">
-                        <i data-lucide="external-link" style="width: 14px; vertical-align: middle;"></i> Datasheet: Cisco Catalyst 2900 XL (Estándar 2004)
+                <li style="margin-bottom: 15px;">
+                    <a href="cr2955.pdf" target="_blank" style="color: #003366; font-weight: bold; text-decoration: none; display: flex; align-items: center; gap: 8px;">
+                        <i data-lucide="server" style="width: 16px;"></i> Cisco Catalyst 2950/2955 Command Reference (Feb 2003)
                     </a>
+                    <span style="font-size: 0.9rem; color: #555; display: block; margin-left: 24px;">
+                        Ver <strong>Portada</strong>: Confirma que la serie Catalyst 2950 con software IOS 12.1 era la tecnología vigente y estándar en el momento de la implementación.
+                    </span>
                 </li>
+
                 <li>
-                    <a href="https://support.hpe.com/hpesc/public/docDisplay?docId=c02617637" target="_blank" style="color: #003366; text-decoration: underline;">
-                        <i data-lucide="external-link" style="width: 14px; vertical-align: middle;"></i> Histórico: 3Com SuperStack 3 Switch (HPE Support)
+                    <a href="https://www.thefoa.org/tech/ref/basic/fiber.html" target="_blank" style="color: #003366; font-weight: bold; text-decoration: none; display: flex; align-items: center; gap: 8px;">
+                        <i data-lucide="activity" style="width: 16px;"></i> The Fiber Optic Association: Especificaciones de Fibra OM1
                     </a>
+                    <span style="font-size: 0.9rem; color: #555; display: block; margin-left: 24px;">
+                        Referencia técnica (Tabla "Fiber Types"): Valida que la fibra de <strong>62.5/125 micras (OM1)</strong> era el estándar para redes LAN, coincidiendo con el cableado naranja instalado.
+                    </span>
                 </li>
+
             </ul>
         </div>
 
@@ -182,9 +215,6 @@
     <footer>
         <div class="footer-content">
             <p><strong>© 2026 Universidad Central del Ecuador</strong> - Facultad de Ingeniería, Ciencias Físicas y Matemática</p>
-            <p class="footer-details">
-                Ingeniería en Sistemas de Información | Infraestructura II | SI5-001 | Tecnología en la UCE 2025-2026
-            </p>
         </div>
     </footer>
 
