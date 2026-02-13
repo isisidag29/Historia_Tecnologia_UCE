@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Informe | Data Center UCE (2016–2017)</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&amp;family=Work+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+<style>
+    :root{
+      --primary:#003366;
+      --secondary:#d4af37;
+      --bg:#f5f7fb;
+      --text:#1a1a1a;
+      --muted:#5e6a7a;
+      --card:#ffffff;
+    }
+    body{
+      margin:0; font-family:'Work Sans', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: var(--bg); color: var(--text);
+    }
+    header{
+      background: linear-gradient(135deg, #003366 0%, #001a4d 100%);
+      color:white;
+      padding: 48px 18px;
+      text-align:center;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.20);
+    }
+    header h1{
+      font-family:'Playfair Display', serif;
+      margin:0 0 10px 0;
+      font-size: clamp(2.0rem, 4vw, 3.2rem);
+      font-weight: 900;
+      letter-spacing: 0.5px;
+    }
+    header p{
+      margin:0 auto;
+      max-width: 980px;
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.90);
+      line-height: 1.7;
+    }
+    .wrap{ max-width: 1100px; margin: 0 auto; padding: 26px 16px 60px; }
+    .hero-card{
+      background: linear-gradient(135deg, rgba(212,175,55,0.16) 0%, #ffffff 60%);
+      border-left: 10px solid var(--secondary);
+      border-radius: 18px;
+      padding: 22px;
+      box-shadow: 0 14px 32px rgba(0,0,0,0.10);
+      margin-top: -28px;
+    }
+    .meta{
+      display:flex; flex-wrap:wrap; gap:10px; margin-top: 12px;
+      color: var(--muted); font-weight: 600;
+    }
+    .pill{
+      background: rgba(0,0,0,0.05);
+      padding: 8px 12px;
+      border-radius: 999px;
+      display:inline-flex; gap:8px; align-items:center;
+    }
+    h2{
+      font-family:'Playfair Display', serif;
+      color: var(--primary);
+      margin: 28px 0 10px;
+      font-size: 1.8rem;
+    }
+    p{ line-height: 1.85; color: #233042; }
+    .grid{
+      display:grid;
+      grid-template-columns: 1.3fr 0.7fr;
+      gap: 18px;
+      align-items:start;
+    }
+    .card{
+      background: var(--card);
+      border-radius: 18px;
+      padding: 18px 18px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    }
+    .card h3{ margin: 0 0 10px; color: var(--primary); }
+    ul{ margin: 8px 0 0 18px; line-height: 1.8; }
+    figure{ margin:0; }
+    img{ width: 100%; border-radius: 16px; box-shadow: 0 10px 22px rgba(0,0,0,0.12); }
+    figcaption{ color: var(--muted); font-size: 0.92rem; margin-top: 10px; line-height: 1.5; }
+    .refs a{
+      color: var(--primary);
+      font-weight: 700;
+      text-decoration: none;
+    }
+    .refs a:hover{ text-decoration: underline; }
+    .btn{
+      display:inline-flex; gap:10px; align-items:center;
+      background: var(--primary); color:white; text-decoration:none;
+      padding: 12px 16px; border-radius: 12px; font-weight: 800;
+      box-shadow: 0 12px 28px rgba(0,0,0,0.16);
+      transition: 0.2s ease;
+      margin-top: 14px;
+    }
+    .btn:hover{ transform: translateY(-2px); filter: brightness(1.05); }
+    .note{
+      border-left: 6px solid var(--secondary);
+      background: rgba(212,175,55,0.10);
+      padding: 14px 14px;
+      border-radius: 14px;
+      color: #2b2b2b;
+    }
+    footer{
+      margin-top: 26px;
+      color: var(--muted);
+      text-align:center;
+      font-size: 0.95rem;
+    }
+    @media (max-width: 920px){
+      .grid{ grid-template-columns: 1fr; }
+      header{ padding: 42px 16px; }
+    }
+  
+.sources{font-size:.92rem;color:#555;margin-top:.4rem}
+.sources a{font-weight:600}
+
+    .gallery{ grid-template-columns: repeat(3, 1fr); }
+    @media (max-width: 920px){
+      .gallery{ grid-template-columns: 1fr; }
+    }
+    .stats{
+      display:grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin: 14px 0 18px;
+    }
+    .stat{
+      background: #fff;
+      border-radius: 18px;
+      padding: 14px 14px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+      display:flex;
+      gap: 12px;
+      align-items:flex-start;
+    }
+    .stat .ico{
+      width: 44px; height: 44px;
+      border-radius: 14px;
+      background: rgba(0,51,102,0.10);
+      display:flex; align-items:center; justify-content:center;
+      color: var(--primary);
+      flex: 0 0 44px;
+      font-size: 1.15rem;
+    }
+    .stat .k{ font-weight: 900; color: var(--primary); }
+    .stat .v{ color: var(--muted); font-size: 0.92rem; margin-top: 4px; line-height: 1.35; }
+    @media (max-width: 920px){
+      .stats{ grid-template-columns: 1fr; }
+    }
+    .diagram h3{ margin-bottom: 12px; }
+
+</style>
+</link></head>
+<body>
+<header>
+<h1><i class="fa-solid fa-server"></i> Data Center UCE</h1>
+<p>
+      Informe documental sobre la implementación del <strong>nuevo Centro de Datos</strong> de la Universidad Central del Ecuador (UCE),
+      ejecutado desde <strong>2016</strong> e inaugurado en <strong>2017</strong>, como infraestructura crítica para la continuidad de servicios universitarios.
+    </p>
+</header>
+<div class="wrap">
+<div class="hero-card">
+<div class="note">
+<strong>Idea central:</strong> el Data Center fue el hito tecnológico más determinante del período 2016–2026 porque consolidó
+        una base de cómputo, almacenamiento, conectividad y seguridad para sostener la transformación digital institucional.
+      </div>
+<div class="meta">
+<span class="pill"><i class="fa-regular fa-calendar"></i> Instalación: sep. 2016</span>
+<span class="pill"><i class="fa-regular fa-flag"></i> Inauguración / difusión: ene. 2017</span>
+<span class="pill"><i class="fa-solid fa-shield-halved"></i> Enfoque: disponibilidad + continuidad</span>
+<span class="pill"><i class="fa-solid fa-coins"></i> Inversión referenciada: ~USD 1,2 millones</span>
+</div>
+<a class="btn" href="online_viewer_net (2).htm" title="Volver a la línea de tiempo">
+<i class="fa-solid fa-arrow-left"></i> Volver a la Línea de tiempo
+      </a>
+
+<h2>Galería visual</h2>
+<div class="grid gallery">
+  <div class="card">
+    <figure>
+      <img src="imagenes/datcenter_racks.png" alt="Vista del Data Center UCE (racks)"/>
+      <figcaption>
+        Vista del área de equipos (racks) del Data Center UCE (fotografía de visita técnica, 2022).
+        <span class="sources">Fuente:
+          <a href="https://ti-enlinea.utn.edu.ec/2023/01/12/gira-academica-datacenter-uce/" target="_blank" rel="noopener">UTN (2023)</a>
+        </span>
+      </figcaption>
+    </figure>
+  </div>
+
+  <div class="card">
+    <figure>
+      <img src="imagenes/dtic_exterior.jpg" alt="Entrada DTIC UCE (referencia)"/>
+      <figcaption>
+        Fachada de la DTIC (referencia visual vinculada a la visita técnica al Data Center UCE).
+        <span class="sources">Fuente:
+          <a href="https://ti-enlinea.utn.edu.ec/2023/01/12/gira-academica-datacenter-uce/" target="_blank" rel="noopener">UTN (2023)</a>
+        </span>
+      </figcaption>
+    </figure>
+  </div>
+
+  <div class="card">
+    <figure>
+      <img src="imagenes/19ene17.jpg" alt="Equipo DTIC UCE relacionado a la implementación del Data Center (2017)"/>
+      <figcaption>
+        Equipo DTIC relacionado a la implementación (2017).
+        <span class="sources">Fuente:
+          <a href="https://www.uce.edu.ec/archive_noticias?artID=294877" target="_blank" rel="noopener">UCE (19/01/2017)</a>
+        </span>
+      </figcaption>
+    </figure>
+  </div>
+</div>
+
+<h2>Resumen visual de capacidades</h2>
+<div class="stats">
+  <div class="stat">
+    <div class="ico"><i class="fa-solid fa-door-open"></i></div>
+    <div>
+      <div class="k">5 salas operativas</div>
+      <div class="v">equipos · energía · monitoreo · investigación · exposiciones</div>
+    </div>
+  </div>
+  <div class="stat">
+    <div class="ico"><i class="fa-solid fa-bolt"></i></div>
+    <div>
+      <div class="k">UPS 2N</div>
+      <div class="v">respaldo y continuidad (mín. 15 min)</div>
+    </div>
+  </div>
+  <div class="stat">
+    <div class="ico"><i class="fa-solid fa-gauge-high"></i></div>
+    <div>
+      <div class="k">21,6 kW</div>
+      <div class="v">demanda estimada reportada</div>
+    </div>
+  </div>
+  <div class="stat">
+    <div class="ico"><i class="fa-solid fa-cloud"></i></div>
+    <div>
+      <div class="k">60+ servidores virtuales</div>
+      <div class="v">conectividad y disponibilidad de contenidos</div>
+    </div>
+  </div>
+</div>
+
+<div class="card diagram">
+  <h3>Arquitectura (diagrama simplificado)</h3>
+  <svg viewBox="0 0 980 240" role="img" aria-label="Diagrama de arquitectura del Data Center UCE" style="width:100%;height:auto">
+    <defs>
+      <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#003366" stop-opacity="0.12"/>
+        <stop offset="1" stop-color="#d4af37" stop-opacity="0.10"/>
+      </linearGradient>
+    </defs>
+    <rect x="10" y="14" width="960" height="212" rx="18" fill="url(#g1)" stroke="rgba(0,0,0,0.10)"/>
+    <g font-family="Work Sans, Arial, sans-serif" fill="#1a1a1a">
+      <g>
+        <rect x="40" y="60" width="200" height="110" rx="16" fill="#fff" stroke="rgba(0,0,0,0.14)"/>
+        <text x="140" y="92" text-anchor="middle" font-weight="800" fill="#003366">Capa física</text>
+        <text x="140" y="118" text-anchor="middle" font-size="13">energía · UPS · climatización</text>
+        <text x="140" y="140" text-anchor="middle" font-size="13">racks · cableado · seguridad</text>
+      </g>
+      <g>
+        <rect x="290" y="60" width="200" height="110" rx="16" fill="#fff" stroke="rgba(0,0,0,0.14)"/>
+        <text x="390" y="92" text-anchor="middle" font-weight="800" fill="#003366">Plataforma TI</text>
+        <text x="390" y="118" text-anchor="middle" font-size="13">servidores · virtualización</text>
+        <text x="390" y="140" text-anchor="middle" font-size="13">almacenamiento · backups</text>
+      </g>
+      <g>
+        <rect x="540" y="60" width="200" height="110" rx="16" fill="#fff" stroke="rgba(0,0,0,0.14)"/>
+        <text x="640" y="92" text-anchor="middle" font-weight="800" fill="#003366">Red & seguridad</text>
+        <text x="640" y="118" text-anchor="middle" font-size="13">core · firewall · segmentación</text>
+        <text x="640" y="140" text-anchor="middle" font-size="13">monitoreo · registros</text>
+      </g>
+      <g>
+        <rect x="790" y="60" width="150" height="110" rx="16" fill="#fff" stroke="rgba(0,0,0,0.14)"/>
+        <text x="865" y="92" text-anchor="middle" font-weight="800" fill="#003366">Servicios</text>
+        <text x="865" y="118" text-anchor="middle" font-size="13">académicos</text>
+        <text x="865" y="140" text-anchor="middle" font-size="13">administrativos</text>
+      </g>
+      <g stroke="#003366" stroke-width="3" fill="none" opacity="0.55">
+        <path d="M240 115 H290"/>
+        <path d="M490 115 H540"/>
+        <path d="M740 115 H790"/>
+      </g>
+    </g>
+  </svg>
+  <div class="sources">
+    Datos de referencia tomados de fuentes institucionales UCE (2016–2017), DCD (2017) y el artículo TIC.EC/Maskana (2017).
+    <a href="https://aka-cdn.uce.edu.ec/ares/w/boletines/PDF%C2%B4s/PDF2017/031.pdf" target="_blank" rel="noopener">Boletín UCE 031</a> ·
+    <a href="https://www.datacenterdynamics.com/es/noticias/la-universidad-central-del-ecuador-estrena-data-center/" target="_blank" rel="noopener">DCD</a> ·
+    <a href="https://publicaciones.ucuenca.edu.ec/ojs/index.php/maskana/article/view/1468" target="_blank" rel="noopener">Maskana</a>
+  </div>
+</div>
+
+</div>
+<h2>1) Contexto y necesidad</h2>
+<div class="grid">
+<div class="card">
+<h3>La UCE ante una demanda creciente de servicios</h3>
+<p>
+          Entre 2014 y 2016 la Universidad Central del Ecuador aceleró proyectos de conectividad, plataformas institucionales y servicios en línea.
+          En ese escenario, el almacenamiento y el cómputo “tradicional” (equipos dispersos, sin control ambiental ni energía redundante)
+          se convierte en un riesgo: una falla eléctrica, sobrecalentamiento o ausencia de monitoreo puede interrumpir sistemas académicos y administrativos.
+        </p>
+<p>
+          Por eso, desde la DTIC se inicia la construcción/instalación de un <strong>nuevo Data Center</strong> como infraestructura de misión crítica:
+          un espacio controlado, con mejores prácticas de operación, seguridad y disponibilidad para soportar servicios 24/7.
+        </p>
+</div>
+<div class="card">
+<h3>Hito documentado</h3>
+<ul>
+<li><strong>Sep 2016:</strong> inicio de instalación del nuevo Data Center (comunicado institucional).</li>
+<li><strong>Ene 2017:</strong> difusión de beneficios y crecimiento de capacidad (entrevista / nota institucional).</li>
+<li><strong>2017:</strong> publicación técnica/académica que describe el diseño e implementación.</li>
+</ul>
+</div>
+</div>
+<h2>2) Infraestructura y componentes (visión técnica)</h2>
+<div class="grid">
+<div class="card">
+<h3>Capas típicas de un centro de datos universitario</h3>
+<p>
+          Las fuentes públicas sobre el proyecto describen un centro de procesamiento de datos moderno, alineado a objetivos institucionales.
+          A nivel de infraestructura, un Data Center de este tipo normalmente integra:
+        </p>
+<ul>
+<li><strong>Energía y continuidad:</strong> UPS, tableros dedicados, protección eléctrica y respaldo para cortes.</li>
+<li><strong>Climatización:</strong> control de temperatura/humedad para mantener operación estable.</li>
+<li><strong>Seguridad física:</strong> control de accesos y registro de ingresos al área crítica.</li>
+<li><strong>Organización del cableado:</strong> racks, patch panels y ordenamiento para mantenimiento.</li>
+<li><strong>Monitoreo:</strong> sensores y supervisión de variables ambientales y energéticas.</li>
+<li><strong>Plataformas TI:</strong> servidores, virtualización, almacenamiento y servicios base.</li>
+</ul>
+<p>
+          En el caso UCE, además, se reporta un enfoque de alineamiento con prácticas de gestión tecnológica (por ejemplo, COBIT/ITIL)
+          en trabajos académicos vinculados al proyecto.
+        </p>
+</div>
+<div class="card">
+<figure>
+<img alt="Equipo DTIC UCE relacionado a la implementación del Data Center (2017)" src="imagenes/19ene17.jpg"/>
+<figcaption>
+            Imagen referencial del equipo DTIC relacionado a la implementación (2017). 
+            Referencia institucional: archivo de noticias UCE.
+          </figcaption>
+</figure>
+</div>
+
+<div class="card">
+<h3>Arquitectura y hardware reportados (2016–2017)</h3>
+<p>
+    En fuentes institucionales y técnicas se describe un Data Center con enfoque de <strong>alta disponibilidad</strong> y
+    <strong>seguridad</strong>, alineado a estándares tipo <strong>TIER II</strong>, con redundancias y monitoreo centralizado.
+  </p>
+<h4>Arquitectura física (salas y operación)</h4>
+<ul>
+<li><strong>Cinco salas:</strong> equipos tecnológicos, distribución de energía, monitoreo, investigación y exposición/showroom.</li>
+<li><strong>Operación y monitoreo:</strong> sala de monitoreo con video wall y control de infraestructura/servicios.</li>
+</ul>
+<p class="sources">
+    Fuentes: 
+    <a href="https://www.datacenterdynamics.com/es/noticias/la-universidad-central-del-ecuador-estrena-data-center/" rel="noopener" target="_blank">DCD (2017)</a> ·
+    <a href="https://www.uce.edu.ec/archive_noticias?artID=294877" rel="noopener" target="_blank">UCE (2017)</a>
+</p>
+<h4>Energía, disponibilidad y enfriamiento</h4>
+<ul>
+<li><strong>UPS con redundancia 2N</strong> y banco de baterías (soporte mínimo de 15 minutos).</li>
+<li><strong>Demanda estimada:</strong> 21,6 kW; dimensionamiento para atender ~40 kVA en sala climatizada.</li>
+<li><strong>Niveles reportados:</strong> disponibilidad 99,75% y capacidad N+1.</li>
+</ul>
+<p class="sources">
+    Fuente: 
+    <a href="https://publicaciones.ucuenca.edu.ec/ojs/index.php/maskana/article/download/1468/1141" rel="noopener" target="_blank">Cadena &amp; Enríquez (TIC.EC/Maskana 2017)</a>
+</p>
+<h4>Servidores y almacenamiento (especificaciones publicadas)</h4>
+<ul>
+<li><strong>CPU:</strong> por servidor 2× Intel Xeon E5-2640 (10 cores c/u).</li>
+<li><strong>Memoria:</strong> 128 GB RAM por servidor.</li>
+<li><strong>Discos:</strong> hasta 25 discos SAS 2.5” por recinto, ampliable a 500 unidades SAS.</li>
+<li><strong>Virtualización:</strong> se reporta operación con más de 60 máquinas/servidores virtuales.</li>
+</ul>
+<p class="sources">
+    Fuentes: 
+    <a href="https://publicaciones.ucuenca.edu.ec/ojs/index.php/maskana/article/download/1468/1141" rel="noopener" target="_blank">TIC.EC/Maskana 2017</a> ·
+    <a href="https://www.datacenterdynamics.com/es/noticias/la-universidad-central-del-ecuador-estrena-data-center/" rel="noopener" target="_blank">DCD (2017)</a>
+</p>
+<h4>Seguridad física y lógica</h4>
+<ul>
+<li><strong>Seguridad:</strong> firewall robusto, control de accesos por perfiles, videovigilancia y sistema contra incendios.</li>
+<li><strong>Showroom académico:</strong> “ventana” para visitas y docencia sin comprometer la seguridad de la información.</li>
+</ul>
+<p class="sources">
+    Fuente: 
+    <a href="https://publicaciones.ucuenca.edu.ec/ojs/index.php/maskana/article/download/1468/1141" rel="noopener" target="_blank">TIC.EC/Maskana 2017</a>
+</p>
+</div>
+</div>
+<h2>3) Presupuesto e inversión</h2>
+<div class="card">
+<p>
+<strong>Inversión reportada (costo referencial):</strong> <strong>USD 1.200.000</strong>.
+  Este valor aparece en una nota institucional de la UCE sobre la inauguración del Data Center y también es citado por un medio especializado del sector.
+</p>
+<ul>
+<li><a href="https://www.uce.edu.ec/archive_noticias?artID=294877" rel="noopener" target="_blank">UCE (enero 2017): costo referencial del proyecto</a></li>
+<li><a href="https://www.datacenterdynamics.com/es/noticias/la-universidad-central-del-ecuador-estrena-data-center/" rel="noopener" target="_blank">DataCenterDynamics (enero 2017): inversión reportada y características</a></li>
+</ul>
+<p class="muted">
+  Nota: se mantiene el valor como <em>inversión reportada</em> por tratarse de una cifra publicada (no un detalle contractual desglosado).
+</p>
+</div>
+<h2>4) Impacto para la UCE (académico y administrativo)</h2>
+<div class="grid">
+<div class="card">
+<h3>Impactos directos</h3>
+<ul>
+<li><strong>Estabilidad de servicios:</strong> menos caídas por fallas eléctricas/ambientales en equipos críticos.</li>
+<li><strong>Centralización:</strong> consolidación de servidores y almacenamiento en un entorno controlado.</li>
+<li><strong>Mejor seguridad:</strong> control físico y procedimientos de operación.</li>
+<li><strong>Base para crecimiento:</strong> soporte para nuevas plataformas y expansión de conectividad.</li>
+</ul>
+</div>
+<div class="card">
+<h3>Lectura histórica</h3>
+<p>
+          En una línea de tiempo 2016–2026, el Data Center funciona como un “punto de inflexión”: marca el paso de una TI reactiva
+          (equipos dispersos) a una TI estratégica (infraestructura crítica, continuidad y escalabilidad). Por eso es coherente
+          que tu proyecto lo destaque como el evento principal del período.
+        </p>
+</div>
+</div>
+<h2>5) Fuentes verificables (clicables)</h2>
+<div class="card refs">
+<ul>
+<li>
+<a href="https://www.uce.edu.ec/archive_noticias?artID=262339" rel="noopener" target="_blank">
+            Universidad Central del Ecuador – “Inició la instalación del nuevo Data Center...” (09/09/2016)
+          </a>
+</li>
+<li>
+<a href="https://www.uce.edu.ec/archive_noticias?artID=294877" rel="noopener" target="_blank">
+            Universidad Central del Ecuador – “El Data Center ampliará la capacidad de almacenamiento...” (19/01/2017)
+          </a>
+</li>
+<li>
+<a href="https://www.datacenterdynamics.com/es/noticias/la-universidad-central-del-ecuador-estrena-data-center/" rel="noopener" target="_blank">
+            DataCenterDynamics – “La Universidad Central del Ecuador estrena data center” (25/01/2017)
+          </a>
+</li>
+<li>
+<a href="https://publicaciones.ucuenca.edu.ec/ojs/index.php/maskana/article/view/1468" rel="noopener" target="_blank">
+            TIC.EC 2017 / Maskana – “Diseño e implementación de un centro de datos en la Universidad Central del Ecuador”
+          </a>
+</li>
+<li>
+<a href="https://www.cisco.com/c/dam/global/es_mx/assets/pdfs/caso-de-exito-uce.pdf" rel="noopener" target="_blank">
+            Cisco – Caso de éxito UCE (contexto de modernización de conectividad)
+          </a>
+</li>
+<li>
+<a href="https://www.youtube.com/watch?v=mjLJgmkPLmo" rel="noopener" target="_blank">
+            Video institucional (YouTube) – “DATA CENTER UNIVERSIDAD CENTRAL DEL ECUADOR”
+          </a>
+</li>
+</ul>
+</div>
+<footer>
+      Elaborado para la línea de tiempo 2016–2026 (Infraestructura II). Recomendación: agrega capturas de pantalla de las fuentes institucionales como respaldo visual.
+    </footer>
+</div>
+</body>
+</html>
