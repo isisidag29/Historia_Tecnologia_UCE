@@ -6,37 +6,39 @@
     <title>Periodo 2001-2015 | Historia UCE</title>
     <script src="https://unpkg.com/lucide@latest"></script>
     <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
     
     <style>
-        /* Estilos específicos para la Era de la Conectividad (Azul Índigo/Moderno) */
+        /* Estilos base y paleta de la Era de la Conectividad */
         :root {
             --bg-color: #eef2f6;
-            --primary-conn: #1a237e; /* Índigo profundo */
-            --secondary-conn: #3949ab; /* Índigo medio */
-            --accent-conn: #5c6bc0; /* Índigo claro */
-            --card-bg: #ffffff;
+            --primary-color: #1a237e; /* Índigo profundo */
+            --accent-color: #5c6bc0;  /* Índigo claro */
             --text-color: #333;
+            --card-bg: #ffffff;
         }
 
         body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
             background-color: var(--bg-color);
             color: var(--text-color);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
 
-        /* Header específico para este periodo */
+        /* --- HEADER --- */
         header {
             background: linear-gradient(135deg, #1a237e 0%, #0d47a1 100%);
             color: white;
             padding: 3rem 2rem;
             text-align: center;
-            border-bottom: 5px solid var(--accent-conn);
             position: relative;
             overflow: hidden;
         }
 
-        /* Efecto de "circuitos" sutil en el header */
-        header::after {
+        /* Efecto de circuitos y borde inferior */
+        header::before {
             content: '';
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -44,102 +46,192 @@
             linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
             background-size: 30px 30px;
             opacity: 0.3;
+            z-index: 1;
         }
 
-        /* Grid de Tarjetas */
-        .cards-grid {
+        header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--accent-color);
+            z-index: 2;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            z-index: 2;
+        }
+
+        p.subtitle {
+            font-size: 1.2rem;
+            margin-top: 10px;
+            opacity: 0.9;
+            font-weight: 300;
+            position: relative;
+            z-index: 2;
+        }
+
+        .description {
+            text-align: center; 
+            color: #455a64; 
+            font-size: 1.15rem; 
+            max-width: 800px; 
+            margin: 30px auto 10px auto;
+            padding: 0 20px;
+        }
+
+        /* --- BOTÓN VOLVER --- */
+        .nav-container {
+            padding: 20px 5%;
+        }
+
+        .btn-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            color: var(--primary-color);
+            font-weight: 600;
+            padding: 10px 20px;
+            background: white;
+            border-radius: 50px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .btn-back:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateX(-5px);
+        }
+
+        /* --- GRILLA DE AÑOS --- */
+        .grid-container {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 20px;
-            padding: 20px;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+            padding: 20px 5% 60px;
             max-width: 1200px;
             margin: 0 auto;
         }
 
-        /* Tarjeta de Hito */
-        .milestone-card {
+        /* --- TARJETA DEL AÑO (Diseño con Imágenes) --- */
+        .year-card {
             background: var(--card-bg);
-            border-radius: 12px;
+            border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 4px 8px rgba(26, 35, 126, 0.08);
-            text-decoration: none;
-            color: inherit;
-            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(26, 35, 126, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
             display: flex;
             flex-direction: column;
+            text-decoration: none;
+            color: inherit;
             border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .year-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(26, 35, 126, 0.2);
+            border-color: var(--accent-color);
+        }
+
+        /* Imagen de la tarjeta */
+        .card-image {
+            height: 180px;
+            width: 100%;
+            background-color: #e0e0e0;
             position: relative;
+            overflow: hidden;
         }
 
-        .milestone-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 24px rgba(26, 35, 126, 0.15);
-            border-color: var(--secondary-conn);
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
         }
 
-        /* Badge del Año */
+        .year-card:hover .card-image img {
+            transform: scale(1.1);
+        }
+
+        /* Etiqueta del Año */
         .year-badge {
-            background: var(--secondary-conn);
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--accent-color);
             color: white;
-            padding: 6px 12px;
-            font-weight: 700;
-            text-align: center;
-            font-size: 1rem;
-            letter-spacing: 1px;
+            padding: 5px 15px;
+            font-weight: 800;
+            font-size: 1.1rem;
+            border-radius: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            z-index: 2;
         }
 
-        /* Contenido de la Tarjeta */
+        /* Contenido de la tarjeta */
         .card-content {
             padding: 20px;
             text-align: center;
             flex-grow: 1;
             display: flex;
             flex-direction: column;
-            align-items: center;
             justify-content: center;
         }
 
-        .card-icon {
-            margin-bottom: 12px;
-            width: 42px;
-            height: 42px;
-            stroke-width: 1.5;
-            color: var(--primary-conn);
-        }
-
         .card-content h3 {
-            margin: 0 0 8px 0;
-            color: var(--primary-conn);
-            font-size: 1.15rem;
+            margin: 0;
+            color: var(--primary-color);
+            font-size: 1.2rem;
             font-weight: 700;
+            text-transform: uppercase;
         }
 
         .card-content p {
             font-size: 0.9rem;
-            color: #555;
-            margin: 0;
-            line-height: 1.45;
+            color: #666;
+            margin-top: 10px;
+            line-height: 1.5;
         }
 
-        /* Botón Volver */
-        .btn-back {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            text-decoration: none;
-            color: var(--primary-conn);
+        .card-footer {
+            padding: 15px;
+            background: #f8f9fa;
+            text-align: center;
+            border-top: 1px solid #eee;
             font-weight: 600;
-            padding: 10px 25px;
-            background: white;
-            border: 1px solid var(--secondary-conn);
-            border-radius: 50px;
-            transition: all 0.3s ease;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
         }
 
-        .btn-back:hover {
-            background: var(--primary-conn);
-            color: white;
-            border-color: var(--primary-conn);
+        /* --- FOOTER GENERAL --- */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: white;
+            border-top: 1px solid #ddd;
+            margin-top: auto;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .footer-details {
+            margin-top: 5px;
+            font-size: 0.85rem;
+            color: #888;
         }
 
     </style>
@@ -147,170 +239,209 @@
 <body>
 
     <header>
-        <h1 style="position: relative; z-index: 2;">Periodo 2001 - 2015</h1>
-        <p style="position: relative; z-index: 2;">La Revolución de la Conectividad y el Software</p>
+        <h1>Periodo 2001 - 2015</h1>
+        <p class="subtitle">La Revolución de la Conectividad y el Software</p>
     </header>
 
-    <div class="section-container" style="padding: 40px 20px;">
-        
-        <p style="text-align: center; color: #455a64; margin-bottom: 40px; font-size: 1.15rem; max-width: 800px; margin-left: auto; margin-right: auto;">
-            La era de la modernización: desde las primeras conexiones dial-up hasta la consolidación de campus inteligentes y plataformas virtuales.
-        </p>
+    <div class="nav-container">
+        <a href="menu.html" class="btn-back">
+            <i data-lucide="arrow-left"></i> Volver al Menú Principal
+        </a>
+    </div>
 
-        <div class="cards-grid">
-            
-            <a href="2001.html" class="milestone-card">
-                <div class="year-badge">2001</div>
-                <div class="card-content">
-                    <i data-lucide="network" class="card-icon"></i>
-                    <h3>Conexión Limitada</h3>
-                    <p>La era del Dial-up y redes de cobre.</p>
-                </div>
-            </a>
+    <p class="description">
+        La era de la modernización: desde las primeras conexiones dial-up hasta la consolidación de campus inteligentes y plataformas virtuales.
+    </p>
 
-            <a href="2002.html" class="milestone-card">
-                <div class="year-badge">2002</div>
-                <div class="card-content">
-                    <i data-lucide="globe" class="card-icon"></i>
-                    <h3>Fundación CEDIA</h3>
-                    <p>Inicio de la Red Académica Nacional.</p>
-                </div>
-            </a>
+    <div class="grid-container">
 
-            <a href="2003.html" class="milestone-card">
-                <div class="year-badge">2003</div>
-                <div class="card-content">
-                    <i data-lucide="radio-tower" class="card-icon"></i>
-                    <h3>Radioenlaces</h3>
-                    <p>Primera conexión a RedCLARA.</p>
-                </div>
-            </a>
+        <a href="2001.html" class="year-card">
+            <div class="year-badge">2001</div>
+            <div class="card-image">
+                <img src="images/2001.jpg" alt="2001" onerror="this.src='https://placehold.co/400x250?text=2001'">
+            </div>
+            <div class="card-content">
+                <h3>Conexión Limitada</h3>
+                <p>La era del Dial-up y redes de cobre.</p>
+            </div>
+            <div class="card-footer">Ver Detalles <i data-lucide="arrow-right" size="16"></i></div>
+        </a>
 
-            <a href="2004.html" class="milestone-card">
-                <div class="year-badge">2004</div>
-                <div class="card-content">
-                    <i data-lucide="route" class="card-icon"></i>
-                    <h3>Fibra Óptica (Fase 1)</h3>
-                    <p>Primeros soterramientos en el campus.</p>
-                </div>
-            </a>
+        <a href="2002.html" class="year-card">
+            <div class="year-badge">2002</div>
+            <div class="card-image">
+                <img src="images/2002.jpg" alt="2002" onerror="this.src='https://placehold.co/400x250?text=2002'">
+            </div>
+            <div class="card-content">
+                <h3>Fundación CEDIA</h3>
+                <p>Inicio de la Red Académica Nacional.</p>
+            </div>
+            <div class="card-footer">Ver Detalles <i data-lucide="arrow-right" size="16"></i></div>
+        </a>
 
-            <a href="2005.html" class="milestone-card">
-                <div class="year-badge">2005</div>
-                <div class="card-content">
-                    <i data-lucide="library" class="card-icon"></i>
-                    <h3>Bibliotecas</h3>
-                    <p>Automatización con sistema CDS/ISIS.</p>
-                </div>
-            </a>
+        <a href="2003.html" class="year-card">
+            <div class="year-badge">2003</div>
+            <div class="card-image">
+                <img src="images/2003.jpg" alt="2003" onerror="this.src='https://placehold.co/400x250?text=2003'">
+            </div>
+            <div class="card-content">
+                <h3>Radioenlaces</h3>
+                <p>Primera conexión a RedCLARA.</p>
+            </div>
+            <div class="card-footer">Ver Detalles <i data-lucide="arrow-right" size="16"></i></div>
+        </a>
 
-            <a href="2006.html" class="milestone-card">
-                <div class="year-badge">2006</div>
-                <div class="card-content">
-                    <i data-lucide="alert-triangle" class="card-icon"></i>
-                    <h3>Crisis Técnica</h3>
-                    <p>Obsolescencia de equipos y virus.</p>
-                </div>
-            </a>
+        <a href="2004.html" class="year-card">
+            <div class="year-badge">2004</div>
+            <div class="card-image">
+                <img src="images/2004.jpg" alt="2004" onerror="this.src='https://placehold.co/400x250?text=2004'">
+            </div>
+            <div class="card-content">
+                <h3>Fibra Óptica (Fase 1)</h3>
+                <p>Primeros soterramientos en el campus.</p>
+            </div>
+            <div class="card-footer">Ver Detalles <i data-lucide="arrow-right" size="16"></i></div>
+        </a>
 
-            <a href="2007.html" class="milestone-card">
-                <div class="year-badge">2007</div>
-                <div class="card-content">
-                    <i data-lucide="clipboard-list" class="card-icon"></i>
-                    <h3>Diagnóstico</h3>
-                    <p>Evaluación previa a la acreditación.</p>
-                </div>
-            </a>
+        <a href="2005.html" class="year-card">
+            <div class="year-badge">2005</div>
+            <div class="card-image">
+                <img src="images/2005.jpg" alt="2005" onerror="this.src='https://placehold.co/400x250?text=2005'">
+            </div>
+            <div class="card-content">
+                <h3>Bibliotecas</h3>
+                <p>Automatización con sistema CDS/ISIS.</p>
+            </div>
+            <div class="card-footer">Ver Detalles <i data-lucide="arrow-right" size="16"></i></div>
+        </a>
 
-            <a href="2008.html" class="milestone-card">
-                <div class="year-badge">2008</div>
-                <div class="card-content">
-                    <i data-lucide="scale" class="card-icon"></i>
-                    <h3>Constitución 2008</h3>
-                    <p>Derecho digital y renovación de PCs.</p>
-                </div>
-            </a>
+        <a href="2006.html" class="year-card">
+            <div class="year-badge">2006</div>
+            <div class="card-image">
+                <img src="images/2006.jpg" alt="2006" onerror="this.src='https://placehold.co/400x250?text=2006'">
+            </div>
+            <div class="card-content">
+                <h3>Crisis Técnica</h3>
+                <p>Obsolescencia de equipos y virus.</p>
+            </div>
+            <div class="card-footer">Ver Detalles <i data-lucide="arrow-right" size="16"></i></div>
+        </a>
 
-            <a href="2009.html" class="milestone-card">
-                <div class="year-badge">2009</div>
-                <div class="card-content">
-                    <i data-lucide="server-off" class="card-icon"></i>
-                    <h3>Viejo Data Center</h3>
-                    <p>Informe crítico del CONEA.</p>
-                </div>
-            </a>
+        <a href="2007.html" class="year-card">
+            <div class="year-badge">2007</div>
+            <div class="card-image">
+                <img src="images/2007.jpg" alt="2007" onerror="this.src='https://placehold.co/400x250?text=2007'">
+            </div>
+            <div class="card-content">
+                <h3>Diagnóstico</h3>
+                <p>Evaluación previa a la acreditación.</p>
+            </div>
+            <div class="card-footer">Ver Detalles <i data-lucide="arrow-right" size="16"></i></div>
+        </a>
 
-            <a href="2010.html" class="milestone-card">
-                <div class="year-badge">2010</div>
-                <div class="card-content">
-                    <i data-lucide="book-open" class="card-icon"></i>
-                    <h3>Ley LOES</h3>
-                    <p>Obligatoriedad de transparencia web.</p>
-                </div>
-            </a>
+        <a href="2008.html" class="year-card">
+            <div class="year-badge">2008</div>
+            <div class="card-image">
+                <img src="images/2008.jpg" alt="2008" onerror="this.src='https://placehold.co/400x250?text=2008'">
+            </div>
+            <div class="card-content">
+                <h3>Constitución 2008</h3>
+                <p>Derecho digital y renovación de PCs.</p>
+            </div>
+            <div class="card-footer">Ver Detalles <i data-lucide="arrow-right" size="16"></i></div>
+        </a>
 
-            <a href="2011.html" class="milestone-card">
-                <div class="year-badge">2011</div>
-                <div class="card-content">
-                    <i data-lucide="database" class="card-icon"></i>
-                    <h3>Sistema SIIU</h3>
-                    <p>Centralización de datos académicos.</p>
-                </div>
-            </a>
+        <a href="2009.html" class="year-card">
+            <div class="year-badge">2009</div>
+            <div class="card-image">
+                <img src="images/2009.jpg" alt="2009" onerror="this.src='https://placehold.co/400x250?text=2009'">
+            </div>
+            <div class="card-content">
+                <h3>Viejo Data Center</h3>
+                <p>Informe crítico del CONEA.</p>
+            </div>
+            <div class="card-footer">Ver Detalles <i data-lucide="arrow-right" size="16"></i></div>
+        </a>
 
-            <a href="2012.html" class="milestone-card">
-                <div class="year-badge">2012</div>
-                <div class="card-content">
-                    <i data-lucide="server" class="card-icon"></i>
-                    <h3>Nuevo Data Center</h3>
-                    <p>Virtualización e infraestructura física.</p>
-                </div>
-            </a>
+        <a href="2010.html" class="year-card">
+            <div class="year-badge">2010</div>
+            <div class="card-image">
+                <img src="images/2010.jpg" alt="2010" onerror="this.src='https://placehold.co/400x250?text=2010'">
+            </div>
+            <div class="card-content">
+                <h3>Ley LOES</h3>
+                <p>Obligatoriedad de transparencia web.</p>
+            </div>
+            <div class="card-footer">Ver Detalles <i data-lucide="arrow-right" size="16"></i></div>
+        </a>
 
-            <a href="2013.html" class="milestone-card">
-                <div class="year-badge">2013</div>
-                <div class="card-content">
-                    <i data-lucide="layout" class="card-icon"></i>
-                    <h3>Plataformas Virtuales</h3>
-                    <p>Expansión de la educación en línea.</p>
-                </div>
-            </a>
+        <a href="2011.html" class="year-card">
+            <div class="year-badge">2011</div>
+            <div class="card-image">
+                <img src="images/2011.jpg" alt="2011" onerror="this.src='https://placehold.co/400x250?text=2011'">
+            </div>
+            <div class="card-content">
+                <h3>Sistema SIIU</h3>
+                <p>Centralización de datos académicos.</p>
+            </div>
+            <div class="card-footer">Ver Detalles <i data-lucide="arrow-right" size="16"></i></div>
+        </a>
 
-            <a href="2014.html" class="milestone-card">
-                <div class="year-badge">2014</div>
-                <div class="card-content">
-                    <i data-lucide="graduation-cap" class="card-icon"></i>
-                    <h3>Educación 2.0</h3>
-                    <p>Modernización tecnológica integral.</p>
-                </div>
-            </a>
+        <a href="2012.html" class="year-card">
+            <div class="year-badge">2012</div>
+            <div class="card-image">
+                <img src="images/2012.jpg" alt="2012" onerror="this.src='https://placehold.co/400x250?text=2012'">
+            </div>
+            <div class="card-content">
+                <h3>Nuevo Data Center</h3>
+                <p>Virtualización e infraestructura física.</p>
+            </div>
+            <div class="card-footer">Ver Detalles <i data-lucide="arrow-right" size="16"></i></div>
+        </a>
 
-            <a href="2015.html" class="milestone-card">
-                <div class="year-badge">2015</div>
-                <div class="card-content">
-                    <i data-lucide="wifi" class="card-icon"></i>
-                    <h3>Consolidación</h3>
-                    <p>Herramientas académicas y Wi-Fi masivo.</p>
-                </div>
-            </a>
+        <a href="2013.html" class="year-card">
+            <div class="year-badge">2013</div>
+            <div class="card-image">
+                <img src="images/2013.jpg" alt="2013" onerror="this.src='https://placehold.co/400x250?text=2013'">
+            </div>
+            <div class="card-content">
+                <h3>Plataformas Virtuales</h3>
+                <p>Expansión de la educación en línea.</p>
+            </div>
+            <div class="card-footer">Ver Detalles <i data-lucide="arrow-right" size="16"></i></div>
+        </a>
 
-        </div>
+        <a href="2014.html" class="year-card">
+            <div class="year-badge">2014</div>
+            <div class="card-image">
+                <img src="images/2014.jpg" alt="2014" onerror="this.src='https://placehold.co/400x250?text=2014'">
+            </div>
+            <div class="card-content">
+                <h3>Educación 2.0</h3>
+                <p>Modernización tecnológica integral.</p>
+            </div>
+            <div class="card-footer">Ver Detalles <i data-lucide="arrow-right" size="16"></i></div>
+        </a>
 
-        <div style="text-align: center; margin-bottom: 40px; margin-top: 40px;">
-            <a href="menu.html" class="btn-back">
-                <i data-lucide="home"></i> Volver al Menú Principal
-            </a>
-        </div>
+        <a href="2015.html" class="year-card">
+            <div class="year-badge">2015</div>
+            <div class="card-image">
+                <img src="images/2015.jpg" alt="2015" onerror="this.src='https://placehold.co/400x250?text=2015'">
+            </div>
+            <div class="card-content">
+                <h3>Consolidación</h3>
+                <p>Herramientas académicas y Wi-Fi masivo.</p>
+            </div>
+            <div class="card-footer">Ver Detalles <i data-lucide="arrow-right" size="16"></i></div>
+        </a>
 
     </div>
 
     <footer>
-        <div class="footer-content" style="text-align: center; padding: 20px; color: #666; font-size: 0.9rem; border-top: 1px solid #ddd;">
-            <p><strong>© 2026 Universidad Central del Ecuador</strong> - Facultad de Ingeniería, Ciencias Físicas y Matemática</p>
-            <p class="footer-details">
-                Ingeniería en Sistemas de Información | Infraestructura II | SI5-001 | Tecnología en la UCE 2025-2026
-            </p>
-        </div>
+        <p><strong>&copy; 2026 Universidad Central del Ecuador</strong> - Facultad de Ingeniería, Ciencias Físicas y Matemática</p>
+        <p class="footer-details">
+            Ingeniería en Sistemas de Información | Infraestructura II | SI5-001 | Tecnología en la UCE 2025-2026
+        </p>
     </footer>
 
     <script>
