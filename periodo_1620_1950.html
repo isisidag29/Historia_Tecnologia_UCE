@@ -1,209 +1,340 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Periodo 1620-1950 | Historia UCE</title>
     <script src="https://unpkg.com/lucide@latest"></script>
     <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css"> <style>
-        /* Estilos específicos para este periodo (Tonos Tierra/Históricos) */
+
+    <style>
+        /* Estilos base y paleta del Periodo Histórico 1620-1950 */
         :root {
-            --bg-color: #fcf8f5; /* Fondo crema suave */
-            --primary-hist: #5D4037; /* Café oscuro */
-            --secondary-hist: #8D6E63; /* Café claro */
+            --bg-color: #eef2f6;
+            --primary-color: #1a237e;
+            /* Índigo profundo */
+            --accent-color: #5c6bc0;
+            /* Índigo claro */
+            --text-color: #333;
             --card-bg: #ffffff;
-            --text-color: #3e2723;
         }
 
         body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
             background-color: var(--bg-color);
             color: var(--text-color);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
 
-        /* Header específico para este periodo */
+        /* --- HEADER --- */
         header {
-            background: linear-gradient(135deg, #3E2723 0%, #5D4037 100%);
+            background: linear-gradient(135deg, #1a237e 0%, #0d47a1 100%);
             color: white;
             padding: 3rem 2rem;
             text-align: center;
-            border-bottom: 5px solid var(--secondary-hist);
-        }
-
-        /* Grid de Tarjetas */
-        .cards-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 25px;
-            padding: 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        /* Tarjeta de Hito (Milestone Card) */
-        .milestone-card {
-            background: var(--card-bg);
-            border-radius: 12px;
+            position: relative;
             overflow: hidden;
-            box-shadow: 0 4px 15px rgba(93, 64, 55, 0.1);
-            text-decoration: none;
-            color: inherit;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            border: 1px solid rgba(141, 110, 99, 0.2);
         }
 
-        .milestone-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(93, 64, 55, 0.2);
-            border-color: var(--secondary-hist);
+        /* Efecto de circuitos y borde inferior */
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+            background-size: 30px 30px;
+            opacity: 0.3;
+            z-index: 1;
         }
 
-        /* Badge del Año */
-        .year-badge {
-            background: var(--secondary-hist);
-            color: white;
-            padding: 8px 15px;
-            font-weight: 700;
-            text-align: center;
-            font-size: 1.1rem;
-            letter-spacing: 1px;
+        header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--accent-color);
+            z-index: 2;
         }
 
-        /* Contenido de la Tarjeta */
-        .card-content {
-            padding: 25px;
-            text-align: center;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .card-icon {
-            margin-bottom: 15px;
-            width: 48px;
-            height: 48px;
-            stroke-width: 1.5;
-        }
-
-        .card-content h3 {
-            margin: 0 0 10px 0;
-            color: var(--primary-hist);
-            font-size: 1.25rem;
-            font-weight: 700;
-        }
-
-        .card-content p {
-            font-size: 0.95rem;
-            color: #6d4c41; /* Café suave para texto */
+        h1 {
             margin: 0;
-            line-height: 1.5;
+            font-size: 2.5rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            z-index: 2;
         }
 
-        /* Botón Volver */
+        p.subtitle {
+            font-size: 1.2rem;
+            margin-top: 10px;
+            opacity: 0.9;
+            font-weight: 300;
+            position: relative;
+            z-index: 2;
+        }
+
+        .description {
+            text-align: center;
+            color: #455a64;
+            font-size: 1.15rem;
+            max-width: 800px;
+            margin: 30px auto 10px auto;
+            padding: 0 20px;
+        }
+
+        /* --- BOTÓN VOLVER --- */
+        .nav-container {
+            padding: 20px 5%;
+        }
+
         .btn-back {
             display: inline-flex;
             align-items: center;
             gap: 8px;
             text-decoration: none;
-            color: var(--primary-hist);
+            color: var(--primary-color);
             font-weight: 600;
-            padding: 10px 25px;
+            padding: 10px 20px;
             background: white;
-            border: 1px solid var(--secondary-hist);
             border-radius: 50px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             transition: all 0.3s ease;
-            margin-top: 40px;
         }
 
         .btn-back:hover {
-            background: var(--primary-hist);
+            background: var(--primary-color);
             color: white;
-            border-color: var(--primary-hist);
+            transform: translateX(-5px);
         }
 
+        /* --- GRILLA DE PERÍODOS --- */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+            padding: 20px 5% 60px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* --- TARJETA DE PERÍODO (con imagen) --- */
+        .year-card {
+            background: var(--card-bg);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(26, 35, 126, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            text-decoration: none;
+            color: inherit;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .year-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(26, 35, 126, 0.2);
+            border-color: var(--accent-color);
+        }
+
+        /* Imagen de la tarjeta */
+        .card-image {
+            height: 180px;
+            width: 100%;
+            background-color: #e0e0e0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .year-card:hover .card-image img {
+            transform: scale(1.1);
+        }
+
+        /* Etiqueta del período */
+        .year-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--accent-color);
+            color: white;
+            padding: 5px 15px;
+            font-weight: 800;
+            font-size: 1.1rem;
+            border-radius: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            z-index: 2;
+        }
+
+        /* Contenido de la tarjeta */
+        .card-content {
+            padding: 20px;
+            text-align: center;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .card-content h3 {
+            margin: 0;
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .card-content p {
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 10px;
+            line-height: 1.5;
+        }
+
+        .card-footer {
+            padding: 15px;
+            background: #f8f9fa;
+            text-align: center;
+            border-top: 1px solid #eee;
+            font-weight: 600;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+        }
+
+        /* --- FOOTER GENERAL --- */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: white;
+            border-top: 1px solid #ddd;
+            margin-top: auto;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .footer-details {
+            margin-top: 5px;
+            font-size: 0.85rem;
+            color: #888;
+        }
     </style>
 </head>
+
 <body>
 
     <header>
         <h1>Periodo 1620 - 1950</h1>
-        <p>De la Real Audiencia a la Modernidad: Los Cimientos de la Central</p>
+        <p class="subtitle">De la Real Audiencia a la Modernidad: Los Cimientos de la Central</p>
     </header>
 
-    <div class="section-container" style="padding: 40px 20px;">
-        
-        <p style="text-align: center; color: #5D4037; margin-bottom: 40px; font-size: 1.2rem; max-width: 800px; margin-left: auto; margin-right: auto;">
-            Explora las etapas fundacionales de nuestra universidad, desde sus raíces coloniales hasta la consolidación del campus moderno.
-        </p>
+    <div class="nav-container">
+        <a href="menu.html" class="btn-back">
+            <i data-lucide="arrow-left"></i> Volver al Menú Principal
+        </a>
+    </div>
 
-        <div class="cards-grid">
-            
-            <a href="1620-1785.html" class="milestone-card">
-                <div class="year-badge">1620 - 1785</div>
-                <div class="card-content">
-                    <i data-lucide="scroll" class="card-icon" style="color: #5D4037;"></i>
-                    <h3>Orígenes Coloniales</h3>
-                    <p>Universidades San Gregorio y Santo Tomás de Aquino. La era escolástica.</p>
-                </div>
-            </a>
+    <p class="description">
+        Explora las etapas fundacionales de nuestra universidad, desde sus raíces coloniales hasta la consolidación del
+        campus moderno.
+    </p>
 
-            <a href="1786-1835.html" class="milestone-card">
-                <div class="year-badge">1786 - 1835</div>
-                <div class="card-content">
-                    <i data-lucide="feather" class="card-icon" style="color: #5D4037;"></i>
-                    <h3>Transición e Independencia</h3>
-                    <p>Fusión universitaria y el impacto de las guerras de independencia.</p>
-                </div>
-            </a>
+    <div class="grid-container">
 
-            <a href="1836-1901.html" class="milestone-card">
-                <div class="year-badge">1836 - 1901</div>
-                <div class="card-content">
-                    <i data-lucide="landmark" class="card-icon" style="color: #5D4037;"></i>
-                    <h3>Fundación Oficial UCE</h3>
-                    <p>Decreto de Rocafuerte (1836) y la reapertura tras la clausura garciana.</p>
-                </div>
-            </a>
+        <a href="1620-1785.html" class="year-card">
+            <div class="year-badge">1620 - 1785</div>
+            <div class="card-image">
+                <img src="img/Jesuitas.jpg" alt="1620-1785"
+                    onerror="this.src='https://placehold.co/400x250?text=1620-1785'">
+            </div>
+            <div class="card-content">
+                <h3>Orígenes Coloniales</h3>
+                <p>Universidades San Gregorio y Santo Tomás de Aquino. La era escolástica.</p>
+            </div>
+            <div class="card-footer">Ver Detalles <i data-lucide="arrow-right" size="16"></i></div>
+        </a>
 
-            <a href="1902-1929.html" class="milestone-card">
-                <div class="year-badge">1902 - 1929</div>
-                <div class="card-content">
-                    <i data-lucide="book-open" class="card-icon" style="color: #5D4037;"></i>
-                    <h3>Liberalismo y Autonomía</h3>
-                    <p>La influencia alfarista y la conquista de la Autonomía Universitaria (1925).</p>
-                </div>
-            </a>
+        <a href="1786-1835.html" class="year-card">
+            <div class="year-badge">1786 - 1835</div>
+            <div class="card-image">
+                <img src="img/santo-tomas-aquino2.jpg" alt="1786-1835"
+                    onerror="this.src='https://placehold.co/400x250?text=1786-1835'">
+            </div>
+            <div class="card-content">
+                <h3>Transición e Independencia</h3>
+                <p>Fusión universitaria y el impacto de las guerras de independencia.</p>
+            </div>
+            <div class="card-footer">Ver Detalles <i data-lucide="arrow-right" size="16"></i></div>
+        </a>
 
-            <a href="1930-1950.html" class="milestone-card">
-                <div class="year-badge">1930 - 1950</div>
-                <div class="card-content">
-                    <i data-lucide="printer" class="card-icon" style="color: #5D4037;"></i>
-                    <h3>Expansión y Ciudadela</h3>
-                    <p>Creación de la Imprenta Universitaria y planificación del campus actual.</p>
-                </div>
-            </a>
+        <a href="1836-1901.html" class="year-card">
+            <div class="year-badge">1836 - 1901</div>
+            <div class="card-image">
+                <img src="img/Uce1837.jpg" alt="1836-1901"
+                    onerror="this.src='https://placehold.co/400x250?text=1836-1901'">
+            </div>
+            <div class="card-content">
+                <h3>Fundación Oficial UCE</h3>
+                <p>Decreto de Rocafuerte (1836) y la reapertura tras la clausura garciana.</p>
+            </div>
+            <div class="card-footer">Ver Detalles <i data-lucide="arrow-right" size="16"></i></div>
+        </a>
 
-        </div>
+        <a href="1902-1929.html" class="year-card">
+            <div class="year-badge">1902 - 1929</div>
+            <div class="card-image">
+                <img src="img/facultad_de_medicina.jpg" alt="1902-1929"
+                    onerror="this.src='https://placehold.co/400x250?text=1902-1929'">
+            </div>
+            <div class="card-content">
+                <h3>Liberalismo y Autonomía</h3>
+                <p>La influencia alfarista y la conquista de la Autonomía Universitaria (1925).</p>
+            </div>
+            <div class="card-footer">Ver Detalles <i data-lucide="arrow-right" size="16"></i></div>
+        </a>
 
-        <div style="text-align: center; margin-bottom: 40px;">
-            <a href="menu.html" class="btn-back">
-                <i data-lucide="home"></i> Volver al Menú Principal
-            </a>
-        </div>
+        <a href="1930-1950.html" class="year-card">
+            <div class="year-badge">1930 - 1950</div>
+            <div class="card-image">
+                <img src="img/mimeografo.jpg" alt="1930-1950"
+                    onerror="this.src='https://placehold.co/400x250?text=1930-1950'">
+            </div>
+            <div class="card-content">
+                <h3>Expansión y Ciudadela</h3>
+                <p>Creación de la Imprenta Universitaria y planificación del campus actual.</p>
+            </div>
+            <div class="card-footer">Ver Detalles <i data-lucide="arrow-right" size="16"></i></div>
+        </a>
 
     </div>
 
     <footer>
-        <div class="footer-content" style="text-align: center; padding: 20px; color: #666; font-size: 0.9rem; border-top: 1px solid #ddd;">
-            <p><strong>© 2026 Universidad Central del Ecuador</strong> - Facultad de Ingeniería, Ciencias Físicas y Matemática</p>
-            <p class="footer-details">
-                Ingeniería en Sistemas de Información | Infraestructura II | SI5-001 | Tecnología en la UCE 2025-2026
-            </p>
-        </div>
+        <p><strong>© 2026 Universidad Central del Ecuador</strong> - Facultad de Ingeniería, Ciencias Físicas y
+            Matemática</p>
+        <p class="footer-details">
+            Ingeniería en Sistemas de Información | Infraestructura II | SI5-001 | Tecnología en la UCE 2025-2026
+        </p>
     </footer>
 
     <script>
@@ -211,4 +342,5 @@
     </script>
 
 </body>
+
 </html>
