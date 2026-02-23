@@ -1,183 +1,341 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<title>Evolución Tecnológica - Ecuador y UCE</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evolución Tecnológica 1980 - 2000 | UCE</title>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-color: #f4f7f9;
+            --uce-blue: #003366;
+            --uce-gold: #C5A059;
+            --text-color: #333;
+            --card-bg: #ffffff;
+        }
 
-<style>
-body {
-    margin: 0;
-    font-family: "Segoe UI", Arial, sans-serif;
-    background: #ffffff;
-    color: #1f1f1f;
-}
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
 
-/* ===== FRANJA SUPERIOR ===== */
-.header {
-    background: #0a3d91;
-    color: white;
-    padding: 40px 20px;
-    text-align: center;
-}
+        /* --- HEADER --- */
+        header {
+            background: linear-gradient(135deg, var(--uce-blue) 0%, #001a4d 100%);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
 
-.header h1 {
-    margin: 0;
-    font-size: 34px;
-    letter-spacing: 1px;
-}
+        header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--uce-gold);
+        }
 
-/* ===== LINEA DE TIEMPO ===== */
-.timeline {
-    display: flex;
-    justify-content: center;
-    gap: 40px;
-    padding: 70px 40px;
-    flex-wrap: wrap;
-}
+        h1 {
+            margin: 0;
+            font-size: 2.2rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
 
-/* ===== TARJETAS ===== */
-.card {
-    width: 270px;
-    background: #ffffff;
-    border: 2px solid #0a3d91;
-    padding: 22px;
-    text-decoration: none;
-    color: #1f1f1f;
-    position: relative;
-    transition: all 0.4s ease;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-}
+        p.subtitle {
+            font-size: 1.2rem;
+            margin-top: 10px;
+            opacity: 0.9;
+            font-weight: 300;
+        }
 
-.card:hover {
-    transform: translateY(-15px) scale(1.05);
-    box-shadow: 0 18px 40px rgba(10,61,145,0.25);
-}
+        /* --- BOTÓN VOLVER --- */
+        .nav-container {
+            padding: 20px 5%;
+        }
 
-/* ===== TITULO PERIODO ===== */
-.period {
-    font-size: 20px;
-    font-weight: bold;
-    margin-bottom: 15px;
-    color: #0a3d91;
-}
+        .btn-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            color: var(--uce-blue);
+            font-weight: 600;
+            padding: 10px 20px;
+            background: white;
+            border-radius: 50px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
 
-/* ===== IMAGEN ===== */
-.card img {
-    width: 100%;
-    height: 140px;
-    object-fit: cover;
-    border: 1px solid #0a3d91;
-    margin-bottom: 15px;
-}
+        .btn-back:hover {
+            background: var(--uce-blue);
+            color: white;
+            transform: translateX(-5px);
+        }
 
-/* ===== LISTA ===== */
-.card ul {
-    padding-left: 18px;
-    font-size: 14px;
-    line-height: 1.5;
-}
+        /* --- GRILLA DE AÑOS --- */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 20px 5% 60px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
 
-.card ul li {
-    margin-bottom: 8px;
-}
+        /* --- TARJETA DEL AÑO --- */
+        .year-card {
+            background: var(--card-bg);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            text-decoration: none;
+            color: inherit;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
 
-/* ===== MARCO DECORATIVO ===== */
-.card::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    height: 4px;
-    width: 0%;
-    background: #0a3d91;
-    transition: width 0.4s ease;
-}
+        .year-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(0, 51, 102, 0.2);
+            border-color: var(--uce-gold);
+        }
 
-.card:hover::after {
-    width: 100%;
-}
-</style>
+        /* Imagen de la tarjeta */
+        .card-image {
+            height: 180px;
+            width: 100%;
+            background-color: #e0e0e0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .year-card:hover .card-image img {
+            transform: scale(1.1);
+        }
+
+        /* Etiqueta del Año */
+        .year-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--uce-gold);
+            color: var(--uce-blue);
+            padding: 5px 15px;
+            font-weight: 800;
+            font-size: 1rem;
+            border-radius: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            z-index: 2;
+        }
+
+        /* Contenido de la tarjeta */
+        .card-content {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-content h3 {
+            margin: 0;
+            color: var(--uce-blue);
+            font-size: 1.2rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            text-align: center;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+
+        /* Estilos para las listas dentro de las tarjetas */
+        .card-content ul {
+            padding-left: 20px;
+            margin: 0;
+            font-size: 0.9rem;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .card-content ul li {
+            margin-bottom: 8px;
+        }
+
+        .card-footer {
+            padding: 15px;
+            background: #f8f9fa;
+            text-align: center;
+            border-top: 1px solid #eee;
+            font-weight: 600;
+            color: var(--uce-blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            transition: background 0.3s ease;
+        }
+        
+        .year-card:hover .card-footer {
+            background: var(--uce-blue);
+            color: white;
+        }
+
+        /* Footer General */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: white;
+            border-top: 1px solid #eee;
+            margin-top: auto;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+    </style>
 </head>
-
 <body>
 
-<div class="header">
-    <h1>Evolución Tecnológica en Ecuador y la Universidad Central</h1>
-</div>
+    <header>
+        <h1>Evolución Tecnológica</h1>
+        <p class="subtitle">Ecuador y la Universidad Central: 1980 – 2000</p>
+    </header>
 
-<div class="timeline">
+    <div class="nav-container">
+        <a href="menu.html" class="btn-back">
+            <i data-lucide="arrow-left"></i> Volver al Menú Principal
+        </a>
+    </div>
 
-    <!-- 1980 - 1985 -->
-    <a href="1980-1985.html" class="card">
-        <div class="period">1980 – 1985</div>
-        <img src="computacion en la UCE.jpg">
-        <ul>
-            <li>Creación del CONUEP y fortalecimiento del CONACYT.</li>
-            <li>Primeros IBM PC en la UCE (modelo 5150).</li>
-            <li>Inicio de enseñanza de informática en 1981.</li>
-            <li>Uso académico de BASIC y FORTRAN.</li>
-            <li>Base para Matemática y Ciencias Computacionales.</li>
-            <li>Automatización administrativa inicial.</li>
-        </ul>
-    </a>
+    <div class="grid-container">
 
-    <!-- 1985 - 1990 -->
-    <a href="1985-1990.html" class="card">
-        <div class="period">1985 – 1990</div>
-        <img src="Creacion del CONUEP.png">
-        <ul>
-            <li>Expansión de laboratorios de computación.</li>
-            <li>Capacitación docente en informática.</li>
-            <li>Primeros sistemas académicos digitales.</li>
-            <li>Modernización del sector financiero.</li>
-            <li>Uso de software educativo.</li>
-            <li>Gestión informática universitaria inicial.</li>
-        </ul>
-    </a>
+        <a href="1980-1985.html" class="year-card">
+            <div class="year-badge">1980 - 1985</div>
+            <div class="card-image">
+                <img src="computación en la UCE.jpg" alt="1980 - 1985" onerror="this.src='https://placehold.co/400x250?text=1980+-+1985'">
+            </div>
+            <div class="card-content">
+                <h3>Inicios de la Informática</h3>
+                <ul>
+                    <li>Creación del CONUEP y fortalecimiento del CONACYT.</li>
+                    <li>Primeros IBM PC en la UCE (modelo 5150).</li>
+                    <li>Inicio de enseñanza de informática en 1981.</li>
+                    <li>Uso académico de BASIC y FORTRAN.</li>
+                    <li>Base para Matemática y Ciencias Computacionales.</li>
+                    <li>Automatización administrativa inicial.</li>
+                </ul>
+            </div>
+            <div class="card-footer">Ver Detalles <i data-lucide="arrow-right" size="16"></i></div>
+        </a>
 
-    <!-- 1990 - 1995 -->
-    <a href="1990-1995.html" class="card">
-        <div class="period">1990 – 1995</div>
-        <img src="Llegada del Internet al Ecuador.png">
-        <ul>
-            <li>Llegada del Internet al Ecuador.</li>
-            <li>Formalización de Ingeniería en Sistemas.</li>
-            <li>Correo electrónico institucional.</li>
-            <li>Redes académicas universitarias.</li>
-            <li>Uso de bases de datos.</li>
-            <li>Bibliotecas con sistemas digitales.</li>
-        </ul>
-    </a>
+        <a href="1985-1990.html" class="year-card">
+            <div class="year-badge">1985 - 1990</div>
+            <div class="card-image">
+                <img src="Creación del CONUEP.png" alt="1985 - 1990" onerror="this.src='https://placehold.co/400x250?text=1985+-+1990'">
+            </div>
+            <div class="card-content">
+                <h3>Expansión de Laboratorios</h3>
+                <ul>
+                    <li>Expansión de laboratorios de computación.</li>
+                    <li>Capacitación docente en informática.</li>
+                    <li>Primeros sistemas académicos digitales.</li>
+                    <li>Modernización del sector financiero.</li>
+                    <li>Uso de software educativo.</li>
+                    <li>Gestión informática universitaria inicial.</li>
+                </ul>
+            </div>
+            <div class="card-footer">Ver Detalles <i data-lucide="arrow-right" size="16"></i></div>
+        </a>
 
-    <!-- 1995 - 2000 -->
-    <a href="1995-2000.html" class="card">
-        <div class="period">1995 – 2000</div>
-        <img src="Feriado Bancario.jpg">
-        <ul>
-            <li>Expansión del acceso a Internet.</li>
-            <li>Páginas web institucionales.</li>
-            <li>Software académico y administrativo.</li>
-            <li>Impacto tecnológico del feriado bancario.</li>
-            <li>Actualización curricular en Sistemas.</li>
-            <li>Proyectos tecnológicos universitarios.</li>
-        </ul>
-    </a>
+        <a href="1990-1995.html" class="year-card">
+            <div class="year-badge">1990 - 1995</div>
+            <div class="card-image">
+                <img src="Llegada del Internet al Ecuador.png" alt="1990 - 1995" onerror="this.src='https://placehold.co/400x250?text=1990+-+1995'">
+            </div>
+            <div class="card-content">
+                <h3>La Llegada del Internet</h3>
+                <ul>
+                    <li>Llegada del Internet al Ecuador.</li>
+                    <li>Formalización de Ingeniería en Sistemas.</li>
+                    <li>Correo electrónico institucional.</li>
+                    <li>Redes académicas universitarias.</li>
+                    <li>Uso de bases de datos.</li>
+                    <li>Bibliotecas con sistemas digitales.</li>
+                </ul>
+            </div>
+            <div class="card-footer">Ver Detalles <i data-lucide="arrow-right" size="16"></i></div>
+        </a>
 
-    <!-- 2000 -->
-    <a href="2000.html" class="card">
-        <div class="period">Año 2000</div>
-        <img src="2000 .png"">
-        <ul>
-            <li>Consolidación del uso de Internet en la UCE.</li>
-            <li>Implementación de aulas informáticas modernas.</li>
-            <li>Uso masivo del correo electrónico académico.</li>
-            <li>Inicio de plataformas virtuales de apoyo.</li>
-            <li>Mayor enfoque en software y redes.</li>
-            <li>Base para la educación tecnológica del siglo XXI.</li>
-        </ul>
-    </a>
+        <a href="1995-2000.html" class="year-card">
+            <div class="year-badge">1995 - 2000</div>
+            <div class="card-image">
+                <img src="Feriado Bancario.jpg" alt="1995 - 2000" onerror="this.src='https://placehold.co/400x250?text=1995+-+2000'">
+            </div>
+            <div class="card-content">
+                <h3>Redes y Plataformas</h3>
+                <ul>
+                    <li>Expansión del acceso a Internet.</li>
+                    <li>Páginas web institucionales.</li>
+                    <li>Software académico y administrativo.</li>
+                    <li>Impacto tecnológico del feriado bancario.</li>
+                    <li>Actualización curricular en Sistemas.</li>
+                    <li>Proyectos tecnológicos universitarios.</li>
+                </ul>
+            </div>
+            <div class="card-footer">Ver Detalles <i data-lucide="arrow-right" size="16"></i></div>
+        </a>
 
-</div>
+        <a href="2000.html" class="year-card">
+            <div class="year-badge">Año 2000</div>
+            <div class="card-image">
+                <img src="2000 .png" alt="2000" onerror="this.src='https://placehold.co/400x250?text=2000'">
+            </div>
+            <div class="card-content">
+                <h3>Educación del Siglo XXI</h3>
+                <ul>
+                    <li>Consolidación del uso de Internet en la UCE.</li>
+                    <li>Implementación de aulas informáticas modernas.</li>
+                    <li>Uso masivo del correo electrónico académico.</li>
+                    <li>Inicio de plataformas virtuales de apoyo.</li>
+                    <li>Mayor enfoque en software y redes.</li>
+                    <li>Base para la educación tecnológica del siglo XXI.</li>
+                </ul>
+            </div>
+            <div class="card-footer">Ver Detalles <i data-lucide="arrow-right" size="16"></i></div>
+        </a>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Universidad Central del Ecuador - Historia Tecnológica</p>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+    </script>
 
 </body>
 </html>
