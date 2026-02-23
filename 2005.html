@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Año 2005: El Catálogo Digital - UCE</title>
+    <title>Año 2005: El Catálogo Digital y el Aula Virtual - UCE</title>
     <script src="https://unpkg.com/lucide@latest"></script>
     <link rel="stylesheet" href="style.css">
     <style>
@@ -23,6 +23,15 @@
         .project-card strong { color: #212529; }
         .project-card h3 { color: #495057; margin-top: 0; display: flex; align-items: center; gap: 10px; }
 
+        /* Ficha de Aprendizaje - Azul Suave */
+        .learning-card {
+            background-color: #e8f4fd;
+            border-left: 5px solid #2196f3;
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
         /* Tabla Técnica */
         .tech-table {
             width: 100%;
@@ -37,7 +46,7 @@
             text-align: left;
         }
         .tech-table th {
-            background-color: #546e7a; /* Azul grisáceo */
+            background-color: #546e7a;
             color: white;
             font-weight: 600;
         }
@@ -67,137 +76,136 @@
 </head>
 <body>
 
-    <header style="background: linear-gradient(135deg, #455a64 0%, #263238 100%);">
+    <header style="background: linear-gradient(135deg, #455a64 0%, #263238 100%); color: white; padding: 20px; text-align: center;">
         <h1>Año 2005</h1>
-        <p>Gestión del Conocimiento: El Catálogo Digital</p>
+        <p>Gestión del Conocimiento y Nacimiento de las Aulas Virtuales</p>
     </header>
 
-<div class="page-content">
+<div class="page-content" style="padding: 20px; max-width: 1000px; margin: auto;">
         
-        <a href="periodo_2001_2015.html" class="btn-back">
+        <a href="periodo_2001_2015.html" class="btn-back" style="display: block; margin-bottom: 10px; color: #546e7a; text-decoration: none;">
             ↑ Volver al Periodo 2001-2015
         </a>
         
-        <a href="2004.html" class="btn-back">
+        <a href="2004.html" class="btn-back" style="display: inline-block; margin-bottom: 10px; color: #546e7a; text-decoration: none;">
             ← Año 2004
         </a>
 
-        <a href="2006.html" class="btn-back">
+        <a href="2006.html" class="btn-back" style="display: inline-block; margin-left: 20px; color: #546e7a; text-decoration: none;">
             Año 2006 →
         </a>
 
-        <h1 class="year-title" style="margin-top: 20px; color: #37474f;">2005: De los Ficheros de Madera al Bit (WinISIS)</h1>
+        <h1 class="year-title" style="margin-top: 20px; color: #37474f;">2005: El Salto hacia la Interacción Digital</h1>
 
         <p class="intro-text">
-            A mediados de la década, la gestión de la información en las universidades públicas pasaba por una transición crítica: del fichero manual de madera a las primeras bases de datos locales. 
-            Este periodo se caracterizó por el uso de herramientas de software libre impulsadas por la UNESCO, permitiendo la creación de catálogos digitales sin costos de licencia.
+            A mediados de la década, la UCE vivió un "Big Bang" tecnológico doble: mientras las bibliotecas digitalizaban sus catálogos con <strong>WinISIS</strong>, la academia descubría el potencial de las <strong>NTICs</strong> para transformar el aula. Fue el año en que el conocimiento dejó de ser un patrimonio exclusivo del profesor para convertirse en un proceso compartido en la red.
         </p>
 
         <div class="project-card">
             <h3>
-                <i data-lucide="database"></i> Ficha Técnica: Tecnología de la Época
+                <i data-lucide="database"></i> Ficha Técnica: Tecnología e Infraestructura
             </h3>
             <ul style="list-style: none; padding: 0; margin-top: 15px; line-height: 1.6;">
-                <li><strong>💾 Software Estándar:</strong> CDS/WinISIS (Versión 1.5, distribuida gratuitamente por UNESCO).</li>
-                <li><strong>💰 Modelo:</strong> Software libre para países en desarrollo. "Un buen producto a precio regalado" (Estivill & Cantos, 1992).</li>
-                <li><strong>👤 Operación:</strong> Bibliotecarios digitadores (Migración manual de fichas físicas a registros ISO 2709).</li>
-                <li><strong>🌐 Publicación Web:</strong> Uso experimental de <strong>GenIsisWeb</strong> para consultas vía Intranet.</li>
+                <li><strong>💾 Almacenamiento Estudiantil:</strong> Auge de las memorias USB (128MB/256MB) reemplazando al disquete.</li>
+                <li><strong>🌐 Red Académica:</strong> Consolidación de <strong>CEDIA</strong> y transición del Dial-up al ADSL (Banda Ancha).</li>
+                <li><strong>🛠 Gestión Bibliotecaria:</strong> CDS/WinISIS 1.5 con motor de recuperación de texto completo.</li>
+                <li><strong>⚠️ Seguridad:</strong> Integración de los primeros escaneos de virus (ClamAV) en plataformas educativas.</li>
             </ul>
         </div>
 
         <h3>1. El Estándar: WinISIS y la Estructura ISO 2709</h3>
         <p>
-            Mientras las grandes universidades privadas adquirían sistemas costosos, la universidad pública ecuatoriana se apoyó en <strong>CDS/ISIS para Windows</strong>. 
-            Esta herramienta permitía crear bases de datos bibliográficas locales, funcionando en computadoras independientes.
+            La universidad pública ecuatoriana se apoyó en <strong>CDS/ISIS para Windows</strong>, permitiendo crear bases de datos bibliográficas robustas. Su estructura basada en la norma <strong>ISO 2709</strong> permitía manejar campos de longitud variable y repetitivos, optimizando el espacio en disco que aún era crítico en 2005.
         </p>
-        
-        <p style="margin-top: 10px;">
-            A diferencia de las bases de datos relacionales (como SQL) que eran rígidas, CDS/ISIS utilizaba una estructura basada en la norma <strong>ISO 2709</strong>, ideal para bibliotecas por dos características clave:
-        </p>
-        <ul style="margin-left: 20px; margin-bottom: 20px;">
-            <li><strong>Campos de longitud variable:</strong> Ahorraban espacio en disco (crítico en 2005) al no reservar bytes vacíos.</li>
-            <li><strong>Campos repetitivos:</strong> Permitían ingresar múltiples autores o materias en un solo registro sin duplicar datos.</li>
-        </ul>
 
         <div class="img-container">
             <img src="2005 InterfazWI.png" alt="Interfaz WinISIS UNESCO" class="evidence-img">
             <p class="img-caption">
-                Imagen. Interfaz del software WinISIS 1.5. Su diseño simple escondía un potente motor de recuperación de texto completo.<br>
+                Figura 1. Interfaz del software WinISIS 1.5. Su diseño basado en estándares ISO permitió la migración futura a sistemas modernos como KOHA.<br>
                 <span style="font-size: 0.85rem; color: #555; display: inline-block; margin-top: 8px;">
-                    Fuente de la imagen: 
-                    <a href="https://bibliotecahoy.blogspot.com/2013/11/la-familia-de-programas-isis-y-la-web.html" target="_blank" style="color: #003366; font-weight: bold; text-decoration: underline;">
-                        Blog Biblioteca Hoy
-                    </a>
+                    Fuente: <a href="https://bibliotecahoy.blogspot.com/2013/11/la-familia-de-programas-isis-y-la-web.html" target="_blank" style="color: #003366; font-weight: bold; text-decoration: underline;">Blog Biblioteca Hoy</a>
                 </span>
             </p>
         </div>
 
-        <h3>2. GenIsisWeb: El Primer Paso hacia Internet</h3>
+        <h3>2. El Salto al Aula Virtual: Moodle 1.5</h3>
         <p>
-            Para publicar estas bases de datos en la naciente web universitaria, se utilizó herramientas complementarias como <strong>GenIsisWeb</strong>. 
-            Este software permitía generar formularios de búsqueda en HTML que consultaban la base CDS/ISIS, sirviendo como los primeros OPACs (Catálogos de Acceso Público en Línea).
+            El <strong>5 de junio de 2005</strong> marcó un antes y un después con el lanzamiento de <strong>Moodle 1.5</strong>. No era solo un repositorio; era una herramienta pedagógica que permitía aplicar métodos como el <strong>ERCA</strong> (Experiencia, Reflexión, Conceptualización y Aplicación) en un entorno digital.
         </p>
+
+        <div class="learning-card">
+            <h4 style="margin: 0; color: #1976d2; display: flex; align-items: center; gap: 8px;">
+                <i data-lucide="graduation-cap"></i> Evolución Pedagógica 2005
+            </h4>
+            <ul style="list-style: none; padding: 0; margin-top: 15px; line-height: 1.6; font-size: 0.95rem;">
+                <li><strong>👥 Comunicación Social:</strong> Introducción de mensajería instantánea interna y foros con seguimiento de lectura.</li>
+                <li><strong>📝 Del "Diario" a la "Tarea":</strong> Transición de cuadernos personales a envíos de archivos con retroalimentación (Feedback).</li>
+                <li><strong>🌍 Estándar SCORM:</strong> Capacidad de intercambiar contenidos educativos entre diferentes facultades.</li>
+                <li><strong>♿ Accesibilidad:</strong> Cumplimiento de estándares XHTML y WAI para estudiantes con discapacidad.</li>
+            </ul>
+        </div>
 
         <table class="tech-table">
             <tr>
-                <th>Característica</th>
-                <th>Detalle Técnico (Hito 2005)</th>
+                <th>Cambio de Paradigma</th>
+                <th>Modelo Tradicional</th>
+                <th>Modelo NTIC (UCE 2005)</th>
             </tr>
             <tr>
-                <td><strong>Motor de Base de Datos</strong></td>
-                <td>No relacional (Texto plano). Optimizada para recuperación de información, no para transacciones.</td>
+                <td><strong>Rol del Docente</strong></td>
+                <td>Única fuente del saber.</td>
+                <td>Guía y conductor del aprendizaje.</td>
             </tr>
             <tr>
-                <td><strong>Limitación Técnica</strong></td>
-                <td>La actualización no era en línea. Se digitaba en local y luego se "subía" la base al servidor web.</td>
+                <td><strong>Rol del Alumno</strong></td>
+                <td>Receptor pasivo.</td>
+                <td>Investigador activo con fuentes ilimitadas.</td>
             </tr>
             <tr>
-                <td><strong>Legado</strong></td>
-                <td>Los datos ingresados en esta época (bajo estándar ISO) sirvieron de base para las migraciones futuras a KOHA.</td>
+                <td><strong>Espacio de Clase</strong></td>
+                <td>Aula física y horario rígido.</td>
+                <td>Aula Virtual sincrónica y asincrónica.</td>
             </tr>
         </table>
 
         <div class="img-container">
-            <img src="2005 digitalizacionh.png" alt="Ficheros de biblioteca antiguos" class="evidence-img">
+            <img src="2005 digitalizacionh.png" alt="Digitalización en Quito" class="evidence-img">
             <p class="img-caption">
-                Imagen. La digitalización fue un proceso manual intensivo. Representación digitalización de textos.
+                Figura 2. La digitalización masiva permitió que el docente dejara de ser el único emisor de conocimiento, democratizando el acceso a los textos.<br>
                 <span style="font-size: 0.85rem; color: #555; display: inline-block; margin-top: 8px;">
-                    Fuente de la imagen: 
-                    <a href="https://www.quitoinforma.gob.ec/2023/09/27/el-archivo-metropolitano-de-historia-digitaliza-documentos-del-siglo-xvii/" target="_blank" style="color: #003366; font-weight: bold; text-decoration: underline;">
-                        Quito Informa
-                    </a>
+                    Fuente: <a href="https://www.quitoinforma.gob.ec/2023/09/27/el-archivo-metropolitano-de-historia-digitaliza-documentos-del-siglo-xvii/" target="_blank" style="color: #003366; font-weight: bold; text-decoration: underline;">Quito Informa</a>
                 </span>
             </p>
         </div>
 
         <div class="sources-section">
-            <h4 style="margin-top: 0; color: #455a64;"><i data-lucide="link" style="vertical-align: middle;"></i> Fuentes de Validación Documental:</h4>
+            <h4 style="margin-top: 0; color: #455a64;"><i data-lucide="book-open" style="vertical-align: middle;"></i> Validación Documental y Académica:</h4>
             <ul style="list-style: none; padding-left: 0; margin-top: 15px;">
                 
                 <li style="margin-bottom: 15px;">
-                    <a href="https://www.aacademica.org/egiordanino/8.pdf" target="_blank" style="color: #003366; font-weight: bold; text-decoration: none; display: flex; align-items: center; gap: 8px;">
-                        <i data-lucide="file-text" style="width: 16px;"></i> Paper: "Winisis, herramienta para bibliotecarios" (Giordanino, 1998)
+                    <a href="https://docs.moodle.org/dev/Moodle_1.5_release_notes" target="_blank" style="color: #003366; font-weight: bold; text-decoration: none; display: flex; align-items: center; gap: 8px;">
+                        <i data-lucide="external-link" style="width: 16px;"></i> Moodle 1.5 Release Notes (5 de junio 2005)
                     </a>
                     <span style="font-size: 0.9rem; color: #555; display: block; margin-left: 24px;">
-                        Fuente primaria (PDF Local) que valida la adopción masiva de WinISIS en la región como herramienta de transición hacia la "biblioteca virtual".
+                        Registro oficial que valida el soporte para SCORM, accesibilidad y el primer sistema de mensajería integrada.
                     </span>
                 </li>
 
                 <li style="margin-bottom: 15px;">
-                    <a href="https://bid.ub.edu/11chave2.htm" target="_blank" style="color: #003366; font-weight: bold; text-decoration: none; display: flex; align-items: center; gap: 8px;">
-                        <i data-lucide="globe" style="width: 16px;"></i> Universidad de Barcelona: Reseña de GenIsisWeb (2003)
+                    <a href="#" target="_blank" style="color: #003366; font-weight: bold; text-decoration: none; display: flex; align-items: center; gap: 8px;">
+                        <i data-lucide="file-text" style="width: 16px;"></i> Tesis UCE: "Las NTICs y su influencia en el proceso de enseñanza-aprendizaje"
                     </a>
                     <span style="font-size: 0.9rem; color: #555; display: block; margin-left: 24px;">
-                        Artículo técnico que describe a <strong>GenIsisWeb</strong> como la solución estándar para publicar bases CDS/ISIS en Internet, validando la arquitectura web utilizada.
+                        Estudio institucional (Comasanta Pilla, 2017) que analiza retrospectivamente el uso del método ERCA y la motivación informática desde mediados de la década.
                     </span>
                 </li>
 
                 <li>
-                    <a href="https://cdsisis-org.translate.goog/doku.php?_x_tr_sl=en&_x_tr_tl=es&_x_tr_hl=es&_x_tr_pto=tc#history" target="_blank" style="color: #003366; font-weight: bold; text-decoration: none; display: flex; align-items: center; gap: 8px;">
-                        <i data-lucide="history" style="width: 16px;"></i> Historia de CDS/ISIS (Comunidad Oficial)
+                    <a href="https://ricsh.org.mx/index.php/RICSH/article/view/135" target="_blank" style="color: #003366; font-weight: bold; text-decoration: none; display: flex; align-items: center; gap: 8px;">
+                        <i data-lucide="graduation-cap" style="width: 16px;"></i> Dialnet: "Las Tic en la educación superior, innovaciones y retos"
                     </a>
                     <span style="font-size: 0.9rem; color: #555; display: block; margin-left: 24px;">
-                        Documentación histórica que confirma el desarrollo del software por la UNESCO y su liberación como tecnología gratuita para países en desarrollo.
+                        Artículo de García Sánchez (2005/2017) que valida la transformación del docente como guía ante el acceso ilimitado a la información digital.
                     </span>
                 </li>
 
@@ -206,7 +214,7 @@
 
     </div>
 
-    <footer>
+    <footer style="margin-top: 40px; padding: 20px; text-align: center; background: #f1f1f1;">
         <div class="footer-content">
             <p><strong>© 2026 Universidad Central del Ecuador</strong> - Facultad de Ingeniería, Ciencias Físicas y Matemática</p>
         </div>
