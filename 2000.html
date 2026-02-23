@@ -3,476 +3,532 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Línea de Tiempo: Año 2000 - Recuperación y Transición</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Línea de Tiempo: Año 2000 | UCE</title>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;600;700&display=swap" rel="stylesheet">
+    
     <style>
-        /* ====== 1. VARIABLES DE COLOR ====== */
         :root {
-            --primary: #002b5c;   /* Azul UCE */
-            --secondary: #e31e24; /* Rojo */
-            --accent-purple: #8a2be2; /* Morado característico del 2000 */
+            --primary: #003366;   /* Azul UCE */
+            --secondary: #C5A059; /* Dorado UCE */
+            --bg-color: #f4f7f9;
+            --text-color: #333;
+            --accent-purple: #8a2be2; 
         }
 
         body {
             margin: 0;
-            font-family: "Segoe UI", Arial, sans-serif;
-            background-color: #f4f4f4;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
         }
 
-        /* ====== 2. ENCABEZADO CORREGIDO (Estilo solicitado) ====== */
+        /* --- HEADER --- */
         header {
-            /* Degradado violeta/rojo para el año 2000, con texto blanco visible */
             background: linear-gradient(135deg, #7b4397 0%, #dc2430 100%);
-            padding: 40px 20px;
+            color: white;
+            padding: 3rem 2rem;
             text-align: center;
-            color: white; /* Importante: Texto blanco */
+            position: relative;
+            border-bottom: 5px solid var(--secondary);
             box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.2rem;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
+        }
+
+        header p {
+            font-size: 1.2rem; /* Letra un poquito más grande para que destaque */
+            margin-top: 10px;
+            color: #ffffff !important; /* Color blanco puro garantizado */
+            opacity: 1; /* Quitamos la transparencia para que brille más */
+            text-align: center; /* Asegura el centrado absoluto */
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.6); /* Sombra un poco más oscura para que resalte el blanco */
+            max-width: 800px; /* Evita que el texto se estire demasiado en pantallas grandes */
+            margin-left: auto; /* Centra el bloque de texto */
+            margin-right: auto;
+        }
+
+        /* --- CONTENEDOR PRINCIPAL --- */
+        .page-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            background: white;
+            box-shadow: 0 0 20px rgba(0,0,0,0.05);
+            min-height: 100vh;
+        }
+
+        .btn-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            color: var(--primary);
+            font-weight: 600;
+            padding: 10px 20px;
+            background: #f8f9fa;
+            border: 1px solid #ddd;
+            border-radius: 50px;
+            transition: all 0.3s ease;
             margin-bottom: 30px;
         }
 
-        header h1, header p {
-            margin: 10px 0;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.4); /* Sombra para legibilidad */
-        }
-
-        /* ====== 3. BOTÓN VOLVER (Estilo solicitado) ====== */
-        .btn-back {
-            background: linear-gradient(135deg, #00c6ff, #0072ff); /* Azul brillante */
-            color: white;
-            padding: 12px 25px;
-            border-radius: 25px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-            display: inline-block;
-        }
-
         .btn-back:hover {
-            background: linear-gradient(135deg, #0072ff, #00c6ff);
-            transform: scale(1.05);
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
         }
 
-        /* ====== ESTILOS DE ESTRUCTURA ====== */
-        .timeline-container {max-width: 1200px; margin: 40px auto; padding: 0 20px;}
-        .quarter-section {margin-bottom: 60px; position: relative;}
-        
-        .quarter-header {
-            background: linear-gradient(135deg, #ca40f4 0%, #8a2be2 100%); 
-            color: white; 
-            padding: 20px 30px; 
-            border-radius: 10px; 
-            margin-bottom: 30px; 
-            z-index: 5;
-            position: sticky;
-            top: 0;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        /* --- TITULOS Y TEXTOS --- */
+        h2 {
+            color: var(--primary);
+            border-bottom: 3px solid var(--secondary);
+            padding-bottom: 10px;
+            margin-top: 50px;
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
-        
-        .quarter-header h2 { margin: 0; color: white !important; }
 
-        .events-container {display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 25px;}
-        
-        .timeline-event {
-            background: white; 
-            padding: 25px; 
-            border-radius: 10px; 
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08); 
-            border-left: 5px solid #ca40f4; 
-            transition: transform 0.3s;
+        h3 {
+            color: #2c3e50;
+            margin-top: 40px;
+            font-size: 1.4rem;
+        }
+
+        p {
+            font-size: 1.05rem;
+            color: #444;
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        /* --- CAJAS DE INFORMACIÓN (Listas) --- */
+        .info-box {
+            background-color: #f8f9fa;
+            border-left: 4px solid var(--secondary);
+            padding: 20px 25px;
+            margin: 25px 0;
+            border-radius: 0 8px 8px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .info-box.curious {
+            border-left-color: #00c6ff;
+            background: #f4f8fb;
+        }
+
+        .info-box.context {
+            border-left-color: #fd7e14;
+            background: #fff3e0;
+        }
+
+        .info-box.uce {
+            border-left-color: var(--primary);
+            background: #eef2f7;
+        }
+
+        .info-box h4 {
+            margin-top: 0;
+            color: var(--primary);
+            font-size: 1.15rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .info-box ul, .info-box ol {
+            padding-left: 20px;
+            margin: 0;
+            color: #444;
+        }
+
+        .info-box li {
+            margin-bottom: 8px;
+        }
+
+        /* --- IMÁGENES VERTICALES Y FUENTES --- */
+        .single-image-container {
+            width: 100%;
+            max-width: 650px;
+            margin: 40px auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            border: 1px solid #eaeaea;
+            text-align: center;
         }
         
-        .timeline-event h3 { color: var(--primary); margin-top: 0; }
+        .single-image-container img {
+            width: 100%;
+            height: auto;
+            border-radius: 6px;
+            border: 1px solid #ddd;
+        }
+
+        .image-caption {
+            font-size: 0.95rem;
+            color: #555;
+            font-style: italic;
+            margin-top: 15px;
+            margin-bottom: 15px;
+        }
+
+        .image-source {
+            font-size: 0.85rem;
+            color: #333;
+            background: #f4f7f9;
+            padding: 15px;
+            border-radius: 6px;
+            text-align: left;
+            border-left: 4px solid var(--primary);
+            word-wrap: break-word;
+        }
+
+        .image-source a {
+            color: #0066cc;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .image-source a:hover {
+            text-decoration: underline;
+        }
+
+        /* --- TABLAS --- */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            font-size: 0.95rem;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+        }
         
-        .timeline-event:hover {transform: translateY(-5px);}
+        .data-table th, .data-table td {
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
         
-        .event-date {background: #d4edda; color: #155724; padding: 8px 15px; border-radius: 20px; display: inline-block; font-weight: bold; margin-bottom: 15px; font-size: 0.9rem;}
-        .reference-box {background: #f8f9fa; padding: 20px; border-radius: 10px; margin-top: 15px; border-left: 4px solid var(--primary);}
+        .data-table th {
+            background-color: var(--primary);
+            color: white;
+            font-weight: 600;
+        }
         
-        .verified-source {background: #ffffff; border-left: 4px solid #28a745;}
-        .historical-context {background: #fff3e0; padding: 15px; border-radius: 8px; margin: 15px 0; border-left: 4px solid #fd7e14;}
+        .data-table tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+
+        /* --- PANELES ESTADÍSTICOS --- */
+        .dolarization-panel {
+            background: linear-gradient(135deg, #1f4037 0%, #99f2c8 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            margin: 40px 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .recovery-panel {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: #003366;
+            padding: 30px;
+            border-radius: 10px;
+            margin: 40px 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .dolarization-panel h3, .recovery-panel h3 {
+            margin-top: 0;
+            text-align: center;
+            border-bottom: none;
+        }
         
-        /* Estilos para imágenes */
-        .image-container {width: 100%; margin: 20px 0; text-align: center;}
-        .verified-image {width: 100%; max-width: 600px; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); border: 3px solid #28a745;}
-        .image-caption {font-size: 0.9em; color: #666; margin-top: 10px; font-style: italic;}
-        .image-source {font-size: 0.8em; color: #999; margin-top: 5px;}
-        .image-placeholder {width: 100%; height: 200px; background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); display: flex; align-items: center; justify-content: center; border-radius: 8px; margin: 20px 0; color: #666; border: 2px dashed #b3cde0;}
-        
-        /* Paneles especiales */
-        .recovery-panel {background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); color: white; padding: 30px; border-radius: 10px; margin: 40px 0;}
-        .dolarization-panel {background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%); color: #333; padding: 30px; border-radius: 10px; margin: 40px 0;}
-        .source-link {color: #0066cc; text-decoration: underline; font-size: 0.9em;}
-        
-        /* Tablas */
-        .data-table {width: 100%; border-collapse: collapse; margin: 20px 0; box-shadow: 0 2px 8px rgba(0,0,0,0.1); font-size: 0.95em;}
-        .data-table th {background: var(--primary); color: white; padding: 12px; text-align: left;}
-        .data-table td {padding: 12px; border-bottom: 1px solid #eee;}
-        .data-table tr:nth-child(even) {background: #f9f9f9;}
-        
-        /* Footer */
+        .dolarization-panel h3 { color: white; }
+        .recovery-panel h3 { color: #003366; }
+
+        /* --- FOOTER --- */
         footer {
+            text-align: center;
+            padding: 40px 20px;
             background: #1a1a1a;
             color: white;
-            padding: 40px 20px;
-            text-align: center;
             margin-top: 50px;
         }
+
         .footer-details {
-            font-size: 0.8em;
+            font-size: 0.85rem;
             color: #aaa;
-            margin-top: 20px;
+            margin-top: 15px;
         }
     </style>
 </head>
 <body>
+
     <header>
-        <h1><i class="fas fa-seedling"></i> Línea de Tiempo: Año 2000</h1>
-        <p>Recuperación tecnológica post-crisis y transición hacia el nuevo milenio en la educación superior ecuatoriana</p>
-        
-        <div style="margin-top: 20px; display: flex; gap: 10px; flex-wrap: wrap; justify-content: center;">
-            <a href="periodo_1980_2000.html" class="btn-back">
-                <i class="fas fa-arrow-left"></i> Volver al Inicio
-            </a>
-        </div>
+        <h1><i data-lucide="sun"></i> Línea de Tiempo: Año 2000</h1>
+        <p>Recuperación tecnológica post-crisis y transición hacia el nuevo milenio en la Universidad Central del Ecuador</p>
     </header>
 
-    <div class="timeline-container">
-        <div class="quarter-section">
-            <div class="quarter-header">
-                <h2><i class="fas fa-calendar-check"></i> Año 2000: Contexto de Recuperación Nacional</h2>
-            </div>
-            
-            <div class="events-container">
-                <div class="timeline-event verified-source">
-                    <span class="event-date">Enero 2000</span>
-                    <h3>Implementación de la Dolarización en Ecuador</h3>
-                    
-                    <div class="image-container">
-                        <img src="images/Billete.jpg" 
-                             class="verified-image">
-                        <div class="image-caption">Dólar estadounidense - Moneda adoptada por Ecuador en enero de 2000</div>
-                        <div class="image-source">Fuente: <a href="https://commons.wikimedia.org/wiki/File:US_one_dollar_bill,_obverse,_series_2009.jpg" class="source-link" target="_blank">Wikimedia Commons</a></div>
-                    </div>
-                    
-                    <p><strong>Transformación económica fundamental:</strong> El 9 de enero de 2000, el gobierno ecuatoriano anunció oficialmente la adopción del dólar estadounidense como moneda oficial. Esta medida extraordinaria, implementada como respuesta a la severa crisis económica de 1999, tuvo profundas implicaciones para todos los sectores, incluida la tecnología educativa.</p>
-                    
-                    <p>Para las instituciones de educación superior, la dolarización creó un nuevo entorno económico caracterizado por estabilidad de precios pero también por nuevos desafíos de competitividad. La eliminación de la devaluación facilitó la planificación a mediano plazo para inversiones tecnológicas (equipos importados), pero requirió ajustes significativos en la gestión presupuestaria.</p>
-                    
-                    <div style="background: #f0f7ff; padding: 15px; border-radius: 8px; margin: 10px 0;">
-                        <h4 style="margin-top: 0;">Implicaciones para tecnología educativa:</h4>
-                        <ul>
-                            <li><strong>Estabilidad en costos:</strong> Equipos tecnológicos importados podrían presupuestarse con mayor certeza.</li>
-                            <li><strong>Transparencia internacional:</strong> Costos de servicios y equipos directamente comparables con estándares globales.</li>
-                            <li><strong>Presión por eficiencia:</strong> Necesidad de justificar inversiones tecnológicas en términos de retorno tangible.</li>
-                            <li><strong>Acceso a mercados:</strong> Facilidad para participar en compras internacionales sin barreras cambiarias.</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <div class="timeline-event">
-                    <span class="event-date">Enero 2000</span>
-                    <h3>Contexto Internacional: El Año 2000 y el Bug del Milenio</h3>
-                    
-                    <div class="image-container">
-                        <img src="images/buf2000.png" 
-                             class="verified-image">
-                        <div class="image-caption">Representación del "Bug del Milenio" (Y2K)</div>
-                    </div>
-                    
-                    <p><strong>Preocupación tecnológica global:</strong> La transición al año 2000 estuvo marcada por el problema Y2K. En el contexto ecuatoriano post-crisis, la preparación enfrentó desafíos particulares debido a recursos limitados y equipos antiguos. Instituciones tuvieron que balancear la necesidad de asegurar continuidad operativa con restricciones presupuestarias severas.</p>
-                    
-                    <div class="historical-context">
-                        <p><strong>Resultado real en Ecuador:</strong> A pesar de las preocupaciones, la transición ocurrió sin incidentes mayores. Esto se atribuye a la simplicidad de los sistemas y a que muchos equipos antiguos fueron dados de baja durante la crisis de 1999.</p>
-                    </div>
-                    <div class="reference-box" style="margin-top: 15px; font-size: 0.85em;">
-                        <p style="margin: 0;">
-                            <i class="fas fa-book" style="color: var(--primary);"></i> <strong>Fuente:</strong>
-                            E.T.S.I. Telecomunicación (UPM). (s. f.). 
-                            <a href="https://oa.upm.es/22421/" target="_blank" class="source-link">
-                                Efecto 2000:tecnología global con fecha de caducidad | Archivo Digital UPM.
-                            </a>
-                        </p>
-                    </div>
-                </div>
+    <div class="page-content">
+        
+        <a href="periodo_1980_2000.html" class="btn-back">
+            <i data-lucide="arrow-left" size="18"></i> Volver al Inicio
+        </a>
+
+        <h2><i data-lucide="calendar-check"></i> Año 2000: Contexto de Recuperación Nacional</h2>
+
+        <h3>Implementación de la Dolarización en Ecuador (Enero)</h3>
+        
+        <p><strong>Transformación económica fundamental:</strong> El 9 de enero de 2000, el gobierno ecuatoriano anunció oficialmente la adopción del dólar estadounidense como moneda oficial. Esta medida extraordinaria, implementada como respuesta a la severa crisis económica de 1999, tuvo profundas implicaciones para todos los sectores, incluida la tecnología educativa.</p>
+        
+        <p>Para las instituciones de educación superior, la dolarización creó un nuevo entorno económico caracterizado por estabilidad de precios pero también por nuevos desafíos de competitividad. La eliminación de la devaluación facilitó la planificación a mediano plazo para inversiones tecnológicas (equipos importados), pero requirió ajustes significativos en la gestión presupuestaria.</p>
+
+        <div class="info-box uce">
+            <h4><i data-lucide="building-2" size="20"></i> Impacto del Dólar en la UCE:</h4>
+            <p style="margin: 0;">Para la Universidad Central, la dolarización fue un salvavidas a mediano plazo. Durante 1999, la universidad pagaba el servicio de conectividad a Internet de ECUANEX (que se cobraba en dólares) con un presupuesto en sucres que cada día valía menos. Al dolarizarse la economía, la Dirección Administrativa y Financiera de la UCE pudo, por fin, presupuestar con exactitud el pago de licencias, equipos y ancho de banda anual, permitiendo reactivar proyectos de redes que estaban congelados.</p>
+        </div>
+
+        <div class="info-box">
+            <h4>Implicaciones para tecnología educativa:</h4>
+            <ul>
+                <li><strong>Estabilidad en costos:</strong> Equipos tecnológicos importados podrían presupuestarse con mayor certeza.</li>
+                <li><strong>Transparencia internacional:</strong> Costos de servicios y equipos directamente comparables con estándares globales.</li>
+                <li><strong>Presión por eficiencia:</strong> Necesidad de justificar inversiones tecnológicas en términos de retorno tangible.</li>
+                <li><strong>Acceso a mercados:</strong> Facilidad para participar en compras internacionales sin barreras cambiarias.</li>
+            </ul>
+        </div>
+
+        <div class="single-image-container">
+            <img src="images/Billete.jpg" alt="Dólar Estadounidense" onerror="this.src='https://placehold.co/600x350?text=Dolarización+2000'">
+            <div class="image-caption">Dólar estadounidense - Moneda adoptada por Ecuador en enero de 2000</div>
+            <div class="image-source">
+                <strong>Fuente Histórica:</strong> <a href="https://ciencialatina.org/index.php/cienciala/article/view/16085/22940" target="_blank">Impacto de la Dolarización en la Economía Ecuatoriana</a><br><br>
+                <strong>Contexto económico:</strong> La dolarización detuvo la hiperinflación tecnológica, permitiendo volver a importar computadoras y servidores a precios estables.
             </div>
         </div>
 
         <div class="dolarization-panel">
-            <h3 style="margin-top: 0; text-align: center;"><i class="fas fa-dollar-sign"></i> Dolarización: Impacto en Tecnología Educativa</h3>
-            
+            <h3><i data-lucide="dollar-sign" style="vertical-align: text-bottom;"></i> Dolarización: Impacto Macroeconómico</h3>
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; text-align: center; margin-top: 20px;">
-                <div>
-                    <div style="font-size: 2rem; font-weight: bold;">1 USD</div>
-                    <p>Tipo de cambio fijo</p>
-                    <p><small>(25,000 sucres previos)</small></p>
+                <div style="background: rgba(0,0,0,0.2); padding: 15px; border-radius: 8px;">
+                    <div style="font-size: 2rem; font-weight: bold; color: #99f2c8;">1 USD</div>
+                    <p style="margin: 5px 0;">Tipo de cambio fijo</p>
+                    <p style="margin: 0; font-size: 0.8em; opacity: 0.8;">(25,000 sucres previos)</p>
                 </div>
-                <div>
-                    <div style="font-size: 2rem; font-weight: bold;">-40%</div>
-                    <p>Inflación 2000 vs 1999</p>
-                    <p><small>(De 52.2% a 12.6%)</small></p>
+                <div style="background: rgba(0,0,0,0.2); padding: 15px; border-radius: 8px;">
+                    <div style="font-size: 2rem; font-weight: bold; color: #99f2c8;">-40%</div>
+                    <p style="margin: 5px 0;">Inflación 2000 vs 1999</p>
+                    <p style="margin: 0; font-size: 0.8em; opacity: 0.8;">(De 52.2% a 12.6%)</p>
                 </div>
-                <div>
-                    <div style="font-size: 2rem; font-weight: bold;">+2.8%</div>
-                    <p>Crecimiento PIB</p>
-                    <p><small>(Tras -7.3% en 1999)</small></p>
+                <div style="background: rgba(0,0,0,0.2); padding: 15px; border-radius: 8px;">
+                    <div style="font-size: 2rem; font-weight: bold; color: #99f2c8;">+2.8%</div>
+                    <p style="margin: 5px 0;">Crecimiento PIB</p>
+                    <p style="margin: 0; font-size: 0.8em; opacity: 0.8;">(Tras -7.3% en 1999)</p>
                 </div>
-                <div>
-                    <div style="font-size: 2rem; font-weight: bold;">-60%</div>
-                    <p>Tasa interés real</p>
-                    <p><small>(Reducción significativa)</small></p>
-                </div>
-            </div>
-            
-            <div style="margin-top: 25px; background: rgba(255,255,255,0.3); padding: 15px; border-radius: 8px;">
-                <p><strong>Contexto transformado:</strong> La dolarización creó un marco más predecible para la planificación institucional, permitiendo desarrollar planes de recuperación y modernización tecnológica con mayor certeza sobre variables económicas clave.</p>
-            </div>
-        </div>
-
-        <div class="quarter-section">
-            <div class="quarter-header">
-                <h2><i class="fas fa-calendar"></i> Primer Trimestre 2000: Evaluación y Planificación</h2>
-            </div>
-            
-            <div class="events-container">
-                <div class="timeline-event">
-                    <span class="event-date">Enero-Marzo 2000</span>
-                    <h3>Evaluación Post-Crisis de Infraestructura Tecnológica</h3>
-                    
-                    <div class="image-container">
-                        <img src="images/Congreso.jpg" 
-                             class="verified-image">
-                    </div>
-                    
-                    <p>Las instituciones de educación superior llevaron a cabo evaluaciones sistemáticas para cuantificar el deterioro acumulado por la crisis. Los diagnósticos identificaron equipos obsoletos, sistemas críticos vulnerables y necesidades de capacitación, proporcionando la base para los planes de recuperación.</p>
-                    
-                    <div style="background: #e8f4f8; padding: 15px; border-radius: 8px; margin: 10px 0;">
-                        <h4 style="margin-top: 0;">Áreas evaluadas:</h4>
-                        <ul>
-                            <li>Infraestructura de red y conectividad</li>
-                            <li>Estado de computadoras y servidores</li>
-                            <li>Sistemas de software y administrativos</li>
-                            <li>Capacidades del personal técnico</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <div class="timeline-event">
-                    <span class="event-date">Marzo 2000</span>
-                    <h3>Desarrollo de Planes de Recuperación Tecnológica</h3>
-                    
-                    <p>Basados en las evaluaciones, se desarrollaron planes estructurados de recuperación. Estos adoptaron enfoques pragmáticos y escalonados, priorizando intervenciones de alto impacto y bajo costo. Un elemento común fue el énfasis en sostenibilidad para mantener servicios con recursos limitados.</p>
-                    
-                    <div class="historical-context">
-                        <p><strong>Enfoque escalonado:</strong> Fase 1: Restaurar servicios esenciales (correo, conectividad básica). Fase 2: Mejorar confiabilidad. Fase 3: Expansión y modernización una vez lograda la estabilidad.</p>
-                    </div>
-                    
-                     <div class="image-container">
-                         <img src="images/dolares.jpg" 
-                             class="verified-image">
-                    </div>
-                    
+                <div style="background: rgba(0,0,0,0.2); padding: 15px; border-radius: 8px;">
+                    <div style="font-size: 2rem; font-weight: bold; color: #99f2c8;">-60%</div>
+                    <p style="margin: 5px 0;">Tasa interés real</p>
+                    <p style="margin: 0; font-size: 0.8em; opacity: 0.8;">(Reducción significativa)</p>
                 </div>
             </div>
         </div>
 
-        <div class="quarter-section">
-            <div class="quarter-header">
-                <h2><i class="fas fa-calendar"></i> Segundo Trimestre 2000: Implementación Inicial</h2>
+        <h3>Contexto Internacional: El Año 2000 y el "Bug del Milenio" (Y2K)</h3>
+
+        <p><strong>Preocupación tecnológica global:</strong> La transición al año 2000 estuvo marcada por el problema Y2K. En el contexto ecuatoriano post-crisis, la preparación enfrentó desafíos particulares debido a recursos limitados y equipos antiguos. Instituciones tuvieron que balancear la necesidad de asegurar continuidad operativa con restricciones presupuestarias severas.</p>
+
+        <div class="info-box context">
+            <h4><i data-lucide="info" size="20"></i> Resultado real en Ecuador:</h4>
+            <p style="margin: 0;">A pesar de las alarmas globales, la transición ocurrió sin incidentes mayores en la academia. Irónicamente, esto se atribuyó a que muchos de los equipos más antiguos y problemáticos habían sido dados de baja obligatoriamente durante la crisis de 1999, y a que la red administrativa universitaria aún no estaba tan automatizada como en países de primer mundo.</p>
+        </div>
+
+        <div class="single-image-container">
+            <img src="images/buf2000.png" alt="Bug Y2K" onerror="this.src='https://placehold.co/600x350?text=Efecto+Y2K'">
+            <div class="image-caption">Representación del "Bug del Milenio" (Y2K) y el temor al colapso informático</div>
+            <div class="image-source">
+                <strong>Fuente Histórica:</strong> <a href="https://oa.upm.es/22421/1/Efecto_2000.pdf" target="_blank">Efecto 2000: tecnología global con fecha de caducidad (Archivo Digital UPM)</a>. Documentación sobre las auditorías informáticas de la época para evitar colapsos.
+            </div>
+        </div>
+
+
+        <h2><i class="fas fa-clipboard-list"></i> Trimestre 1-2: Evaluación y Primeros Proyectos</h2>
+
+        <h3>Evaluación Post-Crisis de Infraestructura Tecnológica</h3>
+
+        <p>Las instituciones de educación superior llevaron a cabo evaluaciones sistemáticas para cuantificar el deterioro acumulado por la crisis. Los diagnósticos identificaron equipos obsoletos, sistemas críticos vulnerables y necesidades de capacitación, proporcionando la base para los planes de recuperación.</p>
+
+        <div class="info-box uce">
+            <h4><i data-lucide="search" size="20"></i> Diagnóstico en la Universidad Central:</h4>
+            <p style="margin: 0;">A inicios del 2000, los técnicos de la UCE hicieron un levantamiento doloroso: gran parte de las computadoras (pantallas de tubo CRT) de los laboratorios de facultades periféricas estaban dañadas por falta de repuestos. La prioridad absoluta se fijó en reconstruir un "corazón tecnológico" central desde donde se irradiara la conexión al resto del campus, en lugar de intentar arreglar laboratorios aislados.</p>
+        </div>
+
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Área de Evaluación</th>
+                    <th>Enfoque Común de Recuperación</th>
+                    <th>Recursos Asignados</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Conectividad</strong></td>
+                    <td>Restablecimiento de enlaces mínimos (Proxy)</td>
+                    <td>Renegociación de contratos con ISPs locales</td>
+                </tr>
+                <tr>
+                    <td><strong>Equipos (Hardware)</strong></td>
+                    <td>Reparación y reacondicionamiento</td>
+                    <td>Talleres técnicos internos (Estudiantes de ingeniería)</td>
+                </tr>
+                <tr>
+                    <td><strong>Software</strong></td>
+                    <td>Sistemas esenciales y código abierto</td>
+                    <td>Migración paulatina a plataformas estables (Linux)</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="single-image-container">
+            <img src="images/reduperacion.jpg" alt="Recuperación Tecnológica" onerror="this.src='https://placehold.co/600x350?text=Talleres+Técnicos'">
+            <div class="image-caption">Se priorizó la reparación de redes locales y el reacondicionamiento de equipos usando talleres internos</div>
+            <div class="image-source">
+                <strong>Estrategia académica:</strong> Reemplazo del gasto en nuevas importaciones por mano de obra técnica estudiantil y docente.<br>
+                <strong>Fuente Histórica:</strong> <a href="https://revistadigital.uce.edu.ec/index.php/anales/article/view/3651/4493" target="_blank">Desarrollo de la educación superior en el Ecuador en los años 2000. </a> 
             </div>
             
-            <div class="events-container">
-                <div class="timeline-event">
-                    <span class="event-date">Abril-Junio 2000</span>
-                    <h3>Primeros Proyectos de Recuperación</h3>
-                    
-                    <div class="image-container">
-                        <img src="images/reduperacion.jpg" 
-                             class="verified-image">
-                    </div>
-                    
-                    <p>Se inició la implementación de planes de recuperación enfocados en intervenciones críticas. Se priorizó el restablecimiento de enlaces de Internet, reparación de redes locales y reacondicionamiento de equipos existentes usando talleres de mantenimiento interno.</p>
-                    
-                    <table class="data-table">
-                        <thead>
-                            <tr>
-                                <th>Área</th>
-                                <th>Enfoque Común</th>
-                                <th>Recursos</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Conectividad</td>
-                                <td>Restablecimiento de enlaces mínimos</td>
-                                <td>Renegociación de contratos</td>
-                            </tr>
-                            <tr>
-                                <td>Equipos</td>
-                                <td>Reparación y reacondicionamiento</td>
-                                <td>Talleres internos</td>
-                            </tr>
-                            <tr>
-                                <td>Software</td>
-                                <td>Sistemas esenciales y open source</td>
-                                <td>Migración a plataformas estables</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                
-                <div class="timeline-event verified-source">
-                    <span class="event-date">Mayo 2000</span>
-                    <h3>Cooperación Internacional para la Recuperación</h3>
-                    
-                    <div class="image-container">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Flag_of_Europe.svg/600px-Flag_of_Europe.svg.png" 
-                             alt="Bandera de la Unión Europea" 
-                             class="verified-image">
-                        <div class="image-caption">Apoyo de la Unión Europea en proyectos de recuperación educativa</div>
-                        <div class="image-source">Fuente: <a href="https://commons.wikimedia.org/wiki/File:Flag_of_Europe.svg" class="source-link" target="_blank">Wikimedia Commons</a></div>
-                    </div>
-                    
-                    <p>Organismos internacionales como la Unión Europea (programa ALFA), el BID y agencias bilaterales implementaron programas de apoyo. Estas iniciativas combinaron infraestructura física, capacitación y fortalecimiento institucional, con un fuerte énfasis en la sostenibilidad a largo plazo.</p>
-                    
-                    <div class="reference-box">
-                        <small><i class="fas fa-handshake"></i> <strong>Documentación:</strong> 
-                            <a href="https://www.ilo.org/es/media/26786/download" class="source-link" target="_blank">
-                                Cooperación UE-Ecuador
-                            </a> - Información sobre programas de cooperación en educación y tecnología.
-                        </small>
-                    </div>
-                </div>
+        </div>
+
+        <h2>Cooperación Internacional (Mayo 2000)</h2>
+
+        <p>Organismos internacionales como la Unión Europea (programa ALFA), el BID y agencias bilaterales implementaron programas de apoyo. Estas iniciativas combinaron infraestructura física, capacitación y fortalecimiento institucional, con un fuerte énfasis en la sostenibilidad a largo plazo.</p>
+
+        <div class="single-image-container">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Flag_of_Europe.svg/600px-Flag_of_Europe.svg.png" alt="Bandera de la Unión Europea" onerror="this.src='https://placehold.co/600x350?text=Cooperación+Internacional'">
+            <div class="image-caption">Apoyo de la Unión Europea y otros organismos en proyectos de recuperación educativa</div>
+            <div class="image-source">
+                 <strong>Documentación oficial:</strong> <a href="https://www.ilo.org/es/media/26786/download" target="_blank">Cooperación UE-Ecuador (Informes OIT/UE)</a> - Información sobre programas de cooperación en educación y tecnología.
             </div>
         </div>
 
         <div class="recovery-panel">
-            <h3 style="margin-top: 0; text-align: center;"><i class="fas fa-chart-line-up"></i> Indicadores de Recuperación 2000</h3>
-            
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; text-align: center; margin-top: 20px;">
-                <div>
-                    <div style="font-size: 2rem; font-weight: bold;">+40%</div>
-                    <p>Conectividad Internet</p>
+            <h3><i data-lucide="bar-chart-2" style="vertical-align: text-bottom;"></i> Indicadores de Recuperación (Año 2000)</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 20px; text-align: center; margin-top: 20px;">
+                <div style="background: rgba(255,255,255,0.8); padding: 15px; border-radius: 8px;">
+                    <div style="font-size: 2rem; font-weight: bold; color: var(--primary);">+40%</div>
+                    <p style="margin: 5px 0;">Conectividad Internet</p>
                 </div>
-                <div>
-                    <div style="font-size: 2rem; font-weight: bold;">65-75%</div>
-                    <p>Equipos operativos</p>
-                    <p><small>(vs 40-50% en 1999)</small></p>
+                <div style="background: rgba(255,255,255,0.8); padding: 15px; border-radius: 8px;">
+                    <div style="font-size: 2rem; font-weight: bold; color: var(--primary);">65-75%</div>
+                    <p style="margin: 5px 0;">Equipos operativos</p>
+                    <p style="margin: 0; font-size: 0.8em; color: #666;">(vs 40-50% en 1999)</p>
                 </div>
-                <div>
-                    <div style="font-size: 2rem; font-weight: bold;">3-5x</div>
-                    <p>Proyectos cooperación</p>
+                <div style="background: rgba(255,255,255,0.8); padding: 15px; border-radius: 8px;">
+                    <div style="font-size: 2rem; font-weight: bold; color: var(--primary);">3-5x</div>
+                    <p style="margin: 5px 0;">Proyectos cooperación</p>
                 </div>
-                <div>
-                    <div style="font-size: 2rem; font-weight: bold;">20-30%</div>
-                    <p>Software libre</p>
-                    <p><small>(Adopción inicial)</small></p>
+                <div style="background: rgba(255,255,255,0.8); padding: 15px; border-radius: 8px;">
+                    <div style="font-size: 2rem; font-weight: bold; color: var(--primary);">20-30%</div>
+                    <p style="margin: 5px 0;">Software libre</p>
+                    <p style="margin: 0; font-size: 0.8em; color: #666;">(Adopción inicial)</p>
                 </div>
             </div>
-            
-            <div style="margin-top: 25px; background: rgba(255,255,255,0.2); padding: 15px; border-radius: 8px;">
-                <p><strong>Progreso significativo:</strong> La combinación de estabilidad macroeconómica y apoyo externo creó condiciones favorables para iniciar una recuperación acelerada de la infraestructura tecnológica universitaria.</p>
+            <div style="margin-top: 25px; background: rgba(255,255,255,0.9); padding: 15px; border-radius: 8px; color: #333;">
+                <p style="margin: 0;"><strong>Progreso significativo:</strong> La combinación de estabilidad macroeconómica y apoyo externo creó condiciones favorables para iniciar una recuperación acelerada de la infraestructura tecnológica universitaria.</p>
             </div>
         </div>
 
-        <div class="quarter-section">
-            <div class="quarter-header">
-                <h2><i class="fas fa-calendar"></i> Semestre II 2000: Consolidación</h2>
-            </div>
-            
-            <div class="events-container">
-                <div class="timeline-event">
-                    <span class="event-date">Julio-Diciembre 2000</span>
-                    <h3>Expansión de Servicios y Nuevas Capacidades</h3>
-                    
-                    <div class="image-container">
-                        <img src="images/Sucre.jpeg" 
-                             class="verified-image">
-                    </div>
-                    
-                    <p>Estabilizados los servicios básicos, las instituciones comenzaron a expandir capacidades. Se mejoró la infraestructura de red interna (migración a Ethernet switched), se desarrollaron portales web más robustos y se implementaron sistemas de gestión de aprendizaje incipientes.</p>
-                    
-                    <div style="background: #fff3e0; padding: 15px; border-radius: 8px; margin: 10px 0;">
-                        <h4 style="margin-top: 0;">Tendencias emergentes:</h4>
-                        <ul>
-                            <li>Integración de sistemas y servicios.</li>
-                            <li>Enfoque en experiencia de usuario.</li>
-                            <li>Capacitación de personal técnico propio.</li>
-                            <li>Adopción de estándares de interoperabilidad.</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <div class="timeline-event">
-                    <span class="event-date">Septiembre 2000</span>
-                    <h3>Finalización Formal de la Dolarización</h3>
-                    
-                    <p>El retiro completo del sucre en septiembre de 2000 institucionalizó el nuevo entorno económico. Esto permitió planificar costos recurrentes en dólares (licencias, conectividad) con estabilidad, pero forzó a las instituciones a ser más eficientes y transparentes en su gestión tecnológica para competir bajo estándares internacionales de costos.</p>
-                    
-                      <div class="image-container">
-                          <img src="images/Muchomony.jpg" 
-                             class="verified-image">
-                    </div>
-                    <div class="reference-box" style="margin-top: 15px; font-size: 0.85em;">
-                        <p style="margin: 0;">
-                            <i class="fas fa-book" style="color: var(--primary);"></i> <strong>Fuente:</strong>
-                            Pobreza, dolarización y crisis en el Ecuador. (s. f.). 
-                            <a href="https://books.google.com.ec/books?hl=es&lr=&id=Gj2gWADSflAC&oi=fnd&pg=PA7&dq=dolarizaci%C3%B3n+en+el+ecuador&ots=GKIWJeCI-y&sig=dhx5QcWi1xfpYoGjYlgMO5T_8HI&redir_esc=y#v=onepage&q=dolarizaci%C3%B3n%20en%20el%20ecuador&f=false" target="_blank" class="source-link">
-                                Google Books.
-                            </a>
-                        </p>
-                    </div>
-                </div>
+
+        <h2><i data-lucide="check-circle"></i> Semestre II 2000: Consolidación y Despedida del Sucre</h2>
+
+        <h3>Expansión de Servicios y Nuevas Capacidades</h3>
+
+        <p>Estabilizados los servicios básicos, las instituciones comenzaron a expandir capacidades. Se mejoró la infraestructura de red interna (migración a Ethernet switched), se desarrollaron portales web más robustos y se implementaron sistemas de gestión de aprendizaje incipientes.</p>
+
+        <div class="info-box curious">
+            <h4><i data-lucide="zap" size="20"></i> Tendencias emergentes en la Academia:</h4>
+            <ul>
+                <li><strong>Cableado Estructurado:</strong> Adiós al cable coaxial (BNC) y migración definitiva hacia cables UTP (RJ45).</li>
+                <li><strong>Identidad Web:</strong> Desarrollo de páginas institucionales más allá del simple texto.</li>
+                <li><strong>Alfabetización digital:</strong> Primeros cursos formales de Ofimática y uso de Internet para estudiantes de todas las carreras, no solo ingenierías.</li>
+            </ul>
+        </div>
+
+        <h3>Finalización Formal de la Dolarización (Septiembre)</h3>
+
+        <p>El retiro completo del sucre en septiembre de 2000 institucionalizó el nuevo entorno económico. Esto permitió planificar costos recurrentes en dólares (licencias, conectividad) con estabilidad, pero forzó a las instituciones a ser más eficientes y transparentes en su gestión tecnológica para competir bajo estándares internacionales de costos.</p>
+
+        <div class="single-image-container">
+            <img src="images/Muchomony.jpg" alt="Retiro del Sucre" onerror="this.src='https://placehold.co/600x350?text=Fin+del+Sucre'">
+            <div class="image-caption">El retiro del Sucre permitió estabilizar finalmente el valor de la tecnología (equipos, discos duros, routers)</div>
+            <div class="image-source">
+                <strong>Fuente Histórica:</strong> <a href="https://digitalrepository.unm.edu/cgi/viewcontent.cgi?article=1100&context=abya_yala" target="_blank">Pobreza, dolarización y crisis en el Ecuador. </a> Análisis de la salida de la moneda nacional y su estabilización comercial.
             </div>
         </div>
 
-        <div class="quarter-section">
-            <div class="quarter-header" style="background: linear-gradient(135deg, #2c3e50 0%, #4a6491 100%);">
-                <h2><i class="fas fa-balance-scale"></i> Balance Histórico: Año 2000</h2>
-            </div>
-            
-            <div class="events-container">
-                <div class="timeline-event">
-                    <h3>Logros y Avances</h3>
-                    
-                    <div class="image-container">
-                        <img src="images/Logros.jpg" 
-                         class="verified-image">
-                    </div>
-                    
-                    <p>El año 2000 marcó el cambio de mentalidad de "supervivencia" a "recuperación". Se logró estabilizar servicios básicos, rehabilitar infraestructura crítica, formar personal técnico y establecer alianzas internacionales clave.</p>
-                    
-                    <ul>
-                        <li>Estabilización de conectividad y correo.</li>
-                        <li>Rehabilitación de hardware.</li>
-                        <li>Adopción de software libre y soluciones innovadoras.</li>
-                        <li>Fortalecimiento de la resiliencia institucional.</li>
-                    </ul>
-                </div>
-                
-                <div class="timeline-event">
-                    <h3>Perspectiva Futura</h3>
-                    <p>Las bases sentadas en el año 2000 (gobernanza más estructurada, modelos de financiamiento estables, cultura de innovación ante la escasez) fueron fundamentales para el desarrollo tecnológico acelerado que caracterizaría la primera década del siglo XXI en la educación superior ecuatoriana.</p>
-                    <div class="image-container">
-                        <img src="images/Futuro.jpg"
-                         class="verified-image">
-                    </div>
-                </div>
+
+        <h2><i class="fas fa-book-open"></i> Balance Histórico: El Puente al Siglo XXI</h2>
+
+        <h3>Logros, Avances y Perspectiva Futura</h3>
+
+        <p>El año 2000 marcó el cambio definitivo de la mentalidad de "supervivencia" (propia de 1999) hacia la "recuperación" e "institucionalización". Se logró estabilizar servicios básicos, rehabilitar infraestructura crítica y establecer alianzas clave.</p>
+
+        <div class="info-box uce">
+            <h4><i data-lucide="graduation-cap" size="20"></i> La UCE lista para el nuevo milenio:</h4>
+            <p style="margin: 0;">Al finalizar el año 2000, la Universidad Central del Ecuador había superado su época más oscura. Las bases sentadas este año (gobernanza más estructurada para los centros de cómputo, presupuestos estables en dólares, y el empuje de una generación de estudiantes nativos digitales) fueron los cimientos para el desarrollo de la red académica troncal de fibra óptica y la posterior creación de sistemas en línea, como el Sistema Integral de Información Universitaria (SIIU), que caracterizarían su historia en la siguiente década.</p>
+        </div>
+
+        <div class="single-image-container">
+            <img src="images/Futuro.jpg" alt="Perspectiva Futura" onerror="this.src='https://placehold.co/600x350?text=Educación+S.XXI'">
+            <div class="image-caption">La educación superior ecuatoriana lista para la digitalización masiva del siglo XXI</div>
+            <div class="image-source">
+                <strong>Legado histórico:</strong> <a href="https://revistas.ug.edu.ec/index.php/iti/es/article/view/2252/5017" target="_blank">Transformaciones en la Educación Superior Ecuatoriana. </a> El fin del año 2000 cierra un ciclo de 20 años donde las universidades pasaron del papel y el ábaco, a las redes globales interconectadas.
             </div>
         </div>
+
+        <div style="text-align: center; margin: 60px 0; padding: 40px 30px; background: linear-gradient(135deg, #001a4d 0%, #003366 100%); color: white; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.15);">
+            <h3 style="margin-top: 0; color: var(--secondary);"><i data-lucide="award" style="vertical-align: sub;"></i> Conclusión del Proyecto: 1980 - 2000</h3>
+            <p style="font-size: 1.1em; max-width: 800px; margin: 0 auto 20px;">Las dos décadas cubiertas por esta investigación histórica muestran una trayectoria de desarrollo tecnológico marcada por el pionerismo temprano (IBM/Apple), la expansión gradual, la aceleración con la llegada de ECUANEX y la Web, la prueba severa durante el Feriado Bancario, y la resurrección gracias a la dolarización y el Software Libre.</p>
+            
+            <div style="margin-top: 25px; padding: 15px; background: rgba(255,255,255,0.1); border-radius: 8px; border-left: 4px solid var(--secondary); text-align: left;">
+                <p style="margin: 0; font-size: 1em;">Esta trayectoria proporciona el contexto absoluto y esencial para comprender cómo la <strong>Universidad Central del Ecuador</strong> y la academia nacional forjaron la infraestructura digital que hoy damos por sentada.</p>
+            </div>
+        </div>
+
     </div>
 
     <footer>
         <div class="footer-content">
-            <h3>Universidad Central del Ecuador - Proyecto Completo de Historia Tecnológica 1980-2000</h3>
-            <p>Investigación histórica documentada sobre dos décadas de desarrollo tecnológico</p>
+            <h3 style="color: white; margin-top: 0;">Universidad Central del Ecuador - Proyecto de Historia Tecnológica</h3>
+            <p>Investigación documentada sobre dos décadas de desarrollo tecnológico en educación superior ecuatoriana</p>
             <div class="footer-details">
-                <p>© 2024 - Investigación histórica con metodología rigurosa</p>
-                <p>Período completo: 1980-2000</p>
-                <p>Contacto: historia.tecnologia.educativa@uce.edu.ec</p>
+                <p>© 2026 - Investigación histórica con metodología rigurosa</p>
+                <p>Período completo investigado y digitalizado: 1980 - 2000</p>
+                <p>Contacto investigativo: historia.tecnologia.educativa@uce.edu.ec</p>
             </div>
         </div>
     </footer>
+
+    <script>
+        // Inicializar iconos
+        if(typeof lucide !== 'undefined') {
+            lucide.createIcons();
+        }
+    </script>
 </body>
 </html>
