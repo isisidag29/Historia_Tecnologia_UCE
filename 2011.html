@@ -38,6 +38,44 @@
             margin-bottom: 8px;
         }
         .ref-link:hover { text-decoration: underline; }
+
+        /* Estilos nuevos para la sección de Contraste */
+        .hardware-card {
+            background-color: #e3f2fd; /* Azul claro */
+            border-left: 5px solid #1976d2; /* Azul fuerte */
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 0 8px 8px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .software-card {
+            background-color: #f3e5f5; /* Lila claro */
+            border-left: 5px solid #7b1fa2; /* Violeta */
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 0 8px 8px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .contrast-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            font-size: 0.9rem;
+            box-shadow: 0 0 15px rgba(0,0,0,0.05);
+        }
+        .contrast-table th {
+            background-color: #455a64;
+            color: white;
+            padding: 12px;
+            text-align: left;
+        }
+        .contrast-table td {
+            border-bottom: 1px solid #eee;
+            padding: 12px;
+            vertical-align: top;
+        }
     </style>
 </head>
 <body>
@@ -83,12 +121,12 @@
             Este esfuerzo permitió iniciar la migración de archivos físicos y hojas de cálculo dispersas en las facultades hacia bases de datos estructuradas (Oracle), preparando el terreno para la matriculación en línea masiva que llegaría en los años siguientes.
         </p>
 
-<div style="text-align: center; margin: 40px 0;">
-    <img src="2011 Piramide.png" alt="Esquema de la arquitectura inicial del SIIU" style="max-width: 100%; border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.15);">
-    <p style="font-size: 0.9rem; color: #666; margin-top: 10px; font-style: italic;">
-        Imagen Resumen.- Esquema de transición tecnológica planteado 2011-2014. Generada con Inteligencia Artificial.
-    </p>
-</div>
+        <div style="text-align: center; margin: 40px 0;">
+            <img src="2011 Piramide.png" alt="Esquema de la arquitectura inicial del SIIU" style="max-width: 100%; border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.15);">
+            <p style="font-size: 0.9rem; color: #666; margin-top: 10px; font-style: italic;">
+                Imagen Resumen.- Esquema de transición tecnológica planteado 2011-2014. Generada con Inteligencia Artificial.
+            </p>
+        </div>
 
         <h3>Impacto Tecnológico Inicial</h3>
         <ul style="line-height: 1.6;">
@@ -97,9 +135,57 @@
             <li><strong>Cultura Digital:</strong> Inicio de la capacitación a secretarias para el uso de interfaces web en lugar de sistemas de escritorio (FoxPro).</li>
         </ul>
 
+        <h3 style="margin-top: 40px; border-top: 1px solid #eee; padding-top: 30px;">La Paradoja Tecnológica: Infraestructura vs. Realidad en el Aula</h3>
+        <p>
+            Mientras a nivel administrativo se sentaban las bases del SIIU, a nivel académico existía un fuerte contraste entre el volumen de equipamiento reportado y su uso real en el proceso de enseñanza-aprendizaje.
+        </p>
+
+        <div class="hardware-card">
+            <h4 style="margin-top: 0; color: #1565c0; display: flex; align-items: center; gap: 10px;">
+                <i data-lucide="monitor"></i> La Visión Oficial: El Músculo Tecnológico
+            </h4>
+            <p style="margin-bottom: 10px;">Según la <strong>Revista CIFRAS 2011</strong>, la Facultad de Ingeniería, Ciencias Físicas y Matemática concentraba gran parte del poder tecnológico institucional :</p>
+            <ul style="list-style: none; padding: 0; line-height: 1.6;">
+                <li><strong>💻 Equipamiento:</strong> Se reportaron <strong>474 computadoras</strong> operativas y <strong>21 laboratorios de cómputo</strong> dedicados a la enseñanza .</li>
+                <li><strong>📚 Recursos Bibliográficos:</strong> Las bibliotecas de esta facultad contaban con un fondo documentado de 13.109 textos impresos .</li>
+            </ul>
+        </div>
+
+        <div class="software-card">
+            <h4 style="margin-top: 0; color: #6a1b9a; display: flex; align-items: center; gap: 10px;">
+                <i data-lucide="book-open"></i> La Realidad Pedagógica: El Vacío Digital
+            </h4>
+            <p style="margin-bottom: 10px;">En contraste, investigaciones del periodo revelaron que en las aulas de primer semestre de la universidad, el modelo de enseñanza seguía siendo tradicional y pasivo :</p>
+            <ul style="list-style: none; padding: 0; line-height: 1.6;">
+                <li><strong>👨‍🏫 Uso Nulo en Aula:</strong> Pese a los equipos existentes en la institución, el 49% de los alumnos reportó que los docentes no usaban proyectores, y el 71% indicó que no existían blogs ni plataformas virtuales para impartir clases teóricas .</li>
+                <li><strong>🚫 Ausencia de Software:</strong> Se detectó una carencia crítica de herramientas interactivas, motivando el diseño urgente de software educativo (ej. para resolución de inecuaciones) a fin de romper con los "atavismos del pasado" .</li>
+            </ul>
+        </div>
+
+        <table class="contrast-table">
+            <thead>
+                <tr>
+                    <th>Indicador</th>
+                    <th>Datos Oficiales (CIFRAS 2011)</th>
+                    <th>Realidad Estudiantil (Tesis 2010-2011)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Infraestructura</strong></td>
+                    <td>Alta disponibilidad (Ej. 21 laboratorios en Ingeniería).</td>
+                    <td>Uso limitado o nulo de las TIC durante las clases teóricas.</td>
+                </tr>
+                <tr>
+                    <td><strong>Herramientas</strong></td>
+                    <td>Cursos de capacitación en ofimática y software de ingeniería.</td>
+                    <td>Falta generalizada de software educativo interactivo para materias básicas.</td>
+                </tr>
+            </tbody>
+        </table>
         <div class="ref-box">
             <strong><i data-lucide="file-text" style="vertical-align: middle;"></i> Fuentes y Documentos Históricos:</strong><br>
-            <p style="font-size: 0.85rem; color: #666; margin-bottom: 15px;">Documentos oficiales que validan el inicio de la planificación tecnológica:</p>
+            <p style="font-size: 0.85rem; color: #666; margin-bottom: 15px;">Documentos oficiales e investigaciones que validan la situación institucional y tecnológica:</p>
             
             <a href="https://www.educacionsuperior.gob.ec/wp-content/uploads/downloads/2017/11/Plan-Estrat%C3%A9gico-2011-2014.pdf" target="_blank" class="ref-link">
                 <i data-lucide="external-link" style="width: 16px;"></i> Ver Plan Estratégico de Desarrollo (2011-2014)
@@ -111,8 +197,22 @@
             <a href="http://uce-ing-informatica.blogspot.com/2018/06/dtic-uce-mesa-de-ayuda.html" target="_blank" class="ref-link">
                 <i data-lucide="monitor" style="width: 16px;"></i> Blog Histórico DTIC - Mesa de Ayuda
             </a>
-            <div style="font-size: 0.85rem; color: #555; margin-left: 24px;">
+            <div style="font-size: 0.85rem; color: #555; margin-left: 24px; margin-bottom: 10px;">
                 *Registro de la actividad de soporte tecnológico que evidencia la consolidación de la Dirección de Tecnologías.*
+            </div>
+
+            <a href="#" class="ref-link" style="margin-top: 15px; pointer-events: none;">
+                <i data-lucide="book" style="width: 16px;"></i> Universidad Central del Ecuador. (2012). Revista CIFRAS 2011.
+            </a>
+            <div style="font-size: 0.85rem; color: #555; margin-left: 24px; margin-bottom: 10px;">
+                *Documento estadístico oficial que evidencia el volumen de infraestructura tecnológica por facultad.*
+            </div>
+
+            <a href="#" class="ref-link" style="pointer-events: none;">
+                <i data-lucide="graduation-cap" style="width: 16px;"></i> Amores Veloz, A. L. (2014). Impacto del uso y aplicación de las TICs en la enseñanza...
+            </a>
+            <div style="font-size: 0.85rem; color: #555; margin-left: 24px;">
+                *Tesis de Maestría que desvela el bajo nivel de adopción de TIC por parte de los docentes en la práctica real.*
             </div>
         </div>
 
