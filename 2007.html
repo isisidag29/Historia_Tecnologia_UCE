@@ -1,197 +1,230 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Año 2007: Diagnóstico Tecnológico - UCE</title>
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <link rel="stylesheet" href="style.css">
-    <style>
-        /* Estilos específicos para la tabla de diagnóstico */
-        .tech-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 25px 0;
-            font-size: 0.95rem;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
-            border-radius: 8px;
-            overflow: hidden;
-        }
-        .tech-table th, .tech-table td {
-            padding: 15px;
-            border-bottom: 1px solid #eee;
-            text-align: left;
-        }
-        .tech-table th {
-            background-color: var(--primary, #1565c0);
-            color: white;
-            font-weight: 600;
-        }
-        .tech-table tr:nth-child(even) {
-            background-color: #f8f9fa;
-        }
+<!DOCTYPE html> 
+ <html lang="es"> 
+ <head> 
+     <meta charset="UTF-8"> 
+     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+     <title>Año 2007: Diagnóstico Tecnológico - UCE</title> 
+     <script src="https://unpkg.com/lucide@latest"></script> 
+     <link rel="stylesheet" href="style.css"> 
+     <style> 
+         /* Estilos específicos para la tabla de diagnóstico */ 
+         .tech-table { 
+             width: 100%; 
+             border-collapse: collapse; 
+             margin: 25px 0; 
+             font-size: 0.95rem; 
+             box-shadow: 0 0 20px rgba(0, 0, 0, 0.05); 
+             border-radius: 8px; 
+             overflow: hidden; 
+         } 
+         .tech-table th, .tech-table td { 
+             padding: 15px; 
+             border-bottom: 1px solid #eee; 
+             text-align: left; 
+         } 
+         .tech-table th { 
+             background-color: var(--primary); 
+             color: white; 
+             font-weight: 600; 
+         } 
+         .tech-table tr:nth-child(even) { 
+             background-color: #f8f9fa; 
+         } 
 
-        /* Caja de Fuente Contextual */
-        .source-box {
-            background-color: #e3f2fd;
-            border-left: 5px solid #1565c0;
-            padding: 20px;
-            margin: 30px 0;
-            border-radius: 4px;
-            color: #0d47a1;
-        }
-        
-        /* Caja de alerta leve (Brecha digital) */
-        .gap-box {
-            background-color: #fff3e0;
-            border: 1px solid #ffcc80;
-            padding: 15px;
-            border-radius: 8px;
-            margin-top: 20px;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
+         /* Caja de Fuente Contextual */ 
+         .source-box { 
+             background-color: #e3f2fd; 
+             border-left: 5px solid #1565c0; 
+             padding: 20px; 
+             margin: 30px 0; 
+             border-radius: 4px; 
+             color: #0d47a1; 
+         } 
+         
+         /* Caja de alerta leve (Brecha digital) */ 
+         .gap-box { 
+             background-color: #fff3e0; 
+             border: 1px solid #ffcc80; 
+             padding: 15px; 
+             border-radius: 8px; 
+             margin-top: 20px; 
+             display: flex; 
+             align-items: center; 
+             gap: 15px; 
+         } 
 
-        /* Ficha del Proyecto */
-        .project-card {
-            background-color: #f3e5f5; /* Lila suave */
-            border-left: 5px solid #8e24aa;
-            padding: 20px;
-            margin: 30px 0;
-            border-radius: 0 8px 8px 0;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-        }
-    </style>
-</head>
-<body>
+         /* Ficha del Proyecto */ 
+         .project-card { 
+             background-color: #f3e5f5; /* Lila suave */ 
+             border-left: 5px solid #8e24aa; 
+             padding: 20px; 
+             margin: 30px 0; 
+             border-radius: 0 8px 8px 0; 
+             box-shadow: 0 2px 5px rgba(0,0,0,0.05); 
+         } 
+     </style> 
+ </head> 
+ <body> 
 
-    <header style="background: linear-gradient(135deg, var(--primary, #1565c0) 0%, #001a4d 100%); color: white; padding: 20px;">
-        <h1>Año 2007</h1>
-        <p>Diagnóstico y Planificación Estratégica</p>
-    </header>
+     <header style="background: linear-gradient(135deg, var(--primary) 0%, #001a4d 100%);"> 
+         <h1>Año 2007</h1> 
+         <p>Diagnóstico y Planificación Estratégica</p> 
+     </header> 
 
-        <div class="page-content" style="padding: 20px; max-width: 1000px; margin: auto;">
-        
-        <a href="periodo_2001_2015.html" class="btn-back" style="display: block; margin-bottom: 10px; color: #1565c0; text-decoration: none;">
-            ↑ Volver al Periodo 2001-2015
-        </a>
-        
-        <a href="2006.html" class="btn-back" style="display: block; margin-bottom: 10px; color: #1565c0; text-decoration: none;">
-            ← Año 2006
-        </a>
+         <div class="page-content"> 
+         
+         <a href="periodo_2001_2015.html" class="btn-back"> 
+             ↑ Volver al Periodo 2001-2015 
+         </a> 
+         
+         <a href="2006.html" class="btn-back"> 
+             ← Año 2006 
+         </a> 
 
-        <a href="2008.html" class="btn-back" style="display: block; margin-bottom: 20px; color: #1565c0; text-decoration: none;">
-            Año 2008 →
-        </a>
-        <h1 class="year-title" style="margin-top: 20px;">2007: La "Brecha Digital" al Descubierto</h1>
+         <a href="2008.html" class="btn-back"> 
+             Año 2008 → 
+         </a> 
+         <h1 class="year-title" style="margin-top: 20px;">2007: La "Brecha Digital" al Descubierto</h1> 
 
-        <p class="intro-text">
-            Con el cambio de gobierno y la implementación de una nueva Agenda Nacional de Conectividad, las universidades públicas iniciaron procesos de autoevaluación. 
-            El diagnóstico de 2007 evidenció el rezago tecnológico acumulado durante la década anterior.
-        </p>
+         <p class="intro-text"> 
+             Con el cambio de gobierno y la implementación de una nueva 
+Agenda Nacional de Conectividad, las universidades públicas iniciaron 
+procesos de autoevaluación.  
+             El diagnóstico de 2007 evidenció el rezago tecnológico acumulado durante la década anterior. 
+         </p> 
 
-        <div class="project-card">
-            <h4 style="margin-top: 0; color: #7b1fa2; display: flex; align-items: center; gap: 10px;">
-                <i data-lucide="clipboard-list"></i> Ficha de Situación: Estado Tecnológico
-            </h4>
-            <ul style="list-style: none; padding: 0; margin-top: 15px; line-height: 1.6;">
-                <li><strong>📊 Contexto:</strong> Alineación con el Plan Nacional de Telecomunicaciones 2007-2012.</li>
-                <li><strong>💰 Problema Detectado:</strong> Baja inversión histórica en TICs respecto al presupuesto general.</li>
-                <li><strong>👤 Actores:</strong> Unidades de Planificación Académica.</li>
-                <li><strong>🎯 Resultado:</strong> Identificación de la necesidad urgente de renovar el parque informático.</li>
-            </ul>
-        </div>
+         <div class="project-card"> 
+             <h4 style="margin-top: 0; color: #7b1fa2; display: flex; align-items: center; gap: 10px;"> 
+                 <i data-lucide="clipboard-list"></i> Ficha de Situación: Estado Tecnológico 
+             </h4> 
+             <ul style="list-style: none; padding: 0; margin-top: 15px; line-height: 1.6;"> 
 
-        <div class="source-box">
-            <strong><i data-lucide="info" style="vertical-align: middle;"></i> Contexto Nacional Educativo (2007)</strong>
-            <p style="margin-top: 10px; font-style: italic;">
-                "Las Unidades de Planificación Académica basaron sus diagnósticos en marcos nacionales como el <strong>Informe Aprendo 2007</strong>, que ya advertía cómo la falta de infraestructura tecnológica era un factor determinante en la brecha educativa. Las universidades, al recibir estudiantes de este sistema, enfrentaban las mismas graves carencias internas."
-            </p>
-        </div>
+                 <li><strong>📊 Contexto:</strong> 
+Alineación con el Plan Nacional de Telecomunicaciones 
+2007-2012.</li> 
 
-        <h3>1. Indicadores Estimados del Periodo</h3>
-        <p>
-            Según el <strong>Plan Nacional de Desarrollo de las Telecomunicaciones 2007-2012</strong>, Ecuador iniciaba el año con una infraestructura de red sumamente limitada, donde la meta nacional era alcanzar apenas un 3.2% de penetración de internet. Esto dejaba a las universidades en una situación de autosuficiencia crítica, caracterizada por la escasez de equipos y conectividad limitada:
-        </p>
+                 <li><strong>💰 Problema 
+Detectado:</strong> Baja inversión histórica en TICs respecto al 
+presupuesto general.</li> 
+                 <li><strong>👤 Actores:</strong> Unidades de Planificación Académica.</li> 
 
-        <table class="tech-table">
-            <tr>
-                <th>Indicador Tecnológico</th>
-                <th>Estado Situacional (Promedio Univ. Pública 2007)</th>
-            </tr>
-            <tr>
-                <td><strong>Acceso a Equipos</strong></td>
-                <td>Alta saturación en laboratorios (Ratios estimados de 30-40 alumnos por PC funcional).</td>
-            </tr>
-            <tr>
-                <td><strong>Aulas Multimedia</strong></td>
-                <td>Uso restringido de proyectores (Infocus), limitados a auditorios o bajo reserva especial.</td>
-            </tr>
-            <tr>
-                <td><strong>Presencia Web</strong></td>
-                <td><strong>Web 1.0 (Informativa):</strong> Portales estáticos sin servicios transaccionales (notas o matrículas en línea).</td>
-            </tr>
-            <tr>
-                <td><strong>Conectividad Docente</strong></td>
-                <td>Puntos de red cableada limitados principalmente a áreas administrativas y jefaturas. Conexiones conmutadas o de muy baja velocidad.</td>
-            </tr>
-        </table>
+                 <li><strong>🎯 Resultado:</strong> 
+Identificación de la necesidad urgente de renovar el parque 
+informático.</li> 
+             </ul> 
+         </div> 
 
-        <div class="gap-box">
-            <i data-lucide="globe" style="min-width: 40px; height: 40px; color: #f57c00;"></i>
-            <div>
-                <strong>El problema de la Web Estática:</strong>
-                <p style="margin: 5px 0 0 0; font-size: 0.9rem; color: #555;">
-                    En 2007, la web universitaria funcionaba como una cartelera digital. Los trámites estudiantiles (notas, matrículas) seguían siendo presenciales y en papel, contrastando con la naciente Web 2.0 global.
-                </p>
-            </div>
-        </div>
-        
-        <div class="img-container" style="text-align: center; margin: 40px 0;">
-            <img src="2007Interfazantigua(casi).png" alt="Captura de la web antigua de la UCE" style="max-width: 100%; border-radius: 8px; box-shadow: 0 10px 20px rgba(0,0,0,0.15);">
-            <p style="font-size: 0.9rem; color: #666; font-style: italic; margin-top: 10px;">
-                Imagen. Representación de la interfaz web institucional de la época, previa a los sistemas integrados.
-            </p>
-        </div>
+         <div class="source-box"> 
 
-        <hr style="margin: 40px 0; border: 0; border-top: 1px solid #eee;">
+             <strong><i data-lucide="info" 
+style="vertical-align: middle;"></i> Contexto Nacional Educativo 
+(2007)</strong> 
+             <p style="margin-top: 10px; font-style: italic;"> 
+                 "Las Unidades de Planificación Académica basaron sus diagnósticos en marcos nacionales como el <strong>Informe Aprendo 2007</strong>, que ya advertía cómo la falta de infraestructura tecnológica era un factor determinante en la brecha educativa. Las universidades, al recibir estudiantes de este sistema, enfrentaban las mismas graves carencias internas." 
+             </p> 
+         </div> 
 
-        <div style="font-size: 0.9rem; color: #555;">
-            <strong>Referencias de Contexto Histórico Oficiales:</strong>
-            <ul style="margin-top: 10px; padding-left: 20px; line-height: 1.8;">
-                <li>
-                    <a href="https://www.gobiernoelectronico.gob.ec/wp-content/uploads/2018/09/Plan-Nacional-de-telecomunicaciones-2007-2012.pdf" target="_blank" style="color: #003366; text-decoration: underline;">
-                        Plan Nacional de Desarrollo de las Telecomunicaciones 2007-2012
-                    </a> (Validación de infraestructura técnica y metas de penetración de banda ancha).
-                </li>
-                <li>
-                    <a href="https://educacion.gob.ec/wp-content/uploads/downloads/2013/05/INFORME_APRENDO_2007_IMP.pdf" target="_blank" style="color: #003366; text-decoration: underline;">
-                        Informe Técnico APRENDO 2007 - Ministerio de Educación
-                    </a> (Validación de factores asociados a la deficiencia tecnológica en centros educativos).
-                </li>
-                <li>
-                    <a href="https://www.ecuadorencifras.gob.ec/documentos/web-inec/Estadisticas_Sociales/TIC/2011/1_Publicacion_TIC_2011.pdf" target="_blank" style="color: #003366; text-decoration: underline;">
-                        INEC: Tecnologías de la Información y Comunicaciones
-                    </a> (Evolución histórica y encuestas de tecnología).
-                </li>
-            </ul>
-        </div>
+         <h3>1. Indicadores Estimados del Periodo</h3> 
+         <p> 
+             Según el <strong>Plan Nacional de Desarrollo de las Telecomunicaciones 2007-2012</strong>, Ecuador iniciaba el año con una infraestructura de red sumamente limitada, donde la meta nacional era alcanzar apenas un 3.2% de penetración de internet. Esto dejaba a las universidades en una situación de autosuficiencia crítica, caracterizada por la escasez de equipos y conectividad limitada: 
+         </p> 
 
-    </div>
+         <table class="tech-table"> 
+             <tr> 
+                 <th>Indicador Tecnológico</th> 
+                 <th>Estado Situacional (Promedio Univ. Pública 2007)</th> 
+             </tr> 
+             <tr> 
+                 <td><strong>Acceso a Equipos</strong></td> 
+                 <td>Alta saturación en laboratorios (Ratios estimados de 30-40 alumnos por PC funcional).</td> 
+             </tr> 
+             <tr> 
+                 <td><strong>Aulas Multimedia</strong></td> 
+                 <td>Uso restringido de proyectores (Infocus), limitados a auditorios o bajo reserva especial.</td> 
+             </tr> 
+             <tr> 
+                 <td><strong>Presencia Web</strong></td> 
 
-    <footer style="background-color: #f1f1f1; padding: 20px; text-align: center; margin-top: 40px;">
-        <div class="footer-content">
-            <p style="margin: 0; color: #333;"><strong>© 2026 Universidad Central del Ecuador</strong> - Facultad de Ingeniería, Ciencias Físicas y Matemática</p>
-            <p class="footer-details" style="margin: 5px 0 0 0; font-size: 0.85rem; color: #666;">
-                Ingeniería en Sistemas de Información | Infraestructura II | SI5-001 | Tecnología en la UCE 2025-2026
-            </p>
-        </div>
-    </footer>
+                 <td><strong>Web 1.0 
+(Informativa):</strong> Portales estáticos sin servicios 
+transaccionales (notas o matrículas en línea).</td> 
+             </tr> 
+             <tr> 
+                 <td><strong>Conectividad Docente</strong></td> 
+                 <td>Puntos de red cableada limitados principalmente a áreas administrativas y jefaturas. Conexiones conmutadas o de muy baja velocidad.</td> 
+             </tr> 
+         </table> 
 
-    <script>
-        if(typeof lucide !== 'undefined') lucide.createIcons();
-    </script>
+         <div class="gap-box"> 
+             <i data-lucide="globe" style="min-width: 40px; height: 40px; color: #f57c00;"></i> 
+             <div> 
+                 <strong>El problema de la Web Estática:</strong> 
+                 <p style="margin: 5px 0 0 0; font-size: 0.9rem; color: #555;"> 
 
-</body>
-</html>
+                     En 2007, la web universitaria funcionaba como una 
+cartelera digital. Los trámites estudiantiles (notas, matrículas) 
+seguían siendo presenciales y en papel, contrastando con la naciente Web
+ 2.0 global. 
+                 </p> 
+             </div> 
+         </div> 
+         
+         <div class="img-container" style="text-align: center; margin: 40px 0;"> 
+
+             <img src="2007Interfazantigua(casi).png" alt="Captura de
+ la web antigua de la UCE" style="max-width: 100%; border-radius: 8px; 
+box-shadow: 0 10px 20px rgba(0,0,0,0.15);"> 
+             <p style="font-size: 0.9rem; color: #666; font-style: italic; margin-top: 10px;"> 
+                 Imagen. Representación de la interfaz web institucional de la época, previa a los sistemas integrados. 
+             </p> 
+         </div> 
+
+         <hr style="margin: 40px 0; border: 0; border-top: 1px solid #eee;"> 
+
+         <div style="font-size: 0.9rem; color: #555;"> 
+             <strong>Referencias de Contexto Histórico Oficiales:</strong> 
+             <ul style="margin-top: 10px; padding-left: 20px; line-height: 1.8;"> 
+                 <li> 
+                     <a 
+href="https://www.gobiernoelectronico.gob.ec/wp-content/uploads/2018/09/Plan-Nacional-de-telecomunicaciones-2007-2012.pdf"
+ target="_blank" style="color: #003366; text-decoration: underline;">
+                         Plan Nacional de Desarrollo de las Telecomunicaciones 2007-2012
+                     </a> (Validación de infraestructura técnica y metas de penetración de banda ancha).
+                 </li> 
+                 <li> 
+                     <a 
+href="https://educacion.gob.ec/wp-content/uploads/downloads/2013/05/INFORME_APRENDO_2007_IMP.pdf"
+ target="_blank" style="color: #003366; text-decoration: underline;">
+                         Informe Técnico APRENDO 2007 - Ministerio de Educación
+                     </a> (Validación de factores asociados a la deficiencia tecnológica en centros educativos).
+                 </li> 
+                 <li> 
+                     <a 
+href="https://www.ecuadorencifras.gob.ec/documentos/web-inec/Estadisticas_Sociales/TIC/2011/1_Publicacion_TIC_2011.pdf"
+ target="_blank" style="color: #003366; text-decoration: underline;">
+                         INEC: Tecnologías de la Información y Comunicaciones
+                     </a> (Evolución histórica y encuestas de tecnología).
+                 </li> 
+             </ul> 
+         </div> 
+
+     </div> 
+
+     <footer> 
+         <div class="footer-content"> 
+
+             <p><strong>© 2026 Universidad Central del 
+Ecuador</strong> - Facultad de Ingeniería, Ciencias Físicas y 
+Matemática</p> 
+             <p class="footer-details"> 
+                 Ingeniería en Sistemas de Información | Infraestructura II | SI5-001 | Tecnología en la UCE 2025-2026 
+             </p> 
+         </div> 
+     </footer> 
+
+     <script> 
+         if(typeof lucide !== 'undefined') lucide.createIcons(); 
+     </script> 
+
+ </body> 
+ </html>
