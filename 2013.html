@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Año 2013: Educación Virtual y Gestión TI - UCE</title>
+    <title>Año 2013: Educación Virtual, Crisis y Gestión TI - UCE</title>
     <script src="https://unpkg.com/lucide@latest"></script>
     <link rel="stylesheet" href="style.css">
     <style>
@@ -11,6 +11,26 @@
         .project-card {
             background-color: #e8eaf6; /* Indigo suave */
             border-left: 5px solid #3949ab; /* Indigo fuerte */
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 0 8px 8px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        /* Ficha de Crisis Administrativa (SENESCYT) */
+        .alert-card {
+            background-color: #ffebee; /* Rojo muy suave */
+            border-left: 5px solid #c62828; /* Rojo alerta */
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 0 8px 8px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        /* Ficha de Evaluación (CEAACES) */
+        .eval-card {
+            background-color: #fff3e0; /* Naranja muy suave */
+            border-left: 5px solid #e65100; /* Naranja oscuro */
             padding: 20px;
             margin: 30px 0;
             border-radius: 0 8px 8px 0;
@@ -54,7 +74,7 @@
 
     <header style="background: linear-gradient(135deg, var(--primary) 0%, #001a4d 100%);">
         <h1>Año 2013</h1>
-        <p>Aulas Virtuales y Nuevos Modelos de Gestión TI</p>
+        <p>Contraste Universitario: Aulas Virtuales, Nube y Crisis de Gestión</p>
     </header>
 
     <div class="page-content">
@@ -70,11 +90,38 @@
         <a href="2014.html" class="btn-back">
             Año 2014 →
         </a>
-        <h1 class="year-title" style="margin-top: 20px;">2013: La Expansión de la Educación Virtual</h1>
+        <h1 class="year-title" style="margin-top: 20px;">2013: El Choque entre la Academia, la Tecnología y la Administración</h1>
 
         <p class="intro-text">
-            En 2013, la Universidad Central del Ecuador consolidó su estrategia de educación híbrida con la masificación de su plataforma de <strong>Aulas Virtuales (Moodle)</strong>. 
-            Paralelamente, la academia comenzó a investigar y adoptar marcos internacionales de gestión de servicios (ITIL) para soportar esta nueva demanda tecnológica.
+            El 2013 fue un año de contrastes extremos. Mientras la academia adoptaba <strong>Aulas Virtuales (Moodle)</strong> y los posgrados investigaban sobre "Cloud Computing", la gestión administrativa institucional sufrió duras críticas gubernamentales y evaluaciones que evidenciaron grandes vacíos estructurales.
+        </p>
+
+        <div class="alert-card">
+            <h4 style="margin-top: 0; color: #c62828; display: flex; align-items: center; gap: 10px;">
+                <i data-lucide="alert-triangle"></i> Crisis de Gestión: Fondos Subejecutados
+            </h4>
+            <p style="margin-bottom: 10px;">En marzo de 2013, la SENESCYT reveló deficiencias severas en la planificación institucional liderada por la administración de turno:</p>
+            <ul style="list-style: none; padding: 0; line-height: 1.6;">
+                <li><strong>📉 128 Millones sin uso:</strong> La UCE subejecutó y perdió 128 millones de dólares en los 3 años previos debido a falta de agilidad administrativa.</li>
+                <li><strong>💼 Gasto Ineficiente:</strong> Se reportó que el 53% del presupuesto se destinaba a "burocracia administrativa" y solo un 26% a docentes.</li>
+                <li><strong>⚠️ Impacto:</strong> Falta de un plan de contingencia previsional para la jubilación obligatoria de más de 180 docentes.</li>
+            </ul>
+        </div>
+
+        <div class="eval-card">
+            <h4 style="margin-top: 0; color: #e65100; display: flex; align-items: center; gap: 10px;">
+                <i data-lucide="bar-chart-2"></i> Informe CEAACES: El Déficit Científico
+            </h4>
+            <p style="margin-bottom: 10px;">Aunque la UCE logró ratificar su Categoría A general, el informe del CEAACES de noviembre de 2013 mostró una alerta roja en producción científica:</p>
+            <ul style="list-style: none; padding: 0; line-height: 1.6;">
+                <li><strong>🔬 1% de Rendimiento:</strong> El indicador de investigación arrojó cifras casi nulas en publicaciones indexadas (SCIMAGO/ISIWEB).</li>
+                <li><strong>🌱 Nacimiento de Proyectos Semilla:</strong> Esta crisis investigativa forzó a la universidad a idear en los meses siguientes los "Proyectos Semilla" y la Investigación Formativa para enseñar a sus propios docentes cómo publicar.</li>
+            </ul>
+        </div>
+
+        <h3>1. La Expansión de la Educación Virtual</h3>
+        <p>
+            Para hacer frente a las nuevas exigencias de calidad y modernización, la universidad consolidó su estrategia de educación híbrida con la masificación de su plataforma de <strong>Aulas Virtuales (Moodle)</strong>.
         </p>
 
         <div class="project-card">
@@ -83,27 +130,23 @@
             </h4>
             <ul style="list-style: none; padding: 0; margin-top: 15px; line-height: 1.6;">
                 <li><strong>🎓 Plataforma:</strong> Moodle (Entorno Virtual de Aprendizaje - EVA).</li>
-                <li><strong>☁️ Tendencia:</strong> Inicio de la adopción de Cloud Computing y buenas prácticas (ITIL).</li>
                 <li><strong>🎯 Objetivo:</strong> Complementar la educación presencial con recursos digitales accesibles 24/7.</li>
-                <li><strong>👥 Impacto:</strong> Capacitación masiva a docentes para la creación de cursos en línea.</li>
+                <li><strong>👥 Impacto:</strong> Capacitación masiva a docentes para la creación de cursos en línea, mitigando la carencia de infraestructura física.</li>
             </ul>
         </div>
 
-        <h3>1. Aulas Virtuales: El Aula más allá del Campus</h3>
         <p>
-            La implementación de Moodle permitió a los docentes subir sílabos, tareas y foros, rompiendo la barrera física del aula. 
-            Este fue el precursor fundamental que permitiría a la universidad enfrentar los retos futuros de la educación a distancia.
+            La implementación de Moodle permitió a los docentes subir sílabos, tareas y foros, rompiendo la barrera física del aula. Este fue el precursor fundamental que prepararía a la universidad para los retos de la educación a distancia.
         </p>
 
         <div class="img-container">
             <img src="images/2013.png" alt="Interfaz de Aulas Virtuales UCE en 2013" class="evidence-img">
-            <p class="img-caption">Imagen. Moodle, Logo de la Plataforma Digital Utilizada</p>
+            <p class="img-caption">Imagen. Moodle, la plataforma elegida para potenciar los Entornos Virtuales de Aprendizaje (EVA).</p>
         </div>
 
         <h3>2. Investigación Académica: Gestión TI y la Nube</h3>
         <p>
-            Mientras se implementaban las plataformas, la universidad también producía conocimiento sobre cómo gestionarlas. 
-            Se destacaron investigaciones sobre la aplicación de <strong>ITIL (Biblioteca de Infraestructura de Tecnologías de Información)</strong> para garantizar la calidad del servicio en la transición hacia la nube.
+            Mientras se implementaban estas plataformas y se lidiaba con crisis administrativas, el <strong>Instituto de Investigación y Posgrado de la Facultad de Ingeniería</strong> formaba profesionales a la vanguardia, investigando sobre marcos internacionales de gestión de servicios (ITIL) y la transición hacia la nube (Cloud Computing).
         </p>
 
         <div class="thesis-box">
@@ -114,8 +157,8 @@
                 "Metodología de buenas prácticas en la gestión de tecnología para implementar ITIL a los requisitos de computación en la nube..."
             </div>
             <div style="margin-top: 15px; font-size: 0.9rem; color: #666;">
-                <strong>👨‍💻 Autor:</strong> Ing. Efrén Emiliano Cepeda<br>
-                <strong>🏛️ Contexto:</strong> Referente académico sobre la alineación de procesos tecnológicos con estándares mundiales de calidad y servicios cloud.
+                <strong>👨‍💻 Autor:</strong> Ing. Efrén Emiliano Cepeda (Maestría en Gestión Informática Empresarial)<br>
+                <strong>🏛️ Contexto:</strong> Referente académico sobre la alineación de procesos tecnológicos con estándares mundiales de calidad y servicios cloud, proponiendo infraestructuras IaaS y PaaS.
             </div>
             <div style="margin-top: 20px;">
                 <a href="https://www.dspace.uce.edu.ec/server/api/core/bitstreams/5b16f672-03b4-4846-bc49-12958b1247a7/content" target="_blank" style="display: inline-flex; align-items: center; gap: 5px; color: #d32f2f; text-decoration: none; font-weight: 600; font-size: 0.9rem; background-color: #ffebee; padding: 8px 15px; border-radius: 20px;">
@@ -125,17 +168,16 @@
         </div>
 
         <div style="margin-top: 40px; font-size: 0.9rem; color: #555; border-top: 1px solid #eee; padding-top: 20px;">
-            <strong>Referencias Adicionales:</strong>
-            <ul style="margin-top: 5px; padding-left: 20px;">
+            <strong>Referencias Históricas y Documentales:</strong>
+            <ul style="margin-top: 5px; padding-left: 20px; line-height: 1.8;">
                 <li>
-                    <a href="https://moodle.org/about" target="_blank" style="color: #003366; text-decoration: underline;">
-                        Historia de Moodle (La plataforma elegida)
-                    </a>
+                    <strong>SENESCYT (Marzo 2013):</strong> <a href="https://www.educacionsuperior.gob.ec/128-millones-de-dolares-subejecutados-son-el-resultado-de-una-deficiente-gestion-de-la-universidad-central-marcha-del-20-de-marzo-tiene-objetivos-electorales-dice-rene-ramirez/" target="_blank" style="color: #003366; text-decoration: underline;">128 millones de dólares subejecutados son el resultado de una deficiente gestión</a>.
                 </li>
                 <li>
-                    <a href="https://www.axelos.com/best-practice-solutions/itil" target="_blank" style="color: #003366; text-decoration: underline;">
-                        AXELOS: ¿Qué es ITIL? (Marco de referencia)
-                    </a>
+                    <strong>Evaluación CEAACES:</strong> Estrella, B. (2016). <a href="https://revistadigital.uce.edu.ec/index.php/CIENCIAS_MEDICAS/article/view/1168/1166" target="_blank" style="color: #003366; text-decoration: underline;">Fomentando cultura de investigación en la UCE: perspectiva desde los Proyectos Semilla</a>. Revista de la Facultad de Ciencias Médicas.
+                </li>
+                <li>
+                    <strong>Tecnología:</strong> <a href="https://moodle.org/about" target="_blank" style="color: #003366; text-decoration: underline;">Historia de Moodle (La plataforma elegida)</a> y <a href="https://www.axelos.com/best-practice-solutions/itil" target="_blank" style="color: #003366; text-decoration: underline;">Marco de referencia ITIL</a>.
                 </li>
             </ul>
         </div>
