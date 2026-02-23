@@ -23,7 +23,7 @@
             text-align: left;
         }
         .tech-table th {
-            background-color: var(--primary);
+            background-color: var(--primary, #1565c0);
             color: white;
             font-weight: 600;
         }
@@ -66,22 +66,22 @@
 </head>
 <body>
 
-    <header style="background: linear-gradient(135deg, var(--primary) 0%, #001a4d 100%);">
+    <header style="background: linear-gradient(135deg, var(--primary, #1565c0) 0%, #001a4d 100%); color: white; padding: 20px;">
         <h1>Año 2007</h1>
         <p>Diagnóstico y Planificación Estratégica</p>
     </header>
 
-        <div class="page-content">
+        <div class="page-content" style="padding: 20px; max-width: 1000px; margin: auto;">
         
-        <a href="periodo_2001_2015.html" class="btn-back">
+        <a href="periodo_2001_2015.html" class="btn-back" style="display: block; margin-bottom: 10px; color: #1565c0; text-decoration: none;">
             ↑ Volver al Periodo 2001-2015
         </a>
         
-        <a href="2006.html" class="btn-back">
+        <a href="2006.html" class="btn-back" style="display: block; margin-bottom: 10px; color: #1565c0; text-decoration: none;">
             ← Año 2006
         </a>
 
-        <a href="2008.html" class="btn-back">
+        <a href="2008.html" class="btn-back" style="display: block; margin-bottom: 20px; color: #1565c0; text-decoration: none;">
             Año 2008 →
         </a>
         <h1 class="year-title" style="margin-top: 20px;">2007: La "Brecha Digital" al Descubierto</h1>
@@ -104,15 +104,15 @@
         </div>
 
         <div class="source-box">
-            <strong><i data-lucide="info" style="vertical-align: middle;"></i> Contexto Nacional (2007)</strong>
+            <strong><i data-lucide="info" style="vertical-align: middle;"></i> Contexto Nacional Educativo (2007)</strong>
             <p style="margin-top: 10px; font-style: italic;">
-                "El Plan Nacional de Telecomunicaciones de 2007 identificó que el acceso a banda ancha en instituciones educativas era crítico para el desarrollo, impulsando a las universidades a diagnosticar sus carencias internas."
+                "Las Unidades de Planificación Académica basaron sus diagnósticos en marcos nacionales como el <strong>Informe Aprendo 2007</strong>, que ya advertía cómo la falta de infraestructura tecnológica era un factor determinante en la brecha educativa. Las universidades, al recibir estudiantes de este sistema, enfrentaban las mismas graves carencias internas."
             </p>
         </div>
 
         <h3>1. Indicadores Estimados del Periodo</h3>
         <p>
-            Los informes sectoriales de la época describen una realidad universitaria caracterizada por la escasez de equipos y conectividad limitada:
+            Según el <strong>Plan Nacional de Desarrollo de las Telecomunicaciones 2007-2012</strong>, Ecuador iniciaba el año con una infraestructura de red sumamente limitada, donde la meta nacional era alcanzar apenas un 3.2% de penetración de internet. Esto dejaba a las universidades en una situación de autosuficiencia crítica, caracterizada por la escasez de equipos y conectividad limitada:
         </p>
 
         <table class="tech-table">
@@ -134,7 +134,7 @@
             </tr>
             <tr>
                 <td><strong>Conectividad Docente</strong></td>
-                <td>Puntos de red cableada limitados principalmente a áreas administrativas y jefaturas.</td>
+                <td>Puntos de red cableada limitados principalmente a áreas administrativas y jefaturas. Conexiones conmutadas o de muy baja velocidad.</td>
             </tr>
         </table>
 
@@ -158,27 +158,32 @@
         <hr style="margin: 40px 0; border: 0; border-top: 1px solid #eee;">
 
         <div style="font-size: 0.9rem; color: #555;">
-            <strong>Referencias de Contexto Histórico:</strong>
-            <ul style="margin-top: 5px; padding-left: 20px;">
+            <strong>Referencias de Contexto Histórico Oficiales:</strong>
+            <ul style="margin-top: 10px; padding-left: 20px; line-height: 1.8;">
                 <li>
                     <a href="https://www.gobiernoelectronico.gob.ec/wp-content/uploads/2018/09/Plan-Nacional-de-telecomunicaciones-2007-2012.pdf" target="_blank" style="color: #003366; text-decoration: underline;">
-                        Plan Nacional de Desarrollo de las Telecomunicaciones 2007-2012 (Diagnóstico Nacional)
-                    </a>
+                        Plan Nacional de Desarrollo de las Telecomunicaciones 2007-2012
+                    </a> (Validación de infraestructura técnica y metas de penetración de banda ancha).
+                </li>
+                <li>
+                    <a href="https://educacion.gob.ec/wp-content/uploads/downloads/2013/05/INFORME_APRENDO_2007_IMP.pdf" target="_blank" style="color: #003366; text-decoration: underline;">
+                        Informe Técnico APRENDO 2007 - Ministerio de Educación
+                    </a> (Validación de factores asociados a la deficiencia tecnológica en centros educativos).
                 </li>
                 <li>
                     <a href="https://www.ecuadorencifras.gob.ec/documentos/web-inec/Estadisticas_Sociales/TIC/2011/1_Publicacion_TIC_2011.pdf" target="_blank" style="color: #003366; text-decoration: underline;">
-                        INEC: Tecnologías de la Información y Comunicaciones (Evolución histórica)
-                    </a>
+                        INEC: Tecnologías de la Información y Comunicaciones
+                    </a> (Evolución histórica y encuestas de tecnología).
                 </li>
             </ul>
         </div>
 
     </div>
 
-    <footer>
+    <footer style="background-color: #f1f1f1; padding: 20px; text-align: center; margin-top: 40px;">
         <div class="footer-content">
-            <p><strong>© 2026 Universidad Central del Ecuador</strong> - Facultad de Ingeniería, Ciencias Físicas y Matemática</p>
-            <p class="footer-details">
+            <p style="margin: 0; color: #333;"><strong>© 2026 Universidad Central del Ecuador</strong> - Facultad de Ingeniería, Ciencias Físicas y Matemática</p>
+            <p class="footer-details" style="margin: 5px 0 0 0; font-size: 0.85rem; color: #666;">
                 Ingeniería en Sistemas de Información | Infraestructura II | SI5-001 | Tecnología en la UCE 2025-2026
             </p>
         </div>
