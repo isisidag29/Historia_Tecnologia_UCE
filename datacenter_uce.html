@@ -1,5 +1,5 @@
-<!DOCTYPE html>
 
+<!DOCTYPE html>
 <html lang="es">
     <head>
         <meta charset="utf-8"/>
@@ -7,7 +7,7 @@
         <title>Informe | Data Center UCE (2016–2017)</title>
         <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&amp;family=Work+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/>
         <style>
             :root{
                 --primary:#003366;
@@ -110,6 +110,11 @@
                 width: 100%;
                 border-radius: 16px;
                 box-shadow: 0 10px 22px rgba(0,0,0,0.12);
+                cursor: pointer;
+                transition: opacity 0.3s ease;
+            }
+            img:hover{
+                opacity: 0.85;
             }
             figcaption{
                 color: var(--muted);
@@ -247,8 +252,89 @@
                 justify-content: center;
                 margin-top: 40px;
             }
+
+            /* === MODAL PARA VER IMÁGENES === */
+            .modal {
+                display: none;
+                position: fixed;
+                z-index: 2000;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.9);
+                overflow: auto;
+                animation: fadeIn 0.3s ease;
+            }
+
+            @keyframes fadeIn {
+                from { opacity: 0; }
+                to { opacity: 1; }
+            }
+
+            .modal-content {
+                margin: auto;
+                display: block;
+                max-width: 90%;
+                max-height: 90%;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                border-radius: 8px;
+                box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+                animation: zoom 0.3s ease;
+            }
+
+            @keyframes zoom {
+                from { transform: translate(-50%, -50%) scale(0.9); opacity: 0; }
+                to { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+            }
+
+            .modal-caption {
+                margin: auto;
+                display: block;
+                width: 80%;
+                max-width: 700px;
+                text-align: center;
+                color: #ccc;
+                padding: 20px 0;
+                position: absolute;
+                bottom: 20px;
+                left: 50%;
+                transform: translateX(-50%);
+                font-size: 1rem;
+                background: rgba(0, 0, 0, 0.6);
+                border-radius: 50px;
+                backdrop-filter: blur(5px);
+            }
+
+            .close-modal {
+                position: absolute;
+                top: 20px;
+                right: 35px;
+                color: #f1f1f1;
+                font-size: 40px;
+                font-weight: bold;
+                transition: 0.3s;
+                cursor: pointer;
+                z-index: 2001;
+                width: 50px;
+                height: 50px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background: rgba(0, 0, 0, 0.3);
+                border-radius: 50%;
+            }
+
+            .close-modal:hover {
+                color: var(--secondary);
+                background: rgba(255, 255, 255, 0.2);
+                transform: rotate(90deg);
+            }
         </style>
-        </link></head>
+    </head>
     <body>
         <header>
             <h1><i class="fa-solid fa-server"></i> Data Center UCE</h1>
@@ -257,6 +343,14 @@
                 ejecutado desde <strong>2016</strong> e inaugurado en <strong>2017</strong>, como infraestructura crítica para la continuidad de servicios universitarios.
             </p>
         </header>
+
+        <!-- MODAL PARA VER IMÁGENES -->
+        <div id="imageModal" class="modal" onclick="closeModal()">
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            <img class="modal-content" id="modalImage" alt="Imagen ampliada">
+            <div class="modal-caption" id="modalCaption"></div>
+        </div>
+
         <div class="wrap">
             <div class="hero-card">
                 <div class="note">
@@ -269,47 +363,141 @@
                     <span class="pill"><i class="fa-solid fa-shield-halved"></i> Enfoque: disponibilidad + continuidad</span>
                     <span class="pill"><i class="fa-solid fa-coins"></i> Inversión referenciada: ~USD 1,2 millones</span>
                 </div>
-
-
-                <h2>Galería visual</h2>
+                <h2>Galería visual</h2><p class="muted">Capturas del modelado 3D realizado en SketchUp para ilustrar la distribución y componentes del Data Center.</p>
                 <div class="grid gallery">
                     <div class="card">
                         <figure>
-                            <img src="imagenes/datcenter_racks.png" alt="Vista del Data Center UCE (racks)"/>
+                            <img alt="data center plano general" loading="lazy" src="imagenes/data center plano general.png" onclick="openModal(this.src, 'Vista general del Data Center (modelado 3D en SketchUp)')"/>
+                            <figcaption>
+                                Vista general del Data Center (modelado 3D en SketchUp).
+                                <span class="sources">Fuente:
+                                    <a>Capturas de SketchUp (modelado propio)</a>
+                                </span>
+                            </figcaption>
+                        </figure>
+                    </div>
+                    <div class="card">
+                        <figure>
+                            <img alt="data center plano general 2" loading="lazy" src="imagenes/data center plano general 2.png" onclick="openModal(this.src, 'Vista general alternativa del Data Center (modelado 3D en SketchUp)')"/>
+                            <figcaption>
+                                Vista general alternativa del Data Center (modelado 3D en SketchUp).
+                                <span class="sources">Fuente:
+                                    <a>Capturas de SketchUp (modelado propio)</a>
+                                </span>
+                            </figcaption>
+                        </figure>
+                    </div>
+                    <div class="card">
+                        <figure>
+                            <img alt="data center plano general racks" loading="lazy" src="imagenes/data center plano general racks.png" onclick="openModal(this.src, 'Detalle de la disposición de racks y pasillos (modelado 3D en SketchUp)')"/>
+                            <figcaption>
+                                Detalle de la disposición de racks y pasillos (modelado 3D en SketchUp).
+                                <span class="sources">Fuente:
+                                    <a>Capturas de SketchUp (modelado propio)</a>
+                                </span>
+                            </figcaption>
+                        </figure>
+                    </div>
+                    <div class="card">
+                        <figure>
+                            <img alt="data center cuartos de investigacion y control" loading="lazy" src="imagenes/data center cuartos de investigacion y control.png" onclick="openModal(this.src, 'Cuartos de investigación y control (modelado 3D en SketchUp)')"/>
+                            <figcaption>
+                                Cuartos de investigación y control (modelado 3D en SketchUp).
+                                <span class="sources">Fuente:
+                                    <a>Capturas de SketchUp (modelado propio)</a>
+                                </span>
+                            </figcaption>
+                        </figure>
+                    </div>
+                    <div class="card">
+                        <figure>
+                            <img alt="data center cuarto energia 1" loading="lazy" src="imagenes/data center cuarto energia 1.png" onclick="openModal(this.src, 'Cuarto de energía/UPS y distribución eléctrica (vista 1) — modelado 3D en SketchUp')"/>
+                            <figcaption>
+                                Cuarto de energía/UPS y distribución eléctrica (vista 1) — modelado 3D en SketchUp.
+                                <span class="sources">Fuente:
+                                    <a>Capturas de SketchUp (modelado propio)</a>
+                                </span>
+                            </figcaption>
+                        </figure>
+                    </div>
+                    <div class="card">
+                        <figure>
+                            <img alt="data center cuarto energia 2" loading="lazy" src="imagenes/data center cuarto energia 2.png" onclick="openModal(this.src, 'Cuarto de energía/UPS y distribución eléctrica (vista 2) — modelado 3D en SketchUp')"/>
+                            <figcaption>
+                                Cuarto de energía/UPS y distribución eléctrica (vista 2) — modelado 3D en SketchUp.
+                                <span class="sources">Fuente:
+                                    <a>Capturas de SketchUp (modelado propio)</a>
+                                </span>
+                            </figcaption>
+                        </figure>
+                    </div>
+                    <div class="card">
+                        <figure>
+                            <img alt="data center primera persona cristaleda" loading="lazy" src="imagenes/data center primera persona cristaleda.png" onclick="openModal(this.src, 'Recorrido en primera persona: acceso con cerramiento de vidrio (modelado 3D en SketchUp)')"/>
+                            <figcaption>
+                                Recorrido en primera persona: acceso con cerramiento de vidrio (modelado 3D en SketchUp).
+                                <span class="sources">Fuente:
+                                    <a>Capturas de SketchUp (modelado propio)</a>
+                                </span>
+                            </figcaption>
+                        </figure>
+                    </div>
+                    <div class="card">
+                        <figure>
+                            <img alt="data center primera persona tras vidrios" loading="lazy" src="imagenes/data center primera persona tras vidrios .png" onclick="openModal(this.src, 'Recorrido en primera persona: vista a través del cerramiento de vidrio (modelado 3D en SketchUp)')"/>
+                            <figcaption>
+                                Recorrido en primera persona: vista a través del cerramiento de vidrio (modelado 3D en SketchUp).
+                                <span class="sources">Fuente:
+                                    <a>Capturas de SketchUp (modelado propio)</a>
+                                </span>
+                            </figcaption>
+                        </figure>
+                    </div>
+                    <div class="card">
+                        <figure>
+                            <img alt="data center premios" loading="lazy" src="imagenes/data center premios.png" onclick="openModal(this.src, 'Vista de reconocimientos/premios asociados al proyecto (modelado 3D en SketchUp)')"/>
+                            <figcaption>
+                                Vista de reconocimientos/premios asociados al proyecto (modelado 3D en SketchUp).
+                                <span class="sources">Fuente:
+                                    <a>Capturas de SketchUp (modelado propio)</a>
+                                </span>
+                            </figcaption>
+                        </figure>
+                    </div>
+                    <div class="card">
+                        <figure>
+                            <img alt="Vista del Data Center UCE (racks)" loading="lazy" src="imagenes/datcenter_racks.png" onclick="openModal(this.src, 'Vista del área de equipos (racks) del Data Center UCE (fotografía de visita técnica, 2022)')"/>
                             <figcaption>
                                 Vista del área de equipos (racks) del Data Center UCE (fotografía de visita técnica, 2022).
                                 <span class="sources">Fuente:
-                                    <a >Visita Tecnica de DataCenter Infraestructura de TI II</a>
+                                    <a>Visita Tecnica de DataCenter Infraestructura de TI II</a>
                                 </span>
                             </figcaption>
                         </figure>
                     </div>
-
                     <div class="card">
                         <figure>
-                            <img src="imagenes/dtic_exterior.jpg" alt="Entrada DTIC UCE (referencia)"/>
+                            <img alt="Entrada DTIC UCE (referencia)" loading="lazy" src="imagenes/dtic_exterior.jpg" onclick="openModal(this.src, 'Fachada de la DTIC (referencia visual vinculada a la visita técnica al Data Center UCE)')"/>
                             <figcaption>
                                 Fachada de la DTIC (referencia visual vinculada a la visita técnica al Data Center UCE).
                                 <span class="sources">Fuente:
-                                    <a href="https://ti-enlinea.utn.edu.ec/2023/01/12/gira-academica-datacenter-uce/" target="_blank" rel="noopener">UTN (2023)</a>
+                                    <a href="https://ti-enlinea.utn.edu.ec/2023/01/12/gira-academica-datacenter-uce/" rel="noopener" target="_blank">UTN (2023)</a>
                                 </span>
                             </figcaption>
                         </figure>
                     </div>
-
                     <div class="card">
                         <figure>
-                            <img src="imagenes/9deseptiembredel2016.jpg" alt="Cambio de Tablero de Alta Tension"/>
+                            <img alt="Cambio de Tablero de Alta Tension" loading="lazy" src="imagenes/9deseptiembredel2016.jpg" onclick="openModal(this.src, 'Cambio de Tablero de Alta Tension')"/>
                             <figcaption>
                                 Cambio de Tablero de Alta Tension.
                                 <span class="sources">Fuente:
-                                    <a href="https://aka-cdn.uce.edu.ec/ares/w/boletines/PDF%C2%B4s/PDFs%202016/509.pdf" target="_blank" rel="noopener">Boletin de Prensa 509</a>
+                                    <a href="https://aka-cdn.uce.edu.ec/ares/w/boletines/PDF%C2%B4s/PDFs%202016/509.pdf" rel="noopener" target="_blank">Boletin de Prensa 509</a>
                                 </span>
                             </figcaption>
                         </figure>
                     </div>
                 </div>
-
                 <h2>Resumen visual de capacidades</h2>
                 <div class="stats">
                     <div class="stat">
@@ -341,57 +529,55 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="card diagram">
                     <h3>Arquitectura (diagrama simplificado)</h3>
-                    <svg viewBox="0 0 980 240" role="img" aria-label="Diagrama de arquitectura del Data Center UCE" style="width:100%;height:auto">
+                    <svg aria-label="Diagrama de arquitectura del Data Center UCE" role="img" style="width:100%;height:auto" viewbox="0 0 980 240">
                     <defs>
-                    <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
-                    <stop offset="0" stop-color="#003366" stop-opacity="0.12"/>
-                    <stop offset="1" stop-color="#d4af37" stop-opacity="0.10"/>
-                    </linearGradient>
+                    <lineargradient id="g1" x1="0" x2="1" y1="0" y2="1">
+                    <stop offset="0" stop-color="#003366" stop-opacity="0.12"></stop>
+                    <stop offset="1" stop-color="#d4af37" stop-opacity="0.10"></stop>
+                    </lineargradient>
                     </defs>
-                    <rect x="10" y="14" width="960" height="212" rx="18" fill="url(#g1)" stroke="rgba(0,0,0,0.10)"/>
-                    <g font-family="Work Sans, Arial, sans-serif" fill="#1a1a1a">
+                    <rect fill="url(#g1)" height="212" rx="18" stroke="rgba(0,0,0,0.10)" width="960" x="10" y="14"></rect>
+                    <g fill="#1a1a1a" font-family="Work Sans, Arial, sans-serif">
                     <g>
-                    <rect x="40" y="60" width="200" height="110" rx="16" fill="#fff" stroke="rgba(0,0,0,0.14)"/>
-                    <text x="140" y="92" text-anchor="middle" font-weight="800" fill="#003366">Capa física</text>
-                    <text x="140" y="118" text-anchor="middle" font-size="13">energía · UPS · climatización</text>
-                    <text x="140" y="140" text-anchor="middle" font-size="13">racks · cableado · seguridad</text>
+                    <rect fill="#fff" height="110" rx="16" stroke="rgba(0,0,0,0.14)" width="200" x="40" y="60"></rect>
+                    <text fill="#003366" font-weight="800" text-anchor="middle" x="140" y="92">Capa física</text>
+                    <text font-size="13" text-anchor="middle" x="140" y="118">energía · UPS · climatización</text>
+                    <text font-size="13" text-anchor="middle" x="140" y="140">racks · cableado · seguridad</text>
                     </g>
                     <g>
-                    <rect x="290" y="60" width="200" height="110" rx="16" fill="#fff" stroke="rgba(0,0,0,0.14)"/>
-                    <text x="390" y="92" text-anchor="middle" font-weight="800" fill="#003366">Plataforma TI</text>
-                    <text x="390" y="118" text-anchor="middle" font-size="13">servidores · virtualización</text>
-                    <text x="390" y="140" text-anchor="middle" font-size="13">almacenamiento · backups</text>
+                    <rect fill="#fff" height="110" rx="16" stroke="rgba(0,0,0,0.14)" width="200" x="290" y="60"></rect>
+                    <text fill="#003366" font-weight="800" text-anchor="middle" x="390" y="92">Plataforma TI</text>
+                    <text font-size="13" text-anchor="middle" x="390" y="118">servidores · virtualización</text>
+                    <text font-size="13" text-anchor="middle" x="390" y="140">almacenamiento · backups</text>
                     </g>
                     <g>
-                    <rect x="540" y="60" width="200" height="110" rx="16" fill="#fff" stroke="rgba(0,0,0,0.14)"/>
-                    <text x="640" y="92" text-anchor="middle" font-weight="800" fill="#003366">Red & seguridad</text>
-                    <text x="640" y="118" text-anchor="middle" font-size="13">core · firewall · segmentación</text>
-                    <text x="640" y="140" text-anchor="middle" font-size="13">monitoreo · registros</text>
+                    <rect fill="#fff" height="110" rx="16" stroke="rgba(0,0,0,0.14)" width="200" x="540" y="60"></rect>
+                    <text fill="#003366" font-weight="800" text-anchor="middle" x="640" y="92">Red &amp; seguridad</text>
+                    <text font-size="13" text-anchor="middle" x="640" y="118">core · firewall · segmentación</text>
+                    <text font-size="13" text-anchor="middle" x="640" y="140">monitoreo · registros</text>
                     </g>
                     <g>
-                    <rect x="790" y="60" width="150" height="110" rx="16" fill="#fff" stroke="rgba(0,0,0,0.14)"/>
-                    <text x="865" y="92" text-anchor="middle" font-weight="800" fill="#003366">Servicios</text>
-                    <text x="865" y="118" text-anchor="middle" font-size="13">académicos</text>
-                    <text x="865" y="140" text-anchor="middle" font-size="13">administrativos</text>
+                    <rect fill="#fff" height="110" rx="16" stroke="rgba(0,0,0,0.14)" width="150" x="790" y="60"></rect>
+                    <text fill="#003366" font-weight="800" text-anchor="middle" x="865" y="92">Servicios</text>
+                    <text font-size="13" text-anchor="middle" x="865" y="118">académicos</text>
+                    <text font-size="13" text-anchor="middle" x="865" y="140">administrativos</text>
                     </g>
-                    <g stroke="#003366" stroke-width="3" fill="none" opacity="0.55">
-                    <path d="M240 115 H290"/>
-                    <path d="M490 115 H540"/>
-                    <path d="M740 115 H790"/>
+                    <g fill="none" opacity="0.55" stroke="#003366" stroke-width="3">
+                    <path d="M240 115 H290"></path>
+                    <path d="M490 115 H540"></path>
+                    <path d="M740 115 H790"></path>
                     </g>
                     </g>
                     </svg>
                     <div class="sources">
                         Datos de referencia tomados de fuentes institucionales UCE (2016–2017), DCD (2017) y el artículo TIC.EC/Maskana (2017).
-                        <a href="https://aka-cdn.uce.edu.ec/ares/w/boletines/PDF%C2%B4s/PDF2017/031.pdf" target="_blank" rel="noopener">Boletín UCE 031</a> ·
-                        <a href="https://www.datacenterdynamics.com/es/noticias/la-universidad-central-del-ecuador-estrena-data-center/" target="_blank" rel="noopener">DCD</a> ·
-                        <a href="https://publicaciones.ucuenca.edu.ec/ojs/index.php/maskana/article/view/1468" target="_blank" rel="noopener">Maskana</a>
+                        <a href="https://aka-cdn.uce.edu.ec/ares/w/boletines/PDF%C2%B4s/PDF2017/031.pdf" rel="noopener" target="_blank">Boletín UCE 031</a> ·
+                        <a href="https://www.datacenterdynamics.com/es/noticias/la-universidad-central-del-ecuador-estrena-data-center/" rel="noopener" target="_blank">DCD</a> ·
+                        <a href="https://publicaciones.ucuenca.edu.ec/ojs/index.php/maskana/article/view/1468" rel="noopener" target="_blank">Maskana</a>
                     </div>
                 </div>
-
             </div>
             <h2>1) Contexto y necesidad</h2>
             <div class="grid">
@@ -439,18 +625,16 @@
                 </div>
                 <div class="card">
                     <figure>
-                        <img alt="Equipo DTIC UCE relacionado a la implementación del Data Center (2017)" src="imagenes/19ene17.jpg"/>
+                        <img alt="Equipo DTIC UCE relacionado a la implementación del Data Center (2017)" loading="lazy" src="imagenes/19ene17.jpg" onclick="openModal(this.src, 'Imagen referencial del equipo DTIC relacionado a la implementación (2017)')"/>
                         <figcaption>
                             Imagen referencial del equipo DTIC relacionado a la implementación (2017). 
                             Referencia institucional: archivo de noticias UCE.
                             <span class="sources">Fuente:
-                                <a href="https://www.uce.edu.ec/archive_noticias?artID=294877" target="_blank" rel="noopener">Archivo Noticias - 19 de enero de 2017</a>
+                                <a href="https://www.uce.edu.ec/archive_noticias?artID=294877" rel="noopener" target="_blank">Archivo Noticias - 19 de enero de 2017</a>
                             </span>
-
                         </figcaption>
                     </figure>
                 </div>
-
                 <div class="card">
                     <h3>Arquitectura y hardware reportados (2016–2017)</h3>
                     <p>
@@ -574,8 +758,6 @@
                     </li>
                 </ul>
             </div>
-
-            <!-- Botones de navegación -->
             <!-- Botones de navegación -->
             <div class="nav-buttons">
                 <a class="btn" href="#team">
@@ -588,10 +770,47 @@
                     <i class="material-icons">arrow_back</i> Regresar a periodos 2016 - 2026
                 </a>
             </div>
-
             <footer>
                 2016–2026 (Infraestructura II).
             </footer>
         </div>
+
+        <script>
+            // Función para abrir el modal con la imagen
+            function openModal(imgSrc, imgAlt) {
+                const modal = document.getElementById('imageModal');
+                const modalImg = document.getElementById('modalImage');
+                const modalCaption = document.getElementById('modalCaption');
+                
+                modal.style.display = 'block';
+                modalImg.src = imgSrc;
+                modalCaption.innerHTML = imgAlt || 'Imagen histórica UCE';
+                
+                // Evitar que el scroll de fondo funcione
+                document.body.style.overflow = 'hidden';
+            }
+
+            // Función para cerrar el modal
+            function closeModal() {
+                const modal = document.getElementById('imageModal');
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+
+            // Cerrar modal con tecla ESC
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    closeModal();
+                }
+            });
+
+            // Cerrar modal al hacer clic fuera de la imagen (en el fondo oscuro)
+            window.onclick = function(event) {
+                const modal = document.getElementById('imageModal');
+                if (event.target === modal) {
+                    closeModal();
+                }
+            }
+        </script>
     </body>
 </html>
