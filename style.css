@@ -247,3 +247,48 @@ footer {
     background-color: var(--secondary);
     color: white;
 }
+
+.btn-next {
+    display: inline-block;
+    background-color: #e6e2d9;   /* gris cálido */
+    color: #0b3a6f;
+    padding: 12px 22px;
+    border-radius: 999px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.25s ease;
+}
+
+.btn-next:hover {
+    background-color: #d4af37;   /* amarillo al pasar el mouse */
+    color: #ffffff;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    transform: translateY(-1px);
+}
+
+.btn-next:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+}
+
+.link {
+    display: inline-block;
+    font-size: 0.9rem;
+    color: #1565c0;
+    text-decoration: none;
+    word-break: break-word;
+    margin-top: 6px;
+    padding: 4px 8px;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+
+.link:hover {
+    background-color: rgba(21, 101, 192, 0.08);
+    text-decoration: underline;
+}
+
+.link:visited {
+    color: #5c6bc0;
+}
